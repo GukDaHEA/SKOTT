@@ -30,7 +30,7 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
 <div id="wrap">
     <!-- header -->
     <div id="header">
-        <h1><a href="/index.php/topic/mains" class="sp h_logo" tabindex="1">NAVER</a></h1>
+        <h1><a href="/mains" class="sp h_logo" tabindex="1">NAVER</a></h1>
         <div class="lang">
             <select id="locale_switch" name="locale_switch" title="언어선택" tabindex="2" class="sel" onchange="switchlocale();nclks_select(this.value,'',{'ko_KR':'log.lankr','en_US':'log.lanen','zh-Hans_CN':'log.lancn','zh-Hant_TW':'log.lantw'},this,event);">
                 <option value="ko_KR" selected>한국어</option>
@@ -48,7 +48,7 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
             <div class="title">
                 <p></p>
             </div>
-        <form id="frmNIDLogin" name="frmNIDLogin" action="/topic/authentication" method="post">
+        <form id="frmNIDLogin" name="frmNIDLogin" action="/login/authentication" method="post">
                 <fieldset class="login_form">
                     <legend class="blind">로그인</legend>
                     <div class="input_row" id="id_area">
@@ -78,7 +78,7 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
             </form>
             <div class="position_a">
                 <div class="find_info">
-                    <a target="_blank" href="" onclick="try{nclks('log.searchid',this,event)}catch(e){}">아이디 찾기</a> <span class="bar">|</span> <a target="_blank" href="" onclick="try{nclks('log.searchpass',this,event)}catch(e){}">비밀번호 찾기</a> <span class="bar">|</span> <a href="/index.php/topic/join">회원가입</a>               </div>
+                    <a target="_blank" href="" onclick="try{nclks('log.searchid',this,event)}catch(e){}">아이디 찾기</a> <span class="bar">|</span> <a target="_blank" href="" onclick="try{nclks('log.searchpass',this,event)}catch(e){}">비밀번호 찾기</a> <span class="bar">|</span> <a href="/login/join">회원가입</a>               </div>
             </div>
             <div class="phishing_banner bw_crome">
                 <div class="sp">
