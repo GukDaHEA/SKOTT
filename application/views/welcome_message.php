@@ -67,6 +67,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 
+<?php foreach($list as $li) {
+ echo $li->board_id;
+}
+?>
+
 <div id="container">
 	<h1>Welcome to CodeIgniter!</h1>
 
