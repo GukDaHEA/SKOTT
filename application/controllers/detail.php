@@ -7,7 +7,11 @@ class Detail extends MY_Controller {
 		$this->load->model('detail_m'); 
 	}
 
-	function index($url) { 
+	function index() { 
+
+   }
+
+	function detail($url) { 
 	  $db = $this->detail_m;
 
       $detail_result = $db->detail($url);
