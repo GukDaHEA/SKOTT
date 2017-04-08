@@ -170,6 +170,8 @@ function initTmap(){
                     }); 
     searchRoute();
 };
+
+
 //경로 정보 로드
 function searchRoute(){
     var routeFormat = new Tmap.Format.KML({extractStyles:true, extractAttributes:true});
