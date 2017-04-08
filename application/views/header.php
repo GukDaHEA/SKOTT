@@ -135,7 +135,7 @@
 
         }</style>
 </head>
-<body>
+<body onload="initTmap()">
 
 <div class="Header">
   <h1 class="Header-logo" alt="SKOTT" title="SKOTT"><a href="/index.php/topic/mains"></a></h1>
