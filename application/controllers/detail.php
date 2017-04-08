@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Detail extends MY_Controller {
 	function __construct() {
 		parent::__construct();
-		$this->load->model('detail_m'); 
+		$this->load->model('Detail_m'); 
 	}
 
 	function index() { 
@@ -12,7 +12,7 @@ class Detail extends MY_Controller {
    }
 
 	function detail($url) { 
-	  $db = $this->detail_m;
+	  $db = $this->Detail_m;
 
       $detail_result = $db->detail($url);
       

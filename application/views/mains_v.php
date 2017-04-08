@@ -476,7 +476,7 @@
     </div>
     <header>
         <div class="background">
-            <div class="image">!!</div>
+            <div class="image"></div>
             <div id="content">
                 <div class="section1">
                     <div class="search">
