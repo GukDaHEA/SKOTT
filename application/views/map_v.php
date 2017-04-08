@@ -461,7 +461,7 @@ function map_dynamic_content(reco_sort) {
             $('.for_ajax').append (
               '<div class = "div_course"  onclick="map_marker_1('+item[i].reco_idx+')">'+
                 '<div class = "div_img">'+
-                '<a href="http://localhost/map/detail/'+item[i].reco_idx+'" > <img id ="img_div_course" src="/static/image/seoul/'+item[i].reco_idx+'.jpg" width="130px" height="130px"></a>'+
+                '<a href="http://localhost/detail/detail/'+item[i].reco_idx+'" > <img id ="img_div_course" src="/static/image/seoul/'+item[i].reco_idx+'.jpg" width="130px" height="130px"></a>'+
                 '<p id="p_star">'+ reco_star + '</p> </div>' +
 
                 '<div class ="div_content" style="overflow:scroll;">' +
