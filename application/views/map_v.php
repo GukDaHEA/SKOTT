@@ -559,7 +559,7 @@ function map_marker_1 (reco_idx) {
                                               '           </div>' + 
                                               '            <div class="desc">' + 
                                               '                <div class="ellipsis">'+data.reco_address +'</div>' + 
-                                              '                <div><a href="/map/detail/' +data.reco_idx + '" target="_blank" class="link">상세 페이지</a></div>' +
+                                              '                <div><a href="/detail/detail/' +data.reco_idx + '" target="_blank" class="link">상세 페이지</a></div>' +
                                               '                <div class="marker_star">'+marker_reco_star_content +'</div>' +  
                                               '            </div>' + 
                                               '        </div>' + 
@@ -622,7 +622,7 @@ function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_add
                                         '           </div>' + 
                                         '            <div class="desc">' + 
                                         '                <div class="ellipsis">'+marker_reco_address +'</div>' + 
-                                        '                <div><a href="/map/detail/' +marker_reco_idx + '" target="_blank" class="link">상세 페이지</a></div>' +
+                                        '                <div><a href="/detail/detail/' +marker_reco_idx + '" target="_blank" class="link">상세 페이지</a></div>' +
                                         '                <div class="marker_star">'+marker_reco_star_content +'</div>' +  
                                         '            </div>' + 
                                         '        </div>' + 

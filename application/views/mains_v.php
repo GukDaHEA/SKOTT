@@ -499,7 +499,7 @@
                 <div class="ThemeSearch">
                     <div class="ThemeSearch-contents">
                         <div class="ThemeSearch-contents__wrap">
-                            <a class="ThemeSearch-item" href="/index.php/topic">
+                            <a class="ThemeSearch-item" href="/detail/detail/3">
                                 <!-- 정환오빠 페이지 -->
 
                                 <div class="ThemeSearch-item__mask">
