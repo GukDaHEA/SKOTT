@@ -26,7 +26,15 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
 
 </style>
 <body class="chrome">
-
+    <?php 
+    if ($this->session->flashdata('message')){
+    ?>
+    <script>
+        alert('<?=$this->session->flashdata('message')?>');
+    </script>
+    <?php
+    }
+    ?>
 <div id="wrap">
     <!-- header -->
     <div id="header">
@@ -53,25 +61,19 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
                     <legend class="blind">로그인</legend>
                     <div class="input_row" id="id_area">
                         <span class="input_box">
-                            <label for="email" id="label_email_area" class="lbl"   >이메일</label>
-                            <input type="text" id="email" name="email" tabindex="7" accesskey="L" class="int" maxlength="41" value="">
+                            <input type="text" id="email" name="email" tabindex="7" class="int" maxlength="41" value="" placeholder="이메일">
                         </span>
-                        <button type="button" disabled="" title="delete" id="id_clear" class="wrg">삭제</button>
                     </div>
-                    <div id="err_empty_id" class="error" style="display:none;">이메일을 입력해주세요.</div>
                     <div class="input_row" id="pw_area">
                         <span class="input_box">
-                            <label for="pw" id="label_pw_area"  class="lbl">비밀번호</label>
-                            <input type="password" id="password" name="password" tabindex="8" class="int" maxlength="16" onkeypress="capslockevt(event);getKeysv2();" onkeyup="checkShiftUp(event);" onkeydown="checkShiftDown(event);" >
+                            <input type="password" id="password" name="password" tabindex="8" class="int" maxlength="16" placeholder="비밀번호" >
                         </span>
-                        <button type="button" disabled="" title="delete" id="pw_clear" class="wrg">삭제</button>
                         <div class="ly_v2" id="err_capslock" style="display:none;">
                             <div class="ly_box">
                                 <p><strong>Caps Lock</strong>이 켜져 있습니다.</p>                         </div>
                             <span class="sp ly_point"></span>
                         </div>
                     </div>
-                    <div class="error" id="err_empty_pw" style="display:none;">비밀번호를 입력해주세요.</div>
                     <input type="submit" title="로그인" alt="로그인" tabindex="12" value="로그인" class="btn_global" onclick="" target="_blank">
                     <label><input type="checkbox" name="save_id" id="chk_save_id" value="on"  /> 아이디저장</label>
                     </fieldset>
