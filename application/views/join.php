@@ -23,7 +23,7 @@ body{position:relative;height:100%;background:#f5f6f7}
 .join_row{position:relative;height:29px;margin:0 0 14px;padding:10px 35px 10px 15px;border:solid 1px #dadada;background:#fff}.input_row.focus{border:solid 1px #20bc01}.input_box{display:block;overflow:hidden}.int{font-size:15px;line-height:16px;position:relative;z-index:9;width:100%;height:16px;padding:7px 0 6px;color:#000;border:none;background:#fff;-webkit-appearance:none}.lbl{font-size:15px;line-height:16px;position:absolute;z-index:8;top:16px;left:15px;color:#999}.lbl{z-index:10}.wrg{position:absolute;z-index:1000;top:16px;right:13px;display:none;overflow:hidden;width:19px;height:19px;margin:0;padding:0;cursor:pointer;text-indent:-999px;border:0;background-color:transparent;background-position:-1px -263px}
 .join_form{clear:both; border:0px;margin-top:80px;}
 input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:none}
-.join_row_tb{display:table;width:100%;*display:block}.join_row_tb .join_row{display:table-cell;width:50%;table-layout:fixed;*display:block;*float:left;*width:206px}.join_row_tb .join_sex{border-top:1px solid #f0f0f0;border-right:solid 1px #f0f0f0;*width:205px}
+.join_row_tb{display:table;width:100%;*display:block}.join_row_tb .join_row{display:table-cell;width:50%;table-layout:fixed;*display:block;*float:left;*width:206px}
 @media screen and (min-width:460px){#container,#header{margin:0 10px}.join_mobile .int_mobile{width:193px;padding:10px;}}
 .row_group{zoom:1;margin:10px;border:0px;background:#fffeee}
 .int_id,.int_pass,.int_pass_check,.int_pass_check2,.int_pass_step1,.int_pass_step2,.int_pass_step3,.int_pass_step4{padding-right:95px}.ps_box.int_id{background-position:100% -57px}.ps_box.int_pass{background-position:100% -476px}.ps_box.int_pass_step1{background-position:100% -126px}.ps_box.int_pass_step2{background-position:100% -196px}.ps_box.int_pass_step3{background-position:100% -266px}.ps_box.int_pass_step4{background-position:100% -336px}.ps_box.int_pass_check{background-position:100% -525px}.ps_box.int_pass_check2{background-position:100% -406px}html[lang=en] .ps_box.int_pass_step1{background-position:100% -631px}html[lang=en] .ps_box.int_pass_step2{background-position:100% -701px}html[lang=en] .ps_box.int_pass_step3{background-position:100% -771px}html[lang=en] .ps_box.int_pass_step4{background-position:100% -841px}.btn_join{display:block;height:61px;margin:33px 0 19px;margin:10px 0 19px\9;background:#f3753a;*width:460px}.btn_join input{width:100%;height:61px;text-indent:-999em;border:1px solid #1eb702;background:#f3753a 50% 0 no-repeat;-webkit-background-size:108px auto;background-size:108px auto;*border:none;*text-indent:0;*padding-left:900px;-webkit-appearance:none}html[lang=en] .btn_join input{background-position:50% -63px}
@@ -50,47 +50,29 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
             <h2 class="blind">네이버 회원가입</h2>
             <div class="join_content">
                 <div class="join_form">
-                
+                <?php echo validation_errors(); //validation에 대한 에러 출력 ?> 
                 <form id="join_form" method="post" action="/login/join" >
                     <fieldset class="join_from">                        
                         <legend class="blind">회원가입</legend> 
                         <div class="row_group">
-                            <?php echo validation_errors(); //validation에 대한 에러 출력?>
                             <div id="idDiv" class="join_row">
                                 <span class="ps_box int_id">
                                     <input type="text" id="email" name="email" value="<?php echo set_value('email'); ?>" maxlength="50" autocomplete="off" 
-                                    onFocus="toggleLabel('emailLb','email', 'in');"
-                                    onBlur="toggleLabel('emailLb','email', 'out');checkId('first')"
                                     placeholder="이메일" class="int"> 
-                                    <label id="emailLb" for="email" class="lbl">이메일</label> <button type="button" disabled="" title="delete" class="wrg">삭제</button>
                                 </span>
                                 <div id="idMsg" class="error" style="display:none">필수 정보입니다.</div>
                             </div>                      
                             <div id="pswd1Div" class="join_row">
                                 <!-- [D]normal상태 int_pass / 1단계 사용불가 int_pass_step1 / 2단계 낮음 int_pass_step2 / 3단계 적정 int_pass_step3 / 4단계 높음 int_pass_step4 -->                         
                                 <span id="pswd1Img" class="ps_box int_pass">
-                                    <input type="password" id="password" name="password" maxlength="20"
-                                    onFocus="toggleLabel('pswd1Lb','password','in');"
-                                    onBlur="toggleLabel('pswd1Lb','password','out');checkPswd1('check')";                              
-                                    onkeyup="checkShiftUp(event);"                              
-                                    onkeypress="checkCapslock(event)";
-                                    onKeydown="checkShiftDownJoin(event);"                               
-                                    placeholder="비밀번호" class="int"> 
-                                    <label id="pswd1Lb" for="password" class="lbl">비밀번호</label> <button type="button" disabled="" title="delete" class="wrg">삭제</button>
+                                    <input type="password" id="password" name="password" maxlength="20" placeholder="비밀번호" class="int">
                                 </span>                         
                                 <div id="pswd1Msg" class="error" style="display:none">필수 정보입니다.</div>
                             </div>
                             <div id="pswd2Div" class="join_row">
                                 <!-- [D]normal상태 int_pass_check / 비밀번호 확인완료 int_pass_check2  -->                            
                                 <span id="pswd2Img" class="ps_box int_pass_check">
-                                    <input type="password" id="pswd2" name="pswd2" maxlength="20"
-                                    onFocus="toggleLabel('pswd2Lb','pswd2','in');"
-                                    onBlur="toggleLabel('pswd2Lb','pswd2','out');checkPswd2('check')";
-                                    onkeyup="checkShiftUp(event);"                              
-                                    onkeypress="checkCapslock2(event)";
-                                    onKeydown="checkShiftDown(event);"
-                                    placeholder="비밀번호 재확인" class="int"> 
-                                    <label id="pswd2Lb" for="pswd2" class="lbl">비밀번호 재확인</label> <button type="button" disabled="" title="delete" class="wrg">삭제</button>
+                                    <input type="password" id="pswd2" name="pswd2" maxlength="20" placeholder="비밀번호 재확인" class="int"> 
                                 </span> 
                                 <div id="pswd2Msg" class="error" style="display:none">필수 정보입니다.</div>
                             </div>
@@ -98,25 +80,17 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
                         <div class="row_group">
                             <div id="nmDiv" class="join_row">
                                 <span class="ps_box">
-                                    <input type="text" id="name" name="name" maxlength="40" value="<?php echo set_value('name'); ?>"
-                                    onFocus="toggleLabel('nmLb','name','in');"
-                                    onBlur="toggleLabel('nmLb','name','out');checkName('check')"
-                                    placeholder="이름" class="int"> 
-                                    <label id="nmLb" for="name" class="lbl">이름</label> <button type="button" disabled="" title="delete" class="wrg">삭제</button>
+                                    <input type="text" id="name" name="name" maxlength="40" value="<?php echo set_value('name'); ?>" placeholder="이름" class="int"> 
                                 </span>
                                 <div id="nmMsg" class="error" style="display:none">필수 정보입니다.</div>
                             </div> 
                             <div id="mobDiv" class="join_row" style="display:block">
                                 <span class="ps_box"> 
-                                    <input type="text" id="phone" name="phone" maxlength="16" value="<?php echo set_value('phone'); ?>"
-                                    onFocus="toggleLabel('mobnoLb','phone','in');"
-                                    onBlur="toggleLabel('mobnoLb','phone','out');checkMobno('check')"
-                                    placeholder="휴대전화번호" class="int">
-                                    <label id="phnLb" for="phone" class="lbl">휴대전화번호</label> <button type="button" disabled="" title="delete" class="wrg">삭제</button>
+                                    <input type="text" id="phone" name="phone" maxlength="16" value="<?php echo set_value('phone'); ?>" placeholder="휴대전화번호" class="int">
                                 </span>
                                 <div id="mobnoMsg" class="error" style="display:none">필수 정보입니다.</div> 
                             </div>                        
-                <input type="submit" title="회원가입" alt="회원가입" tabindex="12" value="가입하기" class="btn_global" onclick="" target="_blank">
+                            <input type="submit" title="회원가입" alt="회원가입" tabindex="12" value="가입하기" class="btn_global" onclick="" target="_blank">
                         </div>
                         
                         </fieldset>

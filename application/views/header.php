@@ -136,7 +136,6 @@
         }</style>
 </head>
 <body onload="initTmap()">
-
 <div class="Header">
   <h1 class="Header-logo" alt="SKOTT" title="SKOTT"><a href="/mains"></a></h1>
     <div id="header_info">        
@@ -147,9 +146,20 @@
         <div class="service">
             <ul>
                 <li><a class="Gnb-item room-search active" href="/map/map_v">지도보기</a></li>
-                <li><a class="Gnb-item room-favorite ">추천코스</a></li>
+                <li><a class="Gnb-item room-favorite" style="cursor: pointer">추천코스</a></li>
                 <li><a class="Gnb-item add-room" id="map_location" style="cursor: pointer">내 위치</a></li>
-                <li><a class="Gnb-item login small" style="cursor: pointer" href="/login">로그인</a></li>
+                <?php
+                if ($this->session->userdata('is_login')){
+                ?>
+                    <li><a class="Gnb-item login small" style="cursor: pointer" href="/login/logout">로그아웃</a></li>
+                    <li><a class="Gnb-item login small" style="cursor: pointer;"><?php echo $this->session->userdata('name') ?> 님</a></li>
+                <?php
+                } else {
+                ?>
+                    <li><a class="Gnb-item login small" style="cursor: pointer" href="/login">로그인</a></li>
+                <?php
+                }
+                ?>
             </ul>
         </div>
     </div>

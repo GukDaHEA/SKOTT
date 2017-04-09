@@ -222,7 +222,7 @@ function onDrawnFeatures(e){
       <div id = "div_Review">
           <h3 style="color:#f3753a">리뷰 </h3>
                 <span id = "div_ReviewWrite">
-                  <a href="/review"><button id="form_control" class="btn_search">리뷰 작성</button></a>
+                  <a href="/Review/add"><button id="form_control" class="btn_search">리뷰 작성</button></a>
                 </span>
       </div>
 </div>
