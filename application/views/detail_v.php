@@ -101,31 +101,28 @@
         list-style: none;
 
       }
+      .btn_search {
+            width:230px; height:40px;
+            /*background:url(./search_btn.png) no-repeat 0 0;*/
+            border:0;  
+            margin:6px 0 0 0;          
+            border-left:none;
+            background-color:#f3753a;
+            border-radius:5px 5px 5px 5px;
+            float:right;
+            color:antiquewhite;
+            font-size:17px;
+            font-weight:bold;
+        }
+        .btn_search:hover {
+          background-color: #d16126;
+        }
     .multi_image_list ul li:hover {
         opacity:0.8;
           filter:alpha(opacity=8);
         background-color: #ececec;
         display: block;
       }
-      .sort li { float: right; position: relative; margin-left: -1px; height: 23px; line-height: 25px; padding: 0 10px; border: 1px solid #858695;text-align: right; }
-      .sort li.now { background: #858695; }
-      .sort li a { font-size: 11px; line-hight: 25px; }
-      .sort li.now a { color: #fff; }
-
-
-    .PR15N01-recmd { z-index: 1; zoom: 1; position: relative; margin-top: 10px; color: #818391; font-size: 14px; font-weight: bold; letter-spacing; -1px; background: #fff; margin-bottom: 10px; }
-    .PR15N01-recmd:after { content: ''; display: block; clear: both; }
-    .star-list {position: relative; width: 74%; height: 35px; line-height: 35px; background:#fff;}
-    .star-list .bull { position: absolute; top: 0; right: 10px; color:#000; }
-    .star-list > a { border: 1px solid #ccc; }
-    .star-list a { display: block; height: 35px; line-height: 35px; position: relative; padding-left: 15px; color: #818391; }
-    .star-list em { font-size: 12px; font-weight: normal; font-style: normal; letter-spacing:2px; font-family:'Gulim'; }
-    .star-list .survey { position: absolute; top: 0; _top: -10px; right: 20px; color: #515368; }
-    .star-list ul { z-index:1;  zoom: 1;  display: none; position: absolute; top: 35px; left: 0; width: 100%; border-bottom: 1px solid #ccc; background-color: #fff; }
-    .star-list ul li { border-left: 1px solid #ccc; border-right: 1px solid #ccc; }
-    .star-list ul li a:hover { background: #eee; }
-    .star-list em { color:#109fea;}
-    .bull { position: absolute; top: 0; right: 10px; color:#000; }
 
     </style>
 <div class="container">
@@ -133,7 +130,7 @@
   <div><h1>광화문</h1></div>
    <header>
   <div class="thumb-wrap">
-            <div class="thumb">
+      <div class="thumb">
             <ul>
              <img class="detail_image" id="lens_img" src="/static/image/1.jpg"  /> <hr/></li>
                <li class="multi_image_list">
@@ -142,8 +139,8 @@
                  <img src="/static/image/3.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
                </li>
             </ul>
-            </div>
-           </div>
+      </div>
+  </div>
       <div id="div_Taxi" style="position: fixed; background-color: #FFF; margin-left: 1000px; z-index: 1000;">
          <h3 style="color:#f3753a;font-weight:">택시 정보 </h3><br/>
 <!-- 
@@ -199,7 +196,7 @@ function onDrawnFeatures(e){
     map.zoomToExtent(this.getDataExtent());
 }
       </script>
-         <!-- <div id= "div_taxiinfo">
+          <div id= "div_taxiinfo">
         <ul> <li> 20분 </li>
              <li> 2.5 km </li> <br/>
              <li> 택시비 약 12,000 원 </li>
@@ -222,102 +219,14 @@ function onDrawnFeatures(e){
       </div>
       </div>
    </header>
-
-   <header>
-
       <div id = "div_Review">
-         <h3 style="color:#f3753a">리뷰 </h3>
-      <div class="PR15N01-recmd">
-         <div class="star-list" star_key="1">
-            <span class="bull">▼</span>
-            <a href="#none"><em>★★★★★</em><span class="survey">아주만족</span></a>
-            <ul>
-              <li><a href="#none"><em>★★★★★</em><span class="survey">아주만족</span></a></li>
-              <li><a href="#none"><em>★★★★</em><span class="survey">만족</span></a></li>
-              <li><a href="#none"><em>★★★</em><span class="survey">보통</span></a></li>
-              <li><a href="#none"><em>★★</em><span class="survey">미흡</span></a></li>
-              <li><a href="#none"><em>★</em><span class="survey">불만족</span></a></li>
-            </ul>
-        </div>
- </div>
-        <span id = "div_ReviewWrite">
-        <button onclick="javascript:addBoard()">리뷰 작성</button>
-      </span>
+          <h3 style="color:#f3753a">리뷰 </h3>
+                <span id = "div_ReviewWrite">
+                  <a href="/review"><button id="form_control" class="btn_search">리뷰 작성</button></a>
+                </span>
+      </div>
 </div>
 
-
-<div id="writeBody" style="width:700px; height:500px; border:1px solid #e2e2e2;background-color:white ;display:none">
-    <div style="width:80%;clear:both;height:30px;margin:0px auto;text-align:center">
-      <button onclick="javascript:execSave();"> 저장하기 </button>
-    </div>
-    <div style="width:80%;clear:both;height:30px;margin:0px auto; margin-top:20px">
-
-      <span style="width:30%;height:100%;line-height:30px">
-        <b> 별점 </b>
-      </span>
-      <span style="width:70%;height:100%;line-height:30px">
-        <input type="text" name="star" id="star">
-      </span>
-    </div>
-    <div style="width:80%;clear:both;height:30px;margin:0px auto">
-      <span style="width:30%;height:100%;line-height:30px">
-        <b> 제목 </b>
-      </span>
-      <span style="width:70%;height:100%;line-height:30px">
-        <input type="text" name="title" id="title" style="width:90%">
-      </span>
-    </div>
-    <div style="width:80%;clear:both;height:30px;margin:0px auto">
-      <span style="width:30%;height:100%;line-height:30px">
-        <b> 아이디 </b>
-      </span>
-      <span style="width:70%;height:100%;line-height:30px">
-        <input type="text" name="make" id="make" style="width:90%">
-      </span>
-    </div>
-    <div style="width:80%;clear:both;height:270px;margin:0px auto;">
-      <span style="width:30%;height:30px;line-height:30px; vertical-align:top">
-        <b> 내용 </b>
-      </span>
-      <span style="width:70%;height:100%">
-        <textarea style="width:90%;hegiht:100%" name="content" id="content"></textarea>
-      </span>
-    </div>
-</div>
-<div id="viewBody" style="width:700px; height:500px; border:1px solid #e2e2e2;background-color:white ;display:none">
-    <div style="width:80%;clear:both;height:30px;margin:0px auto; margin-top:20px">
-      <span style="width:30%;height:100%;line-height:30px">
-        <b> 별점 </b>
-      </span>
-      <span style="width:70%;height:100%;line-height:30px">
-        <input type="text" name="star_view" id="star_view">
-      </span>
-    </div>
-    <div style="width:80%;clear:both;height:30px;margin:0px auto">
-      <span style="width:30%;height:100%;line-height:30px">
-        <b> 제목 </b>
-      </span>
-      <span style="width:70%;height:100%;line-height:30px">
-        <input type="text" name="title_view" id="title_view" style="width:90%">
-      </span>
-    </div>
-    <div style="width:80%;clear:both;height:30px;margin:0px auto">
-      <span style="width:30%;height:100%;line-height:30px">
-        <b> 아이디 </b>
-      </span>
-      <span style="width:70%;height:100%;line-height:30px">
-        <input type="text" name="make_view" id="make_view" style="width:90%">
-      </span>
-    </div>
-    <div style="width:80%;clear:both;height:270px;margin:0px auto;">
-      <span style="width:30%;height:30px;line-height:30px; vertical-align:top">
-        <b> 내용 </b>
-      </span>
-      <span style="width:70%;height:100%">
-        <textarea style="width:90%;hegiht:100%" name="content_view" id="content_view"></textarea>
-      </span>
-    </div>
-</div>
 <script type="text/javascript">
 
 var oriimg;
@@ -330,94 +239,7 @@ function multi_image_view(obj) {  //사진 바꾸기
     }
 }
 
-function board_init() { //리뷰 작성 초기화
-  $("#make").val("");
-  $("#star").val("");
-  $("#title").val("");
-  $("#content").val("");
-  $('#writeBody').bPopup().close();
-}
 
-function addBoard() {
-  openMessage('writeBody');
-}
-
-function viewBoard(CODE) {
-  $.ajax ({
-    type: 'POST',
-    url: "/index.php/topic/getView",
-    data: { CODE: CODE },
-    cache: false,
-    async: false
-  })
-  .done(function(html){
-    var html_array = html.split("^");
-
-        if (html_array.length == 4) {
-          var make = html_array[0];
-          var star = html_array[1];
-          var title = html_array[2];
-          var content = html_array[3];
-
-          $('#make_view').val(make);
-          $('#star_view').val(별);
-          $('#title_view').val(title);
-          $('#content_view').val(content);
-        }
-        else {
-          alert("Error");
-        }
-  });
-  openMessage('viewBody');
-}
-
-function openMessage(IDS) {
-  $('#'+IDS).bPopup();
-}
-
-function execSave() { // 저장하기 함수
-  if(!Trim($("#star").val())){
-    alert("별점을 입력해주세요.");
-    $("#star").focus();
-    return false;
-  }
-  if(!Trim($("#make").val())){
-    alert("아이디를 입력해주세요.");
-    $("#make").focus();
-    return false;
-  }
-  if(!Trim($("#title").val())){
-    alert("제목을 입력해주세요.");
-    $("#title").focus();
-    return false;
-  }
-  if(!Trim($("#content").val())){
-    alert("내용을 입력해주세요.");
-    $("#content").focus();
-    return false;
-  }
-
-  $.ajax({
-    type: 'POST',
-    url: "/index.php/topic/write_ok",
-    data: { make : Trim($("#make").val()), star : Trim($("#star").val()), content : Trim($("#content").val()), title : Trim($("#title").val()) },
-    cache: false,
-    async: false
-  })
-
-  .done(function(html) {
-    if (html == "1"){
-      alert ("저장되었습니다.");
-      board_init();
-      lodingList();
-    }
-    else {
-      alert ("Error : " + html);
-    }
-    
-  
-  });
-}
 $(document).ready(function() {
   lodingList()
 });
@@ -466,24 +288,5 @@ function Trim(str){ // 공백제거 함수
   return str;
 }
 
-function find_now(longitude, latitude, level) {
-      // 현재위치를 DAUM RESTAPI 로 조회하는 함수
-
-      $.ajax ({
-        type : "GET",
-        url : "https://apis.daum.net/local/geo/coord2addr",
-        data : { longitude : longitude, latitude : latitude, apikey : '612f7aebf5f9398c83de17f6652e4e0e', output : 'json' },
-        dataType : "jsonp",
-        jsonp : "callback",
-
-        success : function (data) {
-          alert(JSON.stringify( data ));
-          
-          NOW_SIDO = data['code1'];
-          find_targets(data['code1'], 'SIDO_CODE');
-        }
-      });
-
-    }
 </script>
 <script type="text/javascript" src="/static/js/power_review.js"></script>

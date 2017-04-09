@@ -455,8 +455,8 @@
         <div class="background_main"></div>
         <div class="title">
             <h3>PLASM.it - 2017</h3>
-            <h1>Antigravity</h1>
-            <h2>FLOW</h2>
+            <h1>THIS IS SKOTT</h1>
+            <h2>BUCHEON UNIVERSITY</h2>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere ad saepe quo, neque facilis, eum veritatis ut odio assumenda voluptatibus architecto ipsa, 
                 ratione ipsum culpa. Voluptas quisquam beatae, quod porro.
@@ -467,16 +467,16 @@
         <h1 class="Header-logo" alt="SKOTT" title="SKOTT"><a href="/mains"></a></h1>
         <div class="Gnb">
             <ul class="Gnb-main">
-                <li><a class="Gnb-item room-search active" href="/search">지도보기</a></li>
-                <li><a class="Gnb-item room-favorite " href="/favorite#/map?type=visited">추천코스</a></li>
+                <li><a class="Gnb-item room-search active" href="/map/map_v">지도보기</a></li>
+                <li><a class="Gnb-item room-favorite " href="/">추천코스</a></li>
                 <li><a class="Gnb-item add-room" style="cursor: pointer">내 위치</a></li>
-                <li><a class="Gnb-item login small" style="cursor: pointer">로그인</a></li>
+                <li><a class="Gnb-item login small" style="cursor: pointer" href="/login">로그인</a></li>
             </ul>
         </div>
     </div>
     <header>
         <div class="background">
-            <div class="image">!!</div>
+            <div class="image"></div>
             <div id="content">
                 <div class="section1">
                     <div class="search">
@@ -499,7 +499,7 @@
                 <div class="ThemeSearch">
                     <div class="ThemeSearch-contents">
                         <div class="ThemeSearch-contents__wrap">
-                            <a class="ThemeSearch-item" href="/index.php/topic">
+                            <a class="ThemeSearch-item" href="/detail/detail/3">
                                 <!-- 정환오빠 페이지 -->
 
                                 <div class="ThemeSearch-item__mask">

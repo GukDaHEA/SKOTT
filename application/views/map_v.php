@@ -461,7 +461,7 @@ function map_dynamic_content(reco_sort) {
             $('.for_ajax').append (
               '<div class = "div_course"  onclick="map_marker_1('+item[i].reco_idx+')">'+
                 '<div class = "div_img">'+
-                '<a href="http://localhost/map/detail/'+item[i].reco_idx+'" > <img id ="img_div_course" src="/static/image/seoul/'+item[i].reco_idx+'.jpg" width="130px" height="130px"></a>'+
+                '<a href="http://localhost/detail/detail/'+item[i].reco_idx+'" > <img id ="img_div_course" src="/static/image/seoul/'+item[i].reco_idx+'.jpg" width="130px" height="130px"></a>'+
                 '<p id="p_star">'+ reco_star + '</p> </div>' +
 
                 '<div class ="div_content" style="overflow:scroll;">' +
@@ -559,7 +559,7 @@ function map_marker_1 (reco_idx) {
                                               '           </div>' + 
                                               '            <div class="desc">' + 
                                               '                <div class="ellipsis">'+data.reco_address +'</div>' + 
-                                              '                <div><a href="/map/detail/' +data.reco_idx + '" target="_blank" class="link">상세 페이지</a></div>' +
+                                              '                <div><a href="/detail/detail/' +data.reco_idx + '" target="_blank" class="link">상세 페이지</a></div>' +
                                               '                <div class="marker_star">'+marker_reco_star_content +'</div>' +  
                                               '            </div>' + 
                                               '        </div>' + 
@@ -622,7 +622,7 @@ function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_add
                                         '           </div>' + 
                                         '            <div class="desc">' + 
                                         '                <div class="ellipsis">'+marker_reco_address +'</div>' + 
-                                        '                <div><a href="/map/detail/' +marker_reco_idx + '" target="_blank" class="link">상세 페이지</a></div>' +
+                                        '                <div><a href="/detail/detail/' +marker_reco_idx + '" target="_blank" class="link">상세 페이지</a></div>' +
                                         '                <div class="marker_star">'+marker_reco_star_content +'</div>' +  
                                         '            </div>' + 
                                         '        </div>' + 

@@ -5,7 +5,7 @@ class Map extends MY_Controller {
 
 	function __construct() {
 		parent::__construct ();
-		$this->load->model('map_m');
+		$this->load->model('Map_m');
          }
 
 	function index(){
@@ -29,11 +29,11 @@ class Map extends MY_Controller {
 	{
 		$this->load->view('header.php');
 
-		$reco_sidebar_content = $this->map_m->recommand_spot('limit');
+		$reco_sidebar_content = $this->Map_m->recommand_spot('limit');
 
-		$lo = $this->map_m->recommand_spot();
+		$lo = $this->Map_m->recommand_spot();
 
-		$location_sort = $this->map_m->recommand_spot_sort();
+		$location_sort = $this->Map_m->recommand_spot_sort();
 
 		for ($i=0; $i<count($lo); $i++) {
 			$marker_lat[] = $lo[$i]->lat;
@@ -69,7 +69,7 @@ class Map extends MY_Controller {
 					$data = $this->input->post(NULL, TRUE);
 					$reco_marker_idx = $data['reco_sort'];
 
-					$reco_sidebar_content = $this->map_m->recommand_spot_ajax_marker($reco_marker_idx);
+					$reco_sidebar_content = $this->Map_m->recommand_spot_ajax_marker($reco_marker_idx);
 
 					echo json_encode($reco_sidebar_content);
 		}
@@ -85,7 +85,7 @@ class Map extends MY_Controller {
 					$data = $this->input->post(NULL, TRUE);
 					$reco_marker_sort = $data['reco_sort'];
 					
-					$reco_sidebar_content = $this->map_m->recommand_spot('limit',$reco_marker_sort);
+					$reco_sidebar_content = $this->Map_m->recommand_spot('limit',$reco_marker_sort);
 
 					echo json_encode($reco_sidebar_content);
 				}
@@ -100,7 +100,7 @@ class Map extends MY_Controller {
 					$data = $this->input->post(NULL, TRUE);
 					$reco_sidebar_idx = $data['reco_idx'];
 
-					$reco_sidebar_idx = $this->map_m->recommand_spot_ajax($reco_sidebar_idx);
+					$reco_sidebar_idx = $this->Map_m->recommand_spot_ajax($reco_sidebar_idx);
 
 					echo json_encode($reco_sidebar_idx);
 				}
