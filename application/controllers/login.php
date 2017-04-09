@@ -62,8 +62,8 @@ class Login extends MY_Controller {
             
             $this->Login_m->user_add(array(
                'email'=>$this->input->post('email'),
-               'password'=>$hash,
-               // 'password'=>$this->input->post('password'),
+               // 'password'=>$hash,
+               'password'=>$this->input->post('password'),
                'name'=>$this->input->post('name'),
                'phone'=>$this->input->post('phone')
             ));

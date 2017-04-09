@@ -31,6 +31,7 @@
         border:1px solid #e2e2e2;
         padding:15px;
         margin:20px;
+        width:500px;
       }
 
       #div_Info {
@@ -44,7 +45,6 @@
       #div_Map {
         margin : 10px;
         width : 400px;
-        height : 300px;
       }
       #div_ReviewStar {
         margin : 10px;
@@ -141,7 +141,7 @@
             </ul>
       </div>
   </div>
-      <div id="div_Taxi" style="position: fixed; background-color: #FFF; margin-left: 1000px; z-index: 1000;">
+      <div id="div_Taxi" style="position: fixed; background-color: #FFF; margin-left: 800px; z-index: 1000;">
          <h3 style="color:#f3753a;font-weight:">택시 정보 </h3><br/>
 <!-- 
       <iframe src="/index.php/topic/navi" width="600" height="300">
@@ -152,14 +152,13 @@
         도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="서울특별시 종로구 사직로 161" readonly /> <br />
       </div>
       <div id = "div_Map">
-        지도부분
       </div>
       <script language="javascript" src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=2695c76d-bc55-34a4-91cd-2e373b1f97ee"></script>
        <script type="text/javascript">
         //초기화 함수
 function initTmap(){
     centerLL = new Tmap.LonLat(14145677.4, 4511257.6);
-    map = new Tmap.Map({div:'map_div',
+    map = new Tmap.Map({div:'div_Map',
                         width:'100%', 
                         height:'400px',
                         transitionEffect:"resize",
@@ -181,7 +180,7 @@ function searchRoute(){
     urlStr += "&startY="+startY;
     urlStr += "&endX="+endX;
     urlStr += "&endY="+endY;
-    urlStr += "&appKey="2695c76d-bc55-34a4-91cd-2e373b1f97ee;
+    urlStr += "&appKey=2695c76d-bc55-34a4-91cd-2e373b1f97ee";
 
     var prtcl = new Tmap.Protocol.HTTP({
                                         url: urlStr,
