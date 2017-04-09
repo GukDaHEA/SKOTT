@@ -8,7 +8,6 @@ class Mains extends MY_Controller {
     function index(){
         $this->load->view('mains_v');
     }
-
     function get($id){    	
     	$topics = $this->mains_m->gets();
     	$topic = $this->mains_m->get($id);
