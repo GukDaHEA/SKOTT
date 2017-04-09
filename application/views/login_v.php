@@ -74,7 +74,7 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
                             <span class="sp ly_point"></span>
                         </div>
                     </div>
-                    <input type="submit" title="로그인" alt="로그인" tabindex="12" value="로그인" class="btn_global" onclick="" target="_blank">
+                    <input type="submit" title="로그인" alt="로그인" tabindex="12" value="로그인" class="btn_global" target="_blank">
                     <label><input type="checkbox" name="save_id" id="chk_save_id" value="on"  /> 아이디저장</label>
                     </fieldset>
             </form>

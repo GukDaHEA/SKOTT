@@ -474,6 +474,7 @@
                 if ($this->session->userdata('is_login')){
                 ?>
                     <li><a class="Gnb-item login small" style="cursor: pointer" href="/login/logout">로그아웃</a></li>
+                    <li><a class="Gnb-item login small" style="cursor: pointer;"><?php echo $this->session->userdata('name') ?> 님</a></li>
                 <?php
                 } else {
                 ?>

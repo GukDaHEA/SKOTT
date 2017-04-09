@@ -21,7 +21,8 @@ class Login extends MY_Controller {
 
             if ( $user == true &&
             $email == $user->email &&
-            password_verify($password, $user->password)
+            // password_verify($password, $user->password)
+            $password == $user->password
             ) {
             $this->session->set_userdata(array('is_login' => true, 'name' => $user->name));
             redirect("/mains");
