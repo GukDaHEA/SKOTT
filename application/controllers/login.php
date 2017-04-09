@@ -18,6 +18,7 @@ class Login extends MY_Controller {
             $user = $this->Login_m->authenticate(array('email'=>$this->input->post('email')));
             $email = $this->input->post('email');
             $password = $this->input->post('password');
+            //테스트입니다.
 
             if ( $user == true &&
             $email == $user->email &&
