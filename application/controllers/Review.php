@@ -11,7 +11,7 @@ class Review extends MY_Controller {
 	}
 	function add() {
 		if (!$this->session->userdata('is_login')){
-			redirect('/mains');
+			redirect('/login?returnURL='.rawurlencode(site_url('/Review/add')));		
 		} else {
 		$this->load->view('header');
 		$this->load->view('review_v');

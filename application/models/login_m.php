@@ -4,6 +4,11 @@ class Login_m extends CI_MODEL {
    {
 		parent::__construct();
 	}
+
+   function gets($option){
+      return $this->db->get_where('user', array('email'=>$option['email']))->row();
+   }
+   
 	function authenticate($option) 
    {
       $result = $this->db->get_where('user', array('email'=>$option['email']))->row();
