@@ -19,24 +19,21 @@ class Detail extends MY_Controller {
       if (empty($detail_result))
          $detail_result = array();
 
-      $idx = $detail_result->idx;
-      $spot_idx = $detail_result->spot_idx;
-      $text = $detail_result->text;
-
-      $idx = array();   
-      $lat = array();
-      $lng = array();
-      $driving_idx = array();
-      $date = array();
+      $idx = $detail_result->reco_idx;
+      $lat = $detail_result->lat;
+      $lng = $detail_result->lng;
+      $name = $detail_result->reco_name;
+      $address = $detail_result->reco_address;
 
       $this->load->view('header.php');
       $this->load->view('detail_v', 
          array(
-            'idx' => $idx,
-            'spot_idx' => $spot_idx,
-            'text' => $text
-         )               //변수 이름으로
-      );
+            'idx'=>$idx,         //전체 디비 
+            'lat'=>$lat, //json_encode 변환 전체 디비
+            'lng'=>$lng, //전체 디비중 별점이 높은 관광지 10곳을 뽑음
+            'name'=>$name,
+            'address'=>$address
+            ));
       $this->load->view('footer.php');
    }
 }

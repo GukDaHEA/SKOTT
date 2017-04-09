@@ -39,7 +39,10 @@ class Login extends MY_Controller {
       function logout() 
       {
          $this->session->sess_destroy();
-         redirect('/mains');
+         $returnURL = $this->input->get('returnURL');
+            if($returnURL == false){
+               redirect("/mains");
+            }
       }
 
       function join() 
@@ -67,6 +70,7 @@ class Login extends MY_Controller {
                'name'=>$this->input->post('name'),
                'phone'=>$this->input->post('phone')
             ));
+
             //E-mail 전송 부분
             $users = $this->Login_m->gets(array('email'=>$this->input->post('email')));
             $this->load->library('email');

@@ -148,7 +148,7 @@
       </iframe> -->
 
 <div id="div_Address" style="text-align:center">
-        출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" readonly /> <br />
+        출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="<?php ?>"readonly /> <br />
         도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="서울특별시 종로구 사직로 161" readonly /> <br />
       </div>
       <div id = "div_Map">
@@ -171,17 +171,19 @@ function initTmap(){
 //경로 정보 로드
 function searchRoute(){
     var routeFormat = new Tmap.Format.KML({extractStyles:true, extractAttributes:true});
-    var startX = 14129105.461214;
-    var startY = 4517042.1926406;
-    var endX = 14136027.789587;
-    var endY = 4517572.4745242;
+    var startX = 126.778534;
+    var startY = 37.490559;
+    var endX = 126.97687800509752;
+    var endY = 37.57595094977122;
+    var option = 10;
     var urlStr = "https://apis.skplanetx.com/tmap/routes?version=1&format=xml";
     urlStr += "&startX="+startX;
     urlStr += "&startY="+startY;
     urlStr += "&endX="+endX;
     urlStr += "&endY="+endY;
     urlStr += "&appKey=2695c76d-bc55-34a4-91cd-2e373b1f97ee";
-
+    urlStr += "&reqCoordType=WGS84GEO"
+    urlStr += "&searchOption="+option;
     var prtcl = new Tmap.Protocol.HTTP({
                                         url: urlStr,
                                         format:routeFormat
@@ -239,53 +241,22 @@ function multi_image_view(obj) {  //사진 바꾸기
 }
 
 
-$(document).ready(function() {
-  lodingList()
-});
+// $(document).ready(function() {
+//   lodingList()
+// });
 
-function lodingList() {
-  $.ajax ({
-    type: 'POST',
-    url: "/index.php/topic/getList",
-    data: { PAGE: '1' },
-    cache: false,
-    async: false
-  })
-  .done(function(html){
-    $("#div_ReviewStar").html(html);
-  });
-}
-
-
-function Trim(str){ // 공백제거 함수
-  var index, len, bJudge
-
-  while(true){
-    bJudge=true;
-    index = str.indexOf(' ');
-    if(index== -1) break;
-    if(index== 0){
-      len = str.length;
-      str = str.substring(0, index) + str.substring((index+1),len);
-    }
-    else {
-      bJudge=false;
-    }
-
-    index = str.lastIndexOf(' ');
-    if(index==-1) break;
-    if(index== str.lenth-1){
-      len = str.length;
-      str = str.substring(0, index) + str.substring((index+1), len);
-    }
-    else {
-      if (bJudge== false)
-        break;
-
-    } 
-  }
-  return str;
-}
+// function lodingList() {
+//   $.ajax ({
+//     type: 'POST',
+//     url: "/index.php/topic/getList",
+//     data: { PAGE: '1' },
+//     cache: false,
+//     async: false
+//   })
+//   .done(function(html){
+//     $("#div_ReviewStar").html(html);
+//   });
+// }
 
 </script>
 <script type="text/javascript" src="/static/js/power_review.js"></script>
