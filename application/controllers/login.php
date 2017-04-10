@@ -9,7 +9,7 @@ class Login extends MY_Controller {
 
 	public function index()
 	{
-		$this->load->view('login_v');
+		$this->load->view('login_v', array('returnURL'=>$this->input->get('returnURL')));
 	}
 
       function authentication()
@@ -25,7 +25,11 @@ class Login extends MY_Controller {
             $password == $user->password
             ) {
             $this->session->set_userdata(array('is_login' => true, 'name' => $user->name));
-            redirect("/mains");
+            $returnURL = $this->input->get('returnURL');
+            if($returnURL == false){
+               redirect("/mains");
+            }
+            redirect($returnURL);
          } else {
             $this->session->set_flashdata('message','로그인에 실패 하였습니다. 아이디 또는 비밀번호를 확인해 주세요.');
             redirect('/login');
@@ -35,7 +39,10 @@ class Login extends MY_Controller {
       function logout() 
       {
          $this->session->sess_destroy();
-         redirect('/mains');
+         $returnURL = $this->input->get('returnURL');
+            if($returnURL == false){
+               redirect("/mains");
+            }
       }
 
       function join() 
@@ -58,13 +65,26 @@ class Login extends MY_Controller {
             
             $this->Login_m->user_add(array(
                'email'=>$this->input->post('email'),
-               'password'=>$hash,
-               // 'password'=>$this->input->post('password'),
+               // 'password'=>$hash,
+               'password'=>$this->input->post('password'),
                'name'=>$this->input->post('name'),
                'phone'=>$this->input->post('phone')
             ));
+
+            //E-mail 전송 부분
+            $users = $this->Login_m->gets(array('email'=>$this->input->post('email')));
+            $this->load->library('email');
+            $this->email->initialize(array('mailtype'=>'html'));
+            $this->email->from('zziltongjh@gmail.com', 'KIMJUNGHWAN');
+            // $this->email->to($this->config->item('dev_receive_email')); //개발시 나한테 보낼 때 
+            $this->email->to($users->email);
+            $this->email->subject('(SKOTT) 확인 메일이 도착하였습니다.');
+            $this->email->message('확인해 주세욧');
+            $this->email->send();
+            //E-mail 기능 끝
+
             $this->session->set_flashdata('message', '회원가입이 완료되었습니다.');
-            redirect('/login');
+            // redirect('/login');
          }
       }
 }
