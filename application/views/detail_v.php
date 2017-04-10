@@ -52,7 +52,6 @@
         width : 900px;
         height : flex;
         text-align: left;
-        /*border:1px solid #e2e2e2;*/
         padding:15px;
       }
 

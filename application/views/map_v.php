@@ -174,7 +174,7 @@
 <div class="map_wrap">
     <div id="map" style="width:100%;height:89%;"></div>
         <div class="button_menu">
-        <button type="button" onclick="location.href='map'" >뒤로 가기</button>
+        <button type="button" onclick="location.href='map_v'" >뒤로 가기</button>
         </div>
     <div id="menu_wrap" class="bg_white">
         <div class="option">
@@ -461,7 +461,7 @@ function map_dynamic_content(reco_sort) {
             $('.for_ajax').append (
               '<div class = "div_course"  onclick="map_marker_1('+item[i].reco_idx+')">'+
                 '<div class = "div_img">'+
-                '<a href="http://localhost/detail/detail/'+item[i].reco_idx+'" > <img id ="img_div_course" src="/static/image/seoul/'+item[i].reco_idx+'.jpg" width="130px" height="130px"></a>'+
+                '<a href="/detail/detail/'+item[i].reco_idx+'" > <img id ="img_div_course" src="/static/image/seoul/'+item[i].reco_idx+'.jpg" width="130px" height="130px"></a>'+
                 '<p id="p_star">'+ reco_star + '</p> </div>' +
 
                 '<div class ="div_content" style="overflow:scroll;">' +

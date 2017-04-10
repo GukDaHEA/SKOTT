@@ -32,7 +32,7 @@ class Detail extends MY_Controller {
             'lat'=>$lat, //json_encode 변환 전체 디비
             'lng'=>$lng, //전체 디비중 별점이 높은 관광지 10곳을 뽑음
             'name'=>$name,
-            'address'=>$address
+            'reco_address'=>$address
             ));
       $this->load->view('footer.php');
    }

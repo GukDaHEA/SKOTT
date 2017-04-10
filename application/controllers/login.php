@@ -84,7 +84,7 @@ class Login extends MY_Controller {
             //E-mail 기능 끝
 
             $this->session->set_flashdata('message', '회원가입이 완료되었습니다.');
-            // redirect('/login');
+            redirect('/login');
          }
       }
 }

@@ -4,7 +4,6 @@
       <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <title>상세 페이지</title>
 </head>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -152,7 +151,7 @@
                 if ($this->session->userdata('is_login')){
                 ?>
                     <li><a class="Gnb-item login small" style="cursor: pointer" href="/login/logout">로그아웃</a></li>
-                    <li><a class="Gnb-item login small" style="cursor: pointer;"><?php echo $this->session->userdata('name') ?> 님</a></li>
+                    <li><a class="Gnb-item login small" style="cursor: pointer;" href="/user/user"><?php echo $this->session->userdata('name') ?> 님</a></li>
                 <?php
                 } else {
                 ?>
