@@ -1,18 +1,12 @@
 
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="format-detection" content="telephone=no">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
-<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
-<meta http-equiv="Cache-Control" content="post-check=0, pre-check=0">
-<meta http-equiv="Pragma" content="No-Cache">
-
 <title>프로필 수정</title>
-
-<script type="text/javascript" src="/inc/common/js/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/static/css/user.css">
 <link href="https://nid.naver.com/favicon_1024.png" rel="apple-touch-icon-precomposed" sizes="1024x1024" />
 <script type="text/javascript" src="https://nid.naver.com/js/clickcr.js"></script>
@@ -43,14 +37,12 @@
 	function setContainerHeight(height) {}
 	function clearDocs(){}
 </script>
-<meta name="decorator" content="NEW_USER_MYINFO">
 </head>
 
 <body onclick="clearDocs();gnbClose();" id="mainBody">
 <div id="wrap">
 	<!-- //스킵네비게이션 -->
-	<div id="header">
-		<div class="Header">
+    <div class="Header">
   <h1 class="Header-logo" alt="SKOTT" title="SKOTT"><a href="/mains"></a></h1>
     <div id="header_info">        
         <div class="search">
@@ -78,6 +70,7 @@
         </div>
     </div>
 </div>
+	<div id="header">
 		<div id="lnb_area">
 			<div class="lnb">
 	            <ul> 
