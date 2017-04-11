@@ -473,12 +473,12 @@
                 <?php
                 if ($this->session->userdata('is_login')){
                 ?>
-                    <li><a class="Gnb-item login small" style="cursor: pointer" href="/login/logout">로그아웃</a></li>
-                    <li><a class="Gnb-item login small" style="cursor: pointer;"><?php echo $this->session->userdata('name') ?> 님</a></li>
+                    <li><a class="Gnb-item login small" style="cursor: pointer" href="/Login/logout">로그아웃</a></li>
+                    <li><a class="Gnb-item login small" style="cursor: pointer;" href="/User/user"><?php echo $this->session->userdata('name') ?> 님</a></li>
                 <?php
                 } else {
                 ?>
-                    <li><a class="Gnb-item login small" style="cursor: pointer" href="/login">로그인</a></li>
+                    <li><a class="Gnb-item login small" style="cursor: pointer" href="/Login">로그인</a></li>
                 <?php
                 }
                 ?>
