@@ -12,7 +12,6 @@ class User extends MY_Controller {
 
 	}
 	public function user() {
-		$this->load->view('header');
 		$this->load->view('User_v');
 	}
 }
