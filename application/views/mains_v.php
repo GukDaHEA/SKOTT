@@ -3,6 +3,10 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="http://malsup.github.com/jquery.cycle2.js"></script>
+
     <title>media</title>
 
     <style>            
@@ -150,11 +154,12 @@
             }
 
         header .image {
-            width: 500px;
+            width: 1000px;
             height: 350px;
             margin: 50px auto;
             font-size: 20px;
             color: #f3753a;
+            
         }
 
         header .lnb {
@@ -173,8 +178,30 @@
             background: url(/static/image/taxi.jpg) no-repeat left top;
             background-size: 100% 100%; /*야호 했당*/
         }
-
         */
+
+                .cycle-slideshow, .cycle-slideshow * {-webkit-box-sizing:border-box; -moz-box-sizing:border-box;
+            box-sizing: border-box;}
+            .cycle-slideshow { width: 500px; min-width: 200px; max-width: 500px; margin: 10px auto; padding:0; position: relative;}
+            .cycle-slideshow div.slide { width: 100%; height:100%;}
+            .cycle-slideshow img {
+                position: absolute; top: 0;  left: 0;
+                width: 100%; padding: 0; display: block;
+            }
+            .cycle-slideshow img:first-child{
+                position: static; z-index: 100;
+            }
+            .cycle-pager {
+                text-align: center; width: 100%; z-index: 500; position: absolute; top:2px; overflow: hidden;
+            }
+            .cycle-pager span {
+                font-family: arial; font-size: 50px; width: 16px;  height: 16px; 
+                display: inline-block; color: #ddd; cursor: pointer;
+            }
+            .cycle-pager span.cycle-pager-active {color:#D69746;}
+            .cycle-pager >* { cursor: pointer;} 
+
+        
         /*-----------------------------------------------------------------------------------------------*/
         #content {
             background-color: rgba(0,0,0,.6);
@@ -451,7 +478,7 @@
     </style>
 </head>
 <body>
-    <div class="body_main">
+    <!-- <div class="body_main">
         <div class="background_main"></div>
         <div class="title">
             <h3>PLASM.it - 2017</h3>
@@ -462,7 +489,7 @@
                 ratione ipsum culpa. Voluptas quisquam beatae, quod porro.
             </p>
         </div>
-    </div>
+    </div> -->
     <div class="Header">
         <h1 class="Header-logo" alt="SKOTT" title="SKOTT"><a href="/mains"></a></h1>
         <div class="Gnb">
@@ -487,19 +514,30 @@
     </div>
     <header>
         <div class="background">
-            <div class="image"></div>
+            <div class="image">
+                
+                <div class="cycle-slideshow"
+                     data-cycle-fx=scrollHorz
+                   data-cycle-timeout=2000>
+                   <div class="cycle-pager"></div>
+                   
+                    <img src="/static/image/gyeongbokgung.jpg">
+                    <img src="http://malsup.github.io/images/p2.jpg">
+                    <img src="http://malsup.github.io/images/p3.jpg">
+                    <img src="http://malsup.github.io/images/p4.jpg">
+                </div>
+
+
+            </div>
             <div id="content">
                 <div class="section1">
                     <div class="search">
                         <input type="text" class="form_control" id="search input"  placeholder="원하시는 지역명/관광지명을 입력하세요.">
                         <button class="form_control" id="search button">찾아보기</button>
-
                     </div>
                 </div>
             </div>
-            <div class="detail">
-                <div></div>
-            </div>
+            
         </div>
     </header>
 </body>
