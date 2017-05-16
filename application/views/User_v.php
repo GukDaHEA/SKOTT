@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="/static/css/user.css">
 <link href="https://nid.naver.com/favicon_1024.png" rel="apple-touch-icon-precomposed" sizes="1024x1024" />
 <script type="text/javascript" src="https://nid.naver.com/js/clickcr.js"></script>
-<script type="text/javascript" src="/inc/common/js/lcslog.js"></script>
+<script type="text/javascript" src="/static/js/lcslog.js"></script>
 <script type="text/javascript" src="https://nid.naver.com/inc/common/js/ko/commonUtil.js?20170214"></script>
-<script type="text/javascript" src="/inc/common/js/lua.js"></script>
+<script type="text/javascript" src="/static/js/lua.js"></script>
 <script type="text/javascript">
 	var gnb_option = {
 		gnb_service : "nid",
@@ -69,13 +69,12 @@
             </ul>
         </div>
     </div>
-</div>
+</div> <br> <br> <br>
 	<div id="header">
 		<div id="lnb_area">
 			<div class="lnb">
 	            <ul> 
-					<li id="nid"><a href="/user2/help/myInfo.nhn?lang=ko_KR" onclick="clickcr(this,'LNB.myinfo','','',event);">회원정보<em></em></a></li>
-					<li id="security"><a href="/user2/help/myInfo.nhn?m=viewSecurity&lang=ko_KR" onclick="clickcr(this,'LNB.protect','','',event);">보안설정<em></em></a></li>
+					<li id="nid"><a href="/user/user" onclick="clickcr(this,'LNB.myinfo','','',event);">회원정보<em></em></a></li>
 				</ul>
 			</div>
 		</div>
@@ -167,9 +166,11 @@ function showMenu(subMenu) {
         </fieldset>
     </form>
 </div>
-<script type="text/javascript" src="/inc/common/js/base64.js"></script>
-<script type="text/javascript" src="/inc/common/js/jquery.form.min.js"></script>
-<script type="text/javascript" src="/inc/user/js/profileChange.js"></script>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/base64.js"></script>
+<script type="text/javascript" src="/static/js/profile.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         var profileInfo = {
@@ -203,7 +204,7 @@ function showMenu(subMenu) {
         profile.run();
     });
 </script>
-	</div>
+</div>
 
 <script type="text/javascript" src="/inc/common/js/jquery.resize.js"></script>
 <script type="text/javascript">
@@ -254,7 +255,8 @@ function setContainerHeight(height) {
 		changeContentSize();
 	}
 }
-</script>	</div>
+</script>	
+</div> <!-- wrap finish -->
 </div>
 
 <script type="text/javascript">

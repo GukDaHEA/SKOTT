@@ -74,7 +74,7 @@ class Map extends MY_Controller {
 					echo json_encode($reco_sidebar_content);
 		}
 
-		} //해당 지역에 대한 마커를 생성하기 위한 ajax
+	} //해당 지역에 대한 마커를 생성하기 위한 ajax
 
 	public function map_v_ajax_marker_content_dynamic() {
 
