@@ -22,7 +22,7 @@ class Detail extends MY_Controller {
       $idx = $detail_result->reco_idx;
       $lat = $detail_result->lat;
       $lng = $detail_result->lng;
-      $name = $detail_result->reco_name;
+      $name = $detail_result->title;
       $address = $detail_result->reco_address;
 
       $this->load->view('header.php');
