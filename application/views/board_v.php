@@ -12,6 +12,13 @@
 <script src="//code.jquery.com/jquery-3.2.0.slim.min.js"></script>
 
 <style type="text/css">
+
+     .container {
+        width :70%;
+        height :flex;
+        border :0px;
+        margin-top : 100px;
+      }
 	#pagination_id {
 		margin-left :200px;
 	}
@@ -32,13 +39,7 @@
 
 
 <body>
-
-<h1> 게시판 </h1> <br>
-
-			<form id="bd_search" method="post">
-				<input type="text" name="search_word" id="q" placeholder="검색" required /> 
-				<input type="button" value="검색" id="search_btn" required/>
-			</form> <br>
+ <div class="container">
 
 <table class = "table table-striped" cellpadding="10" cellspacing="5">
 	<tr>
@@ -52,22 +53,26 @@
 ?>
 	<tr>
 		<td><?php echo $list->user_id ?></td>
-		<td><a href="/board_c/board_v_view/<?php echo $list->board_id ?>"><?php echo $list->subject?></a></td>
+		<td><a href="/Detail/board_v_view/<?php echo $list->board_id ?>"><?php echo $list->subject?></a></td>
 		<td><?php echo $list->contents?></td>
 		<td><?php echo $list->hits ?></td>
 	</tr>
 <?php }?>
 
 </table>
-
-<button class = "btn"><a href="/board_c/board_v_write">글쓰기</a></button> <p>
-
+<div>
+			<form id="bd_search" method="post">
+				<input type="text" name="search_word" id="q" placeholder="검색" required /> 
+				<input type="button" value="검색" id="search_btn" required/>
+			</form> <br>
+<button class = "btn"><a href="/Detail/board_v_write">글쓰기</a></button> <p>
+</div>
                <div id = "pagination_id"><?php echo $pagination;?></div>
 
 <!--form id="bd_search" method="post" class="well form-search" -->
 
 
-
+</div>
 </body>
 <script type="text/javascript">
 	

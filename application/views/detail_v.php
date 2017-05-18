@@ -58,7 +58,6 @@
       #div_taxiinfo {
         float: left;
         text-align : center;
-        display:inline-block;
         position:relative;
       }
 
@@ -126,7 +125,7 @@
     </style>
 <div class="container">
 
-  <div><h1>광화문</h1></div>
+  <div><h1><?php echo $name;?></h1></div>
    <header>
   <div class="thumb-wrap">
       <div class="thumb">
@@ -140,16 +139,12 @@
             </ul>
       </div>
   </div>
-      <div id="div_Taxi" style="position: fixed; background-color: #FFF; margin-left: 800px; z-index: 1000;">
+      <div id="div_Taxi" style=" background-color: #FFF"> <!--; margin-left: 800px; z-index: 1000;position:fixed -->
          <h3 style="color:#f3753a;font-weight:">택시 정보 </h3><br/>
 <!-- 
       <iframe src="/index.php/topic/navi" width="600" height="300">
       </iframe> -->
 
-<div id="div_Address" style="text-align:center">
-        출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="<?php ?>"readonly /> <br />
-        도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="서울특별시 종로구 사직로 161" readonly /> <br />
-      </div>
       <div id = "div_Map">
       </div>
       <script language="javascript" src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=2695c76d-bc55-34a4-91cd-2e373b1f97ee"></script>
@@ -196,7 +191,13 @@ function onDrawnFeatures(e){
     map.zoomToExtent(this.getDataExtent());
 }
       </script>
+
           <div id= "div_taxiinfo">
+
+<div id="div_Address" style="text-align:center">
+        출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="<?php ?>"readonly /> <br />
+        도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="<?php echo $reco_address;?> " readonly /> <br />
+      </div>
         <ul> <li> 20분 </li>
              <li> 2.5 km </li> <br/>
              <li> 택시비 약 12,000 원 </li>
@@ -209,21 +210,20 @@ function onDrawnFeatures(e){
       <div id = "div_Info">
       <h3 style="color:#f3753a">관광지 정보</h3>
          <div id = "div_Title2">
-            광화문
+            <?php echo $name;?>
          </div>
          <div id = "div_Info2">
-         <p>   광화문은 경복궁의 남문이며, 궁성의 정문이다. 광화문은 국왕이 드나드는 정문이기도 했지만, 조선의 법궁인 경복궁의 정문이었기 때문에 다른 궁궐의 정문에 비해 
+          <?php echo $reco_text;?> 
+         <p>   
+          광화문은 경복궁의 남문이며, 궁성의 정문이다. 광화문은 국왕이 드나드는 정문이기도 했지만, 조선의 법궁인 경복궁의 정문이었기 때문에 다른 궁궐의 정문에 비해 
             그 규모와 격식 면에서도 매우 웅장하고 화려했다. 또한 광화문은 담장 끝 동쪽과 서쪽에 각각 동십자각과 서십자각을 두어 조선의 5대 궁궐 가운데 유일하게 궐문형식을 갖추고 있기도 했다.
             최근에는 촛불집회 장소로도 유명해진 광화문이다.
          </p>
-      </div>
+         </div>
       </div>
    </header>
       <div id = "div_Review">
           <h3 style="color:#f3753a">리뷰 </h3>
-                <span id = "div_ReviewWrite">
-                  <a href="/Review/add"><button id="form_control" class="btn_search">리뷰 작성</button></a>
-                </span>
       </div>
 </div>
 
@@ -258,4 +258,3 @@ function multi_image_view(obj) {  //사진 바꾸기
 // }
 
 </script>
-<script type="text/javascript" src="/static/js/power_review.js"></script>

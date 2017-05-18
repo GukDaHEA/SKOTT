@@ -18,12 +18,12 @@
 	</tr>
 
 	<tr>
-		<td colspan = "4"><a href="/board_c/board_delete/<?php echo $views->board_id ?>">삭제</a></td>
-		<td colspan = "5"><a href="/board_c/board_v_modify/<?php echo $views->board_id ?>">수정</a></td>
+		<td colspan = "4"><a href="/Detail/board_delete/<?php echo $views->board_id ?>">삭제</a></td>
+		<td colspan = "5"><a href="/Detail/board_v_modify/<?php echo $views->board_id ?>">수정</a></td>
 	</tr>
 	
 	<tr>
-		<td colspan = "5"><a href="/board_c/board_v">돌아가기</a></td>
+		<!-- <td colspan = "5"><a href="/board_c/board_v">돌아가기</a></td> -->
 	</tr>
 </table>
 
