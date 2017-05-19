@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>
-		글쓰기 테스트 입니다.
+		리뷰 작성 페이지 
 	</title>
 </head>
  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -25,10 +25,13 @@
 
 </style>
 <body>
-<h1> 글쓰기 </h1> <br>
-	<form method="post">
+	
+<br><br><br><br><br>
+<h1> 리뷰 쓰기 </h1> <br>
+	<form method="post" enctype="multipart/form-data" action="/Detail/board_v_write">
 		<input type="text" name="board_subject" placeholder="제목" class = "text_subject"> <br> <br>
 		<textarea cols = "50" rows = "10" name="board_contents" placeholder="내용" class = "text_textarea"></textarea> <br><br>
+		<input type="file" name="user_upload_file" />
 		<input type="submit" name="board_submit" class = "btn btn-primary" value = "작성"> 
 	</form>
 

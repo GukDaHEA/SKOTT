@@ -47,6 +47,7 @@
 		<th> 내용 </th>
 		<th> 조회수   </th>
 		<th> 작성일 </th>
+		<th> 사진 </th>
 	</tr>
 
 <?php foreach ($list as $list) {
@@ -57,6 +58,10 @@
 		<td><?php echo $list->contents?></td>
 		<td><?php echo $list->hits ?></td>
 		<td><?php echo $list->reg_date ?></td>
+		<?php if ( ! $list->picture == 0) { ?> 
+		<td><img alt="" src="<?php echo $list->picture ?>" style="height:100px;width:110px" /></td>
+		<?php } else { ?> <td></td> <?php }
+		?>
 	</tr>
 <?php }?>
 
@@ -66,7 +71,8 @@
 				<input type="text" name="search_word" id="q" placeholder="검색" required /> 
 				<input type="button" value="검색" id="search_btn" required/>
 			</form> <br>
-<button class = "btn"><a href="/Detail/board_v_write">글쓰기</a></button> <p>
+<button class = "btn"><a href="/Detail/board_v_write">
+	글쓰기</a></button> <p>
 </div>
                <div id = "pagination_id"><?php echo $pagination;?></div>
 

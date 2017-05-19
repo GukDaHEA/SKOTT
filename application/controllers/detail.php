@@ -94,7 +94,9 @@ class Detail extends MY_Controller {
 
       $data['views'] = $this->board_m->get_view($id);
 
+      $this->load->view('header');
       $this->load->view('board_v_view',$data);
+      $this->load->view('footer');
    }
 
    public function check() {
@@ -109,43 +111,74 @@ class Detail extends MY_Controller {
    public function board_v_write() {
 
       echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'; 
-      //form
-      if($_POST) 
+      $config['upload_path'] = './static/image/review';
+      $config['allowed_types'] = 'gif|jpg|png';
+      $config['max_size'] = '1000000';
+      $config['max_width'] = '2048';
+      $config['max_height'] = '1200';
+      $this->load->library('upload',$config);
+
+      if($this->session->userdata('is_login'))
       {
-
-         if( !$this->input->post('board_subject', true) OR !$this->input->post('board_contents', true) ) {
-            echo "<script>alert(\"비정상적인 접근입니다. \");</script>";
-            redirect('/Detail/board_v_write','refresh');
-            exit;
-         }
-
-         $board_subject = $this->input->post('board_subject', true);
-         $board_contents = $this->input->post('board_contents', true);
-         $user_name = $this->session->userdata('name');
-         $user_email = $this->session->userdata('email');
-
-         $result = $this->board_m->board_insert($board_subject, $board_contents, $user_name, $user_email);
-
-         if($result)
+         //form
+         if($_POST) 
          {
-            echo "<script>alert(\"입력되었습니다.\");</script>";
-            redirect('/Detail/detail/1','refresh');
-            exit;
+
+            if( !$this->input->post('board_subject', true) OR !$this->input->post('board_contents', true) ) {
+               echo "<script>alert(\"비정상적인 접근입니다. \");</script>";
+               redirect('/Detail/board_v_write','refresh');
+               exit;
+            }
+
+            //파일 업로드
+            if (! $this->upload->do_upload("user_upload_file")){
+               echo $this->upload->display_errors();
+            } 
+            else 
+            {
+               $data =  $this->upload->data();
+               echo "성공";
+               $file_url = "/static/image/review/".$data['file_name'];
+            }
+
+
+            $board_subject = $this->input->post('board_subject', true);
+            $board_contents = $this->input->post('board_contents', true);
+            $user_name = $this->session->userdata('name');
+            $user_email = $this->session->userdata('email');
+             $user_picture = $file_url;
+
+            $result = $this->board_m->board_insert($board_subject, $board_contents, $user_name, $user_email, $user_picture);
+
+            if($result)
+            {
+               echo "<script>alert(\"입력되었습니다.\");</script>";
+               redirect('/Detail/detail/1','refresh');
+               exit;
+            }
+            else
+            {
+               echo "<script>alert(\"다시 입력해주세요.\");</script>";
+               redirect('/Detail/board_v_write','refresh');
+               exit;
+            }
+
          }
+
          else
-         {
-            echo "<script>alert(\"다시 입력해주세요.\");</script>";
-            redirect('/Detail/board_v_write','refresh');
+            {
+
+               $this->load->view('header');
+               $this->load->view('board_v_write');
+               $this->load->view('footer');
+            }
+         }
+      else 
+      {
+         echo "<script>alert(\"로그인이 필요합니다.\");</script>";
+            redirect('/Login','refresh');
             exit;
-         }
-
       }
-
-      else
-         {
-            $this->load->view('board_v_write');
-         }
-
    }
 
 

@@ -66,15 +66,15 @@ class Board_m extends CI_Model
 	}
 
 
-	function board_insert($board_subject, $board_contents, $user_name, $user_email) 
+	function board_insert($board_subject, $board_contents, $user_name, $user_email, $user_picture) 
 	{
-
-		$sql  = "insert into ci_board(subject, contents, user_name, user_id)  values ('".$board_subject."','".$board_contents."','".$user_name."','".$user_email."')";
+		$date = date("Y-m-d H:i:s");
+		$sql  = "insert into ci_board(subject, contents, user_name, user_id, reg_date, picture)  values ('".$board_subject."','".$board_contents."','".$user_name."','".$user_email."','".$date."','".$user_picture."')";
 
 		$query = $this->db->query($sql);
 
 		return $query;
-	}		
+	}
 
 	function get_delete($id)
 	{
