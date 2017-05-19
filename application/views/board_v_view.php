@@ -15,6 +15,7 @@
 		<td><?php echo $views->subject;  ?></td>
 		<td><?php echo $views->contents; ?></td>
 		<td><?php echo $views->hits;     ?></td>
+		<td><?php echo $views->reg_date  ?></td>
 	</tr>
 
 	<tr>

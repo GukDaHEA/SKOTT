@@ -66,10 +66,10 @@ class Board_m extends CI_Model
 	}
 
 
-	function board_insert($board_subject, $board_contents) 
+	function board_insert($board_subject, $board_contents, $user_name, $user_email) 
 	{
 
-		$sql  = "insert into ci_board(subject, contents)  values ('".$board_subject."','".$board_contents."')";
+		$sql  = "insert into ci_board(subject, contents, user_name, user_id)  values ('".$board_subject."','".$board_contents."','".$user_name."','".$user_email."')";
 
 		$query = $this->db->query($sql);
 

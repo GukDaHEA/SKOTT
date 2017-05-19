@@ -2,7 +2,6 @@
 <html>
 <head>
 	<title>
-		board_view 입니다.
 	</title>
 </head>
 
@@ -47,15 +46,17 @@
 		<th> 제목 </th>
 		<th> 내용 </th>
 		<th> 조회수   </th>
+		<th> 작성일 </th>
 	</tr>
 
 <?php foreach ($list as $list) {
 ?>
 	<tr>
-		<td><?php echo $list->user_id ?></td>
+		<td><?php echo $list->user_name ?></td>
 		<td><a href="/Detail/board_v_view/<?php echo $list->board_id ?>"><?php echo $list->subject?></a></td>
 		<td><?php echo $list->contents?></td>
 		<td><?php echo $list->hits ?></td>
+		<td><?php echo $list->reg_date ?></td>
 	</tr>
 <?php }?>
 

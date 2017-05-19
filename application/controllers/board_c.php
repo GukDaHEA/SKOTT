@@ -14,6 +14,7 @@ class Board_c extends CI_Controller {
 	}
 
 	public function board_v() {
+		$this->load->view('header');
 		$search_word = $page_url = '';
 		$uri_segment = 4;
 
@@ -59,7 +60,7 @@ class Board_c extends CI_Controller {
 	      $data['list'] = $this->board_m->get_list('', $start, $limit, $search_word);
 
 	      $this->load->view('board_v', $data);
-
+	      $this->load->view('footer');
 	}
 
 

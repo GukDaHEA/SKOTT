@@ -6,7 +6,7 @@
 <!-- <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> -->
 <script src="/static/js/juery.bpopup.min.js" type="text/javascript"></script>
 
-
+<title> 상세 페이지 - <?php echo $name; ?></title>
 <style type="text/css">
     .map_wrap {position:relative;width:100%;height:350px;}
     .title {font-weight:bold;display:block;}

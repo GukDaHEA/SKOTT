@@ -6,6 +6,7 @@ class Detail extends MY_Controller {
 		parent::__construct();
 		$this->load->model('Detail_m');
       $this->load->model('board_m');
+      $this ->load-> helper('date');
 	}
 
 	function index() { 
@@ -52,7 +53,7 @@ class Detail extends MY_Controller {
 
          //페이지네이션용 주소
          $page_url = '/q/'.$search_word;
-         $uri_segment = 5;
+         $uri_segment = 6;
       }
       
       $this->load->library('pagination');
@@ -113,23 +114,28 @@ class Detail extends MY_Controller {
       {
 
          if( !$this->input->post('board_subject', true) OR !$this->input->post('board_contents', true) ) {
-            alert("비정상적인 접근입니다. ","/Detail/board_v_write");
+            echo "<script>alert(\"비정상적인 접근입니다. \");</script>";
+            redirect('/Detail/board_v_write','refresh');
             exit;
          }
 
          $board_subject = $this->input->post('board_subject', true);
          $board_contents = $this->input->post('board_contents', true);
+         $user_name = $this->session->userdata('name');
+         $user_email = $this->session->userdata('email');
 
-         $result = $this->board_m->board_insert($board_subject, $board_contents);
+         $result = $this->board_m->board_insert($board_subject, $board_contents, $user_name, $user_email);
 
-         if($result) 
+         if($result)
          {
-            alert('입력되었습니다',"/Detail/detail/$url/$id" );
+            echo "<script>alert(\"입력되었습니다.\");</script>";
+            redirect('/Detail/detail/1','refresh');
             exit;
          }
          else
          {
-            alert("다시 입력해주세요. ","/Detail/board_v_write");
+            echo "<script>alert(\"다시 입력해주세요.\");</script>";
+            redirect('/Detail/board_v_write','refresh');
             exit;
          }
 
@@ -145,10 +151,15 @@ class Detail extends MY_Controller {
 
    public function board_delete() {
       $id = $this->uri->segment(3);
-
+// $returnURL = $this->input->get('returnURL');
       $this->board_m->get_delete($id);
+       // $detail_result = $this->Detail_m->detail();
 
-      header("Location: /Detail/detail/$url/$id");
+      // $ids = $detail_result->reco_idx;
+      // echo ('1');
+      header("Location: /Detail/detail/1");
+      // echo ($returnURL);
+      // redirect('/Detail/detail/1',0);
    }
 
    public function board_v_modify() {
@@ -162,7 +173,8 @@ class Detail extends MY_Controller {
       {
 
          if( !$this->input->post('modify_subject', true) OR !$this->input->post('modify_contents', true) ) {
-            alert("비정상적인 접근입니다. ","/Detail/board_v_modify/$id");
+            echo "<script>alert(\"비정상적인 접근입니다. \")</script>";
+            redirect('/Detail/detail/1','refresh');
             exit;
          }
 
@@ -171,14 +183,16 @@ class Detail extends MY_Controller {
 
          $result = $this->board_m->board_modify($modify_subject, $modify_contents, $id);
          $returnURL = $this->input->get('returnURL');
-         if($result) 
+         if($result)
          {
-            alert('입력되었습니다','$returnURL');
+            echo "<script>alert(\"입력되었습니다\");</script>";
+            redirect('/Detail/detail/1','refresh');
             exit;
          }
          else
          {
-            alert("다시 입력해주세요. ","/Detail/board_v_modify/$id");
+            echo "<script>alert(\"다시 입력해주세요. \")</script>";
+            redirect('/Detail/detail/1','refresh');
             exit;
          }
       }
