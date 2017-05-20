@@ -198,9 +198,15 @@ class Detail extends MY_Controller {
    public function board_v_modify() {
 
       echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'; 
+      $config['upload_path'] = './static/image/review';
+      $config['allowed_types'] = 'gif|jpg|png';
+      $config['max_size'] = '1000000';
+      $config['max_width'] = '2048';
+      $config['max_height'] = '1200';
+      $this->load->library('upload',$config);
+
 
       $id = $this->uri->segment(3);
-
       //form
       if($_POST) 
       {
@@ -211,11 +217,22 @@ class Detail extends MY_Controller {
             exit;
          }
 
+            //파일 업로드
+            if (! $this->upload->do_upload("user_upload_file")){
+               echo $this->upload->display_errors();
+               $file_url = "/static/image/review/".$data['file_name'];
+            } 
+            else 
+            {
+               $data =  $this->upload->data();
+               echo "성공";
+               $file_url = "/static/image/review/".$data['file_name'];
+            }
+
          $modify_subject = $this->input->post('modify_subject', true);
          $modify_contents = $this->input->post('modify_contents', true);
-
-         $result = $this->board_m->board_modify($modify_subject, $modify_contents, $id);
-         $returnURL = $this->input->get('returnURL');
+         $modify_picture = $file_url;
+         $result = $this->board_m->board_modify($modify_subject, $modify_contents, $id, $modify_picture);
          if($result)
          {
             echo "<script>alert(\"입력되었습니다\");</script>";
@@ -225,7 +242,7 @@ class Detail extends MY_Controller {
          else
          {
             echo "<script>alert(\"다시 입력해주세요. \")</script>";
-            redirect('/Detail/detail/1','refresh');
+            redirect('/Detail/board_v_modify','refresh');
             exit;
          }
       }

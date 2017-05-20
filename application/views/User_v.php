@@ -75,54 +75,24 @@
 			<div class="lnb">
 	            <ul> 
 					<li id="nid"><a href="/user/user" onclick="clickcr(this,'LNB.myinfo','','',event);">회원정보<em></em></a></li>
+                    <li id="ntaxi"><a href="/user/user" onclick="clickcr(this,'LNB.myinfo','','',event);">내 택시정보<em></em></a></li>
 				</ul>
 			</div>
-		</div>
-<script type="text/javascript">
-document.getElementById("nid").className = "selected";
-
-var tagList = "nid security ";
-var menu = "";
-if(menu == "nid1_sub_m3" || menu.substring(0,4) == "nid2") { 
-	menu = "security";
-} else if( menu.substring(0,4) == "nid1" ) { 
-	menu = "nid"; 
-} else if( menu.substring(0,4) == "nid1" ) { 
-	menu = "security"; 
-} else if(menu == "" || menu == "null" || menu == null || tagList.indexOf(menu) == -1){
-	menu = "nid";
-} 
-
-showMenu(menu);
-function showMenu(subMenu) {
-	document.getElementById(subMenu).className = "on";
-	
-	var otherMenu = tagList.replace(subMenu + " ", "").split(" ");
-	for (var i = 0; i < otherMenu.length - 1; i++) {
-		document.getElementById(otherMenu[i]).className = "";
-	}
-}
-</script>	</div>
-
+		</div></div>
 	<div id="container">
 		<!-- CONTENTS -->
 		<div id="content">
     <div class="c_header">
         <h2>프로필 수정</h2>
-        <p class="contxt">SKOTT의 프로필과 별명을 수정 하실 수 있습니다.</p>
+        <p class="contxt">SKOTT의 프로필을 수정 하실 수 있습니다.</p>
     </div>
-    <form id="profileForm" method="post" enctype="multipart/form-data">
-        <input type="hidden" id="helpToken" name="token_help" value="vQx4b7fSSXhtFtN1" />
-        <input type="hidden" id="deleteYn" name="deleteYn" value="N" />
-        <input type="hidden" id="ieLessThan9Yn" name="ieLessThan9Yn" value="N" />
-        <fieldset>
+    <form  method="post" enctype="multipart/form-data" action="/User/user_modify">
             <legend>프로필 수정</legend>
             <table border="0" class="tbl_model">
                 <caption><span class="blind">프로필 수정</span></caption>
                 <colgroup>
                     <col style="width:22%"><col>
                 </colgroup>
-                <tbody>
                 <tr>
                     <th scope="row">
                         <div class="thcell">프로필 사진</div>
@@ -130,40 +100,50 @@ function showMenu(subMenu) {
                     <td>
                         <div class="tdcell">
                             <div class="profile_photo">
-                                <img id="imgThumb" src="https://static.nid.naver.com/images/web/user/default.png" width="100" height="100">
-                                <span class="mask"></span>
+                                <img id="imgThumb" src=<?php if (!$views->picture) {?>"/static/image/default.png"
+                                                <?php } else if ($views->picture) {?>"<?php echo $views->picture ;?>"<?php } ?> width="100" height="100">
                             </div>
                             <p class="btn_area_btm">
-                                <span class="btn_file">
-                                    <label for="inputImage" class="btn_model"><b id="btnChangeProfile" class="btn2">사진변경</b></label>
-                                    <input type="file" id="inputImage" name="profileImage"  accept="image/*" />
-                                </span>
-                                <a href="javascript:;" class="btn_model"><b id="btnDelete" class="btn2">삭제</b></a>
+                                    <!-- <label for="inputImage" class="btn_model"><b id="btnChangeProfile" class="btn2">사진변경</b></label> -->
+                                <span>    <input type="file" name="user_upload_file" /> </span>
+                                <span><a href="javascript:imgurlDelete();" class="btn_model"><b id="btnDelete" class="btn2">삭제</b></a></span>
                             </p>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">
-                        <div class="thcell"><label for="inpNickname">별명</label></div>
+                        <div class="thcell"><label for="inpNickname">이름</label></div>
                     </th>
                     <td>
                         <div class="tdcell">
                             <p class="contxt_webctrl nickname">
-                                <input type="text" name="nickname" id="inpNickname" value="" style="width:254px">
+                                <input type="text" name="name" id="name" value="<?php echo $views->name ;?>" style="width:254px">
+                                <!-- Enter 입력으로 submit이 되는걸 방지하기 위한 Input -->
+                                <input type="text" style="display: none;" >
+                            </p>
+                        </div>
+                    </td>
+                <tr>
+                    <th scope="row">
+                        <div class="thcell"><label for="inpNickname">국적</label></div>
+                    </th>
+                    <td>
+                        <div class="tdcell">
+                            <p class="contxt_webctrl nickname">
+                                <input type="text" name="nation" id="nation" value="<?php echo $views->nation; ?>" style="width:254px">
                                 <!-- Enter 입력으로 submit이 되는걸 방지하기 위한 Input -->
                                 <input type="text" style="display: none;" >
                             </p>
                         </div>
                     </td>
                 </tr>
-                </tbody>
             </table>
             <div class="btn_wrap">
-                <a href="javascript:;" class="btn_model"><b id="btnConfirm" class="btn8">적용</b></a>
-                <a href="javascript:;" class="btn_model"><b id="btnCancel" class="btn2">취소</b></a>
+                     <input type="submit" name="submit_test" value="적용">
+                <!-- <a href="javascript:;" class="btn_model"><b id="btnConfirm" class="btn8">적용</b></a> -->
+                <!-- <a href="javascript:;" class="btn_model"><b id="btnCancel" class="btn2">취소</b></a> -->
             </div>
-        </fieldset>
     </form>
 </div>
 
@@ -171,42 +151,13 @@ function showMenu(subMenu) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript" src="/static/js/base64.js"></script>
 <script type="text/javascript" src="/static/js/profile.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        var profileInfo = {
-            isNicknameChanged : false,
-            nickname : "밴댕이",
-            defaultImageUrl : "https://static.nid.naver.com/images/web/user/default.png",
-            imageUrl : "",
-            token : "vQx4b7fSSXhtFtN1",
-            id : "zziltongjh",
-            lang : "ko_KR",
-            deleteYn : "N",
-            originImageUrl : "",
-            originNickname : "밴댕이"
-        };
-
-        var message = {
-            maxUploadSizeErrMessage : "최대 파일 업로드 사이즈는 10MB입니다.",
-            overTimeReturnErrMessage : "유효 시간이 초과 되었습니다. 다시 시도해 주세요.",
-            temporaryAccessErrMessage : "일시적인 오류입니다. 잠시 후 다시 시도해 주세요.",
-            confirm : "프로필 변경 사항을 적용하시겠습니까?"
-        };
-
-        var url = {
-            removeTempImageUrl : "/user2/api/naverProfile.nhn?m=removeTempImageUrl",
-            checkImageAndSaveTmep : "/user2/api/naverProfile.nhn?m=checkImageAndSaveTempForUser",
-            changeProfile : "/user2/api/naverProfile.nhn?m=changeProfileForUser",
-            returnUrl : "L3VzZXIyL2hlbHAvbXlJbmZvLm5obj9sYW5nPWtvX0tS"
-        };
-
-        profile.init(profileInfo, message, url);
-        profile.run();
-    });
-</script>
 </div>
-
-<script type="text/javascript" src="/inc/common/js/jquery.resize.js"></script>
+<script type="text/javascript">
+var imgurl = (document.getElementById("imgThumb").src);
+function imgurlDelete() {
+    document.getElementById("imgThumb").src = "/static/image/default.png";
+}
+</script>
 <script type="text/javascript">
 var ua = window.navigator.userAgent.toLowerCase();
 var cur_container_height = Number(document.getElementById("content").clientHeight);
@@ -259,12 +210,5 @@ function setContainerHeight(height) {
 </div> <!-- wrap finish -->
 </div>
 
-<script type="text/javascript">
-getGNB();
-
-window.onresize = function() {
-	setContainerHeight(document.getElementById('content').clientHeight);
-}
-</script>
 </body>
 </html>

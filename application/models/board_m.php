@@ -55,10 +55,10 @@ class Board_m extends CI_Model
 		return $result;
 	}
 
-	function board_modify($modify_subject, $modify_contents, $id) {
+	function board_modify($modify_subject, $modify_contents, $id, $modify_picture) {
 
 
-		$sql = "update ci_board set subject = '".$modify_subject."', contents = '".$modify_contents."' where board_id ='".$id."'";
+		$sql = "update ci_board set subject = '".$modify_subject."', contents = '".$modify_contents."', picture = '".$modify_picture."' where board_id ='".$id."'";
 
 		$query = $this->db->query($sql);
 

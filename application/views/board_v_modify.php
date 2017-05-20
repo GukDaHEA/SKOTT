@@ -22,10 +22,13 @@
 	</tr>
 </table> -->
 
-<form method = "POST">
+<form method = "POST" enctype="multipart/form-data" action="/Detail/board_v_modify">
 	 제목 : <input type="text" name="modify_subject" value= "<?php echo $views->subject;?>" >
 	 내용 : <input type="text"  name="modify_contents" value = "<?php echo $views->contents;?>">
-	 <input type="submit" name="submit_test">
+	 사진 : <img alt="" src=<?php if (!$views->picture) {?>"/static/Image/default.png"
+                           <?php } else if ($views->picture) {?>"<?php echo $views->picture ;?>"<?php } ?> style="height:100px;width:110px" />
+		<input type="file" name="user_upload_file" />
+	 <input type="submit" name="submit_test" value="적용">
 </form>
 
 
