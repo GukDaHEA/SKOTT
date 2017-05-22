@@ -121,6 +121,17 @@
         background-color: #ececec;
         display: block;
       }
+      @media all and (max-width:768px)
+      {       
+        .pc{ display: none;}
+      }
+      @media all and (min-width:768px)
+      {       
+        .nopc{ display: none;}
+      } 
+            
+        
+  
 
     </style>
 <div class="container">
@@ -202,7 +213,8 @@ function onDrawnFeatures(e){
              <li> 2.5 km </li> <br/>
              <li> 택시비 약 12,000 원 </li>
         </ul>
-      <h4 style="font-weight:bold;text-align:center;">※pc 버전일 경우 호출하실 수 없습니다.</h4>
+      <h4 style="font-weight:bold;text-align:center;" class="pc">※pc 버전일 경우 호출하실 수 없습니다.</h4>
+      <button class="nopc" >호출하기</button>
          </div>
       </div>
    </header>

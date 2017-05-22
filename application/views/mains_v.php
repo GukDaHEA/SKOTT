@@ -182,7 +182,7 @@
 
                 .cycle-slideshow, .cycle-slideshow * {-webkit-box-sizing:border-box; -moz-box-sizing:border-box;
             box-sizing: border-box;}
-            .cycle-slideshow { width: 500px; min-width: 200px; max-width: 500px; margin: 10px auto; padding:0; position: relative;}
+            .cycle-slideshow { height:500px; width: 500px; min-width: 200px; max-width: 1000px; margin: 10px auto; padding:0; position: relative;}
             .cycle-slideshow div.slide { width: 100%; height:100%;}
             .cycle-slideshow img {
                 position: absolute; top: 0;  left: 0;
@@ -192,7 +192,7 @@
                 position: static; z-index: 100;
             }
             .cycle-pager {
-                text-align: center; width: 100%; z-index: 500; position: absolute; top:2px; overflow: hidden;
+                text-align: center; width: 100%; z-index: 500; position: absolute; bottom:2px; overflow: hidden;
             }
             .cycle-pager span {
                 font-family: arial; font-size: 50px; width: 16px;  height: 16px; 
