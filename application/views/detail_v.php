@@ -121,11 +121,11 @@
         background-color: #ececec;
         display: block;
       }
-      @media all and (max-width:768px)
+      @media screen and (max-device-width:450px)
       {       
         .pc{ display: none;}
       }
-      @media all and (min-width:768px)
+      @media screen and (min-device-width:450px)
       {       
         .nopc{ display: none;}
       } 
