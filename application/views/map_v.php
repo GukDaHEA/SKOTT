@@ -26,7 +26,7 @@
         .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
         .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
         .map_wrap {width:100%;height:100%;}
-        #menu_wrap {position:absolute;top:30px;left:65%;bottom:0;width:28%;height:80%;margin:100px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+        #menu_wrap {position:absolute;top:30px;left:65%;bottom:0;width:28%;height:80%;margin:100px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(243, 117, 58, 0.5);z-index: 1;font-size:12px;border-radius: 10px;border:3px solid white;}
         #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
         #menu_wrap .option{text-align: center;}
         #menu_wrap .option p {margin:10px 0;}  
@@ -118,7 +118,8 @@
       color : black;
       font-size:15px;
       text-align: center;
-      border-bottom:solid black;
+      border-top:solid white;
+      border-bottom:solid white;
     }
 
       .div_head {
@@ -176,8 +177,6 @@
     .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
     .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
     .info .link {color: #5085BB;}
-
-
 </style>
 
 <body>
@@ -205,16 +204,15 @@
   <div class="image content">
     <div class="description">
       <div class="ui header">We've auto-chosen a profile image for you.</div>
-      <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
-      <p>Is it okay to use this photo?</p>
+      <p> <b>이동 클릭시</b> 지도페이지로 이동합니다</p>
     </div>
   </div>
   <div class="actions">
     <div class="ui black deny button">
-      Cancel
+      취소
     </div>
     <div class="ui positive right labeled icon button">
-      MOVE
+      이동
       <i class="checkmark icon"></i>
     </div>
   </div>
@@ -228,7 +226,7 @@
         </div>
 
     <div id="menu_wrap" class="bg_white">
-        <hr>
+
         <div class = "reco_course"> 추천관광지 </div>
         <div id="course" class ="for_ajax"> 
             <div class = "div_course">
@@ -261,9 +259,6 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         draggable: false
     };
 
-var map = new daum.maps.Map(mapContainer, mapOption);
-    // customOverlay = new daum.maps.CustomOverlay({}),
-    // infowindow = new daum.maps.InfoWindow({removable: true})
 var map = new daum.maps.Map(mapContainer, mapOption),
     customOverlay = new daum.maps.CustomOverlay({}),
     infowindow = new daum.maps.InfoWindow({removable: true});
@@ -332,13 +327,13 @@ function map_dynamic_content(reco_sort) {
                         '<div class="active title">' +
                          '<i class="dropdown icon">' + '</i>' +item[i].title + "  " + reco_star +
                        '</div>' +
-              '<div class = "div_course"  onclick="map_marker_1('+item[i].reco_idx+')">'+
-                '<div class = "div_img">'+
-                '<a href="http://localhost/detail/detail/'+item[i].reco_idx+'" > <img id ="img_div_course" src="/static/image/seoul/'+item[i].reco_idx+'.jpg" width="365px" height="180px"></a>'+
+              '<div class = "div_course">'+
+                '<div class = "div_img" onclick="map_marker_1('+item[i].reco_idx+')">'+
+                 '<img id ="img_div_course" src="/static/image/seoul/'+item[i].reco_idx+'.jpg" width="365px" height="180px"></a>'+
                         '<div class="ui small buttons">' +
                           '<button class="ui button">♥</button>' +
                           '<div class="or"></div>' +
-                          '<button class="ui button">상세보기</button>' +
+                          '<button class="ui button"><a href="http://localhost/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
                            '</div>' +
                         '</div>' +
 
@@ -391,6 +386,12 @@ function map_marker_1 (reco_idx) {
                       var marker = new daum.maps.Marker({
                                 position: new daum.maps.LatLng(data.lat, data.lng)
                        });
+
+                      var moveLatLon = new daum.maps.LatLng(data.lat, data.lng);
+                      
+                      // 지도 중심을 부드럽게 이동시킵니다
+                      // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+                      map.panTo(moveLatLon);
 
                       var marker_reco_star_content;
 
@@ -446,11 +447,18 @@ function map_marker_1 (reco_idx) {
 
 // 지도에 마커를 표시하는 함수입니다
 function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_address, marker_reco_idx, marker_reco_star ) {
+    var imageSrc = "/static/Image/marker_image/marker_tour.png";
+
+    var imageSize = new daum.maps.Size(55,60); 
+
+    // 마커 이미지를 생성합니다    
+    var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize); 
 
     // 마커를 생성하고 지도에 표시합니다
     var marker = new daum.maps.Marker({
         map: map,
-        position: new daum.maps.LatLng(marker_lat, marker_lng)
+        position: new daum.maps.LatLng(marker_lat, marker_lng),
+        image : markerImage
     });
 
 
@@ -502,24 +510,24 @@ function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_add
 }
 
 
-// MakrerImage 객체를 생성하여 반환하는 함수입니다
-function createMarkerImage(markerSize, offset, spriteOrigin) {
-    var markerImage = new daum.maps.MarkerImage(
-        SPRITE_MARKER_URL, // 스프라이트 마커 이미지 URL
-        markerSize, // 마커의 크기
-        {
-            offset: offset, // 마커 이미지에서의 기준 좌표
-            spriteOrigin: spriteOrigin, // 스트라이프 이미지 중 사용할 영역의 좌상단 좌표
-            spriteSize: spriteImageSize // 스프라이트 이미지의 크기
-        }
-    );
-    return markerImage;
-}
+// // MakrerImage 객체를 생성하여 반환하는 함수입니다
+// function createMarkerImage(markerSize, offset, spriteOrigin) {
+//     var markerImage = new daum.maps.MarkerImage(
+//         SPRITE_MARKER_URL, // 스프라이트 마커 이미지 URL
+//         markerSize, // 마커의 크기
+//         {
+//             offset: offset, // 마커 이미지에서의 기준 좌표
+//             spriteOrigin: spriteOrigin, // 스트라이프 이미지 중 사용할 영역의 좌상단 좌표
+//             spriteSize: spriteImageSize // 스프라이트 이미지의 크기
+//         }
+//     );
+//     return markerImage;
+// }
 
-        // 지도에 영역데이터를 폴리곤으로 표시합니다 
-        for (var i = 0, len = areas.length; i < len; i++) {
-            displayArea(areas[i]);
-        }
+        // // 지도에 영역데이터를 폴리곤으로 표시합니다 
+        // for (var i = 0, len = areas.length; i < len; i++) {
+        //     displayArea(areas[i]);
+        // }
 
 </script>
 
@@ -595,52 +603,61 @@ function createMarkerImage(markerSize, offset, spriteOrigin) {
 
 });
 
+var imageSrc1 = "/static/image/marker_image/marker_1.png"; 
+var imageSrc2 = "/static/image/marker_image/marker_2.png"; 
+var imageSrc3 = "/static/image/marker_image/marker_3.png"; 
+var imageSrc4 = "/static/image/marker_image/marker_4.png"; 
+var imageSrc5 = "/static/image/marker_image/marker_5.png"; 
+var imageSrc6 = "/static/image/marker_image/marker_6.png"; 
+
+var imageSize = new daum.maps.Size(90, 90); 
 
 // 마커를 표시할 위치와 title 객체 배열입니다 
 var positions = [
     {
         title: '경기권', 
-        latlng: new daum.maps.LatLng(37.55703003735185 ,127.02311048850409)
+        latlng: new daum.maps.LatLng(37.55703003735185 ,127.02311048850409),
+        markerImage : new daum.maps.MarkerImage(imageSrc1, imageSize)
     },
     {
         title: '제주권', 
-        latlng: new daum.maps.LatLng(33.31097873150488, 126.56055537131121)
+        latlng: new daum.maps.LatLng(33.12920323452201 ,126.5438352744674),
+        markerImage : new daum.maps.MarkerImage(imageSrc2, imageSize)
     },
     {
         title: '강원권', 
-        latlng: new daum.maps.LatLng(37.6130868206661 , 128.5442381745224)
+        latlng: new daum.maps.LatLng(37.6130868206661 , 128.5442381745224),
+        markerImage : new daum.maps.MarkerImage(imageSrc3, imageSize)
     },
     {
         title: '경상권',
-        latlng: new daum.maps.LatLng(36.28157430275591 , 128.75691078469748)
+        latlng: new daum.maps.LatLng(36.28157430275591 , 128.75691078469748),
+        markerImage : new daum.maps.MarkerImage(imageSrc4, imageSize)
     },
     {
         title: '충청권',
-        latlng: new daum.maps.LatLng(36.22053767676641 , 126.83090136233223)
+        latlng: new daum.maps.LatLng(36.22053767676641 , 126.83090136233223),
+        markerImage : new daum.maps.MarkerImage(imageSrc5, imageSize)
     },
     {
         title: '전라권',
-        latlng: new daum.maps.LatLng(35.24232751217275 , 126.88920902196487)
+        latlng: new daum.maps.LatLng(35.23696846708566 , 127.4386510851341),
+        markerImage : new daum.maps.MarkerImage(imageSrc6, imageSize)
     }
 ];
 
+// http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png
+
 // 마커 이미지의 이미지 주소입니다
-var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png"; 
+// var imageSrc1 = "/static/image/marker_image/marker_seoul.png"; 
     
 for (var i = 0; i < positions.length; i ++) {
-    
-    // 마커 이미지의 이미지 크기 입니다ㅈ
-    var imageSize = new daum.maps.Size(55, 55); 
-    
-    // 마커 이미지를 생성합니다    
-    var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize); 
-    
     // 마커를 생성합니다
     var marker1 = new daum.maps.Marker({
         map: map, // 마커를 표시할 지도
         position: positions[i].latlng, // 마커를 표시할 위치
         title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-        image : markerImage // 마커 이미지 
+        image :  positions[i].markerImage // 마커 이미지 
     });
 
 if(positions[i].title =="경기권") {
