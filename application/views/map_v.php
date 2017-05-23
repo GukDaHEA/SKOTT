@@ -233,7 +233,7 @@
         <div id="course" class ="for_ajax"> 
             <div class = "div_course">
               <div class = "div_img"></div>
-              <div class ="div_content""></div>
+              <div class ="div_content"></div>
 <!--                style="overflow:scroll; -->
             </div>
 
@@ -334,7 +334,7 @@ function map_dynamic_content(reco_sort) {
                        '</div>' +
               '<div class = "div_course"  onclick="map_marker_1('+item[i].reco_idx+')">'+
                 '<div class = "div_img">'+
-                '<a href="http://localhost/detail/detail/'+item[i].reco_idx+'" > <img id ="img_div_course" src="/static_TEST/image/seoul/'+item[i].reco_idx+'.jpg" width="365px" height="180px"></a>'+
+                '<a href="http://localhost/detail/detail/'+item[i].reco_idx+'" > <img id ="img_div_course" src="/static/image/seoul/'+item[i].reco_idx+'.jpg" width="365px" height="180px"></a>'+
                         '<div class="ui small buttons">' +
                           '<button class="ui button">♥</button>' +
                           '<div class="or"></div>' +
@@ -422,7 +422,7 @@ function map_marker_1 (reco_idx) {
                                               '        </div>' + 
                                               '        <div class="body">' + 
                                               '            <div class="img">' +
-                                              '                <img id="marker_img"  src="/static_TEST/image/seoul/' +data.reco_idx +'.jpg" width="73" height="70">' +
+                                              '                <img id="marker_img"  src="/static/image/seoul/' +data.reco_idx +'.jpg" width="73" height="70">' +
                                               '           </div>' + 
                                               '            <div class="desc">' + 
                                               '                <div class="ellipsis">'+data.reco_address +'</div>' + 
@@ -486,7 +486,7 @@ function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_add
                                         '        </div>' + 
                                         '        <div class="body">' + 
                                         '            <div class="img">' +
-                                        '                <img id = "marker_img" src="/static_TEST/image/seoul/' +marker_reco_idx +'.jpg" width="73" height="70">' +
+                                        '                <img id = "marker_img" src="/static/image/seoul/' +marker_reco_idx +'.jpg" width="73" height="70">' +
                                         '           </div>' + 
                                         '            <div class="desc">' + 
                                         '                <div class="ellipsis">'+marker_reco_address +'</div>' + 
@@ -573,7 +573,7 @@ function createMarkerImage(markerSize, offset, spriteOrigin) {
                                               '        </div>' + 
                                               '        <div class="body">' + 
                                               '            <div class="img">' +
-                                              '                <img id="marker_img"  src="/static_TEST/image/seoul/' +data.reco_idx +'.jpg" width="73" height="70">' +
+                                              '                <img id="marker_img"  src="/static/image/seoul/' +data.reco_idx +'.jpg" width="73" height="70">' +
                                               '           </div>' + 
                                               '            <div class="desc">' + 
                                               '                <div class="ellipsis">'+data.reco_address +'</div>' + 
