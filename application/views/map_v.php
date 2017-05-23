@@ -425,7 +425,7 @@ function map_change(area_name, x, y, sort) {
 
 
 function map_dynamic_content(reco_sort) {
-
+    
           $.ajax ({
              type : 'POST',
              url : '/map/map_v_ajax_marker_content_dynamic',
@@ -514,7 +514,7 @@ function map_marker_1 (reco_idx) {
           $.ajax ({
              type : 'POST',
              url : '/map/map_v_ajax_marker_content',
-             data : { reco_idx},
+             data : {reco_idx},
              dataType : 'json',
              success : function (data) {
               // alert(JSON.stringify(data));
@@ -523,9 +523,7 @@ function map_marker_1 (reco_idx) {
                                 position: new daum.maps.LatLng(data.lat, data.lng)
                        });
 
-
                       var marker_reco_star_content;
-
 
                       if(data.reco_star==1){ 
                            marker_reco_star_content = '★☆☆☆☆'; 

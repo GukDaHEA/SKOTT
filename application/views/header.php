@@ -83,7 +83,6 @@
             color:antiquewhite;
             font-size:17px;
             font-weight:bold;
-            
         }
 
         #header_info .search_input:focus{

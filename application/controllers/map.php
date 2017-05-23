@@ -56,9 +56,7 @@ class Map extends MY_Controller {
 				'marker_location_sort'=>$marker_location_sort								
 				)					//변수 이름으로
 		);
-        // print_r($marker_info);
-		// print_r($lo);
-		// print_r($marker_lat);
+
 	}
 
 	public function map_v_ajax_marker() {
