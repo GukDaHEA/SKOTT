@@ -97,7 +97,7 @@
 
 <body>
 <div class="content">
-  <div id="select">
+  <div id="select">				
     <div class="backImage">      
         <div class="sen_1">안녕하세요</div>
         <div class="sen_2">SKOTT</div>      
@@ -114,7 +114,7 @@
             <li><img src="/static/image/pic3.jpg" /></li>
             <li><img src="/static/image/pic2.jpg" /></li>
             <li><img src="/static/image/pic4.jpg" /></li>
-            <li><img src="/static/image/pic5.jpg" /></li>   
+            <li><img src="/static/image/pic5.jpg" /></li>   																																																																											
           </ul>
           <script>
 			$('.bxslider').bxSlider({
