@@ -20,6 +20,14 @@ class Map_m extends CI_Model
 		return $this->db->get()->result();
 	}
 
+	function reco_name() {
+		$sql = "select title from recommand_spot";
+		$query = $this->db->query($sql);
+		$result = $query->result();
+
+		return $result;
+	}
+
 	function recommand_spot($limit = NULL, $sort = NULL) 
 	{	
 		$db = $this->db;
@@ -49,7 +57,7 @@ class Map_m extends CI_Model
 	function recommand_spot_sort($limit = NULL)
 	{
 		$db = $this->db;
-		$db->select('lat, lng, reco_name, reco_address, reco_idx, reco_star');
+		$db->select('lat, lng, title, reco_address, reco_idx, reco_star');
 		$db->from('recommand_spot');
 		$db->where('reco_sort = 1');
 		if (!empty($limit)) {
@@ -67,6 +75,16 @@ class Map_m extends CI_Model
 		return $result;
 			// return $this->db->get()->row();
 	}											//사이드바를 클릭하면 해당 idx를 가져와서 쿼리를 돌리고 그행을 가져가서 뿌린다.
+
+	function search_marker_ajax($search_marker_text)
+	{
+		$sql = "select * from recommand_spot where title ='".$search_marker_text."'";
+		$query = $this->db->query($sql);
+		$result = $query->row();
+
+		return $result;
+			// return $this->db->get()->row();
+	}	
 
 	function recommand_spot_ajax_marker($idx)
 	{
