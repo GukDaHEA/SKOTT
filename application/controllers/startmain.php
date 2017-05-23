@@ -8,10 +8,10 @@ class Startmain extends MY_Controller {
          }
 
 	function index(){
+		$this->load->view('startmain_v');
 		
 	}
 
 	function startmain_v() {
-		$this->load->view('startmain_v');
 	}
 }
