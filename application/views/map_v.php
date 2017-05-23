@@ -233,7 +233,7 @@
         <div id="course" class ="for_ajax"> 
             <div class = "div_course">
               <div class = "div_img"></div>
-              <div class ="div_content""></div>
+              <div class ="div_content"></div>
 <!--                style="overflow:scroll; -->
             </div>
 
