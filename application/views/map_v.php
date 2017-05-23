@@ -10,13 +10,13 @@
 <!--         <script src="/static/js/jquery-3.1.1.js"></script> -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
-        <link rel="stylesheet" type="text/css" href="/static_TEST/Semantic/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">
         <script
           src="https://code.jquery.com/jquery-3.1.1.min.js"
           integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
           crossorigin="anonymous">
         </script>
-        <script src="/static_TEST/Semantic/semantic.min.js"></script>
+        <script src="/static/Semantic/semantic.min.js"></script>
 
 </head>
     <style type="text/css">
