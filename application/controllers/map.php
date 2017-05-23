@@ -27,7 +27,17 @@ class Map extends MY_Controller {
 	
 	public function map_v()
 	{
-		$this->load->view('header.php');
+		$recommand_name = $this->Map_m->reco_name();
+
+		$recommand_name= json_encode($recommand_name, JSON_UNESCAPED_UNICODE);
+
+		$this->load->view('header', 
+			array(	
+				'recommand_name'=>$recommand_name								
+				)				
+		);
+
+
 
 		$reco_sidebar_content = $this->Map_m->recommand_spot('limit');
 
@@ -39,7 +49,7 @@ class Map extends MY_Controller {
 			$marker_lat[] = $lo[$i]->lat;
 			$marker_lng[] = $lo[$i]->lng;
 			$marker_sort[] = $lo[$i]->reco_sort;
-			$marker_reco_name[] = $lo[$i]->reco_name;
+			$marker_reco_name[] = $lo[$i]->title;
 			// $dt["positions"][] = array("lat"=>$marker_lat[$i],"lng"=>$marker_lng[$i]);
 		}
 
@@ -56,9 +66,7 @@ class Map extends MY_Controller {
 				'marker_location_sort'=>$marker_location_sort								
 				)					//변수 이름으로
 		);
-        // print_r($marker_info);
-		// print_r($lo);
-		// print_r($marker_lat);
+
 	}
 
 	public function map_v_ajax_marker() {
@@ -105,6 +113,22 @@ class Map extends MY_Controller {
 					echo json_encode($reco_sidebar_idx);
 				}
 		} //HTML에 해당 div 클릭시 나타나는 marker_content
+
+		public function search_marker_content() {
+			 	//ajax구문
+				$this->output->set_content_type('application/json');
+
+				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+					$data = $this->input->post(NULL, TRUE);
+					$search_marker_text = $data['search_text'];
+
+					$search_marker_text = $this->Map_m->search_marker_ajax($search_marker_text);
+
+					echo json_encode($search_marker_text);
+				}
+		} //HTML에 해당 div 클릭시 나타나는 marker_content
+
+
 
 
 	function detail($url) {
