@@ -222,12 +222,11 @@
 
 <div class="map_wrap">
     <div id="map" style="width:100%;height:89%;"></div>
-<<<<<<< HEAD
+
         <div class="button_menu">
         <button type="button" onclick="location.href='map_v'" >뒤로 가기</button>
         </div>
-=======
->>>>>>> e475d8e19d453f4acc0295d716c043872b9e1819
+
     <div id="menu_wrap" class="bg_white">
         <hr>
         <div class = "reco_course"> 추천관광지 </div>
