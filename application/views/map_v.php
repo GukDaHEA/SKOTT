@@ -333,17 +333,9 @@ function map_dynamic_content(reco_sort) {
                         '<div class="active title">' +
                          '<i class="dropdown icon">' + '</i>' +item[i].title + "  " + reco_star +
                        '</div>' +
-                // '<p id="p_star">'+ reco_star + '</p>' +
               '<div class = "div_course"  onclick="map_marker_1('+item[i].reco_idx+')">'+
-
                 '<div class = "div_img">'+
-<<<<<<< HEAD
-                '<a href="/detail/detail/'+item[i].reco_idx+'" > <img id ="img_div_course" src="/static/image/seoul/'+item[i].reco_idx+'.jpg" width="130px" height="130px"></a>'+
-                '<p id="p_star">'+ reco_star + '</p> </div>' +
-=======
                 '<a href="http://localhost/detail/detail/'+item[i].reco_idx+'" > <img id ="img_div_course" src="/static_TEST/image/seoul/'+item[i].reco_idx+'.jpg" width="365px" height="180px"></a>'+
->>>>>>> e475d8e19d453f4acc0295d716c043872b9e1819
-
                         '<div class="ui small buttons">' +
                           '<button class="ui button">♥</button>' +
                           '<div class="or"></div>' +
@@ -353,16 +345,9 @@ function map_dynamic_content(reco_sort) {
 
                 '<div class ="div_content">' +
                      '<div>' +
-
-                       // '<div class="active content">' +
-                       //   '<p>' + item[i].reco_text + '</p>' +
-                       // '</div>' +
-
-
                        '</div>' +
                   '</div> </div> </div>'
                   );
-
                 // $('.ui.accordion').accordion('onClose');
               }
             },
