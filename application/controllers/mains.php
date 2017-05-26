@@ -6,7 +6,16 @@ class Mains extends MY_Controller {
 	}
 
     function index(){
-        $this->load->view('header');
+        $recommand_name = $this->Mains_m->reco_name();
+
+        $recommand_name= json_encode($recommand_name, JSON_UNESCAPED_UNICODE);
+
+        $this->load->view('header', 
+            array(  
+                'recommand_name'=>$recommand_name                               
+                )               
+        );
+
         $this->load->view('mains_v');
         $this->load->view('footer');
     }
@@ -24,6 +33,8 @@ class Mains extends MY_Controller {
         $this->load->view('adjust_main');
         $this->load->view('footer');
     }
+    
+
 
 }
 ?>

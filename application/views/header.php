@@ -4,12 +4,23 @@
 <meta charset="utf-8">
 <title>무제 문서</title>
 <link rel="stylesheet" href="/static/css/header.css">
+
+        <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">
+        <script
+          src="https://code.jquery.com/jquery-3.1.1.min.js"
+          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+          crossorigin="anonymous">
+        </script>
+        <script src="/static/Semantic/semantic.min.js"></script>
+
+
 <style>
 body {
 	margin: 0px;
 	width: 100%;
 	padding: 0px;
 }
+
 </style>
 <script type="text/javascript">
 function MM_swapImgRestore() { //v3.0
@@ -42,16 +53,26 @@ function MM_swapImage() { //v3.0
   <div id="h_menu1"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu1_hover.png',1)"><img src="../../static/Image/header/menu1.png" alt="" width="47" height="18" id="Image2"></a></div>
   <div id="h_menu2"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu2_hover.png',1)"><img src="../../static/Image/header/menu2.png" alt="" width="65" height="18" id="Image4"></a></div>
   
-  <div id="h_search">
+  <div id="h_search" class="ui search">
     <form method="get" action="/search" id="search">
-  <input name="q" type="text" size="40" placeholder="찾아보기" />
+  <input class = "prompt" name="q" type="text" size="40" placeholder="찾아보기" />
 </form>
   </div>
+
   <div id="h_menu3"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu3_hover_2.png',1)"><img src="../../static/Image/header/menu3.png" alt="" width="118" height="18" id="Image"></a>
   </div>
   
-  
-  
 </div>
 </body>
+
+<script type="text/javascript">
+  
+ var recommand_name = <?php echo $recommand_name;?>
+
+$('.ui.search')
+  .search({
+    source: recommand_name
+  })
+;
+</script>
 </html>
