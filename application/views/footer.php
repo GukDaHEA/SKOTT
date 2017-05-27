@@ -1,7 +1,7 @@
 <style>
 .footer{position:relative;width:100%;clear:both}
 .footer .footer-bottom{width:100%;background-color:#2a2a2a}
-.footer .footer-bottom .footer-info2{z-index:33;position:relative;width:950px;height:268px;margin:0 auto;}
+.footer .footer-bottom .footer-info2{z-index:33;position:relative;width:950px;height:210px;margin:0 auto;}
 .footer .footer-bottom .footer-info2 .footer-logo{float:left;width:200px;padding-top:93px}
 .footer .footer-bottom .footer-info2 .footer-logo a{display:inline-block}
 .footer .footer-bottom .footer-info2 .footer-address-wrap{float:left;margin-left:45px;color:#919191}

@@ -89,6 +89,38 @@
             .searchbutton:hover {
                 background-color: #d16126;
             }
+
+            .main_sub {
+            	margin-top : 60px;
+            	width : 100%;
+            	height :900px;
+            	border : 1px solid black;
+            }
+
+            .main_sub_1 {
+            	background: url(/static/image/main/main_sub_1_1.jpg);
+            	float : left;
+            	width : 33.3333%;
+            	height : 900px;
+/*            	border : 5px solid powderblue;*/
+ 				background-repeat: no-repeat; 
+            }
+             .main_sub_2 {
+            	background: url(/static/image/main/main_sub_1_1.jpg);
+            	float : left;
+            	width : 33.3333%;
+            	height : 900px;
+/*            	border : 5px solid powderblue;*/
+				 background-repeat: no-repeat; 
+            }
+             .main_sub_3 {
+            	background: url(/static/image/main/main_sub_1_1.jpg);
+            	float : left;
+            	width : 33.3333%;
+            	height : 900px;
+/*            	border : 5px solid powderblue;*/
+				 background-repeat: no-repeat; 
+            }
 	
 	
 	</style>
@@ -114,7 +146,7 @@
             <li><img src="/static/image/pic3.jpg" /></li>
             <li><img src="/static/image/pic2.jpg" /></li>
             <li><img src="/static/image/pic4.jpg" /></li>
-            <li><img src="/static/image/pic5.jpg" /></li>   																																																																											
+            <li><img src="/static/image/pic5.jpg" /></li>   																													
           </ul>
           <script>
 			$('.bxslider').bxSlider({
@@ -134,6 +166,10 @@
 			</div>
    		  </div>
         </div>
+        <div class = "main_sub">
+        	<div class = "main_sub_1"></div>
+        	<div class = "main_sub_2"></div>
+        	<div class = "main_sub_3"></div>
       </div>
     </div>
 </div>

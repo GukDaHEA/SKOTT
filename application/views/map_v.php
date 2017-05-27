@@ -17,16 +17,15 @@
           crossorigin="anonymous">
         </script>
         <script src="/static/Semantic/semantic.min.js"></script>
-
-</head>
+        </head>
     <style type="text/css">
     @media(min-width: 1025px) {
         .button_menu {
            position:absolute;right:10%;z-index: 10;font-size:20px;border-radius: 10px;}
-        .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+        .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:15px;}
         .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
         .map_wrap {width:100%;height:100%;}
-        #menu_wrap {position:absolute;top:30px;left:65%;bottom:0;width:28%;height:80%;margin:100px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(243, 117, 58, 0.5);z-index: 1;font-size:12px;border-radius: 10px;border:3px solid white;}
+        #menu_wrap {position:absolute;top:30px;left:65%;bottom:0;width:28%;height:80%;margin:100px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.8);z-index: 1;font-size:15px;border-radius: 10px;border:2px solid black;}
         #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
         #menu_wrap .option{text-align: center;}
         #menu_wrap .option p {margin:10px 0;}  
@@ -116,10 +115,11 @@
             }
     .reco_course {
       color : black;
-      font-size:15px;
+/*      font-size:20pt;*/
       text-align: center;
-      border-top:solid white;
-      border-bottom:solid white;
+/*      border-top:solid white;
+      border-bottom:solid white;*/
+      background-color: #e2e2e2;
     }
 
       .div_head {
@@ -152,6 +152,20 @@
       .div_content table{
         font-size : 10pt;
       } 
+
+      .div_content_click {
+        font-size : 13pt;
+        text-align: center;
+/*        border : 1px solid black;*/
+/*        margin-top : 100px;*/
+        padding : 5px;
+
+      }
+
+      .img_click {
+        width : 100%;
+        height : 210px;
+      }
 
       #p_star {
         font-size: 10pt;
@@ -227,13 +241,20 @@
 
     <div id="menu_wrap" class="bg_white">
 
-        <div class = "reco_course"> 추천관광지 </div>
+        <div class = "reco_course" id = "reco_course"><b>추천관광지</b></div>
         <div id="course" class ="for_ajax"> 
             <div class = "div_course">
               <div class = "div_img"></div>
-              <div class ="div_content"></div>
+              <div class ="div_content">  </div>
 <!--                style="overflow:scroll; -->
             </div>
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";"> </div>
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_2.jpg";"> </div>
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_3.jpg";"> </div>
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";"> </div>
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";"> </div>
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";"> </div>
+
 
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=6f9cc1cd3f08a51269ed1888616c3701&libraries=clusterer"></script>
 
@@ -360,7 +381,6 @@ function map_marker(reco_sort) {
              data : { reco_sort },
              dataType : 'json',
              success : function (data) {
-
               for(var i = 0 ; i < data.length ; i ++) {
                 displayMarker(data[i].lat , data[i].lng, data[i].title, data[i].reco_address, data[i].reco_idx, data[i].reco_star ); 
               }
@@ -388,7 +408,7 @@ function map_marker_1 (reco_idx) {
                        });
 
                       var moveLatLon = new daum.maps.LatLng(data.lat, data.lng);
-                      
+
                       // 지도 중심을 부드럽게 이동시킵니다
                       // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
                       map.panTo(moveLatLon);
@@ -461,7 +481,6 @@ function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_add
         image : markerImage
     });
 
-
     var marker_reco_star_content;
                 if(marker_reco_star==1){ 
                      marker_reco_star_content = '★☆☆☆☆'; 
@@ -482,7 +501,6 @@ function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_add
 
                     marker_reco_star_content = '★★★★★'; 
                }
-
 
     // 마커에 클릭이벤트를 등록합니다
     daum.maps.event.addListener(marker, 'click', function() {
@@ -610,6 +628,8 @@ var imageSrc4 = "/static/image/marker_image/marker_4.png";
 var imageSrc5 = "/static/image/marker_image/marker_5.png"; 
 var imageSrc6 = "/static/image/marker_image/marker_6.png"; 
 
+
+
 var imageSize = new daum.maps.Size(90, 90); 
 
 // 마커를 표시할 위치와 title 객체 배열입니다 
@@ -646,11 +666,6 @@ var positions = [
     }
 ];
 
-// http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png
-
-// 마커 이미지의 이미지 주소입니다
-// var imageSrc1 = "/static/image/marker_image/marker_seoul.png"; 
-    
 for (var i = 0; i < positions.length; i ++) {
     // 마커를 생성합니다
     var marker1 = new daum.maps.Marker({
@@ -667,7 +682,6 @@ if(positions[i].title =="경기권") {
                 .modal('show'); 
 
               $('.ui.positive.button').click(function() {
-                 // alert("1");
                  map_change(37.55703003735185 ,127.02311048850409, 1);
               });
   });
@@ -721,6 +735,7 @@ $('.Box0').click(function() {
       .sidebar('toggle')
     ;
 });
+
 
 
 </script>
