@@ -50,16 +50,33 @@ function MM_swapImage() { //v3.0
 <body onLoad="MM_preloadImages('../../static/Image/header/menu1_hover.png','../../static/Image/header/menu2_hover.png','../../static/Image/header/menu3_hover_2.png')">
 <div id="Gnb">
   <div id="logo"><img src="../../static/Image/header/logo.png" width="148" height="54" alt=""/></div>
-  <div id="h_menu1"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu1_hover.png',1)"><img src="../../static/Image/header/menu1.png" alt="" width="47" height="18" id="Image2"></a></div>
+  <div id="h_menu1"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('menu_loca','','../../static/Image/header/menu1_hover.png',1)"><img src="../../static/Image/header/menu1.png" alt="" width="47" height="18" id="menu_loca"></a></div>
   <div id="h_menu2"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu2_hover.png',1)"><img src="../../static/Image/header/menu2.png" alt="" width="65" height="18" id="Image4"></a></div>
-  
-  <div id="h_search" class="ui search">
-    <form method="get" action="/search" id="search">
-  <input class = "prompt" name="q" type="text" size="40" placeholder="찾아보기" />
-</form>
-  </div>
 
-  <div id="h_menu3"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu3_hover_2.png',1)"><img src="../../static/Image/header/menu3.png" alt="" width="118" height="18" id="Image"></a>
+
+        <?php
+          if('/mains' == $_SERVER['REQUEST_URI'])
+            {
+                  //echo 'ture', $_SERVER['REQUEST_URI'];
+            } else {
+                  //echo $_SERVER['REQUEST_URI'];
+        ?>
+        <div id="h_search" class="ui search">
+         <form method="get" action="/search" id="search">
+            <input class = "prompt" name="q" type="text" size="40" placeholder="찾아보기" />
+          </form>
+        </div>
+          <?php
+        }
+          ?>
+      
+
+    
+<!-- 
+
+ -->
+
+  <div id="h_menu3"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('sign','','../../static/Image/header/menu3_hover_2.png',1)"><img src="../../static/Image/header/menu3.png" alt="" width="118" height="18" id="sign"></a>
   </div>
   
 </div>

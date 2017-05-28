@@ -6,6 +6,7 @@ class Mains extends MY_Controller {
 	}
 
     function index(){
+      //  echo $_SERVER['REQUEST_URI'];
         $recommand_name = $this->Mains_m->reco_name();
 
         $recommand_name= json_encode($recommand_name, JSON_UNESCAPED_UNICODE);
@@ -27,12 +28,7 @@ class Mains extends MY_Controller {
     	$this->load->view('get',array('topic'=>$topic));
     	$this->load->view('footer');
     }
-    function adjust_main(){
-        // $topics = $this->topic_model->gets();
-        // $this->load->view('topic_list', array('topics'=>$topics));
-        $this->load->view('adjust_main');
-        $this->load->view('footer');
-    }
+   
     
 
 

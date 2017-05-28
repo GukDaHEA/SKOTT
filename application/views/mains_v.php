@@ -67,7 +67,7 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
-		.search_input {                      
+	#select	.search_input {                      
             float: left;
             width: 300px;
 			height: 42px;
@@ -75,7 +75,7 @@
             color: #e2e2e2;
             text-indent: 10px		/*글 뒤로 보내기*/
         }
-			.search_button {				
+	#select	.search_button {				
 				border-left: none;
 				width: 100px;
 				height: 50px;
@@ -86,7 +86,7 @@
 				font-weight: bold;
 			}
 
-            .searchbutton:hover {
+    #select	.searchbutton:hover {
                 background-color: #d16126;
             }
 
