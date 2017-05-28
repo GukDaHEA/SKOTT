@@ -194,11 +194,20 @@ body {
   <div class="bom"></div>
   <div class="booms">
         S  K  O  T  T  ! <br>
-        <button onclick="location.href='/mains'" style ="margin-top: 180px; background-color: #f3753a; font-size :30px;margin-left:-10%">START</button>
+        <button id="Btn"style ="margin-top: 180px; background-color: #f3753a; font-size :30px;margin-left:-10%">START</button>
         <!-- <input type="submit" value="START" style="margin-top: 180px; background-color: #f3753a; font-size :30px;margin-left:-10%" /> -->
  </div>
         </div>
 
-    <script src="/static/js/start_main.js"></script>
+    <script src="/static/js/start_main.js">
+      </script>
+      <script type="text/javascript">
+
+    $(document).ready(function(){ 
+      $('#Btn').click(function() {
+      location.replace('/mains');
+    });
+  });
+    </script>
 </body>
 </html>
