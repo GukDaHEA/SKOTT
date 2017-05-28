@@ -47,15 +47,15 @@ function MM_swapImage() { //v3.0
 </script>
 </head>
 
-<body onLoad="MM_preloadImages('../../static/Image/header/menu1_hover.png','../../static/Image/header/menu2_hover.png','../../static/Image/header/menu3_hover_2.png')">
+<body onLoad="MM_preloadImages('../../static/Image/header/menu1_hover.png','../../static/Image/header/menu2_hover.png','../../static/Image/header/menu3_hover_2.png','../../static/Image/header/logout_hover.png')">
 <div id="Gnb">
   <div id="logo"><img src="../../static/Image/header/logo.png" width="148" height="54" alt=""/></div>
-  <div id="h_menu1"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('menu_loca','','../../static/Image/header/menu1_hover.png',1)"><img src="../../static/Image/header/menu1.png" alt="" width="47" height="18" id="menu_loca"></a></div>
+  <div id="h_menu1"><a href="/map/map_v" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('menu_loca','','../../static/Image/header/menu1_hover.png',1)"><img src="../../static/Image/header/menu1.png" alt="" width="47" height="18" id="menu_loca"></a></div>
   <div id="h_menu2"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu2_hover.png',1)"><img src="../../static/Image/header/menu2.png" alt="" width="65" height="18" id="Image4"></a></div>
 
 
         <?php
-          if('/mains' == $_SERVER['REQUEST_URI'])
+          if(('/mains' && '/index.php/mains') == $_SERVER['REQUEST_URI'])
             {
                   //echo 'ture', $_SERVER['REQUEST_URI'];
             } else {
@@ -70,14 +70,21 @@ function MM_swapImage() { //v3.0
         }
           ?>
       
-
-    
-<!-- 
-
- -->
-
-  <div id="h_menu3"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('sign','','../../static/Image/header/menu3_hover_2.png',1)"><img src="../../static/Image/header/menu3.png" alt="" width="118" height="18" id="sign"></a>
-  </div>
+<div id="h_menu3">
+<?php
+        if ($this->session->userdata('is_login')){
+?>
+          <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('logout','','../../static/Image/header/logout_hover.png',1)"><img src="../../static/Image/header/logout.png" alt="" width="65" height="18" id="logout"></a>           
+          <a href="/user/user" class="username">
+          <?php echo $this->session->userdata('name') ?> <img src="../../static/Image/header/name.png" width="14" height="18" alt=""/></a>
+<?php
+        } else {
+?>
+          <a href="/login" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('sign','','../../static/Image/header/menu3_hover_2.png',1)"><img src="../../static/Image/header/menu3.png" alt="" width="118" height="18" id="sign"></a>
+<?php
+        }
+?> 
+</div>
   
 </div>
 </body>
