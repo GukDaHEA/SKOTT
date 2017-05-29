@@ -31,11 +31,13 @@ class Map extends MY_Controller {
 
 		$recommand_name= json_encode($recommand_name, JSON_UNESCAPED_UNICODE);
 
-		$this->load->view('header', 
-			array(	
-				'recommand_name'=>$recommand_name								
-				)				
-		);
+		// $this->load->view('header3', 
+		// 	array(	
+		// 		'recommand_name'=>$recommand_name								
+		// 		)				
+		// );
+
+		// $this->load->view('header3');
 
 
 		$reco_sidebar_content = $this->Map_m->recommand_spot('limit');
@@ -62,7 +64,8 @@ class Map extends MY_Controller {
 				'marker_location'=>$marker_location, //json_encode 변환 전체 디비
 				'reco_sidebar_content'=>$reco_sidebar_content, //전체 디비중 별점이 높은 관광지 10곳을 뽑음
 				'location_sort'=>$location_sort,
-				'marker_location_sort'=>$marker_location_sort								
+				'marker_location_sort'=>$marker_location_sort,
+				'recommand_name'=>$recommand_name							
 				)					//변수 이름으로
 		);
 

@@ -82,7 +82,7 @@
 
 					</ul>
 				</div><!--/.navbar-collapse -->
-			</div
+			</div>
 
 		
 		
