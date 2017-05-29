@@ -204,9 +204,6 @@
     font-size: 10pt;
   }
 
-  p:hover {
-    color : #4d7e2b;
-  }
 
   .map_logo {
 /*    border : 1px solid red;*/
@@ -235,6 +232,18 @@
     color : black;
     padding-right : 100px;
   }
+  ol {
+    list-style: none;
+  }
+
+  .map_menu li a {
+    color : white;
+    text-decoration: none;
+  }
+
+    .map_menu li a:hover {
+    color :#4d7e2b;
+  } 
 
 
 </style>
@@ -258,10 +267,10 @@
  -->
 
   </div>
-<ol type ="1">
+<ol class = "map_menu">
   <li class = "map_home"><p><a href="/mains">홈</a></p></li>
   <li class = "map_view"><p><a href="/map/map_v">지도보기</a></p></li>
-  <li class = "map_location"><p>내위치</p></li>
+  <li class = "map_location"><p><a href="#">내위치</a></p></li>
                <?php
                 if ($this->session->userdata('is_login')){
                 ?>
