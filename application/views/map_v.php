@@ -25,7 +25,7 @@
         .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:15px;}
         .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
         .map_wrap {width:100%;height:100%;}
-        #menu_wrap {position:absolute;top:30px;left:65%;bottom:0;width:28%;height:80%;margin:100px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.8);z-index: 1;font-size:15px;border-radius: 10px;border:2px solid black;}
+        #menu_wrap {position:absolute;top:30px;left:65%;bottom:0;width:28%;height:80%;margin:100px 0 30px 10px;padding:5px;overflow-y:auto;background:#eaf1f7;z-index: 1;font-size:15px;border-radius: 10px;border:2px solid black;}
         #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
         #menu_wrap .option{text-align: center;}
         #menu_wrap .option p {margin:10px 0;}  
@@ -195,6 +195,7 @@
 
 <body>
 
+
   <div class="ui sidebar inverted vertical menu">
   <a class="item">
     <i class="home icon"></i>
@@ -235,10 +236,10 @@
 <div class="map_wrap">
     <div id="map" style="width:100%;height:89%;"></div>
 
-        <div class="button_menu">
+<!--         <div class="button_menu">
         <button type="button" onclick="location.href='map_v'" >뒤로 가기</button>
         </div>
-
+ -->
     <div id="menu_wrap" class="bg_white">
 
         <div class = "reco_course" id = "reco_course"><b>추천관광지</b></div>
@@ -254,8 +255,6 @@
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";"> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";"> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";"> </div>
-
-
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=6f9cc1cd3f08a51269ed1888616c3701&libraries=clusterer"></script>
 
 <script>
@@ -322,6 +321,7 @@ function map_dynamic_content(reco_sort) {
               // alert(JSON.stringify(reco_sidebar_content)); 
               //JavaScript 값을 JSON(JavaScript Object Notation) 문자열로 변환합니다.
 
+
               if (reco_sidebar_content != null) 
                 $('.for_ajax').html('');
               else 
@@ -348,16 +348,16 @@ function map_dynamic_content(reco_sort) {
                         '<div class="active title">' +
                          '<i class="dropdown icon">' + '</i>' +item[i].title + "  " + reco_star +
                        '</div>' +
-              '<div class = "div_course">'+
-                '<div class = "div_img" onclick="map_marker_1('+item[i].reco_idx+')">'+
-                 '<img id ="img_div_course" src="/static/image/seoul/'+item[i].reco_idx+'.jpg" width="365px" height="180px"></a>'+
+              '<div class = "div_course">' + 
+                '<div class = "div_img">' +
+                 '<img id ="img_div_course" src="/static/image/seoul/'+item[i].reco_idx+'.jpg" onclick="map_marker_1('+item[i].reco_idx+')" width="365px" height="180px"></a>' +
                         '<div class="ui small buttons">' +
-                          '<button class="ui button">♥</button>' +
-                          '<div class="or"></div>' +
+            '<button class="ui like button" onclick="like_content_click('+item[i].reco_idx+')"> ♥'+
+             '<div class = "like_content'+item[i].reco_idx+'">' +item[i].reco_like+'</button>' +
+                          '<div class = "or"></div>' +
                           '<button class="ui button"><a href="http://localhost/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
                            '</div>' +
                         '</div>' +
-
                 '<div class ="div_content">' +
                      '<div>' +
                        '</div>' +
@@ -736,12 +736,27 @@ $('.Box0').click(function() {
     ;
 });
 
+function like_content_click(reco_idx) {
+          $.ajax ({
+             type : 'POST',
+             url : '/map/like_content_click',
+             dataType : 'json',
+             data : {reco_idx},
+              success : function (data) {
+                // // alert(data.reco_like);
 
+                var like = ".like_content" +data.reco_idx;
+
+                $(like).html(data.reco_like);
+                // location.reload();
+              },
+              error:function(request,status,error){
+              alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+             }
+          }); 
+}
 
 </script>
-
-
-
 </body>
 </html>
 

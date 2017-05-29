@@ -86,6 +86,21 @@ class Map_m extends CI_Model
 			// return $this->db->get()->row();
 	}	
 
+	function like_content_ajax($reco_idx)
+	{
+
+ 		$sql = "update recommand_spot set reco_like = reco_like + 1  where reco_idx ='".$reco_idx."'";
+		$this->db->query($sql);
+
+		$sql0 = "select reco_like, reco_idx from recommand_spot where reco_idx ='".$reco_idx."'";
+		$query = $this->db->query($sql0);
+		$result = $query->row();
+
+		return $result;
+
+	}	
+
+
 	function recommand_spot_ajax_marker($idx)
 	{
 		$sql = "select * from recommand_spot where reco_sort ='".$idx."'";

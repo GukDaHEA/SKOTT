@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>무제 문서</title>
 <link rel="stylesheet" href="/static/css/header.css">
 
         <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">
@@ -16,9 +15,9 @@
 
 <style>
 body {
-	margin: 0px;
-	width: 100%;
-	padding: 0px;
+   margin: 0px;
+   width: 100%;
+   padding: 0px;
 }
 
 </style>
@@ -47,46 +46,32 @@ function MM_swapImage() { //v3.0
 </script>
 </head>
 
-<body onLoad="MM_preloadImages('../../static/Image/header/menu1_hover.png','../../static/Image/header/menu2_hover.png','../../static/Image/header/menu3_hover_2.png','../../static/Image/header/logout_hover.png')">
+<body onLoad="MM_preloadImages('../../static/Image/header/menu1_hover.png','../../static/Image/header/menu2_hover.png','../../static/Image/header/menu3_hover_2.png')">
 <div id="Gnb">
   <div id="logo"><img src="../../static/Image/header/logo.png" width="148" height="54" alt=""/></div>
-  <div id="h_menu1"><a href="/map/map_v" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('menu_loca','','../../static/Image/header/menu1_hover.png',1)"><img src="../../static/Image/header/menu1.png" alt="" width="47" height="18" id="menu_loca"></a></div>
-  <div id="h_menu2"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu2_hover.png',1)"><img src="../../static/Image/header/menu2.png" alt="" width="65" height="18" id="Image4"></a></div>
 
+  <div id="h_menu1">
+  <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu1_hover.png',1)"><img src="../../static/Image/header/menu1.png" alt="" width="47" height="18" id="Image2">
+  </a>
+  </div>
 
-        <?php
-          if(('/mains' && '/index.php/mains') == $_SERVER['REQUEST_URI'])
-            {
-                  //echo 'ture', $_SERVER['REQUEST_URI'];
-            } else {
-                  //echo $_SERVER['REQUEST_URI'];
-        ?>
-        <div id="h_search" class="ui search">
-         <form method="get" action="/search" id="search">
-            <input class = "prompt" name="q" type="text" size="40" placeholder="찾아보기" />
-          </form>
-        </div>
-          <?php
-        }
-          ?>
-      
-<div id="h_menu3">
-<?php
-        if ($this->session->userdata('is_login')){
-?>
-          <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('logout','','../../static/Image/header/logout_hover.png',1)"><img src="../../static/Image/header/logout.png" alt="" width="65" height="18" id="logout"></a>           
-          <a href="/user/user" class="username">
-          <?php echo $this->session->userdata('name') ?> <img src="../../static/Image/header/name.png" width="14" height="18" alt=""/></a>
-<?php
-        } else {
-?>
-          <a href="/login" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('sign','','../../static/Image/header/menu3_hover_2.png',1)"><img src="../../static/Image/header/menu3.png" alt="" width="118" height="18" id="sign"></a>
-<?php
-        }
-?> 
-</div>
+  <div id="h_menu2" >
+  <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu2_hover.png',1)"><img src="../../static/Image/header/menu2.png" alt="" width="65" height="18" id="Image4">
+  </a>
+  </div>
+  
+  <div id="h_search" class="ui search">
+    <form method="get" action="/search" id="search">
+  <input class = "prompt" name="q" type="text" size="40" placeholder="찾아보기" />
+</form>
+  </div>
+
+  <div id="h_menu3"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu3_hover_2.png',1)"><img src="../../static/Image/header/menu3.png" alt="" width="118" height="18" id="Image"></a>
+  </div>
   
 </div>
+
+
 </body>
 
 <script type="text/javascript">
@@ -98,5 +83,11 @@ $('.ui.search')
     source: recommand_name
   })
 ;
+
+$('#h_menu2').click(function() {
+
+});
+
+
 </script>
 </html>
