@@ -2,7 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Hi! Welcome This is SKOTT!</title>
+  <title>Hi! This is loader!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
 <!--       <link rel="stylesheet" href="css/style.css">
@@ -193,11 +193,9 @@ body {
   <div class="bom"></div>
   <div class="bom"></div>
   <div class="booms">
-        S  K  O  T  T  ! <br>
-        <button onclick="location.href='/mains'" style ="margin-top: 180px; background-color: #f3753a; font-size :30px;margin-left:-10%">START</button>
-        <!-- <input type="submit" value="START" style="margin-top: 180px; background-color: #f3753a; font-size :30px;margin-left:-10%" /> -->
- </div>
-        </div>
+        S  K  O  T  T  !  </div>
+        <button onclick="location.href='/mains'"; style ="margin-top: 180px; background-color: #f3753a; font-size :30px;">START</button>
+</div>
 
     <script src="/static/js/start_main.js"></script>
 </body>

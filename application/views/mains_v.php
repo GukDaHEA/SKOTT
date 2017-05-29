@@ -36,8 +36,10 @@
     		height : 100%;
     	}
 
-    	#section-about {
-/*    		background-color: rgba(59,143,109,0.2);*/
+    	.img_logo {
+    		width : 250px;
+    		height: 100px;
+    		border : 5px solid white;
     	}
 
     </style>
@@ -55,17 +57,29 @@
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 						<span class="fa fa-bars color-white"></span>
 					</button>
-					<h1><a class="navbar-brand" href="index.html" data-0="line-height:90px;" data-300="line-height:50px;"> SKOTT
-					</a></h1>
+					<h1><a class="navbar-brand" href="index.html" data-0="line-height:90px;" data-300="line-height:50px;"> <div class = "img_logo">SKOTT</div>	
+					</a></h1> 
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
-						<li class="active"><a href="#index">홈</a></li>
-						<li><a href="#section-about">지도보기</a></li>
+						<li class="active"><a href="/mains">홈</a></li>
+						<li><a href="/map/map_v">지도보기</a></li>
 						<li><a href="#services">추천코스</a></li>
-						<li><a href="#team">서비스 소개</a></li>
-						<li><a href="#section-works">팀 소개</a></li>
-						<li><a href="#section-contact">회원가입 / 로그인</a></li>
+						<li><a href="#line-pricing">서비스 소개</a></li>
+						<li><a href="#team">팀 소개</a></li>
+             <?php
+                if ($this->session->userdata('is_login')){
+                ?>
+                    <li><a href="/Login/logout">로그아웃</a></li>
+                    <li><a href="/User/user"><?php echo $this->session->userdata('name') ?> 님</a></li>
+                <?php
+                } else {
+                ?>
+                    <li><a class="Gnb-item login small" style="cursor: pointer" href="/Login">로그인</a></li>
+                <?php
+                }
+                ?>
+
 					</ul>
 				</div><!--/.navbar-collapse -->
 			</div
@@ -88,7 +102,7 @@
 
 				<div class="carousel-inner">
 					<div class="item active">						
-						<img src="/static_TEST/image/pic1.jpg" class="img-responsive" alt=""> 
+						<img src="/static/image/pic1.jpg" class="img-responsive" alt=""> 
 						<div class="carousel-caption">
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">								
 								<h2><span>SKOTT</span></h2>
@@ -112,7 +126,7 @@
 				    </div>
 			
 				    <div class="item">
-						<img src="/static_TEST/image/pic2.jpg" class="img-responsive" alt=""> 
+						<img src="/static/image/pic2.jpg" class="img-responsive" alt=""> 
 						<div class="carousel-caption">
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.0s">								
 								<h2>SKOTT</h2>
@@ -156,7 +170,7 @@
 						<div class="title">
 							<div class="wow bounceIn">
 						
-							<h2 class="section-heading animated" data-animation="bounceInUp">SKOTT < TOUR > </h2>
+							<h2 class="section-heading animated" data-animation="bounceInUp">SKOTT < 여행 > </h2>
 							
 						
 							</div>
@@ -172,9 +186,9 @@
 									<ul>
   	    		
 										<div class="slide-body" data-group="slide">
-											<li><img alt="" class="img-responsive" src="/static_TEST/image/pic2.jpg" width="100%" height="350"/></li>
-											<li><img alt="" class="img-responsive" src="/static_TEST/image/pic3.jpg" width="100%" height="350"/></li>
-											<li><img alt="" class="img-responsive" src="/static_TEST/image/pic4.jpg" width="100%" height="350"/></li>
+											<li><img alt="" class="img-responsive" src="/static/image/seoul/1.jpg" width="100%" height="350"/></li>
+											<li><img alt="" class="img-responsive" src="/static/image/seoul/13.jpg" width="100%" height="350"/></li>
+											<li><img alt="" class="img-responsive" src="/static/image/seoul/15.jpg" width="100%" height="350"/></li>
 							
 										</div>
 									</ul>
@@ -227,7 +241,7 @@
 						<div class="section-header">
 						<div class="wow bounceIn"data-animation-delay="7.8s">
 						
-							<h2 class="section-heading animated"  >SKOTT < tourist spot ></h2>
+							<h2 class="section-heading animated"  >SKOTT < 관광지 ></h2>
 							<h4>추천 관광지 TOP3</h4>
 						
 						</div>
@@ -241,7 +255,7 @@
 							<div class="wow rotateIn">
 								<div class="service-col">
 									<div class="service-icon">
-									<img class = "img_service" src="/static_TEST/image/pic3.jpg">
+									<img class = "img_service" src="/static/image/mains/TOP3/8.jpg">
 									</div>
 										<h2><a href="#">TOP1<br> < 이태원 > </a></h2> 
 										<p>서울특별시 용산구 이태원동 일대로서 주한 미군을 비롯한 외국인, 외국 상품, 외국 문화의 집결지</p>
@@ -258,7 +272,7 @@
 							<div class="wow rotateIn">
 								<div class="service-col">	
 									<div class="service-icon">
-										<img class = "img_service" src="/static_TEST/image/pic3.jpg">
+										<img class = "img_service" src="/static/image/mains/TOP3/4.jpg">
 									</div>
 										<h2><a href="#">TOP2<br> < 남산 > </a></h2> 
 										<p>서울 시가지 팽창으로 교통문제를 초래하게 되어 1·2·3호 터널이 뚫려 있다. 남산골 한옥마을, 장충단공원, 정도 600년 타임캡슐 등이 주변의 명소들이다.</p>
@@ -273,7 +287,7 @@
 						<div class="wow bounceIn">
 							<div class="service-col">
 								<div class="service-icon">
-									<img class = "img_service" src="/static_TEST/image/pic3.jpg">
+									<img class = "img_service" src="/static/image/mains/TOP3/9.jpg">
 								</div>
 									<h2><a href="#">TOP3<br> < 홍대입구 > </a></h2> 
 									<p>홍대(弘大)는 서울특별시 마포구 서울 지하철 2호선 홍대입구역과 홍익대학교 정문을 잇는 지역 및 이 일대에 있는 번화가를 말한다. '홍대'는 홍익대학교의 한국어 약칭으로 이 지역의 정식 지명이 아닌 통용 명칭이며, 홍익대학교와 구분하기 위하여 홍대입구, 홍대거리라고도 부른다.</p>
@@ -296,7 +310,7 @@
 						<div class="section-header">
 						<div class="wow bounceIn">
 						
-							<h2 class="section-heading animated" data-animation="bounceInUp">Our Team</h2>
+							<h2 class="section-heading animated" data-animation="bounceInUp">SKOTT < 팀 > </h2>
 							<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam.</p>
 						
 						</div>
@@ -309,7 +323,7 @@
 						<div class="wow bounceIn" data-animation-delay="4.8s">
 							<div class="team-member">
 								<div class="profile-picture">
-									<figure><img src="/static_TEST/image/pic5.jpg" alt=""></figure>
+									<figure><img src="/static/image/mains/TEAM/kim.jpg" alt=""></figure>
 									<div class="profile-overlay"></div>
 										<div class="profile-social">
 											<div class="icons-wrapper">
@@ -322,11 +336,11 @@
 										</div>
 								</div>
 								<div class="team-detail">
-									<h4>Ron Evgeniy</h4>
-									<span>User experiences</span>
+									<br><h4>송창환</h4>
+									<span>Web developer</span>
 								</div>
 								<div class="team-bio">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, fugiat, harum, adipisci accusantium minus asperiores.</p>
+								<p>프론트엔트, 백엔트 개발자</p>
 								</div>
 							</div>
 						</div>
@@ -336,7 +350,7 @@
 							<div class="wow bounceIn">
 							<div class="team-member">
 								<div class="profile-picture">
-									<figure><img src="/static_TEST/image/pic5.jpg" alt=""></figure>
+									<figure><img src="/static/image/mains/TEAM/songg.jpg" alt=""></figure>
 									<div class="profile-overlay"></div>
 										<div class="profile-social">
 											<div class="icons-wrapper">
@@ -349,11 +363,11 @@
 										</div>
 								</div>
 								<div class="team-detail">
-									<h4>Alexander Chernov</h4>
+									<br><h4>김정환</h4>
 									<span>Web developer</span>
 								</div>
 								<div class="team-bio">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, fugiat, harum, adipisci accusantium minus asperiores.</p>
+								<p>프론트엔트, 백엔트 개발자</p>
 								</div>
 							</div>
 							</div>
@@ -362,7 +376,7 @@
 							<div class="wow bounceIn">
 							<div class="team-member">
 								<div class="profile-picture">
-									<figure><img src="/static_TEST/image/pic5.jpg" alt=""></figure>
+									<figure><img src="/static/image/mains/TEAM/guk.jpg" alt=""></figure>
 									<div class="profile-overlay"></div>
 										<div class="profile-social">
 											<div class="icons-wrapper">
@@ -375,11 +389,11 @@
 										</div>
 								</div>
 								<div class="team-detail">
-									<h4>Jose Manuel</h4>
+									<br><h4>국다혜</h4>
 									<span>Web designer</span>
 								</div>
 								<div class="team-bio">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, fugiat, harum, adipisci accusantium minus asperiores.</p>
+								<p>프론트엔트 개발자</p>
 								</div>
 							</div>
 							</div>
@@ -398,8 +412,8 @@
 						<div class="section-header">
 							<div class="wow bounceIn">
 						
-								<h2 class="section-heading animated" data-animation="bounceInUp">Pricing Table</h2>
-								<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam.</p>
+								<h2 class="section-heading animated" data-animation="bounceInUp">SKOTT < 사용방법 > </h2>
+								<p>How to use SKOTT</p>
 						
 							</div>
 						</div>
@@ -410,23 +424,23 @@
 									<div class="pricing-table-wrap" data-scrollreveal="enter top over 0.5s after 0.3s">
 										<ul>
 											<li class="line-head-row">
-												Free
+												지도보기
 											</li>
 											<li class="line-price-row">
 												<p>
-													<span class="symbol">$</span>
-													<span>0</span>
+													<span class="symbol"></span>
+													<span>STEP1</span>
 												</p>
-												<small>Ideal for beginners</small>
+												<small>Map Begging</small>
 											</li>
 											<li>
-												1 theme included
+												01. 페이지 상단 이동
 											</li>
 											<li>
-												1 year of theme updates
+												02. 지도보기버튼 클릭
 											</li>
 											<li>
-												20% off future purchases
+												03. 지역별 관광지정보 확인
 											</li>
 											<li class="line-btn-row">
 												<a href="" class="line-btn light">Get Started</a>
@@ -436,23 +450,20 @@
 									<div class="pricing-table-wrap" data-scrollreveal="enter top over 0.5s after 0.5s">
 										<ul class="line-highlight">
 											<li class="line-head-row">
-												Premium
+												검색
 											</li>
 											<li class="line-price-row">
 												<p>
-													<span class="symbol">$</span>
-													<span>300</span>
+													<span class="symbol"></span>
+													<span>STEP2</span>
 												</p>
-												<small>Per user / month</small>
+												<small>Search</small>
 											</li>
 											<li>
-												24 themes included
+												01. 관굉지 정보 확인
 											</li>
 											<li>
-												Lifetime of premium support
-											</li>
-											<li>
-												Access all new themes
+												02. 관광지 검색
 											</li>
 											<li class="line-btn-row">
 												<a href="" class="line-btn green">Get Started</a>
@@ -462,23 +473,23 @@
 									<div class="pricing-table-wrap" data-scrollreveal="enter top over 0.5s after 0.7s">
 										<ul>
 											<li class="line-head-row">
-												Standard
+												관광지 클릭
 											</li>
 											<li class="line-price-row">
 												<p>
-													<span class="symbol">$</span>
-													<span>150</span>
+													<span class="symbol"></span>
+													<span>STEP3</span>
 												</p>
-												<small>Per user / month</small>
+												<small>Tour Search</small>
 											</li>
 											<li>
-												12 themes included
+												01. 지도상에 관광지 위치 표시
 											</li>
 											<li>
-												1 year of theme updates
+												02. 관광지 상세페이지 이동
 											</li>
 											<li>
-												Access all new themes
+												03. 관광지 예상거리, 예상택시비 표시
 											</li>
 											<li class="line-btn-row">
 												<a href="" class="line-btn light">Get Started</a>
@@ -498,7 +509,7 @@
 				<div class="row mar-bot40">
 					<div class="col-md-offset-3 col-md-6">
 						<div class="section-header">
-							<h2 class="section-heading animated" data-animation="bounceInUp">Portfolio</h2>
+							<h2 class="section-heading animated" data-animation="bounceInUp">지역별 관광지</h2>
 							<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam.</p>
 						</div>
 					</div>
@@ -507,10 +518,10 @@
                         <div class="row">
                           <nav id="filter" class="col-md-12 text-center">
                             <ul>
-                              <li><a href="#" class="current btn-theme btn-small" data-filter="*">All</a></li>
-                              <li><a href="#"  class="btn-theme btn-small" data-filter=".webdesign" >Web Design</a></li>
-                              <li><a href="#"  class="btn-theme btn-small" data-filter=".photography">Photography</a></li>
-                              <li ><a href="#" class="btn-theme btn-small" data-filter=".print">Print</a></li>
+                              <li><a href="#" class="current btn-theme btn-small" data-filter="*">전체</a></li>
+                              <li><a href="#"  class="btn-theme btn-small" data-filter=".webdesign" >경기권</a></li>
+                              <li><a href="#"  class="btn-theme btn-small" data-filter=".photography">전라권</a></li>
+                              <li ><a href="#" class="btn-theme btn-small" data-filter=".print">제주권</a></li>
                             </ul>
                           </nav>
                           <div class="col-md-12">
@@ -520,12 +531,12 @@
                                 <article class="col-md-4 isotopeItem webdesign">
 									<div class="portfolio-item">
 									<div class="wow rotateInUpLeft" data-animation-delay="4.8s">
-										<img src="img/portfolio/1.jpg" alt="welcome" />
+										<img src="/static/image/seoul/1.jpg" alt="welcome" />
 									</div>
 										 <div class="portfolio-desc align-center">
 											<div class="folio-info">
 												<h5><a href="#">Project name 1</a></h5>
-												<a href="img/portfolio/1.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+												<a href="/static/image/seoul/1.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
 											 </div>										   
 										 </div>
 									</div>
@@ -534,12 +545,12 @@
                                 <article class="col-md-4 isotopeItem photography">
 									<div class="portfolio-item">
 									<div class="wow bounceIn">
-										<img src="img/portfolio/2.jpg" alt="" />
+										<img src="/static/image/seoul/2.jpg" alt="" />
 									</div>
 										 <div class="portfolio-desc align-center">
 											<div class="folio-info">
 												<h5><a href="#">Project name 2</a></h5>
-												<a href="img/portfolio/2.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+												<a href="/static/image/seoul/2.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
 											 </div>										   
 										 </div>
 									</div>
@@ -549,12 +560,12 @@
                                 <article class="col-md-4 isotopeItem photography">
 									<div class="portfolio-item">
 									<div class="wow rotateInDownRight">
-										<img src="img/portfolio/3.jpg" alt="" />
+										<img src="/static/image/seoul/3.jpg" alt="" />
 									</div>	
 										 <div class="portfolio-desc align-center">
 											<div class="folio-info">
 												<h5><a href="#">Project name 3</a></h5>
-												<a href="img/portfolio/3.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+												<a href="/static/image/seoul/3.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
 											 </div>										   
 										 </div>
 									</div>
@@ -563,12 +574,12 @@
                                 <article class="col-md-4 isotopeItem print">
 									<div class="portfolio-item">
 									<div class="wow rotateInUpLeft">
-										<img src="img/portfolio/4.jpg" alt="" />
+										<img src="/static/image/seoul/15.jpg" alt="" />
 									 </div>	
 										 <div class="portfolio-desc align-center">
 											<div class="folio-info">
 												<h5><a href="#">Project name 4</a></h5>
-												<a href="img/portfolio/4.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+												<a href="/static/image/seoul/15.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
 											 </div>										   
 										 </div>
 									</div>
@@ -577,12 +588,12 @@
                                 <article class="col-md-4 isotopeItem photography">
 									<div class="portfolio-item">
 									<div class="wow bounceIn">
-										<img src="img/portfolio/5.jpg" alt="" />
+										<img src="/static/image/seoul/5.jpg" alt="" />
 									</div>
 										 <div class="portfolio-desc align-center">
 											<div class="folio-info">
 												<h5><a href="#">Project name 5</a></h5>
-												<a href="img/portfolio/5.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+												<a href="/static/image/seoul/5.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
 											 </div>										   
 										 </div>
 									</div>
@@ -591,12 +602,12 @@
                                 <article class="col-md-4 isotopeItem webdesign">
 									<div class="portfolio-item">
 									<div class="wow rotateInDownRight">
-										<img src="img/portfolio/6.jpg" alt="" />
+										<img src="/static/image/seoul/6.jpg" alt="" />
 									 </div>		
 										 <div class="portfolio-desc align-center">
 											<div class="folio-info">
 												<h5><a href="#">Project name 6</a></h5>
-												<a href="img/portfolio/6.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+												<a href="/static/image/seoul/6.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
 											 </div>										   
 										 </div>
 									</div>
@@ -605,12 +616,12 @@
                                 <article class="col-md-4 isotopeItem print">
 									<div class="portfolio-item">
 									<div class="wow rotateInUpLeft">
-										<img src="img/portfolio/7.jpg" alt="" />
+										<img src="/static/image/seoul/7.jpg" alt="" />
 									</div>
 										 <div class="portfolio-desc align-center">
 											<div class="folio-info">
 												<h5><a href="#">Project name 7</a></h5>
-												<a href="img/portfolio/7.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+												<a href="/static/image/seoul/7.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
 											 </div>										   
 										 </div>
 									</div>
@@ -619,12 +630,12 @@
                                 <article class="col-md-4 isotopeItem photography">
 									<div class="portfolio-item">
 									<div class="wow bounceIn">
-										<img src="img/portfolio/8.jpg" alt="" />
+										<img src="/static/image/seoul/8.jpg" alt="" />
 									</div>	
 										 <div class="portfolio-desc align-center">
 											<div class="folio-info">
 												<h5><a href="#">Project name 8</a></h5>
-												<a href="img/portfolio/8.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+												<a href="/static/image/seoul/8.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
 											 </div>										   
 										 </div>
 									</div>
@@ -633,12 +644,12 @@
                                 <article class="col-md-4 isotopeItem print">
 									<div class="portfolio-item">
 									<div class="wow rotateInDownRight">
-										<img src="img/portfolio/9.jpg" alt="" />
+										<img src="/static/image/seoul/9.jpg" alt="" />
 									</div>
 										 <div class="portfolio-desc align-center">
 											<div class="folio-info">
 												<h5><a href="#">Project name 9</a></h5>
-												<a href="img/portfolio/9.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+												<a href="/static/image/seoul/9.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
 											 </div>										   
 										 </div>
 									</div>
