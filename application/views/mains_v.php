@@ -80,9 +80,10 @@
                 }
                 ?>
 
-               </ul>
-            </div><!--/.navbar-collapse -->
-         </div>
+					</ul>
+				</div><!--/.navbar-collapse -->
+			</div>
+
 
       
       

@@ -193,10 +193,101 @@
     .info .link {color: #5085BB;}
 </style>
 
+<style type="text/css">
+    .BOXA {
+/*    border : 1px solid black;*/
+    height: 11%;
+    background-color: rgba(0,0,0,0.8);
+    color : white;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 10pt;
+  }
+
+
+  .map_logo {
+/*    border : 1px solid red;*/
+    height: 100%;
+    width : 15%;
+    float : left;
+    padding-top : 10px;
+  }
+
+  .map_search {
+/*    border : 1px solid red;*/
+    width : 45%;
+    height: 100%;
+    float : left;
+    padding-top : 30px;
+  }
+
+  .map_home, .map_view, .map_location, .map_login {
+/*    border : 1px solid red;*/
+    width : 10%;
+    height: 100%;
+    float : left;
+    padding-top : 30px;
+  }
+  .ui.search {
+    color : black;
+    padding-right : 100px;
+  }
+  ol {
+    list-style: none;
+  }
+
+  .map_menu li a {
+    color : white;
+    text-decoration: none;
+  }
+
+    .map_menu li a:hover {
+    color :#4d7e2b;
+  } 
+
+
+</style>
+
 <body>
+<div class = "BOXA">
+  <div class = "map_logo"><img src="/static/image/header/logo.png"></div>
+  <div class = "map_search"> 
 
+    <div class="ui search">
+      <div class="ui icon input">
+        <input class="prompt" type="text" size ="60" placeholder="Search...">
+       <i class="inverted circular search link icon"></i>
+      </div>
+    </div>
 
-  <div class="ui sidebar inverted vertical menu">
+<!-- <div class="ui icon input" id ="search_ui">
+  <input type="text" class = "prompt" placeholder="Search..."> 
+  <div><i class="inverted circular search link icon"></i></div>
+</div>
+ -->
+
+  </div>
+<ol class = "map_menu">
+  <li class = "map_home"><p><a href="/mains">홈</a></p></li>
+  <li class = "map_view"><p><a href="/map/map_v">지도보기</a></p></li>
+  <li class = "map_location"><p><a href="#">내위치</a></p></li>
+               <?php
+                if ($this->session->userdata('is_login')){
+                ?>
+                    <li class = "map_login"><a href="/Login/logout">로그아웃</a></li>
+                    <li><a href="/User/user"><?php echo $this->session->userdata('name') ?> 님</a></li>
+                <?php
+                } else {
+                ?>
+                    <li class = "map_login"><a href="/Login">로그인</a></li>
+                <?php
+                }
+                ?>
+  <ol>
+</div>
+  
+
+<!--   <div class="ui sidebar inverted vertical menu">
   <a class="item">
     <i class="home icon"></i>
     Home
@@ -210,7 +301,7 @@
     Friends
   </a>
 </div>
-
+ -->
 
 <div class="ui modal">
   <div class="header">
@@ -321,7 +412,6 @@ function map_dynamic_content(reco_sort) {
               // alert(JSON.stringify(reco_sidebar_content)); 
               //JavaScript 값을 JSON(JavaScript Object Notation) 문자열로 변환합니다.
 
-
               if (reco_sidebar_content != null) 
                 $('.for_ajax').html('');
               else 
@@ -369,7 +459,6 @@ function map_dynamic_content(reco_sort) {
            error:function(request,status,error){
               alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
              }
-
            });
 }
 
@@ -467,9 +556,9 @@ function map_marker_1 (reco_idx) {
 
 // 지도에 마커를 표시하는 함수입니다
 function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_address, marker_reco_idx, marker_reco_star ) {
-    var imageSrc = "/static/Image/marker_image/marker_tour.png";
+    var imageSrc = "/static/Image/marker_image/marker_tour2.png";
 
-    var imageSize = new daum.maps.Size(55,60); 
+    var imageSize = new daum.maps.Size(40,40); 
 
     // 마커 이미지를 생성합니다    
     var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize); 
@@ -551,7 +640,7 @@ function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_add
 
 <script type="text/javascript">
 
-    $('.ui.button').click(function() {
+    $('.ui.search').click(function() {
          var search_text = $(".prompt").val();
          // alert(search_text); searach_text에 검색한 이름이 띄어짐
 
@@ -755,6 +844,79 @@ function like_content_click(reco_idx) {
              }
           }); 
 }
+
+
+  
+   var recommand_name = <?php echo $recommand_name;?>
+
+  $('.ui.search')
+    .search({
+      source: recommand_name
+    })
+  ;
+
+</script>
+
+
+<script type="text/javascript">
+
+$(".map_location").click(function(){
+                  // alert("내 위치를 클릭하셨습니다.");
+
+
+            if (navigator.geolocation) {
+                
+                // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    
+                    var lat = position.coords.latitude, // 위도
+                        lon = position.coords.longitude; // 경도
+                    
+                    var locPosition = new daum.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+                        message = '<div style="padding:5px;">내 위치</div>'; // 인포윈도우에 표시될 내용입니다
+
+                    map.setLevel(7, {
+                        animate: {duration: 1000},
+                        anchor: new daum.maps.LatLng(lat, lon)
+                    });
+
+                    // 마커와 인포윈도우를 표시합니다
+                    displayMarker(locPosition, message);                       
+                  });
+                
+            } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+                
+                var locPosition = new daum.maps.LatLng(33.450701, 126.570667),    
+                    message = 'geolocation을 사용할수 없어요..'
+                    
+                displayMarker(locPosition, message);
+            }
+
+            // 지도에 마커와 인포윈도우를 표시하는 함수입니다
+            function displayMarker(locPosition, message) {
+
+                // 마커를 생성합니다
+                var marker = new daum.maps.Marker({  
+                    map: map, 
+                    position: locPosition
+                }); 
+                
+                var iwContent = message, // 인포윈도우에 표시할 내용
+                    iwRemoveable = true;
+
+                // 인포윈도우를 생성합니다
+                var infowindow = new daum.maps.InfoWindow({
+                    content : iwContent,
+                    removable : iwRemoveable
+                });
+                
+                // 인포윈도우를 마커위에 표시합니다 
+                infowindow.open(map, marker);
+                
+                // 지도 중심좌표를 접속위치로 변경합니다
+                map.setCenter(locPosition);      
+            }    
+             });
 
 </script>
 </body>
