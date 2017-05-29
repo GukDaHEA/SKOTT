@@ -2,7 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Hi! Welcome This is SKOTT!</title>
+  <title>Hi! This is loader!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
 <!--       <link rel="stylesheet" href="css/style.css">
@@ -34,7 +34,7 @@ body {
 }
 
 .bom {
-  background: #f3753a;
+  background: #4d7e2b;
   margin: 0 16px;
   width: 4rem;
   height: 4rem;
@@ -75,7 +75,7 @@ body {
   margin: auto;
   display: none;
   color: transparent;
-  background: #f3753a;
+  background: #4d7e2b;
   width: 16rem;
   height: 4rem;
   -webkit-animation: wrap;
@@ -159,7 +159,7 @@ body {
   100% {
     height: 100%;
     width: 100%;
-    color: #f3753a;
+    color: #4d7e2b;
   }
 }
 @keyframes wrap {
@@ -193,11 +193,9 @@ body {
   <div class="bom"></div>
   <div class="bom"></div>
   <div class="booms">
-        S  K  O  T  T  ! <br>
-        <button id="Btn"style ="margin-top: 180px; background-color: #f3753a; font-size :30px;margin-left:-10%">START</button>
-        <!-- <input type="submit" value="START" style="margin-top: 180px; background-color: #f3753a; font-size :30px;margin-left:-10%" /> -->
- </div>
-        </div>
+        S  K  O  T  T  !  </div>
+        <button onclick="location.href='/mains'"; style ="margin-top: 180px; background-color: #4d7e2b; font-size :30px;color:#FFEEAD">START</button>
+</div>
 
     <script src="/static/js/start_main.js">
       </script>

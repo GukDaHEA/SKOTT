@@ -38,7 +38,6 @@ class Map extends MY_Controller {
 		);
 
 
-
 		$reco_sidebar_content = $this->Map_m->recommand_spot('limit');
 
 		$lo = $this->Map_m->recommand_spot();
@@ -127,6 +126,22 @@ class Map extends MY_Controller {
 					echo json_encode($search_marker_text);
 				}
 		} //HTML에 해당 div 클릭시 나타나는 marker_content
+
+
+		public function like_content_click() {
+			 	//ajax구문
+				$this->output->set_content_type('application/json');
+
+				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+					$data = $this->input->post(NULL, TRUE);
+					$reco_idx = $data['reco_idx'];
+
+					$like_content = $this->Map_m->like_content_ajax($reco_idx);
+
+					echo json_encode($like_content);
+				}
+		} //HTML에 해당 div 클릭시 나타나는 marker_content
+
 
 
 

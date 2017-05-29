@@ -49,8 +49,16 @@ function MM_swapImage() { //v3.0
 <body onLoad="MM_preloadImages('../../static/Image/header/menu1_hover.png','../../static/Image/header/menu2_hover.png','../../static/Image/header/menu3_hover_2.png')">
 <div id="Gnb">
   <div id="logo"><img src="../../static/Image/header/logo.png" width="148" height="54" alt=""/></div>
-  <div id="h_menu1"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu1_hover.png',1)"><img src="../../static/Image/header/menu1.png" alt="" width="47" height="18" id="Image2"></a></div>
-  <div id="h_menu2"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu2_hover.png',1)"><img src="../../static/Image/header/menu2.png" alt="" width="65" height="18" id="Image4"></a></div>
+
+  <div id="h_menu1">
+  <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu1_hover.png',1)"><img src="../../static/Image/header/menu1.png" alt="" width="47" height="18" id="Image2">
+  </a>
+  </div>
+
+  <div id="h_menu2" >
+  <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu2_hover.png',1)"><img src="../../static/Image/header/menu2.png" alt="" width="65" height="18" id="Image4">
+  </a>
+  </div>
   
   <div id="h_search" class="ui search">
     <form method="get" action="/search" id="search">
@@ -62,6 +70,8 @@ function MM_swapImage() { //v3.0
   </div>
   
 </div>
+
+
 </body>
 
 <script type="text/javascript">
@@ -73,5 +83,11 @@ $('.ui.search')
     source: recommand_name
   })
 ;
+
+$('#h_menu2').click(function() {
+
+});
+
+
 </script>
 </html>
