@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>무제 문서</title>
 <link rel="stylesheet" href="/static/css/header.css">
 
         <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">
@@ -16,9 +15,9 @@
 
 <style>
 body {
-	margin: 0px;
-	width: 100%;
-	padding: 0px;
+   margin: 0px;
+   width: 100%;
+   padding: 0px;
 }
 
 </style>
