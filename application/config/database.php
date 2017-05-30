@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'restoretest.ctauak7hakh4.ap-northeast-1.rds.amazonaws.com',
+	'hostname' => 'skottdb1.ctauak7hakh4.ap-northeast-1.rds.amazonaws.com',
 	'username' => 'skott',
 	'password' => '1234567890',
 	'database' => 'SKOTT',
