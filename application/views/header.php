@@ -46,17 +46,17 @@ function MM_swapImage() { //v3.0
 </script>
 </head>
 
-<body onLoad="MM_preloadImages('../../static/Image/header/menu1_hover.png','../../static/Image/header/menu2_hover.png','../../static/Image/header/menu3_hover_2.png')">
+<body onLoad="MM_preloadImages('../../static/image/header/menu1_hover.png','../../static/image/header/menu2_hover.png','../../static/image/header/menu3_hover_2.png')">
 <div id="Gnb">
-  <div id="logo"><img src="../../static/Image/header/logo.png" width="148" height="54" alt=""/></div>
+  <div id="logo"><img src="../../static/image/header/logo.png" width="148" height="54" alt=""/></div>
 
   <div id="h_menu1">
-  <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu1_hover.png',1)"><img src="../../static/Image/header/menu1.png" alt="" width="47" height="18" id="Image2">
+  <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/image/header/menu1_hover.png',1)"><img src="../../static/image/header/menu1.png" alt="" width="47" height="18" id="Image2">
   </a>
   </div>
 
   <div id="h_menu2" >
-  <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu2_hover.png',1)"><img src="../../static/Image/header/menu2.png" alt="" width="65" height="18" id="Image4">
+  <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/image/header/menu2_hover.png',1)"><img src="../../static/image/header/menu2.png" alt="" width="65" height="18" id="Image4">
   </a>
   </div>
   
@@ -66,7 +66,7 @@ function MM_swapImage() { //v3.0
 </form>
   </div>
 
-  <div id="h_menu3"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/Image/header/menu3_hover_2.png',1)"><img src="../../static/Image/header/menu3.png" alt="" width="118" height="18" id="Image"></a>
+  <div id="h_menu3"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../../static/image/header/menu3_hover_2.png',1)"><img src="../../static/image/header/menu3.png" alt="" width="118" height="18" id="Image"></a>
   </div>
   
 </div>
