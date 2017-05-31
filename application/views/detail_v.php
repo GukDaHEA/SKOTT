@@ -180,7 +180,13 @@
   } 
 
     </style>
+<!-- <?php foreach ($now_location as $now_location) {
+?>
 
+
+<body onload="initTmap(<?php $now_location->lat ?>, <?php $now_location->lng ?>)">
+
+<?php } ?> -->
 
 <body onload="initTmap()">
 
@@ -242,7 +248,7 @@
 
             <div id= "div_taxiinfo">
               <div id="div_Address" style="text-align:center">
-                출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="1" /> <br />
+                출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="현재 위치" /> <br />
                 도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="<?php echo $reco_address;?> " readonly /> <br />
               </div>
               <ul> 
@@ -285,11 +291,15 @@
 
 <script src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc">
 </script>
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=6f9cc1cd3f08a51269ed1888616c3701&libraries=clusterer"></script>
+
 <script type="text/javascript">
+
 
 var oriimg;
 
 function initTmap(){
+
     centerLL = new Tmap.LonLat(14145677.4, 4511257.6);
     map = new Tmap.Map({div:'div_Map',
                         width:'100%', 
@@ -297,24 +307,47 @@ function initTmap(){
                         transitionEffect:"resize",
                         animation:true
                     }); 
+
+    detail_location();
     searchRoute();
+
 };
+
+function detail_location() {
+              if (navigator.geolocation) {
+                
+                // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    
+                    var lat = position.coords.latitude, // 위도
+                        lon = position.coords.longitude; // 경도
+                      searchRoute(lat,lon);
+                  });
+
+            } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+                
+                var locPosition = new daum.maps.LatLng(33.450701, 126.570667),message = 'geolocation을 사용할수 없어요..'
+            }
+
+
+}
+
 
 
 //경로 정보 로드
-function searchRoute(){
+function searchRoute(lat, lng){
     var routeFormat = new Tmap.Format.KML({extractStyles:true, extractAttributes:true});
-    var startX = 126.778534;
-    var startY = 37.490559;
-    var endX = 126.97687800509752;
-    var endY = 37.57595094977122;
+    var startX = lng;
+    var startY = lat;
+    var endX = 126.9766341314623;
+    var endY = 37.57750061206984;
     var option = 10;
     var urlStr = "https://apis.skplanetx.com/tmap/routes?version=1&format=xml";
     urlStr += "&startX="+startX;
     urlStr += "&startY="+startY;
     urlStr += "&endX="+endX;
     urlStr += "&endY="+endY;
-    urlStr += "&appKey=2695c76d-bc55-34a4-91cd-2e373b1f97ee";
+    urlStr += "&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc";
     urlStr += "&reqCoordType=WGS84GEO"
     urlStr += "&searchOption="+option;
     var prtcl = new Tmap.Protocol.HTTP({

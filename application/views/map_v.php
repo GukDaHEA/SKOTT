@@ -245,24 +245,7 @@
     color :#4d7e2b;
   } 
 
-  .example .popup {
-  color: #FF0000;
-  }
-  .katalk {
-    z-index : 15000;
-    width : 90px;
-    height : 90px;
-    border-radius: 50px;
-    position: absolute;
-    top: 700px;
-    left: 50px;
-    background: url('/static/image/katalk.png');
-    background-size: 100% 100%;
-    box-shadow: 0px 10px 15px  grey;
-  }
-  #md {
-    display:none;
-  }
+
 </style>
 
 <body>
@@ -326,8 +309,7 @@
   </div>
   <div class="image content">
     <div class="description">
-      <div class="ui header"><br> 알 수 없는 글입니다. </div>
-      <br><br>
+      <div class="ui header">We've auto-chosen a profile image for you.</div>
       <p> <b>이동 클릭시</b> 지도페이지로 이동합니다</p>
     </div>
   </div>
@@ -342,26 +324,6 @@
   </div>
 </div>
 
-<div id="md">
-<div class="ui modal">
-  <div class="header">
-    오픈 카카오톡 방 목록
-  </div>
-  <div class="image content">
-    <div class="description">
-      <p> <b> 한국 url : </b><a href="https://open.kakao.com/o/g0uvutw" target="_blank"> https://open.kakao.com/o/g0uvutw </a></p>
-      <p> <b> English url : </b><a href="https://open.kakao.com/o/gp6Zttw" target="_blank"> https://open.kakao.com/o/gp6Zttw </a></p>
-      <br><br>
-    </div>
-  </div>
-  <div class="actions">
-    <div class="ui black deny button">
-      나가기
-    </div>
-  </div>
-</div>
-</div>
-
 <div class="map_wrap">
     <div id="map" style="width:100%;height:89%;"></div>
 
@@ -369,24 +331,6 @@
         <button type="button" onclick="location.href='map_v'" >뒤로 가기</button>
         </div>
  -->
-    <div id="katalk">
-        <i class="katalk" data-content="오픈 카카오톡방으로 여행 팁을 공유해보세요 !"></i>
-    </div>
-    <script type="text/javascript">
-    $('.katalk')
-      .popup({
-        inline: true
-      })
-    ;
-    $('#katalk').click( function() {
-      $("#md").css("display","");
-               $('.ui.modal')
-                .modal('show'); 
-
-              $('.ui.black.deny.button').click(function() {
-              });
-    });
-    </script>
     <div id="menu_wrap" class="bg_white">
 
         <div class = "reco_course" id = "reco_course"><b>추천관광지</b></div>
@@ -396,21 +340,12 @@
               <div class ="div_content">  </div>
 <!--                style="overflow:scroll; -->
             </div>
-<<<<<<< HEAD
                <div class = "div_content_click"><a href="/detail/detail/1"><img class = "img_click" src="/static/image/map/map_v_1.jpg";"></a> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_2.jpg";"> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_3.jpg";"> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";"> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";"> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";"> </div>
-=======
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_2.jpg";> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_3.jpg";> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
->>>>>>> ce3a5e6c297e07dd36456003ef8434bc1e4cccdc
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=6f9cc1cd3f08a51269ed1888616c3701&libraries=clusterer"></script>
 
 <script>
@@ -510,7 +445,7 @@ function map_dynamic_content(reco_sort) {
             '<button class="ui like button" onclick="like_content_click('+item[i].reco_idx+')"> ♥'+
              '<div class = "like_content'+item[i].reco_idx+'">' +item[i].reco_like+'</button>' +
                           '<div class = "or"></div>' +
-                          '<button class="ui button"><a href="/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
+                          '<button class="ui button" onclick = "detail_location()"><a href="http://localhost/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
                            '</div>' +
                         '</div>' +
                 '<div class ="div_content">' +
@@ -925,10 +860,53 @@ function like_content_click(reco_idx) {
 
 <script type="text/javascript">
 
+
+// $('.ui.button').click(function() {
+//     alert("1");
+// });
+
+// function detail_location() {
+//   alert("1");
+//             if (navigator.geolocation) {
+                
+//                 // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+//                 navigator.geolocation.getCurrentPosition(function(position) {
+                    
+//                     var lat = position.coords.latitude, // 위도
+//                         lon = position.coords.longitude; // 경도
+
+//                       // alert(lat +" " + lon);
+
+//                       detail_location_now(lat, lon);
+//                   });
+
+//             } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+                
+//                 var locPosition = new daum.maps.LatLng(33.450701, 126.570667),message = 'geolocation을 사용할수 없어요..'
+//             }
+
+// }
+
+// function detail_location_now(lat, lng) {
+//   var now_location = { "lat": lat, "lng": lng };
+//           $.ajax ({
+//              type : 'POST',
+//              url : '/detail/detail_location_now',
+//              dataType : 'json',
+//              data : {now_location},
+//               success : function (data) {
+//                  // alert("success");
+//                  alert(data.lat + " " + data.lng);
+//               },
+//               error:function(request,status,error){
+//               alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+//              }
+//           }); 
+// }
+
+
 $(".map_location").click(function(){
                   // alert("내 위치를 클릭하셨습니다.");
-
-
             if (navigator.geolocation) {
                 
                 // GeoLocation을 이용해서 접속 위치를 얻어옵니다
@@ -972,18 +950,4 @@ $(".map_location").click(function(){
                 // 인포윈도우를 생성합니다
                 var infowindow = new daum.maps.InfoWindow({
                     content : iwContent,
-                    removable : iwRemoveable
-                });
-                
-                // 인포윈도우를 마커위에 표시합니다 
-                infowindow.open(map, marker);
-                
-                // 지도 중심좌표를 접속위치로 변경합니다
-                map.setCenter(locPosition);      
-            }    
-             });
-
-</script>
-</body>
-</html>
-
+                    removable : iwRemove
