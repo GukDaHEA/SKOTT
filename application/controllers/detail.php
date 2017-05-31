@@ -13,6 +13,7 @@ class Detail extends MY_Controller {
 
    }
 
+
 	function detail($url) { 
 	  $db = $this->Detail_m;
 
