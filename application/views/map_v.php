@@ -245,7 +245,24 @@
     color :#4d7e2b;
   } 
 
-
+  .example .popup {
+  color: #FF0000;
+  }
+  .katalk {
+    z-index : 15000;
+    width : 90px;
+    height : 90px;
+    border-radius: 50px;
+    position: absolute;
+    top: 700px;
+    left: 50px;
+    background: url('/static/image/katalk.png');
+    background-size: 100% 100%;
+    box-shadow: 0px 10px 15px  grey;
+  }
+  #md {
+    display:none;
+  }
 </style>
 
 <body>
@@ -309,7 +326,8 @@
   </div>
   <div class="image content">
     <div class="description">
-      <div class="ui header">We've auto-chosen a profile image for you.</div>
+      <div class="ui header"><br> 알 수 없는 글입니다. </div>
+      <br><br>
       <p> <b>이동 클릭시</b> 지도페이지로 이동합니다</p>
     </div>
   </div>
@@ -324,6 +342,26 @@
   </div>
 </div>
 
+<div id="md">
+<div class="ui modal">
+  <div class="header">
+    오픈 카카오톡 방 목록
+  </div>
+  <div class="image content">
+    <div class="description">
+      <p> <b> 한국 url : </b><a href="https://open.kakao.com/o/g0uvutw" target="_blank"> https://open.kakao.com/o/g0uvutw </a></p>
+      <p> <b> English url : </b><a href="https://open.kakao.com/o/gp6Zttw" target="_blank"> https://open.kakao.com/o/gp6Zttw </a></p>
+      <br><br>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+      나가기
+    </div>
+  </div>
+</div>
+</div>
+
 <div class="map_wrap">
     <div id="map" style="width:100%;height:89%;"></div>
 
@@ -331,6 +369,24 @@
         <button type="button" onclick="location.href='map_v'" >뒤로 가기</button>
         </div>
  -->
+    <div id="katalk">
+        <i class="katalk" data-content="오픈 카카오톡방으로 여행 팁을 공유해보세요 !"></i>
+    </div>
+    <script type="text/javascript">
+    $('.katalk')
+      .popup({
+        inline: true
+      })
+    ;
+    $('#katalk').click( function() {
+      $("#md").css("display","");
+               $('.ui.modal')
+                .modal('show'); 
+
+              $('.ui.black.deny.button').click(function() {
+              });
+    });
+    </script>
     <div id="menu_wrap" class="bg_white">
 
         <div class = "reco_course" id = "reco_course"><b>추천관광지</b></div>
@@ -340,12 +396,21 @@
               <div class ="div_content">  </div>
 <!--                style="overflow:scroll; -->
             </div>
+<<<<<<< HEAD
                <div class = "div_content_click"><a href="/detail/detail/1"><img class = "img_click" src="/static/image/map/map_v_1.jpg";"></a> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_2.jpg";"> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_3.jpg";"> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";"> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";"> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";"> </div>
+=======
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_2.jpg";> </div>
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_3.jpg";> </div>
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
+>>>>>>> ce3a5e6c297e07dd36456003ef8434bc1e4cccdc
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=6f9cc1cd3f08a51269ed1888616c3701&libraries=clusterer"></script>
 
 <script>
@@ -445,7 +510,7 @@ function map_dynamic_content(reco_sort) {
             '<button class="ui like button" onclick="like_content_click('+item[i].reco_idx+')"> ♥'+
              '<div class = "like_content'+item[i].reco_idx+'">' +item[i].reco_like+'</button>' +
                           '<div class = "or"></div>' +
-                          '<button class="ui button"><a href="http://localhost/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
+                          '<button class="ui button"><a href="/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
                            '</div>' +
                         '</div>' +
                 '<div class ="div_content">' +

@@ -68,19 +68,40 @@
 <body>
 
 <div class = "BOXA">
-	<div class = "map_logo"><img src="/static/image/header/logo.png"></div>
-	<div class = "map_search"> 
-		<div id="h_search" class="ui search">
-			 <form method="get" action="/search" id="search">
-			  <input class = "prompt" name="q" type="text" size="40" placeholder="찾아보기" />
-			</form>
-		</div>
-  </div>
+  <div class = "map_logo"><img src="/static/image/header/logo.png"></div>
+  <div class = "map_search"> 
 
-	<div class = "map_home">홈</div>
-	<div class = "map_view">지도보기</div>
-	<div class = "map_location">내위치</div>
-	<div class = "map_login">로그인</div>
+    <div class="ui search">
+      <div class="ui icon input">
+        <input class="prompt" type="text" size ="60" placeholder="Search...">
+       <i class="inverted circular search link icon"></i>
+      </div>
+    </div>
+
+<!-- <div class="ui icon input" id ="search_ui">
+  <input type="text" class = "prompt" placeholder="Search..."> 
+  <div><i class="inverted circular search link icon"></i></div>
+</div>
+ -->
+
+  </div>
+<ol class = "map_menu">
+  <li class = "map_home"><p><a href="/mains">홈</a></p></li>
+  <li class = "map_view"><p><a href="/map/map_v">지도보기</a></p></li>
+  <li class = "map_location"><p><a href="#">내위치</a></p></li>
+               <?php
+                if ($this->session->userdata('is_login')){
+                ?>
+                    <li class = "map_login"><a href="/Login/logout">로그아웃</a></li>
+                    <li><a href="/User/user"><?php echo $this->session->userdata('name') ?> 님</a></li>
+                <?php
+                } else {
+                ?>
+                    <li class = "map_login"><a href="/Login">로그인</a></li>
+                <?php
+                }
+                ?>
+  <ol>
 </div>
 	
 	
