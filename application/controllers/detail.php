@@ -28,7 +28,7 @@ class Detail extends MY_Controller {
       $address = $detail_result->reco_address;
       $text = $detail_result->reco_text;
 
-      $this->load->view('header.php');
+      // $this->load->view('header.php');
       $this->load->view('detail_v', 
          array(
             'idx'=>$idx,         //전체 디비 

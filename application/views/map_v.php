@@ -556,7 +556,7 @@ function map_marker_1 (reco_idx) {
 
 // 지도에 마커를 표시하는 함수입니다
 function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_address, marker_reco_idx, marker_reco_star ) {
-    var imageSrc = "/static/Image/marker_image/marker_tour2.png";
+    var imageSrc = "/static/Image/marker_image/marker_tour3.png";
 
     var imageSize = new daum.maps.Size(40,40); 
 
