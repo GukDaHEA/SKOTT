@@ -14,6 +14,9 @@
         </script>
         <script src="/static/Semantic/semantic.min.js"></script>
 
+
+
+
 <title> 상세 페이지 - <?php echo $name; ?></title>
 <style type="text/css">
 
@@ -36,7 +39,7 @@
         margin:20px;
         width:480px;
         z-index: 1000;
-        position:fixed;
+  /*      position:fixed;*/
         float:right;
         margin-left : 42%;
       }
@@ -180,15 +183,15 @@
   } 
 
     </style>
-<!-- <?php foreach ($now_location as $now_location) {
-?>
 
+<body onload="initTmap(<?php echo $lat;?>,<?php echo $lng;?>)">
+        <?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd"
+    xmlns:tmap="http://tlp.tmap.co.kr/">
 
-<body onload="initTmap(<?php $now_location->lat ?>, <?php $now_location->lng ?>)">
-
-<?php } ?> -->
-
-<body onload="initTmap()">
+<!-- <body onload="initTmap()">  -->
 
 <div class = "BOXA">
   <div class = "map_logo"><img src="/static/image/header/logo.png"></div>
@@ -251,10 +254,14 @@
                 출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="현재 위치" /> <br />
                 도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="<?php echo $reco_address;?> " readonly /> <br />
               </div>
+
+
+
               <ul> 
-                  <li> 20분 </li>
-                  <li> 2.5 km </li> <br/>
-                  <li> 택시비 약 12,000 원 </li>
+                 <li>  <tmap:totalDistance></tmap:totalDistance></li>
+                 <li>  <tmap:totalTime></tmap:totalTime>         </li> <br/>
+                 <li>  <tmap:totalFare></tmap:totalFare>             </li>
+                 <li>  <tmap:taxiFare></tmap:taxiFare>           </li>
               </ul>
               <h4 style="font-weight:bold;text-align:center;" class="pc">※pc 버전일 경우 호출하실 수 없습니다.</h4>
               <button class="nopc" id="Btn">호출하기</button>
@@ -298,7 +305,7 @@
 
 var oriimg;
 
-function initTmap(){
+function initTmap(Endlat,Endlng) {
 
     centerLL = new Tmap.LonLat(14145677.4, 4511257.6);
     map = new Tmap.Map({div:'div_Map',
@@ -308,39 +315,36 @@ function initTmap(){
                         animation:true
                     }); 
 
-    detail_location();
-    searchRoute();
-
+    detail_location(Endlat, Endlng);
+    // searchRoute();
 };
 
-function detail_location() {
+function detail_location(Endlat, Endlng) {
               if (navigator.geolocation) {
                 
                 // GeoLocation을 이용해서 접속 위치를 얻어옵니다
                 navigator.geolocation.getCurrentPosition(function(position) {
                     
-                    var lat = position.coords.latitude, // 위도
-                        lon = position.coords.longitude; // 경도
-                      searchRoute(lat,lon);
+                    var Startlat = position.coords.latitude, // 위도
+                        Startlng = position.coords.longitude; // 경도
+                      searchRoute(Startlat, Startlng, Endlat, Endlng);
                   });
 
             } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
                 
                 var locPosition = new daum.maps.LatLng(33.450701, 126.570667),message = 'geolocation을 사용할수 없어요..'
             }
-
-
 }
 
 
 
 //경로 정보 로드
-function searchRoute(lat, lng){
+function searchRoute(Startlat, Startlng, Endlat, Endlng){
     var routeFormat = new Tmap.Format.KML({extractStyles:true, extractAttributes:true});
-    var startX = lng;
-    var startY = lat;
-    var endX = 126.9766341314623;
-    var endY = 37.57750061206984;
+    var startX = Startlng;
+    var startY = Startlat;
+    var endX = Endlng;
+    var endY = Endlat;
     var option = 10;
     var urlStr = "https://apis.skplanetx.com/tmap/routes?version=1&format=xml";
     urlStr += "&startX="+startX;
@@ -348,7 +352,7 @@ function searchRoute(lat, lng){
     urlStr += "&endX="+endX;
     urlStr += "&endY="+endY;
     urlStr += "&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc";
-    urlStr += "&reqCoordType=WGS84GEO"
+    urlStr += "&reqCoordType=WGS84GEO";
     urlStr += "&searchOption="+option;
     var prtcl = new Tmap.Protocol.HTTP({
                                         url: urlStr,
