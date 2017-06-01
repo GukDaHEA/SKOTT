@@ -9,8 +9,8 @@
 @media only screen and (min-width:1024px){#container,#header{width:768px;margin:0 auto!important}#content{width:460px;margin:0 auto}.error_browser p{width:460px;margin:0 auto}} 
 @media screen and (min-width:460px){#content{width:460px;margin:0 auto}.error_browser p{width:460px;margin:0 auto}}
 .header_area{overflow:hidden;height:45px}.privacy_title{font-size:18px;font-weight:700;line-height:45px;text-align:center;color:#fff;background-color:#01c73c}.content_area{max-width:460px;margin:0 auto;padding:28px 10px 162px;background-color:#fff}
-.h_logo{background-image:url("/static/image/logo2.gif");background-size: 100% 100%;background-repeat:no-repeat}
-#wrap{position:relative;min-height:100%;background-color: #fffeee}
+.h_logo{background-image:url("/static/image/header/logo.png");background-size: 100% 100%;background-repeat:no-repeat}
+#wrap{position:relative;min-height:100%;background-color: #ffffff}
 .title{margin-bottom:7px}.title p{font-size:13px;line-height:17px;color:#333}.title p .sevice{font-weight:700}a.btn_minor{font-size:13px;line-height:13px;display:inline-block;margin-top:6px;padding-right:11px;text-decoration:none;color:#999;background-position:100% -16px}
 .lang{position:absolute;top:14px;right:0}#header .lang .sel{font-size:12px;font-weight:400;min-width:95px;height:30px;padding:5px 10px 5px 7px;padding:7px 8px 6px 7px\9;cursor:pointer;color:#333;border:1px solid #ccc;border-radius:0}
 .title .sub_title{line-height:17px;padding-top:6px;color:#999}
@@ -19,7 +19,7 @@ body{position:relative;height:100%;background:#f5f6f7}
 #container{padding-bottom:100px}
 .input_row{position:relative;height:29px;margin:0 0 14px;padding:10px 35px 10px 15px;border:solid 1px #dadada;background:#fff}.input_row.focus{border:solid 1px #20bc01}.input_box{display:block;overflow:hidden}.int{font-size:15px;line-height:16px;position:relative;z-index:9;width:100%;height:16px;padding:7px 0 6px;color:#000;border:none;background:#fff;-webkit-appearance:none}.lbl{font-size:15px;line-height:16px;position:absolute;z-index:8;top:16px;left:15px;color:#999}.lbl{z-index:10}.wrg{position:absolute;z-index:1000;top:16px;right:13px;display:none;overflow:hidden;width:19px;height:19px;margin:0;padding:0;cursor:pointer;text-indent:-999px;border:0;background-color:transparent;background-position:-1px -263px}
 .input_row{padding:10px 6px 10px 9px, margin:0;} .login_form{clear:both; border:0px;margin-top:80px;}
-.btn_global{font-size:20px;font-weight:700;line-height:61px;display:block;width:100%;height:61px;margin:30px 0 13px;padding-top:2px;cursor:pointer;text-align:center;color:#fff;border:none;border-radius:0;background-color:#f3753a;-webkit-appearance:none}.btn_global:active,.btn_global:hover,.btn_global:link{text-decoration:none;color:#fff}
+.btn_global{font-size:20px;font-weight:700;line-height:61px;display:block;width:100%;height:61px;margin:30px 0 13px;padding-top:2px;cursor:pointer;text-align:center;color:#fff;border:none;border-radius:0;background-color:#4d7e2b;-webkit-appearance:none}.btn_global:active,.btn_global:hover,.btn_global:link{text-decoration:none;color:#fff}
 input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:none}
 .error{font-size:12px;line-height:16px;margin:-2px 0 12px;color:#ff1616}.error .error_info{color:#333}.error strong{font-size:15px;position:relative;top:3px}
 .phishing_banner{margin:47px 0 15px;padding:25px 0 31px;border:1px solid #dce6ee;background-color:#e5edf3}.phishing_banner .sp{position:relative;width:396px;height:110px;margin:0 auto}.phishing_banner.bw_crome .sp{background-position:0 -670px}.phishing_banner.bw_safari .sp{background-position:0 -800px}.phishing_banner.bw_firefox .sp{background-position:0 -930px}.phishing_banner.bw_ie,.phishing_banner.toolbar{display:none} @media only screen and (max-device-width:1024px) and (-webkit-min-device-pixel-ratio:1.5),(min--moz-device-pixel-ratio:1.5),(-o-min-device-pixel-ratio:3/2),(min-device-pixel-ratio:1.5) {.phishing_banner.bw_safari .sp {background-position: 0 -790px;}.phishing_banner.bw_firefox .sp {background-position: 0 -910px;}}
@@ -38,15 +38,15 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
 <div id="wrap">
     <!-- header -->
     <div id="header">
-        <h1><a href="/mains" class="sp h_logo" tabindex="1">NAVER</a></h1>
-        <div class="lang">
+        <h1><a href="/mains" class="sp h_logo" tabindex="1">SKOTT</a></h1>
+<!--         <div class="lang">
             <select id="locale_switch" name="locale_switch" title="언어선택" tabindex="2" class="sel" onchange="switchlocale();nclks_select(this.value,'',{'ko_KR':'log.lankr','en_US':'log.lanen','zh-Hans_CN':'log.lancn','zh-Hant_TW':'log.lantw'},this,event);">
                 <option value="ko_KR" selected>한국어</option>
                 <option value="en_US" >English</option>
                 <option value="zh-Hans_CN" >中國言</option>
                 <option value="ja_JP" >日本言</option>
             </select>
-        </div>
+        </div> -->
     </div>
     <!-- //header -->
     <!-- container -->
@@ -86,7 +86,7 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
                 <div class="sp">
                     <span class="blind">
                     <strong>지금 로그인 하는 사이트가 어디인지 알고 계신가요?</strong>
-                    고객님의 소중한 정보를 위해 로그인 전에 <em>주소표시줄</em>을 확인해 주세요.
+                    고객님의 소중한 정보를 위해 로그인 전에 <br><em>주소표시줄</em>을 확인해 주세요.
                     </span>
                 </div>
             </div>
