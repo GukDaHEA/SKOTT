@@ -396,21 +396,13 @@
               <div class ="div_content">  </div>
 <!--                style="overflow:scroll; -->
             </div>
-<<<<<<< HEAD
-               <div class = "div_content_click"><a href="/detail/detail/1"><img class = "img_click" src="/static/image/map/map_v_1.jpg";"></a> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_2.jpg";"> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_3.jpg";"> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";"> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";"> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";"> </div>
-=======
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
+               <div class = "div_content_click"><a href="/detail/detail/1"><img class = "img_click" src="/static/image/map/map_v_1.jpg";></a> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_2.jpg";> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_3.jpg";> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
->>>>>>> ce3a5e6c297e07dd36456003ef8434bc1e4cccdc
+
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=6f9cc1cd3f08a51269ed1888616c3701&libraries=clusterer"></script>
 
 <script>
