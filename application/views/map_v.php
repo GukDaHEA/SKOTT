@@ -244,7 +244,6 @@
     .map_menu li a:hover {
     color :#4d7e2b;
   } 
-
   .example .popup {
   color: #FF0000;
   }
@@ -263,6 +262,8 @@
   #md {
     display:none;
   }
+
+
 </style>
 
 <body>
@@ -365,10 +366,6 @@
 <div class="map_wrap">
     <div id="map" style="width:100%;height:89%;"></div>
 
-<!--         <div class="button_menu">
-        <button type="button" onclick="location.href='map_v'" >뒤로 가기</button>
-        </div>
- -->
     <div id="katalk">
         <i class="katalk" data-content="오픈 카카오톡방으로 여행 팁을 공유해보세요 !"></i>
     </div>
@@ -387,6 +384,7 @@
               });
     });
     </script>
+
     <div id="menu_wrap" class="bg_white">
 
         <div class = "reco_course" id = "reco_course"><b>추천관광지</b></div>
@@ -502,7 +500,7 @@ function map_dynamic_content(reco_sort) {
             '<button class="ui like button" onclick="like_content_click('+item[i].reco_idx+')"> ♥'+
              '<div class = "like_content'+item[i].reco_idx+'">' +item[i].reco_like+'</button>' +
                           '<div class = "or"></div>' +
-                          '<button class="ui button"><a href="/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
+                          '<button class="ui button" onclick = "detail_location()"><a href="http://localhost/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
                            '</div>' +
                         '</div>' +
                 '<div class ="div_content">' +
@@ -917,10 +915,53 @@ function like_content_click(reco_idx) {
 
 <script type="text/javascript">
 
+
+// $('.ui.button').click(function() {
+//     alert("1");
+// });
+
+// function detail_location() {
+//   alert("1");
+//             if (navigator.geolocation) {
+                
+//                 // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+//                 navigator.geolocation.getCurrentPosition(function(position) {
+                    
+//                     var lat = position.coords.latitude, // 위도
+//                         lon = position.coords.longitude; // 경도
+
+//                       // alert(lat +" " + lon);
+
+//                       detail_location_now(lat, lon);
+//                   });
+
+//             } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+                
+//                 var locPosition = new daum.maps.LatLng(33.450701, 126.570667),message = 'geolocation을 사용할수 없어요..'
+//             }
+
+// }
+
+// function detail_location_now(lat, lng) {
+//   var now_location = { "lat": lat, "lng": lng };
+//           $.ajax ({
+//              type : 'POST',
+//              url : '/detail/detail_location_now',
+//              dataType : 'json',
+//              data : {now_location},
+//               success : function (data) {
+//                  // alert("success");
+//                  alert(data.lat + " " + data.lng);
+//               },
+//               error:function(request,status,error){
+//               alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+//              }
+//           }); 
+// }
+
+
 $(".map_location").click(function(){
                   // alert("내 위치를 클릭하셨습니다.");
-
-
             if (navigator.geolocation) {
                 
                 // GeoLocation을 이용해서 접속 위치를 얻어옵니다
@@ -978,4 +1019,3 @@ $(".map_location").click(function(){
 </script>
 </body>
 </html>
-

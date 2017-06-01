@@ -13,6 +13,7 @@ class Detail extends MY_Controller {
 
    }
 
+
 	function detail($url) { 
 	  $db = $this->Detail_m;
 
@@ -283,5 +284,9 @@ class Detail extends MY_Controller {
       }
       $seg_exp = explode("/", $seg);
       return $seg_exp;
+   }
+
+   function drive() {
+      $this->load->view('drive_v');
    }
 }
