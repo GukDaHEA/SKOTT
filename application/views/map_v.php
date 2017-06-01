@@ -235,10 +235,14 @@
   ol {
     list-style: none;
   }
+  .map_menu {
+
+  }
 
   .map_menu li a {
     color : white;
     text-decoration: none;
+    font-size: 17px;
   }
 
     .map_menu li a:hover {
@@ -266,7 +270,7 @@
 
 </style>
 
-<body>
+<body style="overflow:hidden">
 <div class = "BOXA">
   <div class = "map_logo"><img src="/static/image/header/logo.png"></div>
   <div class = "map_search"> 
@@ -293,7 +297,7 @@
                 if ($this->session->userdata('is_login')){
                 ?>
                     <li class = "map_login"><a href="/Login/logout">로그아웃</a></li>
-                    <li><a href="/User/user"><?php echo $this->session->userdata('name') ?> 님</a></li>
+                    <li class = "map_home"><a href="/User/user"><?php echo $this->session->userdata('name') ?> 님</a></li>
                 <?php
                 } else {
                 ?>
@@ -971,7 +975,7 @@ $(".map_location").click(function(){
                         lon = position.coords.longitude; // 경도
                     
                     var locPosition = new daum.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-                        message = '<div style="padding:5px;">내 위치</div>'; // 인포윈도우에 표시될 내용입니다
+                        message = '<div style="padding:5px;">내 현재 위치</div>'; // 인포윈도우에 표시될 내용입니다
 
                     map.setLevel(7, {
                         animate: {duration: 1000},

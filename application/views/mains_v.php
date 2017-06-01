@@ -7,7 +7,7 @@
       <!-- BASICS -->
         <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>GREEN responsive bootstraap template</title>
+        <title>SKOTT - 여행의 즐거움 </title>
         <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="/static/tem_css/isotope.css" media="screen" />   
@@ -39,7 +39,8 @@
        .img_logo {
           width : 250px;
           height: 100px;
-          border : 5px solid white;
+          background:url('/static/image/header/logo.png');
+          background-size: 100% 100%;
        }
 
     </style>
@@ -57,12 +58,12 @@
                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                   <span class="fa fa-bars color-white"></span>
                </button>
-               <h1><a class="navbar-brand" href="index.html" data-0="line-height:90px;" data-300="line-height:50px;"> <div class = "img_logo">SKOTT</div>   
+               <h1><a class="navbar-brand" href="index.html" data-0="line-height:90px;" data-300="line-height:50px;"> <div class = "img_logo"></div>   
                </a></h1> 
             </div>
             <div class="navbar-collapse collapse">
                <ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
-                  <li class="active"><a href="/mains">홈</a></li>
+                  <li class="active"><a href="#header">홈</a></li>
                   <li><a href="/map/map_v">지도보기</a></li>
                   <li><a href="#services">추천코스</a></li>
                   <li><a href="#line-pricing">서비스 소개</a></li>
@@ -337,7 +338,7 @@
                               </div>
                         </div>
                         <div class="team-detail">
-                           <br><h4>송창환</h4>
+                           <br><h4>김정환</h4>
                            <span>Web developer</span>
                         </div>
                         <div class="team-bio">
@@ -364,7 +365,7 @@
                               </div>
                         </div>
                         <div class="team-detail">
-                           <br><h4>김정환</h4>
+                           <br><h4>송창환</h4>
                            <span>Web developer</span>
                         </div>
                         <div class="team-bio">
@@ -674,7 +675,7 @@
                <div class="col-md-offset-3 col-md-6">
                   <div class="section-header">
                      <h2 class="section-heading animated" data-animation="bounceInUp">Contact us</h2>
-                     <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam.</p>
+                     <p>불편한 사항이나 저희에게 필요하신 사항을 이메일로 보내주시면 좋은 참고자료가 될 수 있습니다.</p>
                   </div>
                </div>
             </div>
@@ -726,7 +727,7 @@
 
          <div class="row align-center copyright">
                <div class="col-sm-12">
-                   <p>&copy; GREEN Theme</p>
+                   <p>&copy; SKOTT Theme</p>
                         <div class="credits">
                             <!-- 
                                 All the links in the footer should remain intact. 
@@ -734,7 +735,7 @@
                                 Licensing information: https://bootstrapmade.com/license/
                                 Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Green
                             -->
-                            <a href="https://bootstrapmade.com/">Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                            <a href="https://bootstrapmade.com/">SKOTTer</a> by <a href="https://bootstrapmade.com/">BucheonU.S MADE</a>
                         </div>
                     </div>
          </div>

@@ -39,7 +39,7 @@
         margin:20px;
         width:480px;
         z-index: 1000;
-  /*      position:fixed;*/
+        position:fixed;
         float:right;
         margin-left : 42%;
       }
@@ -246,22 +246,22 @@
                 </ul>
           </div>
           <div id="div_Taxi" style="background-color: #FFF"> 
-         <h3 style="color:#f3753a;font-weight:">택시 정보 </h3><br/>
+         <h3 style="color:#4d7e2b;font-weight:">택시 정보 </h3><br/>
           <div id = "div_Map"></div>
 
             <div id= "div_taxiinfo">
               <div id="div_Address" style="text-align:center">
-                출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="현재 위치" /> <br />
+                출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="현재 위치" readonly/> <br />
                 도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="<?php echo $reco_address;?> " readonly /> <br />
               </div>
 
 
 
-              <ul> 
+              <ul> <!-- 
                  <li>  <tmap:totalDistance></tmap:totalDistance></li>
                  <li>  <tmap:totalTime></tmap:totalTime>         </li> <br/>
                  <li>  <tmap:totalFare></tmap:totalFare>             </li>
-                 <li>  <tmap:taxiFare></tmap:taxiFare>           </li>
+                 <li>  <tmap:taxiFare></tmap:taxiFare>           </li> -->
               </ul>
               <h4 style="font-weight:bold;text-align:center;" class="pc">※pc 버전일 경우 호출하실 수 없습니다.</h4>
               <button class="nopc" id="Btn">호출하기</button>
@@ -274,7 +274,7 @@
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <header>
         <div id = "div_Info">
-          <h3 style="color:#f3753a">관광지 정보</h3>
+          <h3 style="color:#4d7e2b">관광지 정보</h3>
            <div id = "div_Title2">
               <?php echo $name;?>
            </div>
@@ -285,9 +285,6 @@
            </div>
         </div>
         <br/><br/>
-        <div id = "div_Review">
-            <h3 style="color:#f3753a">리뷰 </h3>
-        </div>
 
     </header>
 </div>
