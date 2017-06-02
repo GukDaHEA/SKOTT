@@ -63,10 +63,7 @@
 		height: 100%;
 		float : left;
 	}*/
-	@media screen and (max-device-width:450px){
-		.BOXA{width: 200%;}
-	}
-
+	
 </style>
 <body>
 
