@@ -374,10 +374,10 @@ function multi_image_view(obj) {  //사진 바꾸기
 
 $(document).ready(function(){ 
   $('#Btn').click(function() { 
-    var result = confirm('정말 호출 하시겠습니까?'); 
+    var result = confirm('호출 페이지로 이동 하시겠습니까?'); 
     if(result) { //yes 
-      location.replace('/startmain'); 
-    } 
+      location.replace('/drive/drive'); 
+    }
     else { //no 
     } 
   }); 

@@ -10,7 +10,7 @@
 @media only screen and (min-width:1024px){#container,#header{width:768px;margin:0 auto!important}#content{width:460px;margin:0 auto}.error_browser p{width:460px;margin:0 auto}} 
 @media screen and (min-width:460px){#content{width:460px;margin:0 auto}.error_browser p{width:460px;margin:0 auto} input[type=range]{width:400px;}}
 .header_area{overflow:hidden;height:45px}.privacy_title{font-size:18px;font-weight:700;line-height:45px;text-align:center;color:#fff;background-color:#01c73c}.content_area{max-width:460px;margin:0 auto;padding:28px 10px 162px;background-color:#fff}
-.h_logo{background-image:url("/static/image/logo.png");background-size: 100% 100%;background-repeat:no-repeat}
+.h_logo{background-image:url("/static/image/header/logo.png");background-size: 100% 100%;background-repeat:no-repeat}
 #wrap{position:relative;min-height:100%;background-color: #3e3e3e}
 .lang{position:absolute;top:14px;right:0}
 .login_form .blind{font-size:0;line-height:0;position:absolute;top:0;left:0;visibility:hidden;overflow:hidden;width:1px;height:1px}
@@ -22,9 +22,7 @@
 input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:none}
 .error{font-size:12px;line-height:16px;margin:-2px 0 12px;color:#ff1616}.error .error_info{color:#333}.error strong{font-size:15px;position:relative;top:3px}
 .phishing_banner{margin:47px 0 15px;padding:25px 0 31px;border:1px solid #dce6ee;background-color:#e5edf3}.phishing_banner .sp{position:relative;width:396px;height:110px;margin:0 auto}.phishing_banner.bw_crome .sp{background-position:0 -670px}.phishing_banner.bw_safari .sp{background-position:0 -800px}.phishing_banner.bw_firefox .sp{background-position:0 -930px}.phishing_banner.bw_ie,.phishing_banner.toolbar{display:none} @media only screen and (max-device-width:1024px) and (-webkit-min-device-pixel-ratio:1.5),(min--moz-device-pixel-ratio:1.5),(-o-min-device-pixel-ratio:3/2),(min-device-pixel-ratio:1.5) {.phishing_banner.bw_safari .sp {background-position: 0 -790px;}.phishing_banner.bw_firefox .sp {background-position: 0 -910px;}}
-input[type=textarea]{background:#000;border:0px;color:white;font-size:20px;}
-input[type=submit]{margin-top:50%;}
-/* menu icon 스타일*/
+
 .menu-trigger {
     margin-right: 70px;
     margin-bottom: 50px;
@@ -65,6 +63,49 @@ input[type=submit]{margin-top:50%;}
 menu-trigger.active-10 {
     -webkit-transform : rotate(90deg);
     transform : rotate(90deg);
+}
+
+/* 밀어서 잠금해제 스타일*/
+input[type="range"] {
+    width: 95%;
+    left: 2%;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#000), to(#1f1f1f));
+    -webkit-appearance: none;
+    border-radius: 10px;
+    padding: 5px;
+    transition: opacity 0.5s;
+    position: relative;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border-radius: 10px;
+    background: -webkit-linear-gradient(top, #fafafa 0%,#dedede 50%,#cfcfcf 51%,#a3a3a3 100%);
+    z-index: 1;
+    width: 75px;
+    position: relative;
+    height: 50px;
+}
+
+input[type="range"]:before {
+    content: "밀어서 퇴근";
+    color: #8a8a8a;
+    position: absolute;
+    left: 110px;
+    top: 10px;
+    z-index: 1;
+    font-size: 32px;
+}
+
+input[type="range"]::-webkit-slider-thumb:before {
+    color: #8a8a8a;
+    position: absolute;
+    left: 5px;
+    top: -10px;
+    z-index: 1;
+    font-size: 56px;
+    font-weight: bold;
+    content: "→";
 }
 
 /* 로딩 아이콘 css*/
@@ -177,16 +218,15 @@ menu-trigger.active-10 {
             <div class="title">
                 <p></p>
             </div>
-        <form id="frmNIDLogin" name="frmNIDLogin" action="javascript:log();" method="post">
+        <form id="frmNIDLogin" name="frmNIDLogin" action="/" method="post">
                 <fieldset class="login_form">
                     <legend class="blind">STATUS</legend>
                     <div class="input_row" id="id_area">
                         <span class="input_box"><br><br><br>
-                        	<input type="textarea" id="inputMessage" wrap="virtual" value="부천시 원미구 심곡동 부천대 에서 서울시 경복궁 까지">
-                            <!-- <label for="email" id="label_email_area" class="lbl" style="font-size:50px;font-weight:bold;top:30%;left:25%" >호출 중</label> -->
+                            <label for="email" id="label_email_area" class="lbl" id="status" style="font-size:50px;font-weight:bold;top:30%;left:15%" >콜 대기 중</label>
                             <!-- <input type="text" id="email" name="email" tabindex="7" accesskey="L" class="int" maxlength="41" value=""> -->
-                        </span>
-                        <div class="loading">
+                        </span> <br>
+                            <div class="loading">
                                 <div class="loading-dot"></div>
                                 <div class="loading-dot"></div>
                                 <div class="loading-dot"></div>
@@ -195,10 +235,13 @@ menu-trigger.active-10 {
                         
                     </div>
                     <!-- <button class="btn_global" onclick"">빈 차</button> -->
-                    <input type="submit" title="호출 하기" alt="호출 하기" value="호출 하기" class="btn_global" onclick="javascript:;">
+                    <input type="submit" title="빈 차" alt="빈 차" value="빈 차" class="btn_global" target="_blank" >
+                    <input type="submit" title="운행중" alt="운행중"  value="운행중" class="btn_global" onclick="" target="_blank"id="nul">
                     </fieldset>
             </form>
-            </div>
+            
+                    <input type="range" class="slideToUnlock" value="0" max="100">
+</div>
             <!-- tg-lang -->
         </div>
         <!-- //content -->
@@ -212,14 +255,23 @@ menu-trigger.active-10 {
             log.buffer.push(s);
         } else {
             // document.getElementById("output").innerHTML += (s + "\n")
-            // var result = confirm(s); 
-            alert("호출 버튼을 누르셨습니다.");
+            var result = confirm(s + "수락 하시겠습니까?");
+            if(result) { //yes
+              location.replace('/call/call');
+            }
+            else { //no
+            }
         }
     }
     log.buffer = [];
  
     url = "ws://localhost:8080";
     w = new WebSocket(url);
+
+
+    w.onopen = function() {
+        log("open");
+    }
 
     w.onmessage = function(e) {
         console.log(e.data);
@@ -232,12 +284,34 @@ menu-trigger.active-10 {
  
     window.onload = function() {
         log(log.buffer.join("\n"));
-        document.getElementById("sendButton").onclick = function() {
-            console.log(document.getElementById("inputMessage").value);
-            w.send(document.getElementById("inputMessage").value);
-        }
     }
     </script>
+    <!-- 밀어서 잠금해제 javascript -->
+<script type="text/javascript">
+document.querySelector("input[type=\"range\"]").onmouseup = function() {
+    var theRange = this.value;
+    if(theRange == 100) {
+
+            unlock();
+
+        } else {
+            document.init = setInterval(function() {
+                if(document.querySelector("input[type=\"range\"]").value != 0) {
+                    theRange = theRange - 1;
+                    document.querySelector("input[type=\"range\"]").value = theRange;
+                }
+            }, 1);
+        }
+}
+
+document.querySelector("input[type=\"range\"]").onmousedown = function() {
+        clearInterval(document.init);
+}
+
+function unlock() {
+    document.querySelector("input[type=\"range\"]").style.opacity = "0";
+}
+</script>
 
 <!-- 메뉴 아이콘 javascript -->
 <script type="text/javascript">
@@ -253,5 +327,11 @@ burger.each(function(index){
 });
 </script>
     <!-- //container -->
+
+    <script type="text/javascript">
+document.getElementById("nul").onclick = function() {
+            document.getElementById("status").value = "운행 중";
+        }
+    </script>
 </body>
 </html>

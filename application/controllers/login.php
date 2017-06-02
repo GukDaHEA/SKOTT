@@ -26,7 +26,7 @@ class Login extends MY_Controller {
             ) {
             $this->session->set_userdata(array('is_login' => true, 'name' => $user->name));
             $this->session->set_userdata(array('is_login' => true, 'email' => $email));
-            $returnURL = $this->input->get('returnURL');
+            // $returnURL = $this->input->get('returnURL');
             if($returnURL == false){
                redirect("/mains");
             }
