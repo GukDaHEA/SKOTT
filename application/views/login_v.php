@@ -3,6 +3,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>SKOTT : 로그인</title>
+          <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+              <link rel="stylesheet" href="style.css" />
+              <title>jQuery Example</title>
+              <script>
+                $(document).ready(function() {
+                  // Execute some code here
+                });
+
+                $(document).ready(function() {
+                  $.ajaxSetup({ cache: true });
+                  $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+                    FB.init({
+                      appId: '{720188158141280}',
+                      version: 'v2.7' // or v2.1, v2.2, v2.3, ...
+                    });     
+                    $('#loginbutton,#feedbutton').removeAttr('disabled');
+                    FB.getLoginStatus(updateStatusCallback);
+                  });
+                });
+              </script>
 </head>
 <style>
 #header{margin:0 10px}#header{position:relative;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;height:168px;padding:50px 0 0}#header .h_logo{line-height:999px;display:block;overflow:hidden;width:240px;height:100px;margin:0 auto;background-position:-1px -1px}#header .lang{position:absolute;top:14px;right:0}#header .lang .sel{font-size:12px;font-weight:400;min-width:95px;height:30px;padding:5px 10px 5px 7px;padding:7px 8px 6px 7px\9;cursor:pointer;color:#333;border:1px solid #ccc;border-radius:0}
@@ -24,6 +44,7 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
 .error{font-size:12px;line-height:16px;margin:-2px 0 12px;color:#ff1616}.error .error_info{color:#333}.error strong{font-size:15px;position:relative;top:3px}
 .phishing_banner{margin:47px 0 15px;padding:25px 0 31px;border:1px solid #dce6ee;background-color:#e5edf3}.phishing_banner .sp{position:relative;width:396px;height:110px;margin:0 auto}.phishing_banner.bw_crome .sp{background-position:0 -670px}.phishing_banner.bw_safari .sp{background-position:0 -800px}.phishing_banner.bw_firefox .sp{background-position:0 -930px}.phishing_banner.bw_ie,.phishing_banner.toolbar{display:none} @media only screen and (max-device-width:1024px) and (-webkit-min-device-pixel-ratio:1.5),(min--moz-device-pixel-ratio:1.5),(-o-min-device-pixel-ratio:3/2),(min-device-pixel-ratio:1.5) {.phishing_banner.bw_safari .sp {background-position: 0 -790px;}.phishing_banner.bw_firefox .sp {background-position: 0 -910px;}}
  @media screen and (max-device-width:450px){.phishing_banner{ display: none;} .position_a{margin-left: 30px} } 
+ .fb-login-button{margin: auto;}
 </style>
 <body class="chrome">
     <?php 
@@ -74,6 +95,16 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
                             <span class="sp ly_point"></span>
                         </div>
                     </div>
+                    <div id="fb-root"></div>
+                                                <script>(function(d, s, id) {
+                                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                                  if (d.getElementById(id)) return;
+                                                  js = d.createElement(s); js.id = id;
+                                                  js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.9&appId=720188158141280";
+                                                  fjs.parentNode.insertBefore(js, fjs);
+                                                }(document, 'script', 'facebook-jssdk'));</script>
+                                                <div class="fb-login-button" data-width="61px" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+                                                
                     <input type="submit" title="로그인" alt="로그인" tabindex="12" value="로그인" class="btn_global" target="_blank">
                     <label><input type="checkbox" name="save_id" id="chk_save_id" value="on"  /> 아이디저장</label>
                     </fieldset>

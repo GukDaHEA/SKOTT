@@ -55,7 +55,8 @@
 ?>
 	<tr>
 		<td><?php echo $list->user_name ?></td>
-		<td><a href="/Detail/board_v_view/<?php echo $list->board_id ?>"><?php echo $list->subject?></a></td>
+		<td><a href="/Detail/board_v_view/<?php echo $list->board_id ?>"><?php echo $list->subject?></a></td> 
+		<!-- 제목을 통해서 들어가기 -->
 		<td><?php echo $list->contents?></td>
 		<td><?php echo $list->hits ?></td>
 		<td><?php echo $list->reg_date ?></td>

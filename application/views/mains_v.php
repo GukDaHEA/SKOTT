@@ -37,8 +37,9 @@
        }
 
        .img_logo {
-          width : 250px;
-          height: 100px;
+          margin-top: 10px;
+          width : 90px;
+          height: 40px;
           background:url('/static/image/header/logo.png');
           background-size: 100% 100%;
        }
@@ -52,7 +53,7 @@
    <div class="header">
    <section id="header" class="appear">
       
-      <div class="navbar navbar-fixed-top" role="navigation" data-0="line-height:100px; height:100px; background-color:rgba(0,0,0,0.3);" data-300="line-height:60px; height:60px; background-color:rgba(0,0,0,1);">
+      <div class="navbar navbar-fixed-top" role="navigation" data-0="line-height:100px; height:80px; background-color:rgba(0,0,0,0.3);" data-300="line-height:60px; height:60px; background-color:rgba(0,0,0,1);">
          
             <div class="navbar-header">
                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -62,11 +63,13 @@
                </a></h1> 
             </div>
             <div class="navbar-collapse collapse">
+
                <ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
                   <li class="active"><a href="#header">홈</a></li>
                   <li><a href="/map/map_v">지도보기</a></li>
                   <li><a href="#services">추천코스</a></li>
                   <li><a href="#line-pricing">서비스 소개</a></li>
+                  <li><a href="#"
                   <li><a href="#team">팀 소개</a></li>
              <?php
                 if ($this->session->userdata('is_login')){
@@ -104,7 +107,7 @@
 
             <div class="carousel-inner">
                <div class="item active">                  
-                  <img src="/static/image/pic1.jpg" class="img-responsive" alt=""> 
+                  <img src="/static/image/pic4.jpg" class="img-responsive" alt=""> 
                   <div class="carousel-caption">
                      <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">                        
                         <h2><span>SKOTT</span></h2>
@@ -128,7 +131,7 @@
                 </div>
          
                 <div class="item">
-                  <img src="/static/image/pic2.jpg" class="img-responsive" alt=""> 
+                  <img src="/static/image/pic6.jpg" class="img-responsive" alt=""> 
                   <div class="carousel-caption">
                      <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.0s">                        
                         <h2>SKOTT</h2>
@@ -255,7 +258,7 @@
                <div class="wow bounceIn">
                   <div class="align-center">
                      <div class="wow rotateIn">
-                        <div class="service-col">
+                        <div class="service-col" style="height: 520px;">
                            <div class="service-icon">
                            <img class = "img_service" src="/static/image/mains/TOP3/8.jpg">
                            </div>
@@ -267,12 +270,12 @@
                </div>
             </div>
                
-            <div class="col-lg-4" >
+            <div class="col-lg-4">
                <div class="align-center">
                   <div class="wow bounceIn">
                   
                      <div class="wow rotateIn">
-                        <div class="service-col">   
+                        <div class="service-col"  style="height: 520px;">   
                            <div class="service-icon">
                               <img class = "img_service" src="/static/image/mains/TOP3/4.jpg">
                            </div>
@@ -287,7 +290,7 @@
             <div class="col-lg-4" >
                <div class="align-center">
                   <div class="wow bounceIn">
-                     <div class="service-col">
+                     <div class="service-col" style="height: 520px;">
                         <div class="service-icon">
                            <img class = "img_service" src="/static/image/mains/TOP3/9.jpg">
                         </div>
@@ -301,111 +304,7 @@
          </div>   
 
       </div>
-      </section>
-         
-      <!-- team -->
-      <section id="team" class="team-section appear clearfix">
-      <div class="container">
-
-            <div class="row mar-bot10">
-               <div class="col-md-offset-3 col-md-6">
-                  <div class="section-header">
-                  <div class="wow bounceIn">
-                  
-                     <h2 class="section-heading animated" data-animation="bounceInUp">SKOTT < 팀 > </h2>
-                     <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam.</p>
-                  
-                  </div>
-                  </div>
-               </div>
-            </div>
-
-               <div class="row align-center mar-bot45">
-                  <div class="col-md-4">
-                  <div class="wow bounceIn" data-animation-delay="4.8s">
-                     <div class="team-member">
-                        <div class="profile-picture">
-                           <figure><img src="/static/image/mains/TEAM/kim.jpg" alt=""></figure>
-                           <div class="profile-overlay"></div>
-                              <div class="profile-social">
-                                 <div class="icons-wrapper">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                 </div>
-                              </div>
-                        </div>
-                        <div class="team-detail">
-                           <br><h4>김정환</h4>
-                           <span>Web developer</span>
-                        </div>
-                        <div class="team-bio">
-                        <p>프론트엔트, 백엔트 개발자</p>
-                        </div>
-                     </div>
-                  </div>
-                  </div>
-                  <div class="col-md-4">
-                     
-                     <div class="wow bounceIn">
-                     <div class="team-member">
-                        <div class="profile-picture">
-                           <figure><img src="/static/image/mains/TEAM/songg.jpg" alt=""></figure>
-                           <div class="profile-overlay"></div>
-                              <div class="profile-social">
-                                 <div class="icons-wrapper">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                 </div>
-                              </div>
-                        </div>
-                        <div class="team-detail">
-                           <br><h4>송창환</h4>
-                           <span>Web developer</span>
-                        </div>
-                        <div class="team-bio">
-                        <p>프론트엔트, 백엔트 개발자</p>
-                        </div>
-                     </div>
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <div class="wow bounceIn">
-                     <div class="team-member">
-                        <div class="profile-picture">
-                           <figure><img src="/static/image/mains/TEAM/guk.jpg" alt=""></figure>
-                           <div class="profile-overlay"></div>
-                              <div class="profile-social">
-                                 <div class="icons-wrapper">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                 </div>
-                              </div>
-                        </div>
-                        <div class="team-detail">
-                           <br><h4>국다혜</h4>
-                           <span>Web designer</span>
-                        </div>
-                        <div class="team-bio">
-                        <p>프론트엔트 개발자</p>
-                        </div>
-                     </div>
-                     </div>
-                  </div>
-                  
-               </div>
-                  
-      </div>
-      </section>
-      <!-- /team -->
+      </section>        
       
       <section id="line-pricing" class="line-section line-center">
          <div class="container pad-top50">
@@ -414,7 +313,7 @@
                   <div class="section-header">
                      <div class="wow bounceIn">
                   
-                        <h2 class="section-heading animated" data-animation="bounceInUp">SKOTT < 사용방법 > </h2>
+                        <h2 class="section-heading animated" data-animation="bounceInUp">SKOTT < 이용방법 > </h2>
                         <p>How to use SKOTT</p>
                   
                      </div>
@@ -666,6 +565,110 @@
             
          </div>
       </section>
+
+      <!-- team -->
+      <section id="team" class="team-section appear clearfix">
+      <div class="container">
+
+            <div class="row mar-bot10">
+               <div class="col-md-offset-3 col-md-6">
+                  <div class="section-header">
+                  <div class="wow bounceIn">
+                  
+                     <h2 class="section-heading animated" data-animation="bounceInUp">SKOTT < 팀 > </h2>
+                     <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam.</p>
+                  
+                  </div>
+                  </div>
+               </div>
+            </div>
+
+               <div class="row align-center mar-bot45">
+                  <div class="col-md-4">
+                  <div class="wow bounceIn" data-animation-delay="4.8s">
+                     <div class="team-member">
+                        <div class="profile-picture">
+                           <figure><img src="/static/image/mains/TEAM/kim.jpg" alt=""></figure>
+                           <div class="profile-overlay"></div>
+                              <div class="profile-social">
+                                 <div class="icons-wrapper">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                 </div>
+                              </div>
+                        </div>
+                        <div class="team-detail">
+                           <br><h4>김정환</h4>
+                           <span>Web developer</span>
+                        </div>
+                        <div class="team-bio">
+                        <p>프론트엔트, 백엔트 개발자</p>
+                        </div>
+                     </div>
+                  </div>
+                  </div>
+                  <div class="col-md-4">
+                     
+                     <div class="wow bounceIn">
+                     <div class="team-member">
+                        <div class="profile-picture">
+                           <figure><img src="/static/image/mains/TEAM/songg.jpg" alt=""></figure>
+                           <div class="profile-overlay"></div>
+                              <div class="profile-social">
+                                 <div class="icons-wrapper">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                 </div>
+                              </div>
+                        </div>
+                        <div class="team-detail">
+                           <br><h4>송창환</h4>
+                           <span>Web developer</span>
+                        </div>
+                        <div class="team-bio">
+                        <p>프론트엔트, 백엔트 개발자</p>
+                        </div>
+                     </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="wow bounceIn">
+                     <div class="team-member">
+                        <div class="profile-picture">
+                           <figure><img src="/static/image/mains/TEAM/guk.jpg" alt=""></figure>
+                           <div class="profile-overlay"></div>
+                              <div class="profile-social">
+                                 <div class="icons-wrapper">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                 </div>
+                              </div>
+                        </div>
+                        <div class="team-detail">
+                           <br><h4>국다혜</h4>
+                           <span>Web designer</span>
+                        </div>
+                        <div class="team-bio">
+                        <p>프론트엔트 개발자</p>
+                        </div>
+                     </div>
+                     </div>
+                  </div>
+                  
+               </div>
+                  
+      </div>
+      </section>
+      <!-- /team -->
 
       <!-- contact -->
       <section id="section-contact" class="section appear clearfix">

@@ -39,7 +39,8 @@
         margin:20px;
         width:480px;
         z-index: 1000;
-        position:fixed;
+        /*position:fixed;*/
+        position: absolute;
         float:right;
         margin-left : 42%;
       }

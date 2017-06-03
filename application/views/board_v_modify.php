@@ -38,7 +38,8 @@
 <h1> 수정하기 </h1>
 <form method = "POST" enctype="multipart/form-data" action="/Detail/board_v_modify">
 	<div class="title"> 제목 : <input type="text" name="modify_subject" value= "<?php echo $views->subject;?>"></div>
-	<div class="apply"><input type="submit" name="submit_test" value="적용" style="width:100pt;height:30pt;"></div>
+	<div class="apply"><input type="submit" name="submit_test" value="삭제" style="width: 100pt;height: 30pt"> </div>	
+	<div class="apply"><input type="submit" name="submit_test" value="수정" style="width:100pt;height:30pt;"></div>
 	<div class="pic"> 사진 : <img alt="" src=<?php if (!$views->picture) {?>"/static/Image/default.png"
                            <?php } else if ($views->picture) {?>"<?php echo $views->picture ;?>"<?php } ?> style="height:100px;width:110px" />
 		<input type="file" name="user_upload_file" />
