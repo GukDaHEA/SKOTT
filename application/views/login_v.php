@@ -56,7 +56,7 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
             <div class="title">
                 <p></p>
             </div>
-        <form id="frmNIDLogin" name="frmNIDLogin" action="<?=site_url('/login/authentication?returnURL='.rawurlencode($returnURL))?>" method="post">
+        <form id="frmNIDLogin" name="frmNIDLogin" action="/login/authentication" method="post">
                 <fieldset class="login_form">
                     <legend class="blind">로그인</legend>
                     <div class="input_row" id="id_area">

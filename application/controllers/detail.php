@@ -95,9 +95,9 @@ class Detail extends MY_Controller {
 
       $data['views'] = $this->board_m->get_view($id);
 
-      $this->load->view('header');
+      // $this->load->view('header');
       $this->load->view('board_v_view',$data);
-      $this->load->view('footer');
+      // $this->load->view('footer');
    }
 
    public function check() {

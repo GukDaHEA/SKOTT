@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Drive extends MY_Controller {
+class Call extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 
@@ -11,7 +11,7 @@ class Drive extends MY_Controller {
 	{
 
 	}
-	public function drive() {
-		$this->load->view('drive_v');
+	public function call() {
+		$this->load->view('call_v');
 	}
 }
