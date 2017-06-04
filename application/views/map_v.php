@@ -325,7 +325,7 @@
 </div>
  -->
 
-<div class="ui modal">
+<div class="ui modal tour">
   <div class="header">
     관광지
   </div>
@@ -348,7 +348,7 @@
 </div>
 
 <div id="md">
-<div class="ui modal">
+<div class="ui modal katalk">
   <div class="header">
     오픈 카카오톡 방 목록
   </div>
@@ -381,7 +381,7 @@
     ;
     $('#katalk').click( function() {
       $("#md").css("display","");
-               $('.ui.modal')
+               $('.ui.katalk')
                 .modal('show'); 
 
               $('.ui.black.deny.button').click(function() {
@@ -826,7 +826,7 @@ for (var i = 0; i < positions.length; i ++) {
 if(positions[i].title =="경기권") {
   daum.maps.event.addListener(marker1, 'click', function() {
               $('.ui.header').html('경기권 입니다.');
-               $('.ui.modal')
+               $('.ui.tour')
                 .modal('show'); 
 
               $('.ui.positive.button').click(function() {
@@ -838,7 +838,7 @@ if(positions[i].title =="경기권") {
 if(positions[i].title =="제주권") {
   daum.maps.event.addListener(marker1, 'click', function() {
               $('.ui.header').html('제주권 입니다.');
-               $('.ui.modal')
+               $('.ui.tour')
                 .modal('show'); 
   });
 }
@@ -846,7 +846,7 @@ if(positions[i].title =="제주권") {
 if(positions[i].title =="강원권") {
   daum.maps.event.addListener(marker1, 'click', function() {
               $('.ui.header').html('강원권 입니다.');
-               $('.ui.modal')
+               $('.ui.tour')
                 .modal('show'); 
   });
 }
@@ -854,7 +854,7 @@ if(positions[i].title =="강원권") {
 if(positions[i].title =="경상권") {
   daum.maps.event.addListener(marker1, 'click', function() {
               $('.ui.header').html('경상권 입니다.');
-               $('.ui.modal')
+               $('.ui.tour')
                 .modal('show'); 
   });
 }
@@ -862,7 +862,7 @@ if(positions[i].title =="경상권") {
 if(positions[i].title =="충청권") {
   daum.maps.event.addListener(marker1, 'click', function() {
               $('.ui.header').html('충청권 입니다.');
-               $('.ui.modal')
+               $('.ui.tour')
                 .modal('show'); 
   });
 }
@@ -870,7 +870,7 @@ if(positions[i].title =="충청권") {
 if(positions[i].title =="전라권") {
   daum.maps.event.addListener(marker1, 'click', function() {
               $('.ui.header').html('전라권 입니다.');
-               $('.ui.modal')
+               $('.ui.tour')
                 .modal('show'); 
   });
 }
