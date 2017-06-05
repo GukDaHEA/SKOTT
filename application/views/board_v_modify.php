@@ -36,7 +36,8 @@
 </table> -->
 <div class="change">
 <h1> 수정하기 </h1>
-<form method = "POST" enctype="multipart/form-data" action="/Detail/board_v_modify">
+<form method = "POST" enctype="multipart/form-data" action="/Detail/board_v_modify"> 
+<!-- 파일 업로드 할때 필요한  --> 				<!-- action은 /Detail/board_v_modify 에 함수 실행  -->
 	<div class="title"> 제목 : <input type="text" name="modify_subject" value= "<?php echo $views->subject;?>"></div>
 	<div class="apply"><input type="submit" name="submit_test" value="삭제" style="width: 100pt;height: 30pt"> </div>	
 	<div class="apply"><input type="submit" name="submit_test" value="수정" style="width:100pt;height:30pt;"></div>
