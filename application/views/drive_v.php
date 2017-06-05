@@ -160,6 +160,19 @@ menu-trigger.active-10 {
     100% { opacity: 0; }
 }
 </style>
+
+<style type="text/css">
+    
+.start_end {
+    color :white;
+    margin-top: -50px;
+}
+
+.start_content, .end_content {
+    font-size: 22px;
+}
+
+</style>
 <body class="chrome">
 
     <div id="wrap">
@@ -192,7 +205,14 @@ menu-trigger.active-10 {
                             <span class="input_box"><br><br><br>
                              <input type="text" id="start_spot" wrap="virtual" value="<?=$start?> 에서">
                              <input type="text" id="end_spot" wrap="virtual" value="<?=$end?> 까지">
-                             <!-- <input type="text" id="email" name="email" tabindex="7" accesskey="L" class="int" maxlength="41" value=""> -->
+                            <span class="input_box"><br><br><br><!-- 
+                             <input type="textarea" id="inputMessage" wrap="virtual" value="부천시 원미구 심곡동 부천대 에서 서울시 경복궁 까지">
+ -->                           
+<!-- 
+                              <div class = "start_end">
+                                  <div class = "start_content">부천시 원미구 심곡동 부천대</div> <br>에서<br><br>
+                                  <div class = "end_content">정환이네 집까지 </div> 
+                              </div> -->
                          </span>
                          <div class="loading">
                             <div class="loading-dot"></div>
@@ -212,21 +232,19 @@ menu-trigger.active-10 {
 </div>
 
 <script type="text/javascript">
-
     function callDriver() {
-
         $.ajax ({
           type : 'POST',
           url : '/index.php/drive/drivecall',
           data : { departure: $('#start_spot').val(), destination: $('#end_spot').val(), distance: '0', modify: 'asdsa' },
+          // url : '/index.php/drive/call_send_start_end',
+          // data : { departure: '부천시 원미구 심곡동 부천대', destination: '서울시 경복궁'},
           dataType : 'json',
           success : function (data) {
              alert("호출 버튼을 누르셨습니다.");
          }
     });
-
     }
-
 </script>
 <!-- //container -->
 </body>

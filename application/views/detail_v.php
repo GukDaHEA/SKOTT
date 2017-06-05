@@ -258,8 +258,6 @@
                 도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="end" value="<?php echo $reco_address;?> " /> <br />
               </div>
 
-
-
               <ul> <!-- 
                  <li>  <tmap:totalDistance></tmap:totalDistance></li>
                  <li>  <tmap:totalTime></tmap:totalTime>         </li> <br/>
@@ -267,7 +265,7 @@
                  <li>  <tmap:taxiFare></tmap:taxiFare>           </li> -->
               </ul>
               <h4 style="font-weight:bold;text-align:center;" class="pc">※pc 버전일 경우 호출하실 수 없습니다.</h4>
-              <button type="submit" class="nopc" id="Btn">호출하기</button>
+              <button class="nopc" id="Btn" onclick = "call_send()">호출하기</button>
             </div>
 
               </form>
@@ -290,12 +288,15 @@
            </div>
         </div>
         <br/><br/>
-
     </header>
 </div>
 
+ 
+
 </body>
 </html>
+
+
 
 
 <script src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc">
@@ -303,7 +304,6 @@
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=6f9cc1cd3f08a51269ed1888616c3701&libraries=clusterer"></script>
 
 <script type="text/javascript">
-
 
 var oriimg;
 

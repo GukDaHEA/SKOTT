@@ -69,25 +69,44 @@
 
 <style type="text/css">
 
+ @media(min-width: 1025px) {
+
+     .div_content {
+      display: none;
+     }
+
+ }
+
  @media(max-width: 1025px) {
-            #course {
-                line-height: 300px;
-            }
 
-           #img_div_course {
-                    width: 280px;
-                    height: 280px;
-            }
+    .map_wrap {width:100%;height:45%;}
 
-            .ui.accordion {
-               line-height: 250px;
-               width : 100%;
-            }
+     .div_content_click img {height: 420px; }
+     #menu_wrap {
+      margin-top:-63px;
+      overflow:scroll;
+      overflow-y:auto;
+      height: 60%;
+     }
 
-            #p_star {
-                font-size: 25pt;
-                text-align: center;
-              }
+     .prompt {
+      width :200px;
+     }
+
+     .ui.small.buttons {
+      display :none;
+     }
+     .ui.like.button {
+      width : 100%;
+      height: 100%;
+      font-size : 35px;
+     }
+
+     .ui.detail.button {
+      width : 100%;
+      height: 100%;
+            font-size : 35px;
+     }
 
 
    }
@@ -106,7 +125,7 @@
    }
 
     .ui.small.buttons {
-        width: 100%
+        width: 100%;
        }
 
     .ui.accordion {
@@ -132,6 +151,7 @@
         display :flex;
         flex-direction:row;
         margin : 10px;
+
       }
 
      .div_course:hover {
@@ -141,11 +161,6 @@
       .div_img {
         display :flex;
         flex-direction:column;
-
-      }
-
-      .div_content {
-        width:1000px;
 
       }
 
@@ -159,7 +174,6 @@
 /*        border : 1px solid black;*/
 /*        margin-top : 100px;*/
         padding : 5px;
-
       }
 
       .img_click {
@@ -196,7 +210,7 @@
 <style type="text/css">
     .BOXA {
 /*    border : 1px solid black;*/
-    height: 11%;
+    height: 10%;
     background-color: rgba(0,0,0,0.8);
     color : white;
     text-align: center;
@@ -268,6 +282,25 @@
   }
 
 
+  .div_content {
+    width : 100%;
+  }
+
+  .like_content {
+      background-color: yellow;
+      float : left;
+      width : 50%;
+      height : 100%;
+  }
+
+  .detail_content {
+    background-color: black;
+        float : left;
+        width : 50%;
+        height : 100%;
+  }
+
+
 </style>
 
 <body style="overflow:hidden">
@@ -307,7 +340,6 @@
   <ol>
 </div>
   
-
 <!--   <div class="ui sidebar inverted vertical menu">
   <a class="item">
     <i class="home icon"></i>
@@ -368,10 +400,30 @@
 
 <div class="map_wrap">
     <div id="map" style="width:100%;height:89%;"></div>
-
-    <div id="katalk">
+        <div id="katalk">
         <i class="katalk" data-content="오픈 카카오톡방으로 여행 팁을 공유해보세요 !"></i>
     </div>
+</div>
+    <div id="menu_wrap" class="bg_white">
+        <div class = "reco_course" id = "reco_course"><b>추천관광지</b>
+        <div id="course" class ="for_ajax">
+            <div class = "div_course">
+              <div class = "div_img"></div>
+              <div class ="div_content">
+              </div>
+
+<!--                style="overflow:scroll; -->
+            </div>
+               <div class = "div_content_click"><a href="/detail/detail/1"><img class = "img_click" src="/static/image/map/map_v_1.jpg";></a> </div>
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_2.jpg";> </div>
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_3.jpg";> </div>
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
+               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
+        </div>
+        </div>
+        </div>
+
     <script type="text/javascript">
     $('.katalk')
       .popup({
@@ -387,23 +439,6 @@
               });
     });
     </script>
-
-    <div id="menu_wrap" class="bg_white">
-
-        <div class = "reco_course" id = "reco_course"><b>추천관광지</b></div>
-        <div id="course" class ="for_ajax"> 
-            <div class = "div_course">
-              <div class = "div_img"></div>
-              <div class ="div_content">  </div>
-<!--                style="overflow:scroll; -->
-            </div>
-               <div class = "div_content_click"><a href="/detail/detail/1"><img class = "img_click" src="/static/image/map/map_v_1.jpg";></a> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_2.jpg";> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_3.jpg";> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
-
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=6f9cc1cd3f08a51269ed1888616c3701&libraries=clusterer"></script>
 
 <script>
@@ -503,11 +538,16 @@ function map_dynamic_content(reco_sort) {
             '<button class="ui like button" onclick="like_content_click('+item[i].reco_idx+')"> ♥'+
              '<div class = "like_content'+item[i].reco_idx+'">' +item[i].reco_like+'</button>' +
                           '<div class = "or"></div>' +
-                          '<button class="ui button" onclick = "detail_location()"><a href="http://localhost/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
+                          '<button class="ui detail button" onclick = "detail_location()"><a href="http://localhost/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
                            '</div>' +
                         '</div>' +
                 '<div class ="div_content">' +
-                     '<div>' +
+                     '<div class = "like_content"> <button class="ui like button" onclick="like_content_click('+item[i].reco_idx+')"> ♥ ' +
+                      '<div class = "like_content'+item[i].reco_idx+'">' +item[i].reco_like+'</button> </div> '+
+                     '<div class = "detail_content">' +
+                     '<div class = "or"></div>' +
+                          '<button class="ui detail button" onclick = "detail_location()"><a href="http://localhost/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
+                           '</div>' +
                        '</div>' +
                   '</div> </div> </div>'
                   );
@@ -671,28 +711,19 @@ function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_add
                                         '</div>';
         infowindow.setContent(marker_content);
         infowindow.open(map, marker);
+
+
+       // map.setLevel(7, {
+       //                  animate: {duration: 1000},
+       //                  anchor: new daum.maps.LatLng(marker_lat, marker_lng)
+       //              });
+
+
+
     });
+
 }
 
-
-// // MakrerImage 객체를 생성하여 반환하는 함수입니다
-// function createMarkerImage(markerSize, offset, spriteOrigin) {
-//     var markerImage = new daum.maps.MarkerImage(
-//         SPRITE_MARKER_URL, // 스프라이트 마커 이미지 URL
-//         markerSize, // 마커의 크기
-//         {
-//             offset: offset, // 마커 이미지에서의 기준 좌표
-//             spriteOrigin: spriteOrigin, // 스트라이프 이미지 중 사용할 영역의 좌상단 좌표
-//             spriteSize: spriteImageSize // 스프라이트 이미지의 크기
-//         }
-//     );
-//     return markerImage;
-// }
-
-        // // 지도에 영역데이터를 폴리곤으로 표시합니다 
-        // for (var i = 0, len = areas.length; i < len; i++) {
-        //     displayArea(areas[i]);
-        // }
 
 </script>
 
@@ -704,6 +735,7 @@ function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_add
 
         $.ajax ({
              type : 'POST',
+
              url : '/map/search_marker_content',
              data : {search_text},
              dataType : 'json',
@@ -917,51 +949,6 @@ function like_content_click(reco_idx) {
 
 
 <script type="text/javascript">
-
-
-// $('.ui.button').click(function() {
-//     alert("1");
-// });
-
-// function detail_location() {
-//   alert("1");
-//             if (navigator.geolocation) {
-                
-//                 // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-//                 navigator.geolocation.getCurrentPosition(function(position) {
-                    
-//                     var lat = position.coords.latitude, // 위도
-//                         lon = position.coords.longitude; // 경도
-
-//                       // alert(lat +" " + lon);
-
-//                       detail_location_now(lat, lon);
-//                   });
-
-//             } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-                
-//                 var locPosition = new daum.maps.LatLng(33.450701, 126.570667),message = 'geolocation을 사용할수 없어요..'
-//             }
-
-// }
-
-// function detail_location_now(lat, lng) {
-//   var now_location = { "lat": lat, "lng": lng };
-//           $.ajax ({
-//              type : 'POST',
-//              url : '/detail/detail_location_now',
-//              dataType : 'json',
-//              data : {now_location},
-//               success : function (data) {
-//                  // alert("success");
-//                  alert(data.lat + " " + data.lng);
-//               },
-//               error:function(request,status,error){
-//               alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-//              }
-//           }); 
-// }
-
 
 $(".map_location").click(function(){
                   // alert("내 위치를 클릭하셨습니다.");

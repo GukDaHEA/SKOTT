@@ -15,7 +15,7 @@ class Detail extends MY_Controller {
 
 
 	function detail($url) { 
-	  $db = $this->Detail_m;
+	   $db = $this->Detail_m;
 
       $detail_result = $db->detail($url);
       
@@ -28,6 +28,7 @@ class Detail extends MY_Controller {
       $name = $detail_result->title;
       $address = $detail_result->reco_address;
       $text = $detail_result->reco_text;
+      
 
       // $this->load->view('header.php');
       $this->load->view('detail_v', 

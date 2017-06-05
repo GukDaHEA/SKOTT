@@ -13,6 +13,7 @@ class Drive extends MY_Controller {
 	{
 		
 	}
+
 	public function drive() {
 
 		$start = $this->input->post('start');
@@ -23,6 +24,7 @@ class Drive extends MY_Controller {
 				'end' => $end
 				)
 			);
+				// $this->load->view('drive_v');
 	}
 
 	public function call() {
@@ -59,7 +61,7 @@ class Drive extends MY_Controller {
 		echo $symbol;
 	}
 
-	public function drivecall () {
+	public function drivecall() {
 
 		$this->output->set_content_type('application/json');
 		$result = array();
@@ -106,4 +108,18 @@ class Drive extends MY_Controller {
             // header('Location: /Drive/call_login');
          }
       }
+	public function call_send_start_end() {
+
+			$this->output->set_content_type('application/json');
+			 	//ajax구문
+				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+					$data = $this->input->post(NULL, TRUE);
+					$reco_marker_sort = $data['reco_sort'];
+					
+					$reco_sidebar_content = $this->Map_m->recommand_spot('limit',$reco_marker_sort);
+
+					echo json_encode($reco_sidebar_content);
+				}
+	}
 }
