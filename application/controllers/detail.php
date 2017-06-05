@@ -108,17 +108,52 @@ class Detail extends MY_Controller {
             redirect($returnURL);
    }
 
+// 내가 연습하는 거 
+   public function board_v_write_ok() {
+       // 사용자가 업로드 한 파일을 /static/user/ 디렉토리에 저장한다.
+      $config['upload_path'] = './static/image/review';
+      // git,jpg,png 파일만 업로드를 허용한다.
+      $config['allowed_types'] = 'gif|jpg|png';
+      // 허용되는 파일의 최대 사이즈
+      $config['max_size'] = '1000000';
+      // 이미지인 경우 허용되는 최대 폭
+      $config['max_width'] = '2048';
+      // 이미지인 경우 허용되는 최대 높이
+      $config['max_height'] = '1200';
+      //$config에 코드이크나이터에서 해주는 library에 저장
+      $this->load->library('upload',$config);
+
+      if (! $this->upload->do_upload("upload")){
+               echo "<script>alert('업로드에 실패했습니다." .$this->upload->display_errors('','')."')</script>";
+            } 
+            else 
+            {
+               $CKEditorFuncNum = $this->input->get('CKEditorFuncNum');
+               $data =  $this->upload->data();
+               $filename = $data['file_name'];
+               $url = '/static/image/review/'.$filename;
+               
+               echo "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction('".$CKEditorFuncNum."', '".$url."', '전송에 성공')</script>";
+             }      
+   }
+
 
    public function board_v_write() {
 
       echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'; 
+      // 사용자가 업로드 한 파일을 /static/user/ 디렉토리에 저장한다.
       $config['upload_path'] = './static/image/review';
+      // git,jpg,png 파일만 업로드를 허용한다.
       $config['allowed_types'] = 'gif|jpg|png';
+      // 허용되는 파일의 최대 사이즈
       $config['max_size'] = '1000000';
+      // 이미지인 경우 허용되는 최대 폭
       $config['max_width'] = '2048';
       $config['max_height'] = '1200';
+      // 이미지인 경우 허용되는 최대 높이
       $this->load->library('upload',$config);
-
+      //$config에 코드이크나이터에서 해주는 library에 저장
+ 
       if($this->session->userdata('is_login'))
       {
          //form
@@ -131,7 +166,7 @@ class Detail extends MY_Controller {
                exit;
             }
 
-            //파일 업로드
+            //파일 업로드가 되는지 확인
             if (! $this->upload->do_upload("user_upload_file")){
                echo $this->upload->display_errors();
             } 
