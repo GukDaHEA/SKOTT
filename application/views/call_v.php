@@ -6,7 +6,7 @@
 </head>
 <style>
 #header{margin:0 10px}#header{position:relative;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;height:168px;:62px 0 0}
-#header .h_logo{display:block;overflow:hidden;width:100px;height:80px;top:20px;left:150px;margin:0 auto;background-position:-1px -1px}#header .lang{position:absolute;top:20px;left:20px;width:10%;cursor:pointer;}
+#header .h_logo{display:block;overflow:hidden;width:130px;height:80px;top:20px;left:150px;margin:0 auto;background-position:-1px -1px}#header .lang{position:absolute;top:20px;left:20px;width:10%;cursor:pointer;}
 @media only screen and (min-width:1024px){#container,#header{width:768px;margin:0 auto!important}#content{width:460px;margin:0 auto}.error_browser p{width:460px;margin:0 auto}} 
 @media screen and (min-width:460px){#content{width:460px;margin:0 auto}.error_browser p{width:460px;margin:0 auto} input[type=range]{width:400px;}}
 .header_area{overflow:hidden;height:45px}.privacy_title{font-size:18px;font-weight:700;line-height:45px;text-align:center;color:#fff;background-color:#01c73c}.content_area{max-width:460px;margin:0 auto;padding:28px 10px 162px;background-color:#fff}
@@ -329,7 +329,7 @@ burger.each(function(index){
     <!-- //container -->
 
     <script type="text/javascript">
-document.getElementById("nul").onclick = function() {
+            document.getElementById("nul").onclick = function() {
             document.getElementById("status").value = "운행 중";
         }
     </script>

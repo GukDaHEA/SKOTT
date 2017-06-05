@@ -58,7 +58,7 @@
                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                   <span class="fa fa-bars color-white"></span>
                </button>
-               <h1><a class="navbar-brand" href="/mains" data-0="line-height:90px;" data-300="line-height:50px;"> <div class = "img_logo"></div>   
+               <h1><a class="navbar-brand" href="/mains" data-0="line-height:90px;" data-300="line-height:50px;"> <div class = "img_logo" data-0="margin-top:20px;" data-300="margin-top:10px;"></div>   
                </a></h1> 
             </div>
             <div class="navbar-collapse collapse">
@@ -111,7 +111,7 @@
                      </div>
                      <div class="col-md-10 col-md-offset-1">
                         <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">                        
-                           <p><strong>S</strong>afty <strong>Ko</strong>rea <strong>T</strong>axi <strong>T</strong>our </p>
+                           <p><strong>S</strong>afty <strong>KO</strong>rea <strong>T</strong>axi <strong>T</strong>our </p>
                         </div>
                      </div>
                      <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">                        
@@ -255,7 +255,7 @@
                <div class="wow bounceIn">
                   <div class="align-center">
                      <div class="wow rotateIn">
-                        <div class="service-col" style="height: 550px;">
+                        <div class="service-col" style="height: 530px;">
                            <div class="service-icon" style = "width : 230px; height : 230px;">
                            <img class = "img_service" src="/static/image/mains/TOP3/8.jpg">
                            </div>
@@ -273,6 +273,7 @@
                   
                      <div class="wow rotateIn">
                         <div class="service-col"  style="height: 550px;">   
+
                            <div class="service-icon" style = "width : 230px; height : 230px;">
                               <img class = "img_service" src="/static/image/mains/TOP3/4.jpg">
                            </div>
@@ -287,9 +288,11 @@
             <div class="col-lg-4" >
                <div class="align-center">
                   <div class="wow bounceIn">
+
                      <div class="service-col" style="height: 550px;">
                        <div class="service-icon" style = "width : 230px; height : 230px;">
                            <img class = "img_service" src="/static/image/mains/TOP3/9.jpg">
+
                         </div>
                            <h2><a href="#">TOP3<br> < 홍대입구 > </a></h2> 
                            <p>홍대(弘大)는 서울특별시 마포구 서울 지하철 2호선 홍대입구역과 홍익대학교 정문을 잇는 지역 및 이 일대에 있는 번화가를 말한다. '홍대'는 홍익대학교의 한국어 약칭으로 이 지역의 정식 지명이 아닌 통용 명칭이다.</p>
@@ -319,7 +322,7 @@
             </div>
             <div class="line-wrap">
                <div class="line-pricing-table">
-                           <div class="pricing-table-wrap" data-scrollreveal="enter top over 0.5s after 0.3s">
+                           <div class="pricing-table-wrap" data-scrollreveal="enter top over 0.5s after 0.3s" style="width: 380px;">
                               <ul>
                                  <li class="line-head-row">
                                     지도보기
@@ -345,7 +348,7 @@
                                  </li>
                               </ul>
                            </div>
-                           <div class="pricing-table-wrap" data-scrollreveal="enter top over 0.5s after 0.5s">
+                           <div class="pricing-table-wrap" data-scrollreveal="enter top over 0.5s after 0.5s" style="width: 380px;">
                               <ul class="line-highlight">
                                  <li class="line-head-row">
                                     검색
@@ -368,7 +371,7 @@
                                  </li>
                               </ul>
                            </div>
-                           <div class="pricing-table-wrap" data-scrollreveal="enter top over 0.5s after 0.7s">
+                           <div class="pricing-table-wrap" data-scrollreveal="enter top over 0.5s after 0.7s" style="width: 380px;">
                               <ul>
                                  <li class="line-head-row">
                                     관광지 클릭

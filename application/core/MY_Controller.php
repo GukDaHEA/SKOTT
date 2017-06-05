@@ -12,4 +12,5 @@ class MY_Controller extends CI_Controller {
 	function _head() {
 		$this->load->view('header');
 	}
+
 }
