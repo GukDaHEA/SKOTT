@@ -32,4 +32,5 @@ class Call_m extends CI_MODEL {
 		return $result;
 	}
 
+
 }

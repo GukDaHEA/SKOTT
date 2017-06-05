@@ -13,8 +13,10 @@ class Drive extends MY_Controller {
 	{
 		
 	}
+
 	public function drive() {
-		$this->load->view('drive_v');
+
+				$this->load->view('drive_v');
 	}
 
 	public function drive_success() {
@@ -71,5 +73,20 @@ class Drive extends MY_Controller {
 
 		}
 		echo json_encode($result);
+	}
+
+	public function call_send_start_end() {
+
+			$this->output->set_content_type('application/json');
+			 	//ajax구문
+				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+					$data = $this->input->post(NULL, TRUE);
+					$reco_marker_sort = $data['reco_sort'];
+					
+					$reco_sidebar_content = $this->Map_m->recommand_spot('limit',$reco_marker_sort);
+
+					echo json_encode($reco_sidebar_content);
+				}
 	}
 }

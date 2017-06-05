@@ -311,7 +311,19 @@ menu-trigger.active-10 {
     50% { opacity: 0.8; }
     100% { opacity: 0; }
 }
->>>>>>> f0efa5f00696ee38fe68a9b798115cf741e4184f
+</style>
+
+<style type="text/css">
+    
+.start_end {
+    color :white;
+    margin-top: -50px;
+}
+
+.start_content, .end_content {
+    font-size: 22px;
+}
+
 </style>
 <body class="chrome">
 
@@ -339,8 +351,14 @@ menu-trigger.active-10 {
                     <fieldset class="login_form">
                         <legend class="blind">STATUS</legend>
                         <div class="input_row" id="id_area">
-                            <span class="input_box"><br><br><br>
+                            <span class="input_box"><br><br><br><!-- 
                              <input type="textarea" id="inputMessage" wrap="virtual" value="부천시 원미구 심곡동 부천대 에서 서울시 경복궁 까지">
+
+ -->                           
+                              <div class = "start_end">
+                                  <div class = "start_content">부천시 원미구 심곡동 부천대</div> <br>에서<br><br>
+                                  <div class = "end_content">정환이네 집까지 </div> 
+                              </div>
                              <!-- <label for="email" id="label_email_area" class="lbl" style="font-size:50px;font-weight:bold;top:30%;left:25%" >호출 중</label> -->
                              <!-- <input type="text" id="email" name="email" tabindex="7" accesskey="L" class="int" maxlength="41" value=""> -->
                          </span>
@@ -362,21 +380,17 @@ menu-trigger.active-10 {
 </div>
 
 <script type="text/javascript">
-
     function callDriver() {
-
         $.ajax ({
           type : 'POST',
-          url : '/index.php/drive/drivecall',
-          data : { departure: '부천시 원미구 심곡동 부천대', destination: '서울시 경복궁', distance: '15km', modify: 'asdsa' },
+          url : '/index.php/drive/call_send_start_end',
+          data : { departure: '부천시 원미구 심곡동 부천대', destination: '서울시 경복궁'},
           dataType : 'json',
           success : function (data) {
              alert("호출 버튼을 누르셨습니다.");
          }
     });
-
     }
-
 </script>
 <!-- //container -->
 </body>

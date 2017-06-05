@@ -36,8 +36,6 @@
 			</div>
 		</div>
 		<div id="drive_call"><button class="call"><a href="javascipt:" onclick="javascript:window.close();" style="">퇴근하기</a></button></div>
-
-
 	</div>
 
 </body>
@@ -54,7 +52,7 @@
 			dataType : 'json',
 			success : function (data) {
 				alert("예약이 완료되었습니다.");
-				history.go(0);
+				// history.go(0);
 			}
 		});
 
