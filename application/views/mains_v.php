@@ -21,13 +21,16 @@
       <link rel="stylesheet" href="/static/tem_css/font-awesome.min.css">
 
       <!-- skin -->
-      <link rel="stylesheet" href="/static/tem_skin/default.css">
-        <!-- =======================================================
-            Theme Name: Green
-            Theme URL: https://bootstrapmade.com/green-free-one-page-bootstrap-template/
-            Author: BootstrapMade
-            Author URL: https://bootstrapmade.com
-        ======================================================= -->
+<!--       <link rel="stylesheet" href="/static/tem_skin/default.css">
+
+              <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">
+        <script
+          src="https://code.jquery.com/jquery-3.1.1.min.js"
+          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+          crossorigin="anonymous">
+        </script>
+        <script src="/static/Semantic/semantic.min.js"></script> -->
+
     </head>
     <style type="text/css">
        .img_service {
@@ -42,6 +45,17 @@
           background:url('/static/image/header/logo.png');
           background-size: 100% 100%;
        }
+
+       .credits a {
+        text-decoration: none;
+       }
+
+
+       @media (min-width: 768px) {
+            #start_button {
+              display: none;
+            }
+        }
 
     </style>
     
@@ -67,7 +81,6 @@
                   <li><a href="/map/map_v">지도보기</a></li>
                   <li><a href="#services">추천코스</a></li>
                   <li><a href="#line-pricing">서비스 소개</a></li>
-                  <li><a href="#team">팀 소개</a></li>
              <?php
                 if ($this->session->userdata('is_login')){
                 ?>
@@ -120,7 +133,7 @@
                               <button type="livedemo" name="Live Demo" class="btn btn-primary btn-lg" required="required">SKOTT</button>
                            </div>
                            <div class="form-group">
-                               <button type="getnow" name="Get Now" class="btn btn-primary btn-lg" required="required">START TOUR</button>
+                               <button type="getnow" class="btn btn-primary btn-lg" required="required"><a href="/map/map_v">START TOUR</a></button>
                            </div>
                         </form>
                      </div>
@@ -156,7 +169,7 @@
                <i class="fa fa-angle-left"></i> 
             </a>
             
-            <a class=" right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
+            <a class=" right carousel-control hidden-xs" href="#carousel-slider" data-slide="next">
                <i class="fa fa-angle-right"></i> 
             </a>
          </div> <!--/#carousel-slider-->
@@ -232,6 +245,7 @@
          </div>
          
       </div>
+      <hr>
    </section>
    <!--/about-->
       
@@ -305,7 +319,7 @@
 
       </div>
       </section>        
-      
+
       <section id="line-pricing" class="line-section line-center">
          <div class="container pad-top50">
             <div class="row mar-bot10 ">
@@ -344,7 +358,7 @@
                                     03. 지역별 관광지정보 확인
                                  </li>
                                  <li class="line-btn-row">
-                                    <a href="" class="line-btn light">Get Started</a>
+<!--                                     <a href="" class="line-btn light">Get Started</a> -->
                                  </li>
                               </ul>
                            </div>
@@ -367,7 +381,7 @@
                                     02. 관광지 검색
                                  </li>
                                  <li class="line-btn-row">
-                                    <a href="" class="line-btn green">Get Started</a>
+<!--                                     <a href="" class="line-btn green">Get Started</a> -->
                                  </li>
                               </ul>
                            </div>
@@ -393,7 +407,7 @@
                                     03. 관광지 예상거리, 예상택시비 표시
                                  </li>
                                  <li class="line-btn-row">
-                                    <a href="" class="line-btn light">Get Started</a>
+<!--                                     <a href="" class="line-btn light">Get Started</a> -->
                                  </li>
                               </ul>
                            </div>
@@ -402,7 +416,6 @@
          </div>
       </section>
 
-      
       <!-- section works -->
       <section id="section-works" class="section appear clearfix">
          <div class="container">
@@ -432,12 +445,12 @@
                                 <article class="col-md-4 isotopeItem webdesign">
                            <div class="portfolio-item">
                            <div class="wow rotateInUpLeft" data-animation-delay="4.8s">
-                              <img src="/static/image/seoul/1.jpg" alt="welcome" />
+                              <img src="/static/image/seoul1/1.jpg" alt="welcome" />
                            </div>
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
                                     <h5><a href="#">Project name 1</a></h5>
-                                    <a href="/static/image/seoul/1.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+                                    <a href="/static/image/seoul1/1.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
                            </div>
@@ -446,12 +459,12 @@
                                 <article class="col-md-4 isotopeItem photography">
                            <div class="portfolio-item">
                            <div class="wow bounceIn">
-                              <img src="/static/image/seoul/2.jpg" alt="" />
+                              <img src="/static/image/seoul1/2.jpg" alt="" />
                            </div>
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
                                     <h5><a href="#">Project name 2</a></h5>
-                                    <a href="/static/image/seoul/2.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+                                    <a href="/static/image/seoul1/2.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
                            </div>
@@ -461,12 +474,12 @@
                                 <article class="col-md-4 isotopeItem photography">
                            <div class="portfolio-item">
                            <div class="wow rotateInDownRight">
-                              <img src="/static/image/seoul/3.jpg" alt="" />
+                              <img src="/static/image/seoul1/3.jpg" alt="" />
                            </div>   
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
                                     <h5><a href="#">Project name 3</a></h5>
-                                    <a href="/static/image/seoul/3.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+                                    <a href="/static/image/seoul1/3.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
                            </div>
@@ -475,12 +488,12 @@
                                 <article class="col-md-4 isotopeItem print">
                            <div class="portfolio-item">
                            <div class="wow rotateInUpLeft">
-                              <img src="/static/image/seoul/15.jpg" alt="" />
+                              <img src="/static/image/seoul1/15.jpg" alt="" />
                             </div>   
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
                                     <h5><a href="#">Project name 4</a></h5>
-                                    <a href="/static/image/seoul/15.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+                                    <a href="/static/image/seoul1/15.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
                            </div>
@@ -489,12 +502,12 @@
                                 <article class="col-md-4 isotopeItem photography">
                            <div class="portfolio-item">
                            <div class="wow bounceIn">
-                              <img src="/static/image/seoul/5.jpg" alt="" />
+                              <img src="/static/image/seoul1/5.jpg" alt="" />
                            </div>
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
                                     <h5><a href="#">Project name 5</a></h5>
-                                    <a href="/static/image/seoul/5.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+                                    <a href="/static/image/seoul1/5.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
                            </div>
@@ -503,12 +516,12 @@
                                 <article class="col-md-4 isotopeItem webdesign">
                            <div class="portfolio-item">
                            <div class="wow rotateInDownRight">
-                              <img src="/static/image/seoul/6.jpg" alt="" />
+                              <img src="/static/image/seoul1/6.jpg" alt="" />
                             </div>      
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
                                     <h5><a href="#">Project name 6</a></h5>
-                                    <a href="/static/image/seoul/6.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+                                    <a href="/static/image/seoul1/6.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
                            </div>
@@ -517,12 +530,12 @@
                                 <article class="col-md-4 isotopeItem print">
                            <div class="portfolio-item">
                            <div class="wow rotateInUpLeft">
-                              <img src="/static/image/seoul/7.jpg" alt="" />
+                              <img src="/static/image/seoul1/7.jpg" alt="" />
                            </div>
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
                                     <h5><a href="#">Project name 7</a></h5>
-                                    <a href="/static/image/seoul/7.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+                                    <a href="/static/image/seoul1/7.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
                            </div>
@@ -531,12 +544,12 @@
                                 <article class="col-md-4 isotopeItem photography">
                            <div class="portfolio-item">
                            <div class="wow bounceIn">
-                              <img src="/static/image/seoul/8.jpg" alt="" />
+                              <img src="/static/image/seoul1/8.jpg" alt="" />
                            </div>   
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
                                     <h5><a href="#">Project name 8</a></h5>
-                                    <a href="/static/image/seoul/8.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+                                    <a href="/static/image/seoul1/8.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
                            </div>
@@ -545,12 +558,12 @@
                                 <article class="col-md-4 isotopeItem print">
                            <div class="portfolio-item">
                            <div class="wow rotateInDownRight">
-                              <img src="/static/image/seoul/9.jpg" alt="" />
+                              <img src="/static/image/seoul1/9.jpg" alt="" />
                            </div>
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
                                     <h5><a href="#">Project name 9</a></h5>
-                                    <a href="/static/image/seoul/9.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
+                                    <a href="/static/image/seoul1/9.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
                            </div>
@@ -567,7 +580,7 @@
       </section>
 
       <!-- team -->
-      <section id="team" class="team-section appear clearfix">
+<!--       <section id="team" class="team-section appear clearfix">
       <div class="container">
 
             <div class="row mar-bot10">
@@ -665,65 +678,29 @@
                   </div>      
                </div>
       </div>
-      </section>
+      </section> -->
       <!-- /team -->
-
-      <!-- contact -->
-      <section id="section-contact" class="section appear clearfix">
-         <div class="container">
-            
-            <div class="row mar-bot40">
-               <div class="col-md-offset-3 col-md-6">
-                  <div class="section-header">
-                     <h2 class="section-heading animated" data-animation="bounceInUp">Contact us</h2>
-                     <p>불편한 사항이나 저희에게 필요하신 사항을 이메일로 보내주시면 좋은 참고자료가 될 수 있습니다.</p>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-8 col-md-offset-2">
-                        <div id="sendmessage">Your message has been sent. Thank you!</div>
-                        <div id="errormessage"></div>
-                        <form action="" method="post" role="form" class="contactForm">
-                            <div class="form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                                <div class="validation"></div>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                                <div class="validation"></div>
-                            </div> 
-                            
-                            <div class="text-center"><button type="submit" class="line-btn green">Send Message</button></div>
-                        </form>
-               </div>
-               <!-- ./span12 -->
-            </div>
-            
-         </div>
-      </section>
 
       <!-- map -->
    <section id="footer" class="section footer">
 
-      <button id ="start_button" onclick="location.href='/map/map_v'"; >START SKOTT</button>
+      <button id ="start_button" onclick="location.href='/map/map_v'" >START SKOTT</button>
       <div class="container">
          <div class="row animated opacity mar-bot0" data-andown="fadeIn" data-animation="animation">
             <div class="col-sm-12 align-center">
                     <ul class="social-network social-circle">
-                        <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+<!--                         <button class="ui circular facebook icon button">
+                          <i class="facebook icon"></i>
+                        </button>
+                        <button class="ui circular twitter icon button">
+                          <i class="twitter icon"></i>
+                        </button>
+                        <button class="ui circular linkedin icon button">
+                          <i class="linkedin icon"></i>
+                        </button>
+                        <button class="ui circular google plus icon button">
+                          <i class="google plus icon"></i>
+                        </button> -->
                     </ul>            
             </div>
          </div>
@@ -738,7 +715,7 @@
                                 Licensing information: https://bootstrapmade.com/license/
                                 Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Green
                             -->
-                            <a href="https://bootstrapmade.com/">SKOTTer</a> by <a href="https://bootstrapmade.com/">BucheonU.S MADE</a>
+                            <a href="/mains">SKOTT</a> by <a href="https://www.bc.ac.kr">BucheonU.S MADE</a>
                         </div>
                     </div>
          </div>

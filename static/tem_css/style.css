@@ -1896,16 +1896,15 @@ Media queries
 	}
 }
 
-@media (min-width: 767px) {
-		#start_button {
-		visibility: hidden;
-	}
+@media (min-width: 768px) {
+			#start_button {
+				display: none;
+			}
 	}
 
 @media (max-width: 767px) {
 
 	#start_button {
-		visibility: visible;
 		width : 250px;
 		height : 50px;
 		margin-left : 57px;
