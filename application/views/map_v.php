@@ -229,7 +229,7 @@
     padding-top : 30px;
   }
   .ui.search {
-    color : black;
+    color : white;
     padding-right : 100px;
   }
   ol {
@@ -242,7 +242,7 @@
   .map_menu li a {
     color : white;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 13px;
   }
 
     .map_menu li a:hover {
@@ -257,7 +257,7 @@
     height : 90px;
     border-radius: 50px;
     position: absolute;
-    top: 700px;
+    top: 630px;
     left: 50px;
     background: url('/static/image/katalk.png');
     background-size: 100% 100%;
@@ -272,11 +272,10 @@
 
 <body style="overflow:hidden">
 <div class = "BOXA">
-  <div class = "map_logo"><img src="/static/image/header/logo.png"></div>
-  <div class = "map_search"> 
-
+  <div class = "map_logo"><a href="/mains"><img src="/static/image/header/logo.png"></a></div>
+<div class = "map_search"> 
     <div class="ui search">
-      <div class="ui icon input">
+     관광지 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="ui icon input">
         <input class="prompt" type="text" size ="60" placeholder="Search...">
        <i class="inverted circular search link icon"></i>
       </div>
@@ -615,9 +614,9 @@ function map_marker_1 (reco_idx) {
 
 // 지도에 마커를 표시하는 함수입니다
 function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_address, marker_reco_idx, marker_reco_star ) {
-    var imageSrc = "/static/Image/marker_image/marker_tour3.png";
+    var imageSrc = "/static/Image/marker_image/marker_tour8.png";
 
-    var imageSize = new daum.maps.Size(40,40); 
+    var imageSize = new daum.maps.Size(40,50); 
 
     // 마커 이미지를 생성합니다    
     var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize); 
