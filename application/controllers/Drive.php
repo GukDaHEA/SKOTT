@@ -14,7 +14,15 @@ class Drive extends MY_Controller {
 		
 	}
 	public function drive() {
-		$this->load->view('drive_v');
+
+		$start = $this->input->post('start');
+		$end = $this->input->post('end');
+
+		$this->load->view('drive_v', array(
+				'start' => $start,
+				'end' => $end
+				)
+			);
 	}
 
 	public function drive_success() {
@@ -64,7 +72,7 @@ class Drive extends MY_Controller {
 			$insert['userIdx'] = 34;
 			$insert['departure'] = !empty($data['departure']) ? $data['departure'] : '';
 			$insert['destination']  = !empty($data['destination']) ? $data['destination'] : '';
-			$insert['distance']  = !empty($data['distance']) ? $data['distance'] : '';
+			$insert['distance']  = rand(0, 30) . 'km';
 
 			$call = $this->call_m;
 			$result = $call->addDriveCall($insert);

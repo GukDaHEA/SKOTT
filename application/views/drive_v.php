@@ -340,7 +340,8 @@ menu-trigger.active-10 {
                         <legend class="blind">STATUS</legend>
                         <div class="input_row" id="id_area">
                             <span class="input_box"><br><br><br>
-                             <input type="textarea" id="inputMessage" wrap="virtual" value="부천시 원미구 심곡동 부천대 에서 서울시 경복궁 까지">
+                             <input type="text" id="start_spot" wrap="virtual" value="<?=$start?> 에서">
+                             <input type="text" id="end_spot" wrap="virtual" value="<?=$end?> 까지">
                              <!-- <label for="email" id="label_email_area" class="lbl" style="font-size:50px;font-weight:bold;top:30%;left:25%" >호출 중</label> -->
                              <!-- <input type="text" id="email" name="email" tabindex="7" accesskey="L" class="int" maxlength="41" value=""> -->
                          </span>
@@ -368,7 +369,7 @@ menu-trigger.active-10 {
         $.ajax ({
           type : 'POST',
           url : '/index.php/drive/drivecall',
-          data : { departure: '부천시 원미구 심곡동 부천대', destination: '서울시 경복궁', distance: '15km', modify: 'asdsa' },
+          data : { departure: $('#start_spot').val(), destination: $('#end_spot').val(), distance: '0', modify: 'asdsa' },
           dataType : 'json',
           success : function (data) {
              alert("호출 버튼을 누르셨습니다.");

@@ -250,10 +250,12 @@
          <h3 style="color:#4d7e2b;font-weight:">택시 정보 </h3><br/>
           <div id = "div_Map"></div>
 
+
+            <form action="/drive/drive" method="POST">
             <div id= "div_taxiinfo">
               <div id="div_Address" style="text-align:center">
-                출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="현재 위치" readonly/> <br />
-                도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="<?php echo $reco_address;?> " readonly /> <br />
+                출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="start" value="현재 위치"/> <br />
+                도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="end" value="<?php echo $reco_address;?> " /> <br />
               </div>
 
 
@@ -265,8 +267,10 @@
                  <li>  <tmap:taxiFare></tmap:taxiFare>           </li> -->
               </ul>
               <h4 style="font-weight:bold;text-align:center;" class="pc">※pc 버전일 경우 호출하실 수 없습니다.</h4>
-              <button class="nopc" id="Btn">호출하기</button>
+              <button type="submit" class="nopc" id="Btn">호출하기</button>
             </div>
+
+              </form>
         </div>
 
       </div>
@@ -373,15 +377,15 @@ function multi_image_view(obj) {  //사진 바꾸기
     }
 }
 
-$(document).ready(function(){ 
-  $('#Btn').click(function() { 
-    var result = confirm('호출 페이지로 이동 하시겠습니까?'); 
-    if(result) { //yes 
-      location.replace('/drive/drive'); 
-    }
-    else { //no 
-    } 
-  }); 
-});
+// $(document).ready(function(){ 
+//   $('#Btn').click(function() { 
+//     var result = confirm('호출 페이지로 이동 하시겠습니까?'); 
+//     if(result) { //yes 
+//       location.replace('/drive/drive'); 
+//     }
+//     else { //no 
+//     } 
+//   }); 
+// });
 
 </script>
