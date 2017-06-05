@@ -21,16 +21,16 @@
       <link rel="stylesheet" href="/static/tem_css/font-awesome.min.css">
 
       <!-- skin -->
-<!--       <link rel="stylesheet" href="/static/tem_skin/default.css">
+      <link rel="stylesheet" href="/static/tem_skin/default.css">
 
-              <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">
+<!--               <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">
         <script
           src="https://code.jquery.com/jquery-3.1.1.min.js"
           integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
           crossorigin="anonymous">
         </script>
-        <script src="/static/Semantic/semantic.min.js"></script> -->
-
+        <script src="/static/Semantic/semantic.min.js"></script>
+ -->
     </head>
     <style type="text/css">
        .img_service {
@@ -689,18 +689,11 @@
          <div class="row animated opacity mar-bot0" data-andown="fadeIn" data-animation="animation">
             <div class="col-sm-12 align-center">
                     <ul class="social-network social-circle">
-<!--                         <button class="ui circular facebook icon button">
-                          <i class="facebook icon"></i>
-                        </button>
-                        <button class="ui circular twitter icon button">
-                          <i class="twitter icon"></i>
-                        </button>
-                        <button class="ui circular linkedin icon button">
-                          <i class="linkedin icon"></i>
-                        </button>
-                        <button class="ui circular google plus icon button">
-                          <i class="google plus icon"></i>
-                        </button> -->
+                        <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
                     </ul>            
             </div>
          </div>
