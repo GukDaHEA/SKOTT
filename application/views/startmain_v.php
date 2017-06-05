@@ -87,7 +87,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 3em;
+  font-size: 5em;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -193,8 +193,9 @@ body {
   <div class="bom"></div>
   <div class="bom"></div>
   <div class="booms">
-        S  K  O  T  T  !  </div>
-        <button onclick="location.href='/mains'"; style ="margin-top: 180px; background-color: #4d7e2b; font-size :30px;color:#FFEEAD">START</button>
+        S  K  O  T  T    </div>
+        <button onclick="location.href='/mains'"; style ="margin-top: 180px; background-color: #4d7e2b; font-size :30px;color:#FFEEAD;border:none; 
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); cursor:pointer;">START</button>
 </div>
 
     <script src="/static/js/start_main.js">

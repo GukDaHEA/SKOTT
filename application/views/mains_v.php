@@ -59,7 +59,7 @@
                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                   <span class="fa fa-bars color-white"></span>
                </button>
-               <h1><a class="navbar-brand" href="index.html" data-0="line-height:90px;" data-300="line-height:50px;"> <div class = "img_logo"></div>   
+               <h1><a class="navbar-brand" href="/mains" data-0="line-height:90px;" data-300="line-height:50px;"> <div class = "img_logo" data-0="margin-top:20px;" data-300="margin-top:10px;"></div>   
                </a></h1> 
             </div>
             <div class="navbar-collapse collapse">
@@ -114,7 +114,7 @@
                      </div>
                      <div class="col-md-10 col-md-offset-1">
                         <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">                        
-                           <p><strong>S</strong>afty <strong>Ko</strong>rea <strong>T</strong>axi <strong>T</strong>our </p>
+                           <p><strong>S</strong>afty <strong>KO</strong>rea <strong>T</strong>axi <strong>T</strong>our </p>
                         </div>
                      </div>
                      <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">                        
@@ -258,8 +258,8 @@
                <div class="wow bounceIn">
                   <div class="align-center">
                      <div class="wow rotateIn">
-                        <div class="service-col" style="height: 520px;">
-                           <div class="service-icon">
+                        <div class="service-col" style="height: 530px;">
+                           <div class="service-icon" style = "width : 230px; height : 230px;">
                            <img class = "img_service" src="/static/image/mains/TOP3/8.jpg">
                            </div>
                               <h2><a href="#">TOP1<br> < 이태원 > </a></h2> 
@@ -275,8 +275,8 @@
                   <div class="wow bounceIn">
                   
                      <div class="wow rotateIn">
-                        <div class="service-col"  style="height: 520px;">   
-                           <div class="service-icon">
+                        <div class="service-col"  style="height: 530px;">
+                           <div class="service-icon" style = "width : 230px; height : 230px;">
                               <img class = "img_service" src="/static/image/mains/TOP3/4.jpg">
                            </div>
                               <h2><a href="#">TOP2<br> < 남산 > </a></h2> 
@@ -290,8 +290,8 @@
             <div class="col-lg-4" >
                <div class="align-center">
                   <div class="wow bounceIn">
-                     <div class="service-col" style="height: 520px;">
-                        <div class="service-icon">
+                     <div class="service-col" style="height: 530px;">
+                        <div class="service-icon" style = "width : 230px; height : 230px;">
                            <img class = "img_service" src="/static/image/mains/TOP3/9.jpg">
                         </div>
                            <h2><a href="#">TOP3<br> < 홍대입구 > </a></h2> 
@@ -322,7 +322,7 @@
             </div>
             <div class="line-wrap">
                <div class="line-pricing-table">
-                           <div class="pricing-table-wrap" data-scrollreveal="enter top over 0.5s after 0.3s">
+                           <div class="pricing-table-wrap" data-scrollreveal="enter top over 0.5s after 0.3s" style="width: 380px;">
                               <ul>
                                  <li class="line-head-row">
                                     지도보기
@@ -348,7 +348,7 @@
                                  </li>
                               </ul>
                            </div>
-                           <div class="pricing-table-wrap" data-scrollreveal="enter top over 0.5s after 0.5s">
+                           <div class="pricing-table-wrap" data-scrollreveal="enter top over 0.5s after 0.5s" style="width: 380px;">
                               <ul class="line-highlight">
                                  <li class="line-head-row">
                                     검색
@@ -371,7 +371,7 @@
                                  </li>
                               </ul>
                            </div>
-                           <div class="pricing-table-wrap" data-scrollreveal="enter top over 0.5s after 0.7s">
+                           <div class="pricing-table-wrap" data-scrollreveal="enter top over 0.5s after 0.7s" style="width: 380px;">
                               <ul>
                                  <li class="line-head-row">
                                     관광지 클릭
