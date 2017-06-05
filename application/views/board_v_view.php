@@ -4,8 +4,10 @@
 	리뷰 상세 페이지
 	</title>
 </head>
+<style type="text/css">
+	
+</style>
 <body>
-<br><br><br><br><br>
 <h1> 리뷰  </h1>
 <table border = "3" cellpadding="10">
 	<tr>
@@ -30,6 +32,20 @@
 		<!-- <td colspan = "5"><a href="/board_c/board_v">돌아가기</a></td> -->
 	</tr>
 </table>
+
+
+		<!-- <div><?php echo $views->board_id; ?></div>
+		<div><?php echo $views->user_id;  ?></div>
+		<div><?php echo $views->subject;  ?></div>
+		<div><?php echo $views->contents; ?></div>
+		<div><?php echo $views->hits;     ?></div>
+		<div><?php echo $views->reg_date  ?></div>
+		<?php if ( ! $views->picture == 0) { ?> 
+		<div><img alt="" src="<?php echo $views->picture ?>" style="height:100px;width:110px" /></div>
+		<?php }
+		?>
+		<div><a href="/Detail/board_delete/<?php echo $views->board_id ?>">삭제</a></div>
+		<div><a href="/Detail/board_v_modify/<?php echo $views->board_id ?>">수정</a></div> -->
 
 </body>
 </html>
