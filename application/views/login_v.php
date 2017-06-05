@@ -60,14 +60,6 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
     <!-- header -->
     <div id="header">
         <h1><a href="/mains" class="sp h_logo" tabindex="1">SKOTT</a></h1>
-<!--         <div class="lang">
-            <select id="locale_switch" name="locale_switch" title="언어선택" tabindex="2" class="sel" onchange="switchlocale();nclks_select(this.value,'',{'ko_KR':'log.lankr','en_US':'log.lanen','zh-Hans_CN':'log.lancn','zh-Hant_TW':'log.lantw'},this,event);">
-                <option value="ko_KR" selected>한국어</option>
-                <option value="en_US" >English</option>
-                <option value="zh-Hans_CN" >中國言</option>
-                <option value="ja_JP" >日本言</option>
-            </select>
-        </div> -->
     </div>
     <!-- //header -->
     <!-- container -->

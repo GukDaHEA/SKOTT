@@ -209,7 +209,10 @@ input[type="range"]::-webkit-slider-thumb:before {
                 <span></span>
             </a>
         </div>
-    </div>ㅇ
+    </div>
+        <?php
+        var_dump($this->session->userdata());
+        ?>
     <!-- //header -->
     <!-- container -->
     <div id="container">
