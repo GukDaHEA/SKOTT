@@ -903,10 +903,17 @@ section.featured h2.slogan {
 
 @media (max-width: 767px) {
     .carousel-caption  {
-      font-size: 18px;
+      font-size: 10px;
     }
     .carousel-caption h2, .carousel-caption  h2 span, .carousel-caption  p {
-    	font-size:18px;
+    	margin-left : -50px;
+    	width :200px;
+    	margin-left: auto;
+    	margin-right : auto;
+    	font-size:11px;
+    	background-color: #ffffff;
+        opacity: 0.5;
+        color : black;
     }
 }
 
@@ -1867,7 +1874,6 @@ a.socialIcon:hover, .socialHoverClass {
 }
 
 
-
 /* ========================================
 Media queries
 ========================================= */
@@ -1878,7 +1884,6 @@ Media queries
 }
 
 @media only screen and (min-device-width : 979px) and (max-device-width : 1024px)  {
-
 	.navbar-nav {
 		margin-top: 20px;
 	}
@@ -1886,15 +1891,56 @@ Media queries
 
 
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-
 	.navbar-nav {
 		margin-top: 20px;
 	}
 }
+
+@media (min-width: 767px) {
+		#start_button {
+		visibility: hidden;
+	}
+	}
+
 @media (max-width: 767px) {
 
+	#start_button {
+		visibility: visible;
+		width : 250px;
+		height : 50px;
+		margin-left : 57px;
+		margin-top :-1000px;
+		background-color: black;
+		color :white;
+	}
+
+	#section-about, #services, #line-pricing, #section-works, #team, #section-contact {
+		/*visibility: hidden;*/
+		display : none;
+	}
+
+	.btn.btn-primary.btn-lg {
+		height : 10px;
+		visibility: hidden;
+	}
+
+	.carousel-inner {
+		font-size : 2pt;
+	}
+
+	.slider {
+		margin-top : 80px;
+		font-size : 1px;
+	}
+
+	.img_logo {
+		margin-left : -30px;
+		margin-top : -20px;
+	} 
+
 	.navbar.navbar-fixed-top {
-		background-color:rgba(0,0,0,1);
+		background-color:rgba(0,0,0,0.7);
+		height : 68px;
 	}
 	.navbar .navbar-collapse ul.nav {
 		background-color: #444;
@@ -1906,9 +1952,7 @@ Media queries
 	.navbar .navbar-collapse ul.nav li {
 		border-bottom: 1px solid #666;
 	}
-	
-	
-	
+
 	.team-member,.col-lg-4 {
 		margin-bottom: 30px;
 	}

@@ -29,7 +29,6 @@
             Author URL: https://bootstrapmade.com
         ======================================================= -->
     </head>
-
     <style type="text/css">
        .img_service {
           width : 100%;
@@ -37,7 +36,7 @@
        }
 
        .img_logo {
-          margin-top: 10px;
+          margin-top: 15px;
           width : 90px;
           height: 40px;
           background:url('/static/image/header/logo.png');
@@ -63,13 +62,11 @@
                </a></h1> 
             </div>
             <div class="navbar-collapse collapse">
-
                <ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
                   <li class="active"><a href="#header">홈</a></li>
                   <li><a href="/map/map_v">지도보기</a></li>
                   <li><a href="#services">추천코스</a></li>
                   <li><a href="#line-pricing">서비스 소개</a></li>
-                  <li><a href="#"
                   <li><a href="#team">팀 소개</a></li>
              <?php
                 if ($this->session->userdata('is_login')){
@@ -662,10 +659,8 @@
                         </div>
                      </div>
                      </div>
-                  </div>
-                  
+                  </div>      
                </div>
-                  
       </div>
       </section>
       <!-- /team -->
@@ -712,9 +707,11 @@
             
          </div>
       </section>
-      <!-- map -->
 
+      <!-- map -->
    <section id="footer" class="section footer">
+
+      <button id ="start_button" onclick="location.href='/map/map_v'"; >START SKOTT</button>
       <div class="container">
          <div class="row animated opacity mar-bot0" data-andown="fadeIn" data-animation="animation">
             <div class="col-sm-12 align-center">
@@ -733,7 +730,7 @@
                    <p>&copy; SKOTT Theme</p>
                         <div class="credits">
                             <!-- 
-                                All the links in the footer should remain intact. 
+                                All the links in the footer should remainoncl intact. 
                                 You can delete the links only if you purchased the pro version.
                                 Licensing information: https://bootstrapmade.com/license/
                                 Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Green
