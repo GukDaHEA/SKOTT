@@ -292,7 +292,7 @@
                   <div class="wow bounceIn">
                      <div class="service-col" style="height: 530px;">
                         <div class="service-icon" style = "width : 230px; height : 230px;">
-                           <img class = "img_service" src="/static/image/mains/TOP3/9.jpg">
+                             <img class = "img_service" src="/static/image/mains/TOP3/9.jpg">
                         </div>
                            <h2><a href="#">TOP3<br> < 홍대입구 > </a></h2> 
                            <p>홍대(弘大)는 서울특별시 마포구 서울 지하철 2호선 홍대입구역과 홍익대학교 정문을 잇는 지역 및 이 일대에 있는 번화가를 말한다. '홍대'는 홍익대학교의 한국어 약칭으로 이 지역의 정식 지명이 아닌 통용 명칭이며, 홍익대학교와 구분하기 위하여 홍대입구, 홍대거리라고도 부른다.</p>
