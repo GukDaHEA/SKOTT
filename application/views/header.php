@@ -79,11 +79,12 @@
           .BOXA {
             width : 109%;
           }
+
+          .prompt {
+            width : 300px;
+          }
        }
     </style>
-
-
-<body>
 
 <body>
 <div class = "BOXA">

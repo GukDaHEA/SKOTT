@@ -139,15 +139,14 @@
         .nopc{ display: none;}
       } 
 
-
        @media(max-width: 1025px) {
           .positive.ui.button {
             width : 90%;
           }
-          
+
           .detail_image {
-          width:500px;
-          height:400px;
+          width:1000px;
+          height:600px;
         }
        }
 
