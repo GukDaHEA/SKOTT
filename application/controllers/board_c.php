@@ -70,6 +70,7 @@ class Board_c extends CI_Controller {
 		$data['views'] = $this->board_m->get_view($id);
 
 		$this->load->view('board_v_view',$data);
+      $this->load->view('footer');
 	}
 
 	 public function board_v_write() {
@@ -163,6 +164,7 @@ class Board_c extends CI_Controller {
 
 	 public function board_v_modify() {
 
+      $this->load->view('header');
       echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'; 
       $config['upload_path'] = './static/image/review';
       $config['allowed_types'] = 'gif|jpg|png';

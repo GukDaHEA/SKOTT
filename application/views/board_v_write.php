@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<title>
 		리뷰 작성 페이지 
 	</title>
@@ -38,13 +39,13 @@
 		<input type="file" name="user_upload_file" />
 		<input type="submit" name="board_submit" class = "btn btn-primary" value = "작성"> 
 	</form>
-	<script src="/static/ckeditor/ckeditor.js"></script>
+<!-- 	<script src="/static/ckeditor/ckeditor.js"></script>
 	<script>
 		//textarea를 ckeditor로 대체
 		CKEDITOR.replace('board_contents', {
 			'filebrowserUploadUrl':'/board_c/board_v_write_ok'
 		});
-	</script>
+	</script> -->
 
 
 </body>
