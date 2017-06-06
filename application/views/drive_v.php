@@ -9,12 +9,13 @@
 
 
 <style>
+
 #header{margin:0 10px}#header{position:relative;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;height:168px;:62px 0 0}
 #header .h_logo{display:block;overflow:hidden;width:100px;height:80px;top:20px;left:150px;margin:0 auto;background-position:-1px -1px}#header .lang{position:absolute;top:20px;left:20px;width:10%;cursor:pointer;}
 @media only screen and (min-width:1024px){#container,#header{width:768px;margin:0 auto!important}#content{width:460px;margin:0 auto}.error_browser p{width:460px;margin:0 auto}} 
 @media screen and (min-width:460px){#content{width:460px;margin:0 auto}.error_browser p{width:460px;margin:0 auto} input[type=range]{width:400px;}}
 .header_area{overflow:hidden;height:45px}.privacy_title{font-size:18px;font-weight:700;line-height:45px;text-align:center;color:#fff;background-color:#01c73c}.content_area{max-width:460px;margin:0 auto;padding:28px 10px 162px;background-color:#fff}
-.h_logo{background-image:url("/static/image/logo.png");background-size: 100% 100%;background-repeat:no-repeat}
+.h_logo{background-image:url("/static/image/header/logo.png");background-size: 100% 100%;background-repeat:no-repeat}
 #wrap{position:relative;min-height:100%;background-color: #3e3e3e}
 .lang{position:absolute;top:14px;right:0}
 .login_form .blind{font-size:0;line-height:0;position:absolute;top:0;left:0;visibility:hidden;overflow:hidden;width:1px;height:1px}
@@ -158,7 +159,6 @@ menu-trigger.active-10 {
     50% { opacity: 0.8; }
     100% { opacity: 0; }
 }
-<<<<<<< HEAD
 </style>
 
 <style type="text/css">
@@ -171,8 +171,6 @@ menu-trigger.active-10 {
 .start_content, .end_content {
     font-size: 22px;
 }
-=======
->>>>>>> 51f9ddf41801dd387a8cc6661b26dafbcbf707e8
 
 </style>
 <body class="chrome">
@@ -188,7 +186,10 @@ menu-trigger.active-10 {
                     <span></span>
                 </a>
             </div>
-        </div>ㅇ
+        </div>
+        <?php
+        var_dump($this->session->userdata());
+        ?>
         <!-- //header -->
         <!-- container -->
         <div id="container">
@@ -201,22 +202,17 @@ menu-trigger.active-10 {
                     <fieldset class="login_form">
                         <legend class="blind">STATUS</legend>
                         <div class="input_row" id="id_area">
-<<<<<<< HEAD
-                            <span class="input_box"><br><br><br><!-- 
-                             <input type="textarea" id="inputMessage" wrap="virtual" value="부천시 원미구 심곡동 부천대 에서 서울시 경복궁 까지">
-
- -->                           
-                              <div class = "start_end">
-                                  <div class = "start_content">부천시 원미구 심곡동 부천대</div> <br>에서<br><br>
-                                  <div class = "end_content">정환이네 집까지 </div> 
-                              </div>
-=======
                             <span class="input_box"><br><br><br>
                              <input type="text" id="start_spot" wrap="virtual" value="<?=$start?> 에서">
                              <input type="text" id="end_spot" wrap="virtual" value="<?=$end?> 까지">
->>>>>>> 51f9ddf41801dd387a8cc6661b26dafbcbf707e8
-                             <!-- <label for="email" id="label_email_area" class="lbl" style="font-size:50px;font-weight:bold;top:30%;left:25%" >호출 중</label> -->
-                             <!-- <input type="text" id="email" name="email" tabindex="7" accesskey="L" class="int" maxlength="41" value=""> -->
+                            <span class="input_box"><br><br><br><!-- 
+                             <input type="textarea" id="inputMessage" wrap="virtual" value="부천시 원미구 심곡동 부천대 에서 서울시 경복궁 까지">
+ -->                           
+<!-- 
+                              <div class = "start_end">
+                                  <div class = "start_content">부천시 원미구 심곡동 부천대</div> <br>에서<br><br>
+                                  <div class = "end_content">정환이네 집까지 </div> 
+                              </div> -->
                          </span>
                          <div class="loading">
                             <div class="loading-dot"></div>
@@ -239,13 +235,10 @@ menu-trigger.active-10 {
     function callDriver() {
         $.ajax ({
           type : 'POST',
-<<<<<<< HEAD
-          url : '/index.php/drive/call_send_start_end',
-          data : { departure: '부천시 원미구 심곡동 부천대', destination: '서울시 경복궁'},
-=======
           url : '/index.php/drive/drivecall',
           data : { departure: $('#start_spot').val(), destination: $('#end_spot').val(), distance: '0', modify: 'asdsa' },
->>>>>>> 51f9ddf41801dd387a8cc6661b26dafbcbf707e8
+          // url : '/index.php/drive/call_send_start_end',
+          // data : { departure: '부천시 원미구 심곡동 부천대', destination: '서울시 경복궁'},
           dataType : 'json',
           success : function (data) {
              alert("호출 버튼을 누르셨습니다.");
