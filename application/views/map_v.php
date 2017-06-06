@@ -89,10 +89,6 @@
       height: 60%;
      }
 
-     .prompt {
-      width :200px;
-     }
-
      .ui.like.button {
       width : 100%;
       height: 100%;
@@ -104,6 +100,7 @@
       height: 100%;
             font-size : 35px;
      }
+     
      .ui.small.buttons {
       display :none;
      }

@@ -16,6 +16,7 @@
 </head>
 
     <style type="text/css">
+
     .BOXA {
 /*    border : 1px solid black;*/
     height: 11%;
@@ -79,11 +80,12 @@
           .BOXA {
             width : 109%;
           }
+
+          .prompt {
+            width : 300px;
+          }
        }
     </style>
-
-
-<body>
 
 <body>
 <div class = "BOXA">
