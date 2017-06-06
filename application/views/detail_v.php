@@ -27,8 +27,8 @@
 
       .detail_image {
         border:0px solid gray;
-        width:650px;
-        height:500px;
+        width:550px;
+        height:450px;
         padding:10px;
         border-radius: 5px;
       }
@@ -37,12 +37,11 @@
         border:1px solid #e2e2e2;
         padding:15px;
         margin:20px;
-        width:480px;
+        width:500px;
         z-index: 1000;
-        /*position:fixed;*/
         position: absolute;
         float:right;
-        margin-left : 42%;
+        margin-left : 55%;
       }
 
       #div_Info {
@@ -81,16 +80,15 @@
       }
 
      .container {
-        width :1400px;
         height :flex;
         border :0px;
-        margin-top : 100px;
       }
 
       .thumb {
         width : 60%;
         height :flex;
         float : left;
+        margin-left: 50px;
       }
 
      header {
@@ -115,6 +113,17 @@
         list-style: none;
 
       }
+
+
+  .tour_name {
+    margin-left: 50px;
+  }
+
+  .positive.ui.button {
+    width : 109%;
+    height: 120px;
+    text-decoration: none;
+  }
     .multi_image_list ul li:hover {
         opacity:0.8;
           filter:alpha(opacity=8);
@@ -129,61 +138,21 @@
       {       
         .nopc{ display: none;}
       } 
-    </style>
-
-    <style type="text/css">
-          .BOXA {
-/*    border : 1px solid black;*/
-    height: 11%;
-    background-color: rgba(0,0,0,0.8);
-    color : white;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 10pt;
-  }
 
 
-  .map_logo {
-/*    border : 1px solid red;*/
-    height: 100%;
-    width : 15%;
-    float : left;
-    padding-top : 10px;
-  }
-
-  .map_search {
-/*    border : 1px solid red;*/
-    width : 45%;
-    height: 100%;
-    float : left;
-    padding-top : 30px;
-  }
-
-  .map_home, .map_view, .map_location, .map_login {
-/*    border : 1px solid red;*/
-    width : 10%;
-    height: 100%;
-    float : left;
-    padding-top : 30px;
-  }
-  .ui.search {
-    color : black;
-    padding-right : 100px;
-  }
-  ol {
-    list-style: none;
-  }
-
-  .map_menu li a {
-    color : white;
-    text-decoration: none;
-  }
-
-    .map_menu li a:hover {
-    color :#4d7e2b;
-  } 
+       @media(max-width: 1025px) {
+          .positive.ui.button {
+            width : 90%;
+          }
+          
+          .detail_image {
+          width:500px;
+          height:400px;
+        }
+       }
 
     </style>
+
 
 <body onload="initTmap(<?php echo $lat;?>,<?php echo $lng;?>)">
         <?xml version="1.0" encoding="UTF-8"?>
@@ -192,48 +161,9 @@
     xsi:schemaLocation="http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd"
     xmlns:tmap="http://tlp.tmap.co.kr/">
 
-<!-- <body onload="initTmap()">  -->
-
-<div class = "BOXA">
-  <div class = "map_logo"><img src="/static/image/header/logo.png"></div>
-  <div class = "map_search"> 
-
-    <div class="ui search">
-      <div class="ui icon input">
-        <input class="prompt" type="text" size ="60" placeholder="Search...">
-       <i class="inverted circular search link icon"></i>
-      </div>
-    </div>
-
-<!-- <div class="ui icon input" id ="search_ui">
-  <input type="text" class = "prompt" placeholder="Search..."> 
-  <div><i class="inverted circular search link icon"></i></div>
-</div>
- -->
-
-  </div>
-<ol class = "map_menu">
-  <li class = "map_home"><p><a href="/mains">홈</a></p></li>
-  <li class = "map_view"><p><a href="/map/map_v">지도보기</a></p></li>
-  <li class = "map_location"><p><a href="#">내위치</a></p></li>
-               <?php
-                if ($this->session->userdata('is_login')){
-                ?>
-                    <li class = "map_login"><a href="/Login/logout">로그아웃</a></li>
-                    <li><a href="/User/user"><?php echo $this->session->userdata('name') ?> 님</a></li>
-                <?php
-                } else {
-                ?>
-                    <li class = "map_login"><a href="/Login">로그인</a></li>
-                <?php
-                }
-                ?>
-  <ol>
-</div>
-
 <div class="container">
 
-  <div><h1><?php echo $name;?></h1></div>
+  <div class = "tour_name"><h1><?php echo $name;?></h1></div>
    <header>
       <div class="thumb-wrap">
           <div class="thumb">
@@ -246,54 +176,33 @@
                    </li>
                 </ul>
           </div>
+
           <div id="div_Taxi" style="background-color: #FFF"> 
          <h3 style="color:#4d7e2b;font-weight:">택시 정보 </h3><br/>
           <div id = "div_Map"></div>
 
+
+            <form action="/drive/drive" method="POST">
             <div id= "div_taxiinfo">
               <div id="div_Address" style="text-align:center">
-                출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="현재 위치" readonly/> <br />
-                도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" value="<?php echo $reco_address;?> " readonly /> <br />
+                출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="start" value="현재 위치"/> <br />
+                도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="end" value="<?php echo $reco_address;?> " /> <br />
               </div>
 
-              <ul> <!-- 
-                 <li>  <tmap:totalDistance></tmap:totalDistance></li>
-                 <li>  <tmap:totalTime></tmap:totalTime>         </li> <br/>
-                 <li>  <tmap:totalFare></tmap:totalFare>             </li>
-                 <li>  <tmap:taxiFare></tmap:taxiFare>           </li> -->
-              </ul>
               <h4 style="font-weight:bold;text-align:center;" class="pc">※pc 버전일 경우 호출하실 수 없습니다.</h4>
               <button class="nopc" id="Btn" onclick = "call_send()">호출하기</button>
             </div>
+              </form>
         </div>
-
       </div>
       </header>
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-      <header>
-        <div id = "div_Info">
-          <h3 style="color:#4d7e2b">관광지 정보</h3>
-           <div id = "div_Title2">
-              <?php echo $name;?>
-           </div>
-           <div id = "div_Info2">
-           <p>   
-            <?php echo $reco_text;?> <!-- 관광지 정보 뿌려줄 내용 -->
-           </p>
-           </div>
-        </div>
-        <br/><br/>
-    </header>
-</div>
+      <br/><br/><br/><br/><br/><!-- <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> -->
 
- 
+ <button class = "positive ui button" onclick="location.href='/board_c/board_v'">리뷰보기</button>
 
 </body>
 </html>
-
-
-
 
 <script src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc">
 </script>
@@ -373,15 +282,15 @@ function multi_image_view(obj) {  //사진 바꾸기
     }
 }
 
-$(document).ready(function(){ 
-  $('#Btn').click(function() { 
-    var result = confirm('호출 페이지로 이동 하시겠습니까?'); 
-    if(result) { //yes 
-      location.replace('/drive/drive'); 
-    }
-    else { //no 
-    } 
-  }); 
-});
+// $(document).ready(function(){ 
+//   $('#Btn').click(function() { 
+//     var result = confirm('호출 페이지로 이동 하시겠습니까?'); 
+//     if(result) { //yes 
+//       location.replace('/drive/drive'); 
+//     }
+//     else { //no 
+//     } 
+//   }); 
+// });
 
 </script>

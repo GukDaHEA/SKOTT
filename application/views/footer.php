@@ -1,5 +1,5 @@
 <style>
-.footer{position:relative;width:100%;clear:both}
+.footer{position:relative;width:110%;clear:both}
 .footer .footer-bottom{width:100%;background-color:#2a2a2a}
 .footer .footer-bottom .footer-info2{z-index:33;position:relative;width:950px;height:300px;margin:0 auto;}
 .footer .footer-bottom .footer-info2 .footer-logo{float:left;width:200px;padding-top:93px}
@@ -15,6 +15,16 @@
 .footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address2 a{color:#919191}
 .footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address2 a:hover{color:#fff;text-decoration:underline}
 .footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address3{width:145px}
+
+
+ @media(max-width: 1025px) {
+
+/*  .footer{width:110%;}*/
+
+  .footer {margin-top:220px;}
+
+ }
+
 </style>
 
 <div class="footer">

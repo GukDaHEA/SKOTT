@@ -55,7 +55,7 @@
 ?>
 	<tr>
 		<td><?php echo $list->user_name ?></td>
-		<td><a href="/Detail/board_v_view/<?php echo $list->board_id ?>"><?php echo $list->subject?></a></td> 
+		<td><a href="/board_c/board_v_view/<?php echo $list->board_id ?>"><?php echo $list->subject?></a></td> 
 		<!-- 제목을 통해서 들어가기 -->
 		<td><?php echo $list->contents?></td>
 		<td><?php echo $list->hits ?></td>
@@ -73,7 +73,7 @@
 				<input type="text" name="search_word" id="q" placeholder="검색" required /> 
 				<input type="button" value="검색" id="search_btn" required/>
 			</form> <br>
-<button class = "btn"><a href="/Detail/board_v_write">
+<button class = "btn"><a href="/board_c/board_v_write">
 	글쓰기</a></button> <p>
 </div>
                <div id = "pagination_id"><?php echo $pagination;?></div>

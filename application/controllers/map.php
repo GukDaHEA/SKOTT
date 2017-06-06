@@ -27,6 +27,8 @@ class Map extends MY_Controller {
 	
 	public function map_v()
 	{
+
+		$this->load->view('header');
 		$recommand_name = $this->Map_m->reco_name();
 
 		$recommand_name= json_encode($recommand_name, JSON_UNESCAPED_UNICODE);

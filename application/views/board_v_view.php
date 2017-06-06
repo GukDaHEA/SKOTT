@@ -46,9 +46,9 @@
 
 <div class="change">
 <h1> 수정하기 </h1>
-<form method = "POST" enctype="multipart/form-data" action="/Detail/board_v_modify">
-	<div class="apply"><a href="/Detail/board_delete/<?php echo $views->board_id ?>" style="width:100pt;height:30pt;">삭제</a></div>	
-	<div class="apply"><a href="/Detail/board_v_modify/<?php echo $views->board_id ?>">수정</a></div>
+<form method = "POST" enctype="multipart/form-data" action="/board_c/board_v_modify">
+	<div class="apply"><a href="/board_c/board_delete/<?php echo $views->board_id ?>" style="width:100pt;height:30pt;">삭제</a></div>	
+	<div class="apply"><a href="/board_c/board_v_modify/<?php echo $views->board_id ?>">수정</a></div>
 	<div class="hits"> 조회수 : <?php echo $views->hits;?></div>
 	<div class="date"> 작성일 : <?php echo $views->reg_date;  ?></div>
 	<div class="title"> 제목 : <?php echo $views->subject;?></div>

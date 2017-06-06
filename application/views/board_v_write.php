@@ -9,6 +9,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style type="text/css">
 
+	.background {
+		width: 800px;
+		margin: auto;
+	}
 	.btn {
 		position: relative;
 		float: right; 
@@ -28,12 +32,19 @@
 	
 <br><br><br><br><br>
 <h1> 리뷰 쓰기 </h1> <br>
-	<form method="post" enctype="multipart/form-data" action="/Detail/board_v_write">
+	<form method="post" enctype="multipart/form-data" action="/board_c/board_v_write" class="background">
 		<input type="text" name="board_subject" placeholder="제목" class = "text_subject"> <br> <br>
 		<textarea cols = "50" rows = "10" name="board_contents" placeholder="내용" class = "text_textarea"></textarea> <br><br>
 		<input type="file" name="user_upload_file" />
 		<input type="submit" name="board_submit" class = "btn btn-primary" value = "작성"> 
 	</form>
+	<script src="/static/ckeditor/ckeditor.js"></script>
+	<script>
+		//textarea를 ckeditor로 대체
+		CKEDITOR.replace('board_contents', {
+			'filebrowserUploadUrl':'/board_c/board_v_write_ok'
+		});
+	</script>
 
 
 </body>

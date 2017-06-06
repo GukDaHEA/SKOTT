@@ -72,49 +72,84 @@ class Board_c extends CI_Controller {
 		$this->load->view('board_v_view',$data);
 	}
 
+	 public function board_v_write() {
+
+      echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'; 
+      // 사용자가 업로드 한 파일을 /static/user/ 디렉토리에 저장한다.
+      $config['upload_path'] = './static/image/review';
+      // git,jpg,png 파일만 업로드를 허용한다.
+      $config['allowed_types'] = 'gif|jpg|png';
+      // 허용되는 파일의 최대 사이즈
+      $config['max_size'] = '1000000';
+      // 이미지인 경우 허용되는 최대 폭
+      $config['max_width'] = '2048';
+      $config['max_height'] = '1200';
+      // 이미지인 경우 허용되는 최대 높이
+      $this->load->library('upload',$config);
+      //$config에 코드이크나이터에서 해주는 library에 저장
+ 
+      if($this->session->userdata('is_login'))
+      {
+         //form
+         if($_POST) 
+         {
+
+            if( !$this->input->post('board_subject', true) OR !$this->input->post('board_contents', true) ) {
+               echo "<script>alert(\"비정상적인 접근입니다. \");</script>";
+               redirect('/board_c/board_v_write','refresh');
+               exit;
+            }
+
+            //파일 업로드가 되는지 확인
+            if (! $this->upload->do_upload("user_upload_file")){
+               echo $this->upload->display_errors();
+            } 
+            else 
+            {
+               $data =  $this->upload->data();
+               echo "성공";
+               $file_url = "/static/image/review/".$data['file_name'];
+            }
 
 
+            $board_subject = $this->input->post('board_subject', true);
+            $board_contents = $this->input->post('board_contents', true);
+            $user_name = $this->session->userdata('name');
+            $user_email = $this->session->userdata('email');
+             $user_picture = $file_url;
 
-	public function board_v_write() {
+            $result = $this->board_m->board_insert($board_subject, $board_contents, $user_name, $user_email, $user_picture);
 
-		echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';	
-		//form
-		if($_POST) 
-		{
+            if($result)
+            {
+               echo "<script>alert(\"입력되었습니다.\");</script>";
+               redirect('/board_c/board_v','refresh');
+               exit;
+            }
+            else
+            {
+               echo "<script>alert(\"다시 입력해주세요.\");</script>";
+               redirect('/board_c/board_v_write','refresh');
+               exit;
+            }
 
-			if( !$this->input->post('board_subject', true) OR !$this->input->post('board_contents', true) ) {
-				alert("비정상적인 접근입니다. ","/board_c/board_v_write");
-				exit;
-			}
+         }
 
-			$board_subject = $this->input->post('board_subject', true);
-			$board_contents = $this->input->post('board_contents', true);
+         else
+            {
 
-			$result = $this->board_m->board_insert($board_subject, $board_contents);
-
-			if($result) 
-			{
-				alert('입력되었습니다',"/board_c/board_v" );
-				exit;
-			}
-			else
-			{
-				alert("다시 입력해주세요. ","/board_c/board_v_write");
-				exit;
-			}
-
-		}
-
-		else
-			{
-				$this->load->view('board_v_write');
-			}
-
-	}
-
-
-
-
+               $this->load->view('header');
+               $this->load->view('board_v_write');
+               $this->load->view('footer');
+            }
+         }
+      else 
+      {
+         echo "<script>alert(\"로그인이 필요합니다.\");</script>";
+            redirect('/Login','refresh');
+            exit;
+      }
+   }
 
 
 	public function board_delete() {
@@ -126,54 +161,63 @@ class Board_c extends CI_Controller {
 	}
 
 
+	 public function board_v_modify() {
+
+      echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'; 
+      $config['upload_path'] = './static/image/review';
+      $config['allowed_types'] = 'gif|jpg|png';
+      $config['max_size'] = '1000000';
+      $config['max_width'] = '2048';
+      $config['max_height'] = '1200';
+      $this->load->library('upload',$config);
 
 
+      $id = $this->uri->segment(3);
+      //form
+      if($_POST) 
+      {
 
+         if( !$this->input->post('modify_subject', true) OR !$this->input->post('modify_contents', true) ) {
+            echo "<script>alert(\"비정상적인 접근입니다. \")</script>";
+            redirect('/board_c/board_v','refresh');
+            exit;
+         }
+            //파일 업로드
+            if (! $this->upload->do_upload("user_upload_file")){
+               echo $this->upload->display_errors();
+            } 
+            else 
+            {
+               $data =  $this->upload->data();
+               echo "성공";
+               $file_url = "/static/image/review/".$data['file_name'];
+            }
 
+         $modify_subject = $this->input->post('modify_subject', true);
+         $modify_contents = $this->input->post('modify_contents', true);
+         $modify_picture = $file_url;
+         $result = $this->board_m->board_modify($modify_subject, $modify_contents, $id, $modify_picture);
+         if($result)
+         {
+            echo "<script>alert(\"입력되었습니다\");</script>";
+            // redirect('/board_c/board_v','refresh');
+            exit;
+         }
+         else
+         {
+            echo "<script>alert(\"다시 입력해주세요. \")</script>";
+            redirect('/board_c/board_v_modify','refresh');
+            exit;
+         }
+      }
 
+      else
+         {
 
-	public function board_v_modify() {
-
-		echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';	
-
-		$id = $this->uri->segment(3);
-
-		//form
-		if($_POST) 
-		{
-
-			if( !$this->input->post('modify_subject', true) OR !$this->input->post('modify_contents', true) ) {
-				alert("비정상적인 접근입니다. ","/board_c/board_v_modify/$id");
-				exit;
-			}
-
-			$modify_subject = $this->input->post('modify_subject', true);
-			$modify_contents = $this->input->post('modify_contents', true);
-
-			$result = $this->board_m->board_modify($modify_subject, $modify_contents, $id);
-
-			if($result) 
-			{
-				alert('입력되었습니다',"/board_c/board_v" );
-				exit;
-			}
-			else
-			{
-				alert("다시 입력해주세요. ","/board_c/board_v_modify/$id");
-				exit;
-			}
-		}
-
-		else
-			{
-
-				$data['views'] = $this->board_m->get_modify_view($id);
-				$this->load->view('board_v_modify', $data);
-			}
-	}
-
-
-
+            $data['views'] = $this->board_m->get_modify_view($id);
+            $this->load->view('board_v_modify', $data);
+         }
+   }
 
 	function url_explode($url, $key)
 	{

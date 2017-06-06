@@ -269,12 +269,12 @@
                <div class="wow bounceIn">
                   <div class="align-center">
                      <div class="wow rotateIn">
-                        <div class="service-col" style="height: 530px;">
+                        <div class="service-col" style="height: 550px;">
                            <div class="service-icon" style = "width : 230px; height : 230px;">
                            <img class = "img_service" src="/static/image/mains/TOP3/8.jpg">
                            </div>
                               <h2><a href="#">TOP1<br> < 이태원 > </a></h2> 
-                              <p>서울특별시 용산구 이태원동 일대로서 주한 미군을 비롯한 외국인, 외국 상품, 외국 문화의 집결지</p>
+                              <p>서울특별시 용산구 이태원동 일대로서 주한 미군을 비롯한 외국인, 외국 상품, 외국 문화의 모습 조선시대에 이곳에 있었던 이태원(梨泰院)이란 역원(驛院)에서 동명이 유래되었다</p>
                         </div>
                      </div>
                   </div>

@@ -1896,11 +1896,7 @@ Media queries
 	}
 }
 
-@media (min-width: 768px) {
-			#start_button {
-				display: none;
-			}
-	}
+
 
 @media (max-width: 767px) {
 
