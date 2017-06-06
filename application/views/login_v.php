@@ -4,8 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>SKOTT : 로그인</title>
           <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-              <link rel="stylesheet" href="style.css" />
-              <title>jQuery Example</title>
               <script>
                 $(document).ready(function() {
                   // Execute some code here
@@ -45,6 +43,21 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
 .phishing_banner{margin:47px 0 15px;padding:25px 0 31px;border:1px solid #dce6ee;background-color:#e5edf3}.phishing_banner .sp{position:relative;width:396px;height:110px;margin:0 auto}.phishing_banner.bw_crome .sp{background-position:0 -670px}.phishing_banner.bw_safari .sp{background-position:0 -800px}.phishing_banner.bw_firefox .sp{background-position:0 -930px}.phishing_banner.bw_ie,.phishing_banner.toolbar{display:none} @media only screen and (max-device-width:1024px) and (-webkit-min-device-pixel-ratio:1.5),(min--moz-device-pixel-ratio:1.5),(-o-min-device-pixel-ratio:3/2),(min-device-pixel-ratio:1.5) {.phishing_banner.bw_safari .sp {background-position: 0 -790px;}.phishing_banner.bw_firefox .sp {background-position: 0 -910px;}}
  @media screen and (max-device-width:450px){.phishing_banner{ display: none;} .position_a{margin-left: 30px} } 
  .fb-login-button{margin: auto;}
+ @media screen and (max-device-width:1024px){ #taxi{
+    float:right;
+    background-color:#4d7e2b;
+    color:white;
+    width:20%;
+    height:6%;
+    font-weight:bold;
+    text-align: center;
+    padding-top: 1px;
+    display:block;
+    font-size:15px;
+ }}
+@media screen and (min-device-width:450px){
+    #taxi{display:none;}
+}
 </style>
 <body class="chrome">
     <?php 
@@ -98,6 +111,7 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
                             }(document, 'script', 'facebook-jssdk'));</script>
                             <div class="fb-login-button" data-width="61px" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
                            <!-- facebook login -->                     
+                           <a href="/drive/call_login"><div id="taxi"> 택시기사 로그인 </div></a>
                     <input type="submit" title="로그인" alt="로그인" tabindex="12" value="로그인" class="btn_global" target="_blank">
                     <label><input type="checkbox" name="save_id" id="chk_save_id" value="on"  /> 아이디저장</label>
                     </fieldset>

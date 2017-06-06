@@ -101,6 +101,7 @@ class Drive extends MY_Controller {
             $this->session->set_userdata(array('is_login' => true, 'belong' => $user->belong));
             $this->session->set_userdata(array('is_login' => true, 'area' => $user->area));
             $this->session->set_userdata(array('is_login' => true, 'picture' => $user->picture));
+            $this->session->set_userdata(array('is_login' => true, 'car' => $user->car_num));
             
             header('Location: /Drive/call');
          } else {
@@ -121,5 +122,10 @@ class Drive extends MY_Controller {
 
 					echo json_encode($reco_sidebar_content);
 				}
+	}
+
+	function logout() {
+		$this->session->sess_destroy();
+		header('Location: /Drive/call_login');
 	}
 }

@@ -7,8 +7,8 @@
 <style>
 #header{margin:0 10px}#header{position:relative;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;height:168px;:62px 0 0}
 #header .h_logo{display:block;overflow:hidden;width:130px;height:80px;top:20px;left:150px;margin:0 auto;background-position:-1px -1px}#header .lang{position:absolute;top:20px;left:20px;width:10%;cursor:pointer;}
-@media only screen and (min-width:1024px){#container,#header{width:768px;margin:0 auto!important}#content{width:460px;margin:0 auto}.error_browser p{width:460px;margin:0 auto}} 
-@media screen and (min-width:460px){#content{width:460px;margin:0 auto}.error_browser p{width:460px;margin:0 auto} input[type=range]{width:400px;}}
+@media only screen and (min-width:1024px){#container,#header{width:768px;margin:0 auto!important;}#content{width:460px;margin:0 auto}.error_browser p{width:460px;margin:0 auto}} 
+@media screen and (min-width:460px){#content{width:460px;margin:0 autoheight:100%;}.error_browser p{width:460px;margin:0 auto} input[type=range]{width:400px;}}
 .header_area{overflow:hidden;height:45px}.privacy_title{font-size:18px;font-weight:700;line-height:45px;text-align:center;color:#fff;background-color:#01c73c}.content_area{max-width:460px;margin:0 auto;padding:28px 10px 162px;background-color:#fff}
 .h_logo{background-image:url("/static/image/header/logo.png");background-size: 100% 100%;background-repeat:no-repeat}
 #wrap{position:relative;min-height:100%;background-color: #3e3e3e}
@@ -17,7 +17,7 @@
 
 #container{padding-bottom:100px}
 .input_row{position:relative;height:150px;margin:0 0 14px;padding:10px 35px 10px 15px;border:solid 0px #dadada;border-radius:10px;text-align:center;background:#000}.input_row.focus{border:solid 1px #20bc01}.input_box{display:block;overflow:hidden}.int{font-size:15px;line-height:16px;position:relative;z-index:9;width:100%;height:16px;padding:7px 0 6px;color:#000;border:none;background:#fff;-webkit-appearance:none}.lbl{font-size:15px;text-align:center;line-height:16px;position:absolute;z-index:8;top:16px;left:15px;color:#999}.lbl{z-index:10}.wrg{position:absolute;z-index:1000;top:16px;right:13px;display:none;overflow:hidden;width:19px;height:19px;margin:0;padding:0;cursor:pointer;text-indent:-999px;border:0;background-color:transparent;background-position:-1px -263px}
-.input_row{padding:10px 6px 10px 9px, margin:0;} .login_form{ border:0px;margin-top:-50px;}
+ .login_form{ border:0px;margin-top:-50px;}
 .btn_global{font-size:20px;font-weight:700;line-height:61px;display:block;width:100%;height:61px;margin:30px 0 13px;padding-top:2px;cursor:pointer;text-align:center;color:#fff;border:none;border-radius:10px;background-color:#4d7e2b;-webkit-appearance:none}.btn_global:active,.btn_global:hover,.btn_global:link{text-decoration:none;color:#fff}
 input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:none}
 .error{font-size:12px;line-height:16px;margin:-2px 0 12px;color:#ff1616}.error .error_info{color:#333}.error strong{font-size:15px;position:relative;top:3px}
@@ -195,6 +195,15 @@ input[type="range"]::-webkit-slider-thumb:before {
     50% { opacity: 0.8; }
     100% { opacity: 0; }
 }
+#label{
+    display:inline;
+}
+#label2{
+    display:none;
+}
+#label3{
+    display:none;
+}
 </style>
 <body class="chrome">
 
@@ -209,37 +218,37 @@ input[type="range"]::-webkit-slider-thumb:before {
                 <span></span>
             </a>
         </div>
-    </div>
+    </div><!-- 
         <?php
         var_dump($this->session->userdata());
-        ?>
+        ?> -->
     <!-- //header -->
     <!-- container -->
     <div id="container">
         <!-- content -->
         <div id="content">
-            <div class="title">
-                <p></p>
-            </div>
         <form id="frmNIDLogin" name="frmNIDLogin" action="/" method="post">
                 <fieldset class="login_form">
                     <legend class="blind">STATUS</legend>
                     <div class="input_row" id="id_area">
-                        <span class="input_box"><br><br><br>
-                            <label for="email" id="label_email_area" class="lbl" id="status" style="font-size:50px;font-weight:bold;top:30%;left:15%" >콜 대기 중</label>
-                            <!-- <input type="text" id="email" name="email" tabindex="7" accesskey="L" class="int" maxlength="41" value=""> -->
+                        <span class="input_box" id="label"><br><br><br>
+                            <label for="email" id="label_email_area" class="lbl" id="status" style="font-size:25px;font-weight:bold;top:30%;left:20%"><?php echo $this->session->userdata('car');?><br/><br/><?php echo $this->session->userdata('name')?> 기사님</label>
                         </span> <br>
-                            <div class="loading">
-                                <div class="loading-dot"></div>
-                                <div class="loading-dot"></div>
-                                <div class="loading-dot"></div>
+                        <span class="input_box" id="label2">
+                            <label for="email" id="label_email_area" class="lbl" id="status" style="font-size:25px;font-weight:bold;top:30%;left:20%">콜 대기중</label>
+                        <div class="loading">
+                            <div class="loading-dot"></div>
+                            <div class="loading-dot"></div>
+                            <div class="loading-dot"></div>
                             <div class="loading-dot"></div>
                         </div>
-                        
+                        </span>
+                        <span class="input_box" id="label3">
+                            <label for="email" id="label_email_area" class="lbl" id="status" style="font-size:25px;font-weight:bold;top:30%;left:35%">운행 중</label>
+                        </span>
                     </div>
-                    <!-- <button class="btn_global" onclick"">빈 차</button> -->
-                    <input type="submit" title="빈 차" alt="빈 차" value="빈 차" class="btn_global" target="_blank" >
-                    <input type="submit" title="운행중" alt="운행중"  value="운행중" class="btn_global" onclick="" target="_blank"id="nul">
+                    <a href="javascript:doDisplay1();" ><div class="btn_global" id="nul">빈 차</div></a>
+                    <a href="javascript:doDisplay2();"><div class="btn_global" id="active">운행 중</div></a>
                     </fieldset>
             </form>
             
@@ -250,45 +259,6 @@ input[type="range"]::-webkit-slider-thumb:before {
         <!-- //content -->
     </div>
 
-    <script type="text/javascript">
-
-    var log = function(s) {
-        console.log(s);
-        if (document.readyState !== "complete") {
-            log.buffer.push(s);
-        } else {
-            // document.getElementById("output").innerHTML += (s + "\n")
-            var result = confirm(s + "수락 하시겠습니까?");
-            if(result) { //yes
-              location.replace('/call/call');
-            }
-            else { //no
-            }
-        }
-    }
-    log.buffer = [];
- 
-    url = "ws://localhost:8080";
-    w = new WebSocket(url);
-
-
-    w.onopen = function() {
-        log("open");
-    }
-
-    w.onmessage = function(e) {
-        console.log(e.data);
-        log(e.data);
-    }
- 
-    w.onclose = function(e) {
-        log("연결이 끊어졌습니다.");
-    }
- 
-    window.onload = function() {
-        log(log.buffer.join("\n"));
-    }
-    </script>
     <!-- 밀어서 잠금해제 javascript -->
 <script type="text/javascript">
 document.querySelector("input[type=\"range\"]").onmouseup = function() {
@@ -312,7 +282,10 @@ document.querySelector("input[type=\"range\"]").onmousedown = function() {
 }
 
 function unlock() {
-    document.querySelector("input[type=\"range\"]").style.opacity = "0";
+    // document.querySelector("input[type=\"range\"]").style.opacity = "0";
+    document.getElementById("label2").style.display = 'none';
+    document.getElementById("label3").style.display = 'none';
+    document.getElementById("label").style.display = 'inline';
 }
 </script>
 
@@ -331,10 +304,32 @@ burger.each(function(index){
 </script>
     <!-- //container -->
 
-    <script type="text/javascript">
-            document.getElementById("nul").onclick = function() {
-            document.getElementById("status").value = "운행 중";
-        }
+<script type="text/javascript">
+    function doDisplay1(){
+
+    alert(document.getElementById("label").style.display.value);
+    if(document.getElementById("label").style.display.value=='inline' || document.getElementById("label3").style.display.value=='inline'){
+    document.getElementById("label").style.display='none';
+    document.getElementById("label3").style.display='none';
+    document.getElementById("label2").style.display='inline';
+    } else {
+
+    }
+}
+
+    function doDisplay2(){
+    var con = document.getElementById("label");
+    var con2 = document.getElementById("label2");
+    var con3 = document.getElementById("label3");
+
+    if(con.style.display=='block' || con2.display=='block'){
+        con3.style.display = 'block';
+        con.style.display = 'none';
+        con2.style.display = 'none';
+    } else {
+
+    }
+}
     </script>
 </body>
 </html>

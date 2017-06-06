@@ -634,7 +634,7 @@ function map_marker_1 (reco_idx) {
                                               '           </div>' + 
                                               '            <div class="desc">' + 
                                               '                <div class="ellipsis">'+data.reco_address +'</div>' + 
-                                              '                <div><a href="/detail/detail/' +data.reco_idx + '" target="_blank" class="link">상세 페이지</a></div>' +
+                                              '                <div><a href="/detail/detail/' +data.reco_idx + '" class="link">상세 페이지</a></div>' +
                                               '                <div class="marker_star">'+marker_reco_star_content +'</div>' +  
                                               '            </div>' + 
                                               '        </div>' + 
