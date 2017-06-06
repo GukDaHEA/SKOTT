@@ -16,7 +16,7 @@
 </head>
 
     <style type="text/css">
-          .BOXA {
+   .BOXA {
 /*    border : 1px solid black;*/
     height: 11%;
     background-color: rgba(0,0,0,0.8);

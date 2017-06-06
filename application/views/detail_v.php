@@ -36,7 +36,7 @@
       #div_Taxi {
         border:1px solid #e2e2e2;
         padding:15px;
-        margin:20px;
+/*        margin:20px;*/
         width:500px;
         z-index: 1000;
         position: absolute;
@@ -53,7 +53,7 @@
       }
 
       #div_Map {
-        margin : 10px;
+/*        margin : 10px;*/
         width : 400px;
       }
       #div_ReviewStar {
@@ -142,23 +142,20 @@
        @media(max-width: 1025px) {
           .positive.ui.button {
             width : 90%;
+/*            margin-top :500px;*/
           }
 
-          .detail_image {
-          width:1000px;
+/*          .detail_image {
+          width:10px;
           height:600px;
-        }
+        }*/
        }
 
     </style>
 
 
 <body onload="initTmap(<?php echo $lat;?>,<?php echo $lng;?>)">
-        <?xml version="1.0" encoding="UTF-8"?>
-<kml xmlns="http://www.opengis.net/kml/2.2"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd"
-    xmlns:tmap="http://tlp.tmap.co.kr/">
+
 
 <div class="container">
 
@@ -176,32 +173,43 @@
                 </ul>
           </div>
 
-          <div id="div_Taxi" style="background-color: #FFF"> 
-         <h3 style="color:#4d7e2b;font-weight:">택시 정보 </h3><br/>
-          <div id = "div_Map"></div>
+                  <div id="div_Taxi" style="background-color: #FFF"> 
+                       <h3 style="color:#4d7e2b;font-weight:">택시 정보 </h3><br/>
+                        <div id = "div_Map"></div>
 
 
-            <form action="/drive/drive" method="POST">
-            <div id= "div_taxiinfo">
-              <div id="div_Address" style="text-align:center">
-                출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="start" value="현재 위치"/> <br />
-                도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="end" value="<?php echo $reco_address;?> " /> <br />
-              </div>
+                    <form action="/drive/drive" method="POST">
+                            <div id= "div_taxiinfo">
+                              <div id="div_Address" style="text-align:center">
+                                출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="start" value="현재 위치"/> <br />
+                              도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="end" value="<?php echo $reco_address;?> " /> <br />
+                              </div>
 
-              <h4 style="font-weight:bold;text-align:center;" class="pc">※pc 버전일 경우 호출하실 수 없습니다.</h4>
-              <button class="nopc" id="Btn" onclick = "call_send()">호출하기</button>
-            </div>
-              </form>
-        </div>
+                              <h4 style="font-weight:bold;text-align:center;" class="pc">※pc 버전일 경우 호출하실 수 없습니다.</h4>
+                              <button class="nopc" id="Btn" onclick = "call_send()">호출하기</button>
+                            </div>
+                    </form>
+                </div>
       </div>
       </header>
-      <br/><br/><br/><br/><br/><!-- <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> -->
+</div>
+                                    <button class = "positive ui button" onclick="location.href='/board_c/board_v'">리뷰보기</button>
+<!--       <header>
+        <div id = "div_Info">
+          <h3 style="color:#4d7e2b">관광지 정보</h3>
+           <div id = "div_Title2">
+              <?php echo $name;?>
+           </div>
+           <div id = "div_Info2">
+           <p>   
+            <?php echo $reco_text;?> 
+           </p>
+           </div>
+        </div>
+        <br/><br/>
+    </header> -->
 
- <button class = "positive ui button" onclick="location.href='/board_c/board_v'">리뷰보기</button>
 
-</body>
-</html>
 
 <script src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc">
 </script>

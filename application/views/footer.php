@@ -6,9 +6,9 @@
 .footer .footer-bottom .footer-info2 .footer-logo a{display:inline-block}
 .footer .footer-bottom .footer-info2 .footer-address-wrap{float:left;margin-left:45px;color:#919191}
 .footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address1,.footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address2,.footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address3{display:inline-block}
-.footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address1 li,.footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address2 li,.footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address3 li{margin-bottom:11px}
+.footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address1 li,.footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address2 li,.footer ./*footer-bottom .footer-info2 .footer-address-wrap .footer-address3 li{margin-bottom:11px}*/
 .footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address1 a,.footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address2 a,.footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address3 a{text-decoration:none}
-.footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address1{width:238px;margin-top:60px}
+/*.footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address1{width:238px;margin-top:60px}*/
 .footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address1 em{color:#fff;font-weight:700}
 .footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address1 .fax{margin-left:10px}
 .footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address2{width:273px}
@@ -21,7 +21,7 @@
 
 /*  .footer{width:110%;}*/
 
-  .footer {margin-top:220px;}
+/*  .footer {margin-top:220px;}*/
 
  }
 
