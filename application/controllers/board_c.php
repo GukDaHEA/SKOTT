@@ -203,7 +203,7 @@ class Board_c extends CI_Controller {
          if($result)
          {
             echo "<script>alert(\"입력되었습니다\");</script>";
-            // redirect('/board_c/board_v','refresh');
+            redirect('/board_c/board_v','refresh');
             exit;
          }
          else
