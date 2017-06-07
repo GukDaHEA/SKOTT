@@ -58,8 +58,7 @@ class User extends MY_Controller {
          if($result)
          {
             echo "<script>alert(\"입력되었습니다\");</script>";
-            redirect('/Detail/detail/1','refresh');
-            exit;
+            redirect('/mains','refresh');
          }
          else
          {

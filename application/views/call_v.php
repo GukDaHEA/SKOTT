@@ -217,7 +217,7 @@ a:link { color: red; text-decoration: none;}
     <div id="header">
         <h1><a href="/Drive/call" class="sp h_logo" tabindex="1"></a></h1>
         <div class="lang">
-            <a class="menu-trigger" href="javascript:;">
+            <a class="menu-trigger" href="/Drive/call_login">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -255,42 +255,37 @@ a:link { color: red; text-decoration: none;}
                     <a href="javascript:doDisplay2();"><div class="btn_global" id="active">운행 중</div></a>
                     </fieldset>
             
-                    <input type="range" class="slideToUnlock" value="0" max="100">
-</div>
-            <!-- tg-lang -->
+                    <input type="range" class="slideToUnlock" value="0" max="100" onchange="RangeSlider(this)">
         </div>
-        <!-- //content -->
+            <!-- tg-lang -->
     </div>
+        <!-- //content -->
+</div>
+<META HTTP-EQUIV="refresh" CONTENT="3">
+<script type="text/javascript">
+    var result = confirm("<?php echo $departure ?> 에서 <?php echo $destination?> 까지 (<?php echo $distance ?>) 가는 콜이 있습니다. 수락하시겠습니까?");
+    if(result) {
+        location.replace('/');
+    } else {
 
+    }
+</script>
     <!-- 밀어서 잠금해제 javascript -->
 <script type="text/javascript">
-document.querySelector("input[type=\"range\"]").onmouseup = function() {
-    var theRange = this.value;
+
+function RangeSlider() {
+    theRange = document.querySelector("input[type=\"range\"]").value;
     if(theRange == 100) {
-            unlock();
-            theRange = 0;
-            document.querySelector("input[type=\"range\"]").value = theRange;
-        } else {
-            document.init = setInterval(function() {
-                if(document.querySelector("input[type=\"range\"]").value != 0) {
-                    theRange = theRange - 1;
-                    document.querySelector("input[type=\"range\"]").value = theRange;
-                }
-            }, 1);
-        }
-}
-
-document.querySelector("input[type=\"range\"]").onmousedown = function() {
-        clearInterval(document.init);
-}
-
-function unlock() {
-    // document.querySelector("input[type=\"range\"]").style.opacity = "0";
-    document.getElementById("label").style.display='inline';
-    document.getElementById("label3").style.display='none';
-    document.getElementById("label2").style.display='none';
-    document.getElementById("nul").style.backgroundColor='#4d7e2b'
-    document.getElementById("active").style.backgroundColor='#4d7e2b';
+        theRange = 0;
+        document.querySelector("input[type=\"range\"]").value = theRange;
+        document.getElementById("label").style.display='inline';
+        document.getElementById("label3").style.display='none';
+        document.getElementById("label2").style.display='none';
+        document.getElementById("nul").style.backgroundColor='#4d7e2b';
+        document.getElementById("active").style.backgroundColor='#4d7e2b';
+    } else {   
+        document.querySelector("input[type=\"range\"]").value = 0;
+    }
 }
 </script>
 
