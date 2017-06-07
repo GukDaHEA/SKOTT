@@ -23,6 +23,9 @@ input {font-family:Helvetica,sans-serif;-webkit-text-size-adjust:none}
 
 </style>
 <body class="chrome">
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=6f9cc1cd3f08a51269ed1888616c3701&libraries=clusterer"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <div id="wrap">
     <!-- header -->
@@ -41,7 +44,7 @@ input {font-family:Helvetica,sans-serif;-webkit-text-size-adjust:none}
                 <fieldset class="login_form">
                     <legend class="blind">LOGIN</legend>
                         <span class="input_box">
-                            <input type="text" id="password" name="id" tabindex="7" class="int" maxlength="41" placeholder="아이디">
+                            <input type="text" id="id" name="id" tabindex="7" class="int" maxlength="41" placeholder="아이디">
                         </span> <br>
                         <span class="input_box">
                             <input type="password" id="password" name="password" tabindex="8" class="int" maxlength="16" placeholder="비밀번호" >
@@ -49,7 +52,7 @@ input {font-family:Helvetica,sans-serif;-webkit-text-size-adjust:none}
                     <input class="btn_global" type="submit" title="로그인" alt="로그인" tabindex="12" value="로그인" class="btn_global">
                     <div class="btn_global"> 회원가입 </div>
                 </fieldset>
-            </form>
+        </form>
         </div>
         <!-- //content -->
     </div>
@@ -57,19 +60,43 @@ input {font-family:Helvetica,sans-serif;-webkit-text-size-adjust:none}
 </div>
 
 <!-- 메뉴 아이콘 javascript -->
-<script type="text/javascript">
+<script>
 var burger = $('.menu-trigger');
 
 burger.each(function(index){
     var $this = $(this);
-    
+
     $this.on('click', function(e){
         e.preventDefault();
         $(this).toggleClass('active-' + (index+1));
     })
 });
+
+$(document).ready(function() { 
+            if (navigator.geolocation) {
+                // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    
+                    var lat = position.coords.latitude, // 위도
+                        lon = position.coords.longitude; // 경도
+
+                    myGeolocation(lat, lon);
+                    });
+            } else {
+                alert("위치 정보를 가져올 수 없습니다. GPS를 활성화하고 로그인 해주세요.");
+                location.replace("/Drive/call_login");
+            }
+     });
+
+function myGeolocation(lat, lon) {
+    $.ajax ({
+             type : 'POST',
+             url : '/Drive/geolocations',
+             data : { lat, lon },
+             dataType : 'json',success : function (data) {}
+         });
+}
 </script>
-    <!-- //container -->
 
 </body>
 </html>

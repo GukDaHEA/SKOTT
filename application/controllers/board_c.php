@@ -65,6 +65,7 @@ class Board_c extends CI_Controller {
 
 
 	public function board_v_view() {
+      $this->load->view('header');
 		$id = $this->uri->segment(3);
 
 		$data['views'] = $this->board_m->get_view($id);
@@ -219,6 +220,7 @@ class Board_c extends CI_Controller {
             $data['views'] = $this->board_m->get_modify_view($id);
             $this->load->view('board_v_modify', $data);
          }
+      $this->load->view('footer');
    }
 
 	function url_explode($url, $key)

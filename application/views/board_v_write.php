@@ -11,6 +11,7 @@
 <style type="text/css">
 
 	.background {
+		padding-top: 10px;
 		width: 800px;
 		margin: auto;
 	}
@@ -31,10 +32,11 @@
 </style>
 <body>
 	
-<br><br><br><br><br>
-<h1> 리뷰 쓰기 </h1> <br>
+
+
 	<form method="post" enctype="multipart/form-data" action="/board_c/board_v_write" class="background">
-		<input type="text" name="board_subject" placeholder="제목" class = "text_subject"> <br> <br>
+<h1> 리뷰 쓰기 </h1> <br>	
+		<input type="text" name="board_subject" placeholder="제목" class = "text_subject" style="width: 500px;"> <br> <hr>
 		<textarea cols = "50" rows = "10" name="board_contents" placeholder="내용" class = "text_textarea"></textarea> <br><br>
 		<input type="file" name="user_upload_file" />
 		<input type="submit" name="board_submit" class = "btn btn-primary" value = "작성"> 
