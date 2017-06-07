@@ -15,7 +15,7 @@ class Drive extends MY_Controller {
 	}
 
 	public function drive() {
-		$this->load->view('drive_v');
+		// $this->load->view('drive_v');
 
 		$start = $this->input->post('start');
 		$end = $this->input->post('end');
@@ -93,6 +93,8 @@ class Drive extends MY_Controller {
             $user = $this->Drive_m->authenticate(array('id'=>$this->input->post('id')));
             $id = $this->input->post('id');
             $password = $this->input->post('password');
+            $this->output->set_content_type('application/json');
+					$data = $this->input->post('lat', TRUE);
 
             if ( $user == true &&
             $id == $user->driver_id &&
@@ -103,13 +105,29 @@ class Drive extends MY_Controller {
             $this->session->set_userdata(array('is_login' => true, 'area' => $user->area));
             $this->session->set_userdata(array('is_login' => true, 'picture' => $user->picture));
             $this->session->set_userdata(array('is_login' => true, 'car' => $user->car_num));
-            
+            $this->session->set_userdata(array('is_login' => true, 'lat' => $lat));
+            $this->session->set_userdata(array('is_login' => true, 'lon' => $lon));
+
             header('Location: /Drive/call');
          } else {
-            $this->session->set_flashdata('message','로그인에 실패 하였습니다. 아이디 또는 비밀번호를 확인해 주세요.');
-            // header('Location: /Drive/call_login');
+			 echo "<script>alert(\"로그인에 실패하였습니다.\");</script>";			
+            header('Location: /Drive/call_login');
          }
       }
+    function geolocations() {
+    	$this->output->set_content_type('application/json');
+    	$result = array();
+
+				if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+					$data = $this->input->post();
+					$result[0] = $data['lat'];
+					$result[1] = $data['lon'];
+
+					echo json_encode($result);
+				} else {
+					echo "qq";
+				}
+    }
 	public function call_send_start_end() {
 
 			$this->output->set_content_type('application/json');

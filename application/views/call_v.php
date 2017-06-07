@@ -195,6 +195,11 @@ input[type="range"]::-webkit-slider-thumb:before {
     50% { opacity: 0.8; }
     100% { opacity: 0; }
 }
+a:link { color: red; text-decoration: none;}
+ a:visited { color: black; text-decoration: none;}
+ a:hover { color: blue; text-decoration: underline;}
+ a:focus {  text-decoration: none; }
+
 #label{
     display:inline;
 }
@@ -210,7 +215,7 @@ input[type="range"]::-webkit-slider-thumb:before {
 <div id="wrap">
     <!-- header -->
     <div id="header">
-        <h1><a href="/" class="sp h_logo" tabindex="1"></a></h1>
+        <h1><a href="/Drive/call" class="sp h_logo" tabindex="1"></a></h1>
         <div class="lang">
             <a class="menu-trigger" href="javascript:;">
                 <span></span>
@@ -218,7 +223,7 @@ input[type="range"]::-webkit-slider-thumb:before {
                 <span></span>
             </a>
         </div>
-    </div><!-- 
+    </div> <!-- 
         <?php
         var_dump($this->session->userdata());
         ?> -->
@@ -227,30 +232,28 @@ input[type="range"]::-webkit-slider-thumb:before {
     <div id="container">
         <!-- content -->
         <div id="content">
-        <form id="frmNIDLogin" name="frmNIDLogin" action="/" method="post">
                 <fieldset class="login_form">
                     <legend class="blind">STATUS</legend>
                     <div class="input_row" id="id_area">
-                        <span class="input_box" id="label"><br><br><br>
-                            <label for="email" id="label_email_area" class="lbl" id="status" style="font-size:25px;font-weight:bold;top:30%;left:20%"><?php echo $this->session->userdata('car');?><br/><br/><?php echo $this->session->userdata('name')?> 기사님</label>
+                        <span class="input_box"><br><br><br>
+                            <label for="email" id="label" class="lbl" id="status" style="font-size:25px;font-weight:bold;top:30%;left:20%"><?php echo $this->session->userdata('car');?><br/><br/><?php echo $this->session->userdata('name')?> 기사님</label>
                         </span> <br>
                         <span class="input_box" id="label2">
-                            <label for="email" id="label_email_area" class="lbl" id="status" style="font-size:25px;font-weight:bold;top:30%;left:20%">콜 대기중</label>
-                        <div class="loading">
-                            <div class="loading-dot"></div>
-                            <div class="loading-dot"></div>
-                            <div class="loading-dot"></div>
-                            <div class="loading-dot"></div>
-                        </div>
+                            <label for="email" id="label_email_area" class="lbl" id="status" style="font-size:50px;font-weight:bold;top:30%;left:18%">콜 대기중</label>
+                            <div class="loading">
+                                <div class="loading-dot"></div>
+                                <div class="loading-dot"></div>
+                                <div class="loading-dot"></div>
+                                <div class="loading-dot"></div>
+                            </div>
                         </span>
-                        <span class="input_box" id="label3">
-                            <label for="email" id="label_email_area" class="lbl" id="status" style="font-size:25px;font-weight:bold;top:30%;left:35%">운행 중</label>
+                        <span class="input_box">
+                            <label for="email" id="label3" class="lbl" id="status" style="font-size:50px;font-weight:bold;top:30%;left:25%">운행 중</label>
                         </span>
                     </div>
                     <a href="javascript:doDisplay1();" ><div class="btn_global" id="nul">빈 차</div></a>
                     <a href="javascript:doDisplay2();"><div class="btn_global" id="active">운행 중</div></a>
                     </fieldset>
-            </form>
             
                     <input type="range" class="slideToUnlock" value="0" max="100">
 </div>
@@ -264,9 +267,9 @@ input[type="range"]::-webkit-slider-thumb:before {
 document.querySelector("input[type=\"range\"]").onmouseup = function() {
     var theRange = this.value;
     if(theRange == 100) {
-
             unlock();
-
+            theRange = 0;
+            document.querySelector("input[type=\"range\"]").value = theRange;
         } else {
             document.init = setInterval(function() {
                 if(document.querySelector("input[type=\"range\"]").value != 0) {
@@ -283,9 +286,11 @@ document.querySelector("input[type=\"range\"]").onmousedown = function() {
 
 function unlock() {
     // document.querySelector("input[type=\"range\"]").style.opacity = "0";
-    document.getElementById("label2").style.display = 'none';
-    document.getElementById("label3").style.display = 'none';
-    document.getElementById("label").style.display = 'inline';
+    document.getElementById("label").style.display='inline';
+    document.getElementById("label3").style.display='none';
+    document.getElementById("label2").style.display='none';
+    document.getElementById("nul").style.backgroundColor='#4d7e2b'
+    document.getElementById("active").style.backgroundColor='#4d7e2b';
 }
 </script>
 
@@ -306,29 +311,19 @@ burger.each(function(index){
 
 <script type="text/javascript">
     function doDisplay1(){
-
-    alert(document.getElementById("label").style.display.value);
-    if(document.getElementById("label").style.display.value=='inline' || document.getElementById("label3").style.display.value=='inline'){
     document.getElementById("label").style.display='none';
     document.getElementById("label3").style.display='none';
     document.getElementById("label2").style.display='inline';
-    } else {
-
-    }
+    document.getElementById("nul").style.backgroundColor='#004400'
+    document.getElementById("active").style.backgroundColor='#4d7e2b';
 }
 
     function doDisplay2(){
-    var con = document.getElementById("label");
-    var con2 = document.getElementById("label2");
-    var con3 = document.getElementById("label3");
-
-    if(con.style.display=='block' || con2.display=='block'){
-        con3.style.display = 'block';
-        con.style.display = 'none';
-        con2.style.display = 'none';
-    } else {
-
-    }
+    document.getElementById("label").style.display='none';
+    document.getElementById("label2").style.display='none';
+    document.getElementById("label3").style.display='inline';
+    document.getElementById("nul").style.backgroundColor='#4d7e2b';
+    document.getElementById("active").style.backgroundColor='#004400'
 }
     </script>
 </body>

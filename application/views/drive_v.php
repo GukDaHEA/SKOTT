@@ -21,7 +21,7 @@
 .login_form .blind{font-size:0;line-height:0;position:absolute;top:0;left:0;visibility:hidden;overflow:hidden;width:1px;height:1px}
 
 #container{padding-bottom:100px}
-.input_row{position:relative;height:150px;margin:0 0 14px;padding:10px 35px 10px 15px;border:solid 0px #dadada;border-radius:10px;text-align:center;background:#000}.input_row.focus{border:solid 1px #20bc01}.input_box{display:block;overflow:hidden}.int{font-size:15px;line-height:16px;position:relative;z-index:9;width:100%;height:16px;padding:7px 0 6px;color:#000;border:none;background:#fff;-webkit-appearance:none}.lbl{font-size:15px;text-align:center;line-height:16px;position:absolute;z-index:8;top:16px;left:15px;color:#999}.lbl{z-index:10}.wrg{position:absolute;z-index:1000;top:16px;right:13px;display:none;overflow:hidden;width:19px;height:19px;margin:0;padding:0;cursor:pointer;text-indent:-999px;border:0;background-color:transparent;background-position:-1px -263px}
+.input_row{position:relative;height:150px;margin:0 0 14px;padding:10px 35px 10px 15px;border:solid 0px #dadada;border-radius:10px;text-align:center;background:#000}.input_row.focus{border:solid 1px #20bc01}.input_box{color:white;display:block;overflow:hidden;margin-top:-30px;}.int{font-size:15px;line-height:16px;position:relative;z-index:9;width:100%;height:16px;padding:7px 0 6px;color:#000;border:none;background:#fff;-webkit-appearance:none}.lbl{font-size:15px;text-align:center;line-height:16px;position:absolute;z-index:8;top:16px;left:15px;color:#999}.lbl{z-index:10}.wrg{position:absolute;z-index:1000;top:16px;right:13px;display:none;overflow:hidden;width:19px;height:19px;margin:0;padding:0;cursor:pointer;text-indent:-999px;border:0;background-color:transparent;background-position:-1px -263px}
 .input_row{padding:10px 6px 10px 9px, margin:0;} .login_form{ border:0px;margin-top:-50px;}
 .btn_global{font-size:20px;font-weight:700;line-height:61px;display:block;width:100%;height:61px;margin:30px 0 13px;padding-top:2px;cursor:pointer;text-align:center;color:#fff;border:none;border-radius:10px;background-color:#4d7e2b;-webkit-appearance:none}.btn_global:active,.btn_global:hover,.btn_global:link{text-decoration:none;color:#fff}
 input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:none}
@@ -75,14 +75,12 @@ menu-trigger.active-10 {
 /* 로딩 아이콘 css*/
 .loading {
     /*position: fixed;*/
-    top: 50%;
-    left: 50%;
     /*margin: -14px 0 0 -42px;*/
-    margin-left:40%;
-    margin-top:10%;
+    margin-left:35%;
+    margin-top:0%;
     padding: 10px;
     background: rgba(20, 20, 20, 0.9);
-  
+    display:none;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -171,6 +169,24 @@ menu-trigger.active-10 {
 .start_content, .end_content {
     font-size: 22px;
 }
+#start_spot{
+    background-color: #000;
+    color:#fff;
+    border:0;
+    font-size: 15px;
+    text-align: center;
+    width:100%;
+    font-weight: bold;
+}
+#end_spot{
+    background-color: #000;
+    color:#fff;
+    border:0;
+    font-size: 15px;
+    text-align: center;
+    width:100%;
+    font-weight: bold;
+}
 
 </style>
 <body class="chrome">
@@ -186,10 +202,10 @@ menu-trigger.active-10 {
                     <span></span>
                 </a>
             </div>
-        </div>
+        </div><!-- 
         <?php
         var_dump($this->session->userdata());
-        ?>
+        ?> -->
         <!-- //header -->
         <!-- container -->
         <div id="container">
@@ -203,8 +219,8 @@ menu-trigger.active-10 {
                         <legend class="blind">STATUS</legend>
                         <div class="input_row" id="id_area">
                             <span class="input_box"><br><br><br>
-                             <input type="text" id="start_spot" wrap="virtual" value="<?=$start?> 에서">
-                             <input type="text" id="end_spot" wrap="virtual" value="<?=$end?> 까지">
+                             <input type="text" id="start_spot" wrap="virtual" value="<?=$start?>">에서
+                             <input type="text" id="end_spot" wrap="virtual" value="<?=$end?>">까지
                             <span class="input_box"><br><br><br><!-- 
                              <input type="textarea" id="inputMessage" wrap="virtual" value="부천시 원미구 심곡동 부천대 에서 서울시 경복궁 까지">
  -->                           
