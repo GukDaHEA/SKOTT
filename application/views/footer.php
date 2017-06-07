@@ -1,8 +1,8 @@
 <style>
 .footer{position:relative;width:110%;clear:both}
-.footer .footer-bottom{width:100%;background-color:#2a2a2a}
-.footer .footer-bottom .footer-info2{z-index:33;position:relative;width:950px;height:300px;margin:0 auto;}
-.footer .footer-bottom .footer-info2 .footer-logo{float:left;width:200px;padding-top:93px}
+.footer .footer-bottom{width:100%;background-color:#2a2a2a; }
+.footer .footer-bottom .footer-info2{z-index:33;position:relative;width:950px;height:250px;margin:0 auto; }
+.footer .footer-bottom .footer-info2 .footer-logo{float:left;width:200px;padding-top:50px;padding-bottom: 0px;}
 .footer .footer-bottom .footer-info2 .footer-logo a{display:inline-block}
 .footer .footer-bottom .footer-info2 .footer-address-wrap{float:left;margin-left:45px;color:#919191}
 .footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address1,.footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address2,.footer .footer-bottom .footer-info2 .footer-address-wrap .footer-address3{display:inline-block}
