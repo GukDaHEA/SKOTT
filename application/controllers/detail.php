@@ -29,9 +29,10 @@ class Detail extends MY_Controller {
       $name = $detail_result->title;
       $address = $detail_result->reco_address;
       $text = $detail_result->reco_text;
+      $reco_money = $detail_result->reco_money;
+      $reco_time = $detail_result->reco_time;
+      $reco_distance = $detail_result->reco_distance;
       
-
-      // $this->load->view('header.php');
       $this->load->view('detail_v', 
          array(
             'idx'=>$idx,         //전체 디비 
@@ -39,7 +40,10 @@ class Detail extends MY_Controller {
             'lng'=>$lng, //전체 디비중 별점이 높은 관광지 10곳을 뽑음
             'name'=>$name,
             'reco_address'=>$address,
-            'reco_text'=>$text
+            'reco_text'=>$text,
+            'reco_money'=>$reco_money,
+            'reco_time'=>$reco_time,
+            'reco_distance'=>$reco_distance
             ));
 
       $this->load->view('footer');

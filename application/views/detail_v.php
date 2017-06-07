@@ -14,9 +14,6 @@
         </script>
         <script src="/static/Semantic/semantic.min.js"></script>
 
-
-
-
 <title> 상세 페이지 - <?php echo $name; ?></title>
 <style type="text/css">
 
@@ -42,6 +39,7 @@
         position: absolute;
         float:right;
         margin-left : 55%;
+        margin-top : 5%;
       }
 
       #div_Info {
@@ -69,6 +67,7 @@
         float: left;
         text-align : center;
         position:relative;
+        margin-left : 13%;
       }
 
       #div_ReviewWrite {
@@ -82,13 +81,15 @@
      .container {
         height :flex;
         border :0px;
+        margin-bottom : 5%;
       }
 
       .thumb {
         width : 60%;
         height :flex;
         float : left;
-        margin-left: 50px;
+        margin-left: 15%;
+        margin-top : 15%;
       }
 
      header {
@@ -120,7 +121,8 @@
   }
 
   .positive.ui.button {
-    width : 109%;
+    margin-left:4%;
+    width : 90%;
     height: 120px;
     text-decoration: none;
   }
@@ -159,10 +161,10 @@
 
 <div class="container">
 
-  <div class = "tour_name"><h1><?php echo $name;?></h1></div>
    <header>
       <div class="thumb-wrap">
           <div class="thumb">
+        <div class = "tour_name"><h1><?php echo $name;?></h1></div>
                 <ul>
                  <img class="detail_image" id="lens_img" src="/static/image/1.jpg"  /> <hr/>
                    <li class="multi_image_list">
@@ -180,11 +182,13 @@
 
                     <form action="/drive/drive" method="POST">
                             <div id= "div_taxiinfo">
-                              <div id="div_Address" style="text-align:center">
-                                출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="start" value="현재 위치"/> <br />
-                              도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="end" value="<?php echo $reco_address;?> " /> <br />
-                              </div>
-
+                              <div id="div_Address" style="text-align:center"><br/>
+                              예상시간 : <?php echo $reco_time;?>  /
+                              예상거리 : <?php echo $reco_distance;?>   <br/>
+                              예상 택시요금 : <?php echo $reco_money;?><br /><br/>
+                              출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="start" value="현재 위치"/> <br />
+                              도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="end" value="<?php echo $reco_address;?>" /> <br />
+                              </div> <br/>
                               <h4 style="font-weight:bold;text-align:center;" class="pc">※pc 버전일 경우 호출하실 수 없습니다.</h4>
                               <button class="nopc" id="Btn" onclick = "call_send()">호출하기</button>
                             </div>
