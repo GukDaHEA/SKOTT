@@ -19,7 +19,7 @@
 
 		width: 800px;
 		margin: 0 auto;
-		margin-top: 10px;
+		margin-top: 20px;
 	}
 	
 	.date{
@@ -38,6 +38,7 @@
 		width: 800px;
 		background-color: #eaf1f7;
 		margin-bottom: 5px;
+		border: 1px solid #e2e2e2;
 		}
 	.back{
 		
@@ -48,7 +49,7 @@
 	.pic{
 		width: 800px;
 		height: 130px;
-		background-color: #eaf1f7;
+		
 	}
 	@media screen and (max-device-width:450px) {
 	 	.change{
@@ -95,25 +96,26 @@
 	<div class="hits"> 조회수 : <?php echo $views->hits;?></div><br>
 	<div class="date"> 작성일 : <?php echo $views->reg_date;  ?></div><br>
 
-	<div class="title">  <?php echo $views->subject;?></div>
+	<div class="title" style="text-indent:10px;">  <?php echo $views->subject;?></div>
 	<hr>
 	<br>
 
 	
 	
-	<div class="con2"><br>	 <?php echo $views->contents;?> </div>
+	<div class="con2" style="text-indent:20px; padding-top: 30px;"> <?php echo $views->contents;?> </div>
 	
 	
-	<div class="pic"> 사진 <br><?php if ( ! $views->picture == 0) { ?> 
-		<td><img alt="" src="<?php echo $views->picture ?>" style="height:100px;width:110px; margin-left:5px;" /></td>
-		<?php }
-		?>			
-	</div>
+	
 	<div class="apply" style="float: right;"><a href="/board_c/board_delete/<?php echo $views->board_id ?>" style="width:100pt;height:30pt;">삭제</a></div>
 	<div class="apply" style="float: right;">|</div>
 	<div class="apply" style="float: right;"><a href="/board_c/board_v_modify/<?php echo $views->board_id ?>">수정</a></div>
 	<div class="apply" style="float: right;">|</div>
-	<div class="back" style="float: right;"><a href="/board_c/board_v">목록</a></div><br> 
+	<div class="back" style="float: right;"><a href="/board_c/board_v">목록</a></div><br>
+	 <div class="pic" style="text-indent:10px; padding-top: 10px;"> 사진 <?php if ( ! $views->picture == 0) { ?> 
+		<td><img alt="" src="<?php echo $views->picture ?>" style="height:100px;width:110px; margin-left:5px;" /></td>
+		<?php }
+		?>			
+	</div>
 </form>
 
 </div>
