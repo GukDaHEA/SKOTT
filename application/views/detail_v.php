@@ -121,7 +121,7 @@
   }
 
   .positive.ui.button {
-    margin-left:4%;
+    margin-left:5%;
     width : 90%;
     height: 120px;
     text-decoration: none;
@@ -141,31 +141,95 @@
         .nopc{ display: none;}
       } 
 
+       }
+
+    </style>
+
+    <style type="text/css">
+      
+      .Box1, .Box2{
+        border : 1px solid black;
+      }
+
+      .BoxA:after {
+        content :"";
+        display : block;
+        clear :both;
+      }
+
+      .BoxA {
+        margin-left: 10%;
+      }
+
+      .Box1 {
+        float :left;
+        width : 50%;
+        height: 690px;
+      }
+
+      .Box2 {
+        float : left;
+        width :40%;
+        height: 690px;
+        margin-top : 1%;
+      }
+
        @media(max-width: 1025px) {
           .positive.ui.button {
             width : 90%;
-/*            margin-top :500px;*/
+          }
+          .Box1 {
+            float : none;
+            width : 100%;
+          }
+          .Box2 {
+            width :100%;
+          }
+          .positive.ui.button {
+            margin-left:10%;
+            font-size: 40pt;
+          }
+          .Box1_1 {
+            float :left;
+            border:2px solid black;
+          }
+          .Box1_2 {
+            float : left;
+            margin-top:6%;
+          }
+          .tour_name h1 {
+            font-size : 35pt;
+          }
+          #div_Address {
+            font-size: 20pt;
+            margin-left : -4%;
+          }
+          .Box2 h1 {
+            font-size: 30pt;
+          }
+          .nopc {
+            font-size: 30pt;
+            width : 500px;
+            height: 50px;
+          }
+          #div_taxiinfo {
+              margin-left:50px;
           }
 
-/*          .detail_image {
-          width:10px;
-          height:600px;
-        }*/
-       }
+}
 
     </style>
 
 
 <body onload="initTmap(<?php echo $lat;?>,<?php echo $lng;?>)">
 
-
 <div class="container">
 
-   <header>
-      <div class="thumb-wrap">
-          <div class="thumb">
-        <div class = "tour_name"><h1><?php echo $name;?></h1></div>
-                <ul>
+    <div class = "BoxA">
+      <div class = "Box1">
+        <div class = "Box1_1">
+              <div class = "tour_name"><h1> <<?php echo $name;?>></h1></div>
+        <ul>
                  <img class="detail_image" id="lens_img" src="/static/image/1.jpg"  /> <hr/>
                    <li class="multi_image_list">
                      &nbsp&nbsp<img src="/static/image/1.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
@@ -173,18 +237,35 @@
                      &nbsp<img src="/static/image/3.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
                    </li>
                 </ul>
-          </div>
+                      <header>
+</div>
+      <div class = "Box1_2">
+        <div id = "div_Info">
+          <h3 style="color:#4d7e2b">관광지 정보</h3>
+           <div id = "div_Title2">
+              <?php echo $name;?>
+           </div>
+           <div id = "div_Info2">
+           <p>   
+            <?php echo $reco_text;?> <!-- 관광지 정보 뿌려줄 내용 -->
+           </p>
+           </div>
+        </div>
+    </div>
+        <br/><br/>
+    </header>
 
-                  <div id="div_Taxi" style="background-color: #FFF"> 
-                       <h3 style="color:#4d7e2b;font-weight:">택시 정보 </h3><br/>
+      </div>
+
+      <div class = "Box2">
+                       <h1> <택시 정보> </h1>
                         <div id = "div_Map"></div>
-
 
                     <form action="/drive/drive" method="POST">
                             <div id= "div_taxiinfo">
                               <div id="div_Address" style="text-align:center"><br/>
                               예상시간 : <?php echo $reco_time;?>  /
-                              예상거리 : <?php echo $reco_distance;?>   <br/>
+                              예상거리 : <?php echo $reco_distance;?> /  
                               예상 택시요금 : <?php echo $reco_money;?><br /><br/>
                               출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="start" value="현재 위치"/> <br />
                               도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="end" value="<?php echo $reco_address;?>" /> <br />
@@ -193,25 +274,13 @@
                               <button class="nopc" id="Btn" onclick = "call_send()">호출하기</button>
                             </div>
                     </form>
-                </div>
-      </div>
-      </header>
+    </div>
+    </div>
+<!-- <div class = "Box3">Box3</div>
+<div class = "Box4">Box4</div> -->
+    
 </div>
-                                    <button class = "positive ui button" onclick="location.href='/board_c/board_v'">리뷰보기</button>
-<!--       <header>
-        <div id = "div_Info">
-          <h3 style="color:#4d7e2b">관광지 정보</h3>
-           <div id = "div_Title2">
-              <?php echo $name;?>
-           </div>
-           <div id = "div_Info2">
-           <p>   
-            <?php echo $reco_text;?> 
-           </p>
-           </div>
-        </div>
-        <br/><br/>
-    </header> -->
+                 <button class = "positive ui button" onclick="location.href='/board_c/board_v'">리뷰보기</button>
 
 
 
