@@ -246,10 +246,10 @@ function detail_location(Endlat, Endlng) {
                     var Startlat = position.coords.latitude, // 위도
                         Startlng = position.coords.longitude; // 경도
                       searchRoute(Startlat, Startlng, Endlat, Endlng); //길찾기
-                    var latlng = new daum.maps.LatLng(Startlat, Startlng);
-                    searchDetailAddrFromCoords(latlng, function(result){
-                      alert(result[0].roadAddress.name);
-                    });
+                    // var latlng = new daum.maps.LatLng(Startlat, Startlng);
+                    // searchDetailAddrFromCoords(latlng, function(result){
+                    //   alert(result[0].roadAddress.name);
+                    // });
                   });
                 function searchDetailAddrFromCoords(coords, callback) {
                     // 좌표로 법정동 상세 주소 정보를 요청합니다

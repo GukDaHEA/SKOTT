@@ -19,12 +19,20 @@
         margin-top :40px;
       }
 	#pagination_id {
-		margin-left :200px;
+		margin-left :20%;
+		margin-top:-2%;
 	}
 	.btn {
 		position: relative;
 		float: right; 
 		right : 30px;
+		background-color:#4d7e2b;
+		color:white;
+		font-weight: bold;
+		margin-top:-5%;
+	}
+	.btn a{
+		color:white;
 	}
 
 	#pagination_id {
@@ -34,12 +42,19 @@
 	#bd_search {
 		margin-left: 30px;
 	}
+	table #trs {
+		height:130px;
+	}
+	.table .table-striped tr{
+		border-top-color:#4d7e2b;
+		border-bottom-color:#4d7e2b;
+	}
 </style>
 
 
 <body>
  <div class="container">
-<h3 style="">리뷰 </h3>
+<h3 style="color:#4d7e2b">리뷰 </h3>
 <br><br>
 <table class = "table table-striped" cellpadding="10" cellspacing="5">
 	<tr>
@@ -53,7 +68,7 @@
 
 <?php foreach ($list as $list) {
 ?>
-	<tr>
+	<tr id="trs">
 		<td><?php echo $list->user_name ?></td>
 		<td><a href="/board_c/board_v_view/<?php echo $list->board_id ?>"><?php echo $list->subject?></a></td> 
 		<!-- 제목을 통해서 들어가기 -->
@@ -73,8 +88,7 @@
 				<input type="text" name="search_word" id="q" placeholder="검색" required /> 
 				<input type="button" value="검색" id="search_btn" required/>
 			</form> <br>
-<button class = "btn"><a href="/board_c/board_v_write">
-	글쓰기</a></button> <p>
+<button class = "btn"><a href="/board_c/board_v_write">작 성</a></button>
 </div>
                <div id = "pagination_id"><?php echo $pagination;?></div>
 

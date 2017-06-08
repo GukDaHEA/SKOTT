@@ -15,6 +15,7 @@ class User extends MY_Controller {
       $id = $this->uri->segment(3);
       $email = $this->session->userdata('email');
       $data['views'] = $this->User_m->get_view($email);
+      $this->load->view('header');
 		$this->load->view('User_v', $data);
 	}
 	 public function user_modify() {
@@ -22,7 +23,7 @@ class User extends MY_Controller {
       echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'; 
        $config['upload_path'] = './static/image/user';
       $config['allowed_types'] = 'gif|jpg|png';
-      $config['max_size'] = '1000000000';
+      $config['max_size'] = '10000000000';
       $config['max_width'] = '3500';
       $config['max_height'] = '2400';
       $this->load->library('upload',$config);
@@ -58,7 +59,7 @@ class User extends MY_Controller {
          if($result)
          {
             echo "<script>alert(\"입력되었습니다\");</script>";
-            redirect('/mains','refresh');
+            redirect('/User/user','refresh');
          }
          else
          {
