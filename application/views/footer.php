@@ -1,7 +1,7 @@
 <style>
 .footer{position:relative;width:110%;clear:both}
 .footer .footer-bottom{width:100%;background-color:#2a2a2a; }
-.footer .footer-bottom .footer-info2{z-index:33;position:relative;width:950px;height:250px;margin:0 auto; }
+.footer .footer-bottom .footer-info2{z-index:33;position:relative;width:950px;height:250px;margin:0 auto; padding-top:30px;}
 .footer .footer-bottom .footer-info2 .footer-logo{float:left;width:200px;padding-top:50px;padding-bottom: 0px;}
 .footer .footer-bottom .footer-info2 .footer-logo a{display:inline-block}
 .footer .footer-bottom .footer-info2 .footer-address-wrap{float:left;margin-left:45px;color:#919191}
@@ -24,6 +24,12 @@
 /*  .footer {margin-top:220px;}*/
 
  }
+ @media screen and (max-device-width:450px)
+      {       
+        .footer .footer-bottom{width:110%;}
+        .footer-address-wrap{padding-bottom: 200px; }
+        .footer .footer-bottom .footer-info2{padding-top: 20px; margin:10px;} 
+      }
 
 </style>
 
@@ -36,9 +42,9 @@
       <div class="footer-logo"><a href="http://www.bc.ac.kr" target="_blank"><img alt="부천대학교로 이동" src="http://www.bc.ac.kr/images/intro_logo.png" style="width:200px;margine:10px;"></a></div>
       <div class="footer-address-wrap" >
         <ul class="footer-address1">
-          <li><em>부천대학교</em></li>
+          <li>부천대학교</li>
           <li>대표 : 국다혜, 김정환, 송창환</li>
-          <li>주소 : 경기도 부천시 원미구 신흥로 56번길25(심곡동) (주)SKOTT</li>
+          <li>주소 : 경기도 부천시 원미구 (주)SKOTT</li>
           <li><span>전화 : 1111-1111 </span><span class="fax"> 팩스 : 032-000-0000</span></li>
         </ul>
         <ul class="footer-address2">

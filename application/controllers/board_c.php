@@ -60,7 +60,7 @@ class Board_c extends CI_Controller {
 	      $data['list'] = $this->board_m->get_list('', $start, $limit, $search_word);
 
 	      $this->load->view('board_v', $data);
-	      $this->load->view('footer');
+         $this->load->view('footer');
 	}
 
 
