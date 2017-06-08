@@ -201,13 +201,17 @@ a:link { color: red; text-decoration: none;}
  a:focus {  text-decoration: none; }
 
 #label{
-    display:inline;
+    display:none;
 }
 #label2{
-    display:none;
+    display:inline;
+
 }
 #label3{
     display:none;
+}
+#nul {
+    background-color:#004400; 
 }
 </style>
 <body class="chrome">
@@ -263,12 +267,14 @@ a:link { color: red; text-decoration: none;}
 </div>
 <META HTTP-EQUIV="refresh" CONTENT="3">
 <script type="text/javascript">
+// if(document.getElementById('label2').style.display == 'inline'){
     var result = confirm("<?php echo $departure ?> 에서 <?php echo $destination?> 까지 (<?php echo $distance ?>) 가는 콜이 있습니다. 수락하시겠습니까?");
     if(result) {
         location.replace('/');
     } else {
 
     }
+// }
 </script>
     <!-- 밀어서 잠금해제 javascript -->
 <script type="text/javascript">
@@ -283,7 +289,7 @@ function RangeSlider() {
         document.getElementById("label2").style.display='none';
         document.getElementById("nul").style.backgroundColor='#4d7e2b';
         document.getElementById("active").style.backgroundColor='#4d7e2b';
-    } else {   
+    } else {
         document.querySelector("input[type=\"range\"]").value = 0;
     }
 }

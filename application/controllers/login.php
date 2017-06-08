@@ -41,7 +41,7 @@ class Login extends MY_Controller {
       {
          $this->session->sess_destroy();
             if($returnURL == false){
-            header('Location: /Drive/call');
+            header('Location: /mains');
             }
       }
 
