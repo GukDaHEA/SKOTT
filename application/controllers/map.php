@@ -53,6 +53,7 @@ class Map extends MY_Controller {
 			$marker_lng[] = $lo[$i]->lng;
 			$marker_sort[] = $lo[$i]->reco_sort;
 			$marker_reco_name[] = $lo[$i]->title;
+			$marker_idx[] = $lo[$i]->reco_idx;
 			// $dt["positions"][] = array("lat"=>$marker_lat[$i],"lng"=>$marker_lng[$i]);
 		}
 
@@ -67,7 +68,8 @@ class Map extends MY_Controller {
 				'reco_sidebar_content'=>$reco_sidebar_content, //전체 디비중 별점이 높은 관광지 10곳을 뽑음
 				'location_sort'=>$location_sort,
 				'marker_location_sort'=>$marker_location_sort,
-				'recommand_name'=>$recommand_name							
+				'recommand_name'=>$recommand_name,	
+				'reco_idx'=>$marker_idx[0]
 				)					//변수 이름으로
 		);
 

@@ -79,8 +79,10 @@
                <ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
                   <li class="active"><a href="#header">홈</a></li>
                   <li><a href="/map/map_v">지도보기</a></li>
+                  <li><a href="#section-about">SKOTT</a></li>
                   <li><a href="#services">추천코스</a></li>
                   <li><a href="#line-pricing">서비스 소개</a></li>
+                  <li><a href="#section-works" style="color:white">지역별 관광지</a></li>
              <?php
                 if ($this->session->userdata('is_login')){
                 ?>

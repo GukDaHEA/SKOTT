@@ -306,11 +306,9 @@
 
 <!--                style="overflow:scroll; -->
             </div>
-               <div class = "div_content_click"><a href="/detail/detail/1"><img class = "img_click" src="/static/image/map/map_v_1.jpg";></a> </div>
+               <div class = "div_content_click"><a href="/detail/detail/8"><img class = "img_click" src="/static/image/map/map_v_1.jpg";></a> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_2.jpg";> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_3.jpg";> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
                <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
         </div>
         </div>
@@ -763,6 +761,10 @@ if(positions[i].title =="제주권") {
               $('.ui.header').html('제주권 입니다.');
                $('.ui.tour')
                 .modal('show'); 
+
+              $('.ui.positive.button').click(function() {
+                 map_change(33.440377, 126.496006, 2);
+              });
   });
 }
 
@@ -771,6 +773,10 @@ if(positions[i].title =="강원권") {
               $('.ui.header').html('강원권 입니다.');
                $('.ui.tour')
                 .modal('show'); 
+
+              $('.ui.positive.button').click(function() {
+                 map_change(37.6130868206661 , 128.5442381745224, 1);
+              });
   });
 }
 
@@ -779,6 +785,10 @@ if(positions[i].title =="경상권") {
               $('.ui.header').html('경상권 입니다.');
                $('.ui.tour')
                 .modal('show'); 
+
+              $('.ui.positive.button').click(function() {
+                 map_change(36.28157430275591 , 128.75691078469748, 1);
+              });
   });
 }
 
@@ -787,6 +797,10 @@ if(positions[i].title =="충청권") {
               $('.ui.header').html('충청권 입니다.');
                $('.ui.tour')
                 .modal('show'); 
+
+              $('.ui.positive.button').click(function() {
+                 map_change(36.257669, 126.894619, 1);
+              });
   });
 }
 
@@ -795,6 +809,10 @@ if(positions[i].title =="전라권") {
               $('.ui.header').html('전라권 입니다.');
                $('.ui.tour')
                 .modal('show'); 
+
+              $('.ui.positive.button').click(function() {
+                 map_change(35.150578, 126.845514, 1);
+              });
   });
 }
 
