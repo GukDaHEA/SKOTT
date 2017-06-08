@@ -38,38 +38,25 @@
 	function clearDocs(){}
 </script>
 </head>
-
+<style type="text/css">
+input[type=submit]{
+    background-color: #4d7e2b;
+    width:150px;
+    height:50px;
+    border:0px;
+    border-radius:15px;
+    font-weight:bold;
+    color:white;
+    font-size:20px;
+}
+input[type=file]{
+    background-color:white;
+}
+</style>
 <body onclick="clearDocs();gnbClose();" id="mainBody">
 <div id="wrap">
 	<!-- //스킵네비게이션 -->
-    <div class="Header">
-  <h1 class="Header-logo" alt="SKOTT" title="SKOTT"><a href="/mains"></a></h1>
-    <div id="header_info">        
-        <div class="search">
-            <input type="text" id="form_control" class="search_input" placeholder="원하시는 지역명/관광지명을 입력하세요.">
-            <button id="form_control" class="btn_search">찾아보기</button>
-        </div>
-        <div class="service">
-            <ul>
-                <li><a class="Gnb-item room-search active" href="/map/map_v">지도보기</a></li>
-                <li><a class="Gnb-item room-favorite" style="cursor: pointer">추천코스</a></li>
-                <li><a class="Gnb-item add-room" id="map_location" style="cursor: pointer">내 위치</a></li>
-                <?php
-                if ($this->session->userdata('is_login')){
-                ?>
-                    <li><a class="Gnb-item login small" style="cursor: pointer" href="/login/logout">로그아웃</a></li>
-                    <li><a class="Gnb-item login small" style="cursor: pointer;" href="/user/user"><?php echo $this->session->userdata('name') ?> 님</a></li>
-                <?php
-                } else {
-                ?>
-                    <li><a class="Gnb-item login small" style="cursor: pointer" href="/login">로그인</a></li>
-                <?php
-                }
-                ?>
-            </ul>
-        </div>
-    </div>
-</div> <br> <br> <br>
+    <br> <br> <br>
 	<div id="header">
 		<div id="lnb_area">
 			<div class="lnb">
@@ -106,11 +93,24 @@
                             <p class="btn_area_btm">
                                     <!-- <label for="inputImage" class="btn_model"><b id="btnChangeProfile" class="btn2">사진변경</b></label> -->
                                 <span>    <input type="file" name="user_upload_file" /> </span>
-                                <span><a href="javascript:imgurlDelete();" class="btn_model"><b id="btnDelete" class="btn2">삭제</b></a></span>
+                                <span><a href="javascript:imgurlDelete();" class="btn_model"><b class="btn2">삭제</b></a></span>
                             </p>
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <th scope="row">
+                        <div class="thcell"><label for="inpNickname">아이디</label></div>
+                    </th>
+                    <td>
+                        <div class="tdcell">
+                            <p class="contxt_webctrl nickname">
+                                <input type="text" name="id" id="id" value="<?php echo $views->email ;?>" style="width:254px" readonly>
+                                <!-- Enter 입력으로 submit이 되는걸 방지하기 위한 Input -->
+                            </p>
+                        </div>
+                    </td>
+                <tr>
                 <tr>
                     <th scope="row">
                         <div class="thcell"><label for="inpNickname">이름</label></div>
@@ -118,9 +118,8 @@
                     <td>
                         <div class="tdcell">
                             <p class="contxt_webctrl nickname">
-                                <input type="text" name="name" id="name" value="<?php echo $views->name ;?>" style="width:254px">
+                                <input type="text" name="name" id="name" value="<?php echo ($views->name) ;?>" style="width:254px">
                                 <!-- Enter 입력으로 submit이 되는걸 방지하기 위한 Input -->
-                                <input type="text" style="display: none;" >
                             </p>
                         </div>
                     </td>
@@ -133,14 +132,13 @@
                             <p class="contxt_webctrl nickname">
                                 <input type="text" name="nation" id="nation" value="<?php echo $views->nation; ?>" style="width:254px">
                                 <!-- Enter 입력으로 submit이 되는걸 방지하기 위한 Input -->
-                                <input type="text" style="display: none;" >
                             </p>
                         </div>
                     </td>
                 </tr>
             </table>
             <div class="btn_wrap">
-                     <input type="submit" name="submit_test" value="적용">
+                     <input type="submit" class="Btn" value="수 정">
                 <!-- <a href="javascript:;" class="btn_model"><b id="btnConfirm" class="btn8">적용</b></a> -->
                 <!-- <a href="javascript:;" class="btn_model"><b id="btnCancel" class="btn2">취소</b></a> -->
             </div>

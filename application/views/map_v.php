@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
     <title>지도 화면</title>
-<!--         <script src="/static/js/jquery-3.1.1.js"></script> -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
         <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">
         <script
           src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -43,7 +37,7 @@
         #pagination a {display:inline-block;margin-right:10px;}
         #pagination .on {font-weight: bold; cursor: default;color:#777;}
     }
-    }
+    
 
 
     </style>
@@ -219,6 +213,9 @@
     background-size: 100% 100%;
     box-shadow: 0px 10px 15px  grey;
   }
+  @media(max-height:820px){
+    .katalk{top:130px;}
+  }
   #md {
     display:none;
   }
@@ -246,8 +243,6 @@
 </style>
 
 <body style="overflow:hidden">
-
-
 <div class="ui modal tour">
   <div class="header">
     관광지
@@ -291,7 +286,7 @@
 </div>
 
 <div class="map_wrap">
-    <div id="map" style="width:100%;height:89%;"></div>
+    <div id="map" style="width:100%;height:88%;"></div>
         <div id="katalk">
         <i class="katalk" data-content="오픈 카카오톡방으로 여행 팁을 공유해보세요 !"></i>
     </div>
