@@ -16,7 +16,7 @@
         width :70%;
         height :flex;
         border :0px;
-        margin-top : 100px;
+        margin-top :40px;
       }
 	#pagination_id {
 		margin-left :200px;
@@ -39,7 +39,7 @@
 
 <body>
  <div class="container">
-<h3 style="color:#f3753a">리뷰 </h3>
+<h3 style="">리뷰 </h3>
 <br><br>
 <table class = "table table-striped" cellpadding="10" cellspacing="5">
 	<tr>
@@ -57,7 +57,7 @@
 		<td><?php echo $list->user_name ?></td>
 		<td><a href="/board_c/board_v_view/<?php echo $list->board_id ?>"><?php echo $list->subject?></a></td> 
 		<!-- 제목을 통해서 들어가기 -->
-		<td><?php echo $list->contents?></td>
+		<td><a href="/board_c/board_v_view/<?php echo $list->board_id ?>"><?php echo $list->contents?></a></td>
 		<td><?php echo $list->hits ?></td>
 		<td><?php echo $list->reg_date ?></td>
 		<?php if ( ! $list->picture == 0) { ?> 
