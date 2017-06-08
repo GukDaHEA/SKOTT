@@ -38,7 +38,7 @@
 		width: 800px;
 		background-color: #eaf1f7;
 		margin-bottom: 5px;
-		border: 1px solid #e2e2e2;
+		border: 1px solid #8C8C8C;
 		}
 	.back{
 		

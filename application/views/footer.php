@@ -42,9 +42,9 @@
           <li><span>전화 : 1111-1111 </span><span class="fax"> 팩스 : 032-000-0000</span></li>
         </ul>
         <ul class="footer-address2">
-          <li>사업자 번호 : 있겠냐</li>
-          <li>통신판매업신고번호 : 없겠지</li>
-          <li>프로모션/사업 제휴문의 : <a href="mailto:zziltongjh@gmail.com">zziltongjh@gmail.com</a></li>
+          <li>사업자 번호 : 137-56846-74 </li>
+          <li>통신판매업신고번호 : 2013-경기-0428</li>
+          <li>프로모션/사업 제휴문의 : <a href="mailto:zziltongjh@gmail.com" style="text-decoration: none;">zziltongjh@gmail.com</a></li>
         </ul>
         <ul class="footer-address3">
           <li>

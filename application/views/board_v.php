@@ -34,6 +34,8 @@
 	#bd_search {
 		margin-left: 30px;
 	}
+	a{color: black;}
+	a:hover{text-decoration: none;}
 </style>
 
 
@@ -70,7 +72,7 @@
 </table>
 <div>
 			<form id="bd_search" method="post">
-				<input type="text" name="search_word" id="q" placeholder="검색" required /> 
+				<input type="text" style="width: 300px;"name="search_word" id="q" placeholder="검색" required /> 
 				<input type="button" value="검색" id="search_btn" required/>
 			</form> <br>
 <button class = "btn"><a href="/board_c/board_v_write">
