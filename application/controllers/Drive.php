@@ -31,7 +31,7 @@ class Drive extends MY_Controller {
 	public function call() {
 
 		$this->drivecheck();
-		$this->load->view('call_v');
+		// $this->load->view('call_v');
 	}
 
 	public function driveok () {
@@ -58,8 +58,8 @@ class Drive extends MY_Controller {
 		if (!empty($chkreservation)) {
 			$symbol = '<a href="javascript:" id="'.$chkreservation->call_id.'" onclick="test(this)"><div style="z-index: 0; position: releative; margin-top: 100px; background-color: #000; color: #FFF; width: 250px; height: 250px">'.$chkreservation->departure.' 에서 <br/>'.$chkreservation->destination.'('.$chkreservation->distance.') 까지<br/> 가는 콜이 있습니다. <br/> 받으시겠습니까?</div></a>';
 		}
-
-		echo $symbol;
+		// echo $symbol;
+		$this->load->view('call_v', $chkreservation);
 	}
 
 	public function drivecall() {
