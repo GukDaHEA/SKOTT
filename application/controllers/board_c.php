@@ -60,7 +60,6 @@ class Board_c extends CI_Controller {
 	      $data['list'] = $this->board_m->get_list('', $start, $limit, $search_word);
 
 	      $this->load->view('board_v', $data);
-	      $this->load->view('footer');
 	}
 
 
@@ -71,7 +70,6 @@ class Board_c extends CI_Controller {
 		$data['views'] = $this->board_m->get_view($id);
 
 		$this->load->view('board_v_view',$data);
-      $this->load->view('footer');
 	}
 
 	 public function board_v_write() {
@@ -142,7 +140,6 @@ class Board_c extends CI_Controller {
 
                $this->load->view('header');
                $this->load->view('board_v_write');
-               $this->load->view('footer');
             }
          }
       else 
@@ -220,7 +217,6 @@ class Board_c extends CI_Controller {
             $data['views'] = $this->board_m->get_modify_view($id);
             $this->load->view('board_v_modify', $data);
          }
-      $this->load->view('footer');
    }
 
 	function url_explode($url, $key)

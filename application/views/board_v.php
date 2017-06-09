@@ -21,6 +21,12 @@
 	#pagination_id {
 		margin-left :20%;
 		margin-top:-2%;
+		font-size:20px;
+		text-align: center;
+		letter-spacing:10px;
+		color:#4d7e2b;
+		display:block;
+		background-color: #ffe
 	}
 	.btn {
 		position: relative;
@@ -35,10 +41,6 @@
 		color:white;
 	}
 
-	#pagination_id {
-		text-align: center;
-		font-size: 15px
-	}
 	#bd_search {
 		margin-left: 30px;
 	}

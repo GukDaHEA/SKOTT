@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>
-    
-  </title>
   <script src="/static/js/juery.bpopup.min.js" type="text/javascript"></script>
 
         <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">

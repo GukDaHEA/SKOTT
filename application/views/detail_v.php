@@ -24,8 +24,8 @@
 
       .detail_image {
         border:0px solid gray;
-        width:550px;
-        height:450px;
+        width:90%;
+        height:80%;
         padding:10px;
         border-radius: 5px;
       }
@@ -82,6 +82,7 @@
         height :flex;
         border :0px;
         margin-bottom : 5%;
+        margin-top:7%;
       }
 
       .thumb {
@@ -125,6 +126,7 @@
     width : 90%;
     height: 120px;
     text-decoration: none;
+    background-color:#4d7e2b;
   }
     .multi_image_list ul li:hover {
         opacity:0.8;
@@ -148,9 +150,8 @@
     <style type="text/css">
       
       .Box1, .Box2{
-        border : 1px solid black;
+        border : 0px solid black;
       }
-
       .BoxA:after {
         content :"";
         display : block;
@@ -175,14 +176,22 @@
       }
 
        @media(max-width: 1025px) {
+          .detail_image {
+            width:100%;
+            height:100%;
+          }
+          .multi_image_list img{
+            width:400px;
+          }
           .positive.ui.button {
             width : 90%;
           }
           .Box1 {
-            float : none;
+            float : left;
             width : 100%;
           }
           .Box2 {
+            float:left;
             width :100%;
           }
           .positive.ui.button {
@@ -190,33 +199,60 @@
             font-size: 40pt;
           }
           .Box1_1 {
-            float :left;
-            border:2px solid black;
+            border:0px solid black;
           }
           .Box1_2 {
-            float : left;
-            margin-top:6%;
+            float:left;
+            margin-top:8%;
+          }
+          .Box1_2 h1 {
+            font-size : 100px;
+          }
+          .Box1_2 h3{
+            font-size : 40px;
           }
           .tour_name h1 {
-            font-size : 35pt;
+            margin-left:-10%;
+            font-size : 80pt;
           }
           #div_Address {
             font-size: 20pt;
             margin-left : -4%;
           }
+          .Box2{
+            float:left;
+            margin-top:90%;
+            margin-bottom:350px;
+          }
           .Box2 h1 {
-            font-size: 30pt;
+            font-size: 80pt;
+            height:20%;
+          }
+          .Box2 h2 {
+            font-size: 40px;
           }
           .nopc {
             font-size: 30pt;
             width : 500px;
             height: 50px;
+            background-color:#4d7e2b;
+            font-weight:bold;
+            color:white;
           }
           #div_taxiinfo {
               margin-left:50px;
           }
+          .Box2 input[type=text] {
+            width: 70%;
+            height: 100px;
+            border:none;
+            font-size:40px;
+          }
 
-}
+      }
+    input[type=text] {
+      color:blue; font-size:15px;width:250px;height:30px;
+    }
 
     </style>
 
@@ -224,31 +260,33 @@
 <body onload="initTmap(<?php echo $lat;?>,<?php echo $lng;?>)">
 
 <div class="container">
-
     <div class = "BoxA">
       <div class = "Box1">
         <div class = "Box1_1">
-              <div class = "tour_name"><h1> <<?php echo $name;?>></h1></div>
+              <div class = "tour_name"><h1> <?php echo $name;?></h1></div>
+        <div class="image">
         <ul>
-                 <img class="detail_image" id="lens_img" src="/static/image/1.jpg"  /> <hr/>
+                 <img class="detail_image" id="lens_img" src="/static/image/detail/<?php echo $idx ?>/1.jpg"  /> <hr/>
                    <li class="multi_image_list">
-                     &nbsp&nbsp<img src="/static/image/1.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
-                     &nbsp<img src="/static/image/2.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
-                     &nbsp<img src="/static/image/3.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
+                     &nbsp&nbsp<img src="/static/image/detail/<?php echo $idx ?>/1.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
+                     &nbsp<img src="/static/image/detail/<?php echo $idx ?>/2.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
+                     &nbsp<img src="/static/image/detail/<?php echo $idx ?>/3.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
                    </li>
                 </ul>
+        </div>
+        </div>
                       <header>
-</div>
-      <div class = "Box1_2">
+
+      <div class="Box1_2">
         <div id = "div_Info">
-          <h3 style="color:#4d7e2b">관광지 정보</h3>
-           <div id = "div_Title2">
-              <?php echo $name;?>
+          <h1 style="color:#4d7e2b">관광지 정보</h1>
+           <div id="div_Title2"><h3>
+              <?php echo $name;?></h3>
            </div>
-           <div id = "div_Info2">
+           <div id="div_Info2"><h3>
            <p>   
             <?php echo $reco_text;?> <!-- 관광지 정보 뿌려줄 내용 -->
-           </p>
+           </p></h3>
            </div>
         </div>
     </div>
@@ -258,30 +296,31 @@
       </div>
 
       <div class = "Box2">
-                       <h1> <택시 정보> </h1>
+                       <h1 style="color:#4d7e2b"> 택시 정보 </h1>
                         <div id = "div_Map"></div>
 
                     <form action="/drive/drive" method="POST">
                             <div id= "div_taxiinfo">
-                              <div id="div_Address" style="text-align:center"><br/>
+                              <div id="div_Address" style="text-align:center"><br/><h2>
                               예상시간 : <?php echo $reco_time;?>  /
-                              예상거리 : <?php echo $reco_distance;?> /  
+                              예상거리 : <?php echo $reco_distance;?> <br />
                               예상 택시요금 : <?php echo $reco_money;?><br /><br/>
-                              출발지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="start" value="현재 위치"/> <br />
-                              도착지 : <input type="text" style="color:blue; font-size:15px;width:250px;height:30px" name="end" value="<?php echo $reco_address;?>" /> <br />
-                              </div> <br/>
-                              <h4 style="font-weight:bold;text-align:center;" class="pc">※pc 버전일 경우 호출하실 수 없습니다.</h4>
+                              출발지 : <input type="text" name="start" value="현재 위치" readonly/> <br />
+                              도착지 : <input type="text" name="end" value="<?php echo $reco_address;?>" readonly /> <br />
+                              </div> <br/></h2>
+                              <h2 style="font-weight:bold;text-align:center;" class="pc">※pc 버전일 경우 호출하실 수 없습니다.</h2>
                               <button class="nopc" id="Btn" onclick = "call_send()">호출하기</button>
                             </div>
+                            </div>
                     </form>
-    </div>
+    
     </div>
 <!-- <div class = "Box3">Box3</div>
 <div class = "Box4">Box4</div> -->
     
 </div>
-                 <button class = "positive ui button" onclick="location.href='/board_c/board_v'">리뷰보기</button>
-
+                 <button class = "positive ui button" onclick="location.href='/board_c/board_v'">리뷰 보기</button>
+</div>
 
 
 <script src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc">
