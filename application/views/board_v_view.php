@@ -83,15 +83,9 @@
 </table> -->
 
 
-		
-
 <div class="change">
 <h1> 상세정보 </h1>
 <form method = "POST" enctype="multipart/form-data" action="/board_c/board_v_modify">	
-	
-	
-	
-
 	
 	<div class="hits"> 조회수 : <?php echo $views->hits;?></div><br>
 	<div class="date"> 작성일 : <?php echo $views->reg_date;  ?></div><br>
@@ -100,11 +94,7 @@
 	<hr>
 	<br>
 
-	
-	
 	<div class="con2" style="text-indent:20px; padding-top: 30px;"> <?php echo $views->contents;?> </div>
-	
-	
 	
 	<div class="apply" style="float: right;"><a href="/board_c/board_delete/<?php echo $views->board_id ?>" style="width:100pt;height:30pt;">삭제</a></div>
 	<div class="apply" style="float: right;">|</div>
