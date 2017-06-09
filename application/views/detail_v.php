@@ -143,7 +143,7 @@
         .nopc{ display: none;}
       } 
 
-       }
+       
 
     </style>
 
@@ -249,10 +249,10 @@
             font-size:40px;
           }
 
-      }
     input[type=text] {
       color:blue; font-size:15px;width:250px;height:30px;
     }
+  }
 
     </style>
 
@@ -361,6 +361,8 @@ function detail_location(Endlat, Endlng) {
                   });
                 function searchDetailAddrFromCoords(coords, callback) {
                     // 좌표로 법정동 상세 주소 정보를 요청합니다
+                    // alert("1");
+
                     geocoder.coord2detailaddr(coords, callback);
                 }
             } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다

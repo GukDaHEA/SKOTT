@@ -81,7 +81,15 @@
           .prompt {
             width : 300px;
           }
-       }
+       }     
+        @media screen and (max-device-width:450px)
+      {       
+        .BOXA{ width: 950px; height: 8%; }
+        .space{display: none;}        
+        .map_logo{margin-right: 0px;}
+
+        /*.map_menu{padding-right:3px;}*/
+      }
     </style>
 
 <body>
@@ -89,7 +97,8 @@
   <div class = "map_logo"><a href="/mains"><img src="/static/image/header/logo.png"></a></div>
 <div class = "map_search"> 
     <div class="ui search">
-     관광지&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="ui icon input">
+    관광지&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="ui icon input">
         <input class="prompt" type="text" size ="60" placeholder="Search...">
        <i class="inverted circular search link icon"></i>
       </div>
