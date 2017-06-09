@@ -176,29 +176,45 @@ class Board_c extends CI_Controller {
 
 
       $id = $this->uri->segment(3);
-      //form
-      if($_POST) 
-      {
 
-         if( !$this->input->post('modify_subject', true) OR !$this->input->post('modify_contents', true) ) {
+
+      //form
+      if($_POST)
+      {
+         if( !$this->input->post('modify_subject', true) OR !$this->input->post('modify_contents', true)) 
+         {
             echo "<script>alert(\"비정상적인 접근입니다. \")</script>";
             redirect('/board_c/board_v','refresh');
             exit;
          }
             //파일 업로드
-            if (! $this->upload->do_upload("user_upload_file")){
-               echo $this->upload->display_errors();
+            if (!$this->upload->do_upload("user_upload_file"))
+            {
+               // echo $this->upload->display_errors();
+
+               $file_result = $this->board_m->file_result($id);
+
+               if (empty($file_result))
+                  $file_result = array();
+
+               $picture = $file_result->picture;
+
+               // $idx = $detail_result->idx;
+               // print_r();
+
+               $file_url = $picture;
             } 
             else 
             {
                $data =  $this->upload->data();
-               echo "성공";
+               // echo "성공";
                $file_url = "/static/image/review/".$data['file_name'];
             }
 
          $modify_subject = $this->input->post('modify_subject', true);
          $modify_contents = $this->input->post('modify_contents', true);
          $modify_picture = $file_url;
+
          $result = $this->board_m->board_modify($modify_subject, $modify_contents, $id, $modify_picture);
          if($result)
          {

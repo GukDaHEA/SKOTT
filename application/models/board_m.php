@@ -64,6 +64,13 @@ class Board_m extends CI_Model
 		return $query;
 	}
 
+	function file_result($id) {
+		$sql = "select * from ci_board where board_id ='".$id."'";
+		$query = $this->db->query($sql);
+		$result = $query->row();
+		return $result;
+	}
+
 
 	function board_insert($board_subject, $board_contents, $user_name, $user_email, $user_picture) 
 	{
