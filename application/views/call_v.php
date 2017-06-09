@@ -219,7 +219,7 @@ a:link { color: red; text-decoration: none;}
 <div id="wrap">
     <!-- header -->
     <div id="header">
-        <h1><a href="/Drive/call" class="sp h_logo" tabindex="1"></a></h1>
+        <h1><a href="/mains" class="sp h_logo" tabindex="1"></a></h1>
         <div class="lang">
             <a class="menu-trigger" href="/Drive/call_login">
                 <span></span>
@@ -265,7 +265,7 @@ a:link { color: red; text-decoration: none;}
     </div>
         <!-- //content -->
 </div>
-<META HTTP-EQUIV="refresh" CONTENT="3">
+<META HTTP-EQUIV="refresh" CONTENT="10">
 <script type="text/javascript">
 // if(document.getElementById('label2').style.display == 'inline'){
     var result = confirm("<?php echo $departure ?> 에서 <?php echo $destination?> 까지 (<?php echo $distance ?>) 가는 콜이 있습니다. 수락하시겠습니까?");

@@ -21,6 +21,12 @@
 	#pagination_id {
 		margin-left :20%;
 		margin-top:-2%;
+		font-size:20px;
+		text-align: center;
+		letter-spacing:10px;
+		color:#4d7e2b;
+		display:block;
+		background-color: #ffe
 	}
 	.btn {
 		position: relative;
@@ -35,10 +41,6 @@
 		color:white;
 	}
 
-	#pagination_id {
-		text-align: center;
-		font-size: 15px
-	}
 	#bd_search {
 		margin-left: 30px;
 	}
@@ -49,10 +51,7 @@
 	table #trs {
 		height:130px;
 	}
-	.table .table-striped tr{
-		border-top-color:#4d7e2b;
-		border-bottom-color:#4d7e2b;
-	}
+
 
 </style>
 
@@ -90,7 +89,7 @@
 </table>
 <div>
 			<form id="bd_search" method="post">
-				<input type="text" style="width: 300px;"name="search_word" id="q" placeholder="검색" required /> 
+				<input type="text" style="width: 300px;color:white;"name="search_word" id="q" placeholder="검색" required /> 
 				<input type="button" value="검색" id="search_btn" required/>
 			</form> <br>
 <button class = "btn"><a href="/board_c/board_v_write">작 성</a></button>
