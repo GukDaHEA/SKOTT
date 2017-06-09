@@ -46,13 +46,11 @@ class User extends MY_Controller {
             else 
             {
                $data =  $this->upload->data();
-               echo "성공";
                $file_url = "/static/image/user/".$data['file_name'];
             }
 
          $modify_name = $this->input->post('name', true);
          $modify_nation = $this->input->post('nation', true);
-            var_dump($file_url);
 
          $result = $this->User_m->user_modify($modify_name, $modify_nation, $email, $file_url);
          if($result)

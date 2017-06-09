@@ -38,10 +38,28 @@
 		margin-top:-5%;
 		width: 100px;
 	}
+
+	.btn2 {
+		border:0px;
+		position: relative;
+		float: right; 
+		right : 30px;
+		background-color:#4d7e2b;
+		color:white;
+		font-weight: bold;
+		margin-top:-5%;
+		margin-right:60px;
+		border-radius:5px;
+		width:55px;
+		height:35px;
+	}
 	.btn a{
 		color:white;
 	}
 
+	.btn2 a{
+		color:white;
+	}
 	#bd_search {
 		margin-left: 30px;
 	}
@@ -95,6 +113,7 @@
 				<input type="button" value="검색" id="search_btn" required/>
 			</form> <br>
 <button class = "btn"><a href="/board_c/board_v_write">작 성</a></button>
+<button class = "btn2"><a href="/board_c/board_v">목 록</a></button>
 </div>
                <div id = "pagination_id"><?php echo $pagination;?></div>
 

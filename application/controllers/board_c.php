@@ -107,7 +107,6 @@ class Board_c extends CI_Controller {
             else 
             {
                $data =  $this->upload->data();
-               echo "성공";
                $file_url = "/static/image/review/".$data['file_name'];
             }
 

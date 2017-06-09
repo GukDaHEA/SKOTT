@@ -24,7 +24,7 @@
 
       .detail_image {
         border:0px solid gray;
-        width:90%;
+        width:600px;
         height:80%;
         padding:10px;
         border-radius: 5px;
