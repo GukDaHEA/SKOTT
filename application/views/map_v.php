@@ -370,8 +370,8 @@ function searchDetailAddrFromCoords(coords, callback) {
 function map_change(x, y, sort) {
 
         map.setDraggable(true);
-        map.setLevel(7, {
-            animate: {duration: 700},
+        map.setLevel(9, {
+            animate: {duration: 50},
             anchor: new daum.maps.LatLng(x, y)
         });
         map_marker(sort);
@@ -423,7 +423,7 @@ function map_dynamic_content(reco_sort) {
             '<button class="ui like button" onclick="like_content_click('+item[i].reco_idx+')"> ♥'+
              '<div class = "like_content'+item[i].reco_idx+'">' +item[i].reco_like+'</button>' +
                           '<div class = "or"></div>' +
-                          '<button class="ui detail button" onclick = "detail_location()"><a href="http://localhost/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
+                          '<button class="ui detail button" onclick = "detail_location()"><a href="/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
                            '</div>' +
                         '</div>' +
                 '<div class ="div_content">' +
@@ -431,7 +431,7 @@ function map_dynamic_content(reco_sort) {
                       '<div class = "like_content'+item[i].reco_idx+'">' +item[i].reco_like+'</button> </div> '+
                      '<div class = "detail_content">' +
                      '<div class = "or"></div>' +
-                          '<button class="ui detail button" onclick = "detail_location()"><a href="http://localhost/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
+                          '<button class="ui detail button" onclick = "detail_location()"><a href="/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
                            '</div>' +
                        '</div>' +
                   '</div> </div> </div>'
