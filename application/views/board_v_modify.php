@@ -53,7 +53,7 @@
 
 	<div class="apply" style="float: right;"><a href="/board_c/board_delete/<?php echo $views->board_id ?>" style="width:100pt;height:30pt;">삭제</a></div>	
 	<div class="apply" style="float: right;">|</div>
-		<div class="apply" style="float: right;"><a href="/board_c/board_v_modify/<?php echo $views->board_id ?>" style="width:100pt;height:30pt;">수정(아직)</a></div> -->
+	<!-- 	<div class="apply" style="float: right;"><a href="/board_c/board_v_modify/<?php echo $views->board_id ?>" style="width:100pt;height:30pt;">수정(아직)</a></div>  -->
 		<div class = "apply" style="float: right; "><input type="submit" value ="수정" style="background-color: transparent; border-style: none; color:#4183C4;"> </div>
 
 	<div class="pic"> 사진 : <img alt="" src=<?php if ($views->picture) {?>"<?php echo $views->picture ;?>"<?php } ?> style="height:100px;width:110px" />

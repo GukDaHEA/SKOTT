@@ -48,10 +48,11 @@
 		color:white;
 		font-weight: bold;
 		margin-top:-5%;
-		margin-right:60px;
+		margin-right:110px;
 		border-radius:5px;
 		width:55px;
 		height:35px;
+		width: 100px;
 	}
 	.btn a{
 		color:white;
