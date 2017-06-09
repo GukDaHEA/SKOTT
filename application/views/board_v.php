@@ -90,7 +90,8 @@
 </table>
 <div>
 			<form id="bd_search" method="post">
-				<input type="text" style="width: 300px;text-indent:10px; color:white;" name="search_word" id="q" placeholder="검색" required /> 
+
+				<input type="text" style="width: 300px;"name="search_word" id="q" placeholder="검색" required /> 
 				<input type="button" value="검색" id="search_btn" required/>
 			</form> <br>
 <button class = "btn"><a href="/board_c/board_v_write">작 성</a></button>
