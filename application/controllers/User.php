@@ -39,7 +39,6 @@ class User extends MY_Controller {
             redirect('/mains','refresh');
             exit;
          }
-
             //파일 업로드
             if (! $this->upload->do_upload("user_upload_file")){
                echo $this->upload->display_errors();
