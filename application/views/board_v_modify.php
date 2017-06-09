@@ -50,7 +50,7 @@
 		<!-- 	<div class="con"> 내용 : <input type="text" name="modify_contents" value = "<?php echo $views->contents;?>" style="width:800px;height:300px;"></div> -->
 	<textarea name="modify_contents" rows="18" cols="108" style="text-indent: 10px;padding-top: 20px; background-color: #eaf1f7;" > <?php echo $views->contents;?> </textarea> <br>
 
-	<div class="apply" style="float: right;"><a href="/board_c/board_delete/<?php echo $views->board_id ?>" style="width:100pt;height:30pt;">삭제</a></div>	
+	<div class="apply"id="del"style="float: right;" onclick="delete()"><!-- <a href="/board_c/board_delete/<?php echo $views->board_id ?>" style="width:100pt;height:30pt;"> -->삭제</a></div>	
 <!-- 		<div class="apply" style="float: right;">|</div>
 		<div class="apply" style="float: right;"><a href="/board_c/board_v_modify/<?php echo $views->board_id ?>" style="width:100pt;height:30pt;">수정(아직)</a></div> -->
 		<div class = "apply" style="float: right;"><input type="submit" value ="수정"> </div>
@@ -67,6 +67,15 @@
 </form>
 
 </div>
-
+<script> 
+$('#del').click(function() { 
+    var result = confirm('정말 삭제 하시겠습니까??'); 
+    if(result) { //yes 
+      location.replace('/board_c/board_delete/<?php echo $views->board_id ?>'); 
+    }
+    else { //no 
+    } 
+  }); 
+</script>
 </body>
 </html>
