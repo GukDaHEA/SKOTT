@@ -45,6 +45,8 @@
 	}
 	.apply{
 		float: right;
+		font-size: 18px;
+		margin-right: 15px;
 	}
 	.pic{
 		width: 800px;
@@ -94,13 +96,13 @@
 	<hr>
 	<br>
 
-	<div class="con2" style="text-indent:20px; padding-top: 30px;"> <?php echo $views->contents;?> </div>
+	<div class="con2" style="text-indent:20px; padding-top: 30px; "> <?php echo $views->contents;?> </div>
 	
 	<div class="apply" style="float: right;"><a href="/board_c/board_delete/<?php echo $views->board_id ?>" style="width:100pt;height:30pt;">삭제</a></div>
 	<div class="apply" style="float: right;">|</div>
-	<div class="apply" style="float: right;"><a href="/board_c/board_v_modify/<?php echo $views->board_id ?>">수정</a></div>
+	<div class="apply" style="float: right; "><a href="/board_c/board_v_modify/<?php echo $views->board_id ?>">수정</a></div>
 	<div class="apply" style="float: right;">|</div>
-	<div class="back" style="float: right;"><a href="/board_c/board_v">목록</a></div><br>
+	<div class="back" style="float: right; font-size: 18px; margin-right: 15px;"><a href="/board_c/board_v">목록</a></div><br>
 	 <div class="pic" style="text-indent:10px; padding-top: 10px;"> 사진 <?php if ( ! $views->picture == 0) { ?> 
 		<td><img alt="" src="<?php echo $views->picture ?>" style="height:100px;width:110px; margin-left:5px;" /></td>
 		<?php }

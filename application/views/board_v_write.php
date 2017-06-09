@@ -37,9 +37,9 @@
 	<form method="post" enctype="multipart/form-data" action="/board_c/board_v_write" class="background">
 <h1> 리뷰 쓰기 </h1> <br>	
 		<input type="text" name="board_subject" placeholder="제목" class = "text_subject" style="width: 500px;text-indent:5px;"> <br> <hr>
-		<textarea cols = "50" rows = "10" name="board_contents" placeholder="내용" class = "text_textarea"></textarea> <br><br>
+		<textarea name="board_contents" placeholder="내용" class = "text_textarea" rows="18" cols="108" style="text-indent: 10px;padding-top: 20px; background-color: #eaf1f7;" ></textarea> <br><br>
 		<input type="file" name="user_upload_file" />
-		<input type="submit" name="board_submit" class = "btn btn-primary" value = "작성"> 
+		<input type="submit" name="board_submit" class = "btn btn-primary" value = "작 성" style="background-color:#4d7e2b; width: 100px;"> 
 	</form>
 <!-- 	<script src="/static/ckeditor/ckeditor.js"></script>
 	<script>
