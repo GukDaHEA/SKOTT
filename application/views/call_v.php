@@ -219,7 +219,7 @@ a:link { color: red; text-decoration: none;}
 <div id="wrap">
     <!-- header -->
     <div id="header">
-        <h1><a href="/Drive/call" class="sp h_logo" tabindex="1"></a></h1>
+        <h1><a href="/mains" class="sp h_logo" tabindex="1"></a></h1>
         <div class="lang">
             <a class="menu-trigger" href="/Drive/call_login">
                 <span></span>

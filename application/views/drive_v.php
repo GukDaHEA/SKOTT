@@ -194,7 +194,7 @@ menu-trigger.active-10 {
     <div id="wrap">
         <!-- header -->
         <div id="header">
-            <h1><a href="/" class="sp h_logo" tabindex="1"></a></h1>
+            <h1><a href="/mains" class="sp h_logo" tabindex="1"></a></h1>
             <div class="lang">
                 <a class="menu-trigger" href="javascript:;">
                     <span></span>
