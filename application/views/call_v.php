@@ -265,12 +265,12 @@ a:link { color: red; text-decoration: none;}
     </div>
         <!-- //content -->
 </div>
-<META HTTP-EQUIV="refresh" CONTENT="10">
+<META HTTP-EQUIV="refresh" CONTENT="15">
 <script type="text/javascript">
 // if(document.getElementById('label2').style.display == 'inline'){
     var result = confirm("<?php echo $departure ?> 에서 <?php echo $destination?> 까지 (<?php echo $distance ?>) 가는 콜이 있습니다. 수락하시겠습니까?");
     if(result) {
-        location.replace('/');
+        location.replace('/mains');
     } else {
 
     }

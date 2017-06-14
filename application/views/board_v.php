@@ -26,7 +26,8 @@
 		letter-spacing:10px;
 		color:#4d7e2b;
 		display:block;
-		background-color: #ffe
+		background-color: #fff;
+		margin-top:-5%;
 	}
 	.btn {
 		position: relative;
@@ -61,8 +62,27 @@
 	.btn2 a{
 		color:white;
 	}
+	.btn3 {
+		border:0px;
+		position: relative;
+		float: right; 
+		right : 30px;
+		background-color:#4d7e2b;
+		color:white;
+		font-weight: bold;
+		margin-top:-5%;
+		margin-right:230px;
+		border-radius:5px;
+		width:55px;
+		height:35px;
+		width: 100px;
+	}
+	.btn3 a{
+		color:white;
+	}
 	#bd_search {
 		margin-left: 30px;
+		margin-top:70px;
 	}
 
 	a{color: black;}
@@ -107,16 +127,19 @@
 <?php }?>
 
 </table>
+               <div id = "pagination_id"><?php echo $pagination;?></div>
 <div>
 			<form id="bd_search" method="post">
 
 				<input type="text" style="width: 300px;"name="search_word" id="q" placeholder="검색" required /> 
 				<input type="button" value="검색" id="search_btn" required/>
-			</form> <br>
+			</form> 
+               <br>
 <button class = "btn"><a href="/board_c/board_v_write">작 성</a></button>
 <button class = "btn2"><a href="/board_c/board_v">목 록</a></button>
+<button class = "btn3"><a href="/detail/detail/3">돌아가기</a></button>
+
 </div>
-               <div id = "pagination_id"><?php echo $pagination;?></div>
 
 <!--form id="bd_search" method="post" class="well form-search" -->
 
