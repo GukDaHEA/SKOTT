@@ -12,8 +12,6 @@
 <style>
 
 .h_logo{display:block;overflow:hidden;width:100px;height:50px;top:20px;left:150px;margin:0 auto;background-position:-1px -1px}
-@media only screen and (min-width:1024px){#container,#header{width:768px;margin:0 auto!important;background-color: #e3e3e3;}.error_browser p{width:460px;margin:0 auto}} 
-@media screen and (min-width:460px){.error_browser p{width:460px;margin:0 auto} input[type=range]{width:400px;}}
 .h_logo{background-image:url("/static/image/header/logo.png");background-size: 100% 100%;background-repeat:no-repeat;margin-top:10px;}
 .lang{position:absolute;top:14px;right:0}
 .login_form .blind{font-size:0;line-height:0;position:absolute;top:0;left:0;visibility:hidden;overflow:hidden;width:1px;height:1px}
@@ -114,6 +112,7 @@ body.menu-active div#content .menu-trigger { left: 150px; }
 
     <!-- Navigation -->
     <nav id="slide-menu">
+        <div id="myinfo">  </div>
         <ul>
             <li>내 기록</li>
             <li>개인 정보</li>
@@ -126,7 +125,7 @@ body.menu-active div#content .menu-trigger { left: 150px; }
     <div id="content">
         <!-- container -->
                 <div class="menu-trigger"><img src="/static/image/menu.png"/></div>
-                <h1><a href="/" class="h_logo" tabindex="1"></a></h1>
+                <h1><a href="/mains" class="h_logo" tabindex="1"></a></h1>
                     <form class="login_form">
                         <div class="input_row" id="id_area">
                             <div id="div_Map"></div>
@@ -202,6 +201,5 @@ window.onload = function() {
 
 }).call(this);
 </script>
-<!-- //container -->
 </body>
 </html>

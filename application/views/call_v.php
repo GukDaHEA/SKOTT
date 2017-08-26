@@ -5,21 +5,88 @@
     <title>SKOTT - 기사</title>
 </head>
 <style>
-#header{margin:0 10px}#header{position:relative;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;height:168px;:62px 0 0}
-#header .h_logo{display:block;overflow:hidden;width:130px;height:80px;top:20px;left:150px;margin:0 auto;background-position:-1px -1px}#header .lang{position:absolute;top:20px;left:20px;width:10%;cursor:pointer;}
-@media only screen and (min-width:1024px){#container,#header{width:768px;margin:0 auto!important;}#content{width:460px;margin:0 auto}.error_browser p{width:460px;margin:0 auto}} 
-@media screen and (min-width:460px){#content{width:460px;margin:0 autoheight:100%;}.error_browser p{width:460px;margin:0 auto} input[type=range]{width:400px;}}
-.header_area{overflow:hidden;height:45px}.privacy_title{font-size:18px;font-weight:700;line-height:45px;text-align:center;color:#fff;background-color:#01c73c}.content_area{max-width:460px;margin:0 auto;padding:28px 10px 162px;background-color:#fff}
-.h_logo{background-image:url("/static/image/header/logo.png");background-size: 100% 100%;background-repeat:no-repeat}
+.h_logo{display:block;overflow:hidden;width:100px;height:50px;top:20px;left:150px;margin:0 auto;background-position:-1px -1px}
+.h_logo{background-image:url("/static/image/header/logo.png");background-size: 100% 100%;background-repeat:no-repeat;margin-top:10px;}
 #wrap{position:relative;min-height:100%;background-color: #3e3e3e}
-.lang{position:absolute;top:14px;right:0}
 
 #container{padding-bottom:100px}
 .input_row{position:relative;height:150px;margin:0 0 14px;padding:10px 35px 10px 15px;border:solid 0px #dadada;border-radius:10px;text-align:center;background:#000}.input_row.focus{border:solid 1px #20bc01}.input_box{display:block;overflow:hidden}.int{font-size:15px;line-height:16px;position:relative;z-index:9;width:100%;height:16px;padding:7px 0 6px;color:#000;border:none;background:#fff;-webkit-appearance:none}.lbl{font-size:15px;text-align:center;line-height:16px;position:absolute;z-index:8;top:16px;left:15px;color:#999}.lbl{z-index:10}.wrg{position:absolute;z-index:1000;top:16px;right:13px;display:none;overflow:hidden;width:19px;height:19px;margin:0;padding:0;cursor:pointer;text-indent:-999px;border:0;background-color:transparent;background-position:-1px -263px}
- .login_form{ border:0px;margin-top:-50px;}
+ .login_form{ border:0px;margin-top:15%;}
 .btn_global{font-size:20px;font-weight:700;line-height:61px;display:block;width:100%;height:61px;margin:30px 0 13px;padding-top:2px;cursor:pointer;text-align:center;color:#fff;border:none;border-radius:10px;background-color:#4d7e2b;-webkit-appearance:none}.btn_global:active,.btn_global:hover,.btn_global:link{text-decoration:none;color:#fff}
 input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:none}
 .error{font-size:12px;line-height:16px;margin:-2px 0 12px;color:#ff1616}.error .error_info{color:#333}.error strong{font-size:15px;position:relative;top:3px}
+
+body {
+    margin: 0;
+    color: #111111;
+    background-color:#e5edf3;
+}
+/*
+  Menu
+*/
+nav#slide-menu {
+    position: fixed;
+    top: 0;
+    left: -100px;
+    bottom: 0;
+    display: block;
+    float: left;
+    width: 100%;
+    max-width: 284px;
+    height: 100%;
+
+    -moz-transition: all 300ms;
+    -webkit-transition: all 300ms;
+    transition: all 300ms;
+}
+
+body.menu-active nav#slide-menu { left: 0px; }
+body.menu-active nav#slide-menu ul { left: 0px; opacity: 1;}
+
+/*
+  Content
+*/
+
+    div#content {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #3e3e3e;
+        overflow: scroll;
+        border-radius: 0;
+
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+
+        -moz-box-shadow: -3px 0 6px darken(#556270, 5%);
+        -webkit-box-shadow: -3px 0 6px darken(#556270, 5%);
+        box-shadow: -3px 0 6px darken(#556270, 5%);
+
+        -moz-transition: all 300ms;
+        -webkit-transition: all 300ms;
+        transition: all 300ms;
+    }
+    div.menu-trigger {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+        border-radius: 5px;
+
+        -moz-transition: all 300ms;
+        -webkit-transition: all 300ms;
+        transition: all 300ms;
+    }
+
+    img { max-width: 100%; width: auto !important; height: auto ; }
+
+body.menu-active div#content { left: 150px; border-radius: 7px 0 0 7px; }
+body.menu-active div#content .menu-trigger { left: 150px; }
 
 /* 밀어서 잠금해제 스타일*/
 input[type="range"] {
@@ -171,29 +238,26 @@ a:link { color: red; text-decoration: none;}
 }
 </style>
 <body class="chrome">
+<!-- Navigation -->
+    <nav id="slide-menu">
+        <div id="myinfo">  </div>
+        <ul>
+            <li>내 기록</li>
+            <li>개인 정보</li>
+            <li>설정</li>
+            <li>로그아웃</li>
+        </ul>
+    </nav>
 
+    <!-- Content panel -->
+    <div id="content">
+        <!-- container -->
+                <div class="menu-trigger"><img src="/static/image/menu.png"/></div>
+                <h1><a href="/mains" class="h_logo" tabindex="1"></a></h1>
 <div id="wrap">
-    <!-- header -->
-    <div id="header">
-        <h1><a href="/mains" class="sp h_logo" tabindex="1"></a></h1>
-        <div class="lang">
-            <a class="menu-trigger" href="/Drive/call_login">
-                <span></span>
-                <span></span>
-                <span></span>
-            </a>
-        </div>
-    </div> <!-- 
-        <?php
-        var_dump($this->session->userdata());
-        ?> -->
-    <!-- //header -->
     <!-- container -->
     <div id="container">
-        <!-- content -->
-        <div id="content">
-                <fieldset class="login_form">
-                    <legend class="blind">STATUS</legend>
+                <form class="login_form">
                     <div class="input_row" id="id_area">
                         <span class="input_box"><br><br><br>
                             <label for="email" id="label" class="lbl" id="status" style="font-size:25px;font-weight:bold;top:30%;left:20%"><?php echo $this->session->userdata('car');?><br/><br/><?php echo $this->session->userdata('name')?> 기사님</label>
@@ -213,7 +277,7 @@ a:link { color: red; text-decoration: none;}
                     </div>
                     <a href="javascript:doDisplay1();" ><div class="btn_global" id="nul">빈 차</div></a>
                     <a href="javascript:doDisplay2();"><div class="btn_global" id="active">운행 중</div></a>
-                    </fieldset>
+                    </form>
             
                     <input type="range" class="slideToUnlock" value="0" max="100" onchange="RangeSlider(this)">
         </div>
@@ -296,5 +360,23 @@ burger.each(function(index){
     document.getElementById("active").style.backgroundColor='#004400'
 }
     </script>
+
+
+<script>
+/*
+  Slidemenu
+*/
+(function() {
+    var $body = document.body
+    , $menu_trigger = $body.getElementsByClassName('menu-trigger')[0];
+
+    if ( typeof $menu_trigger !== 'undefined' ) {
+        $menu_trigger.addEventListener('click', function() {
+            $body.className = ( $body.className == 'menu-active' )? '' : 'menu-active';
+        });
+    }
+
+}).call(this);
+</script>
 </body>
 </html>

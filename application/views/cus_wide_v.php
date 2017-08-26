@@ -8,39 +8,83 @@
                 , maximum-scale=3.0" />
 </head>
 <style type="text/css">
-#header {
-    width:100%;
-    height:10%;
-    top:0px;
-    position:absolute;
-    background-color: #01c73c;
+body {
+    margin: 0;
+    color: #111111;
+    background-color:#e5edf3;
 }
-#menu {
-    float:left;
-    width:20%;
-    height:100%;
+.h_logo{background-image:url("/static/image/header/logo.png");background-size: 100% 100%;background-repeat:no-repeat;height:50px;width:140px;display:block;margin:0 auto;top:20px;}
+
+/*
+  Menu
+*/
+nav#slide-menu {
+    position: fixed;
+    top: 0;
+    left: -100px;
+    bottom: 0;
+    display: block;
+    float: left;
+    width: 100%;
+    max-width: 284px;
+    height: 100%;
+
+    -moz-transition: all 300ms;
+    -webkit-transition: all 300ms;
+    transition: all 300ms;
 }
-.menu {
-    margin:0px auto;
-    width:100%;
-    height:100%;
-    object-fit:contain;
-}
-#logo {
-    float:left;
-    width:40%;
-    height:80%;
-    margin-left:15%;
-}
-.logo {
-    margin:0px auto;
-    width:100%;
-    height:100%;
-    object-fit:contain;    
-}
+
+body.menu-active nav#slide-menu { left: 0px; }
+body.menu-active nav#slide-menu ul { left: 0px; opacity: 1;}
+
+/*
+  Content
+*/
+
+    div#content {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #3e3e3e;
+        overflow: scroll;
+        border-radius: 0;
+
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+
+        -moz-box-shadow: -3px 0 6px darken(#556270, 5%);
+        -webkit-box-shadow: -3px 0 6px darken(#556270, 5%);
+        box-shadow: -3px 0 6px darken(#556270, 5%);
+
+        -moz-transition: all 300ms;
+        -webkit-transition: all 300ms;
+        transition: all 300ms;
+    }
+    div.menu-trigger {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+        border-radius: 5px;
+
+        -moz-transition: all 300ms;
+        -webkit-transition: all 300ms;
+        transition: all 300ms;
+    }
+
+    img { max-width: 100%; width: auto !important; height: auto ; }
+
+body.menu-active div#content { left: 150px; border-radius: 7px 0 0 7px; }
+body.menu-active div#content .menu-trigger { left: 150px; }
+
 #wrap {
-    height:100%;
-    margin-top:17%;
+    height:91%;
+    margin-top:10px;
 }
 #div_Map {
 }
@@ -60,7 +104,7 @@
     width:30%;
     height:80%;
     margin-top:3%;
-    margin-left:3%;
+    margin-left:9%;
 }
 #info_name{
     float:left;
@@ -105,37 +149,43 @@
 </style>
 <!-- <body onload="initTmap(<?php echo $lat;?>,<?php echo $lng;?>)"> -->
 <body onload="initTmap(37.579464, 126.977084)">
-    <div id="header">
-        <div id="menu">
-            <img class="menu" src="/static/Image/menu.png" alt="메뉴" />
+    <!-- Navigation -->
+    <nav id="slide-menu">
+        <div id="myinfo">  </div>
+        <ul>
+            <li>내 기록</li>
+            <li>개인 정보</li>
+            <li>설정</li>
+            <li>로그아웃</li>
+        </ul>
+    </nav>
+
+    <!-- Content panel -->
+    <div id="content">
+        <div class="menu-trigger"><img src="/static/image/menu.png"/></div>
+        <a href="/mains" class="h_logo" tabindex="1"></a>
+        <div id="wrap">
+            <div id="div_Map"></div>
         </div>
-        <div id="logo">
-            <a href="/mains">
-                <img class="logo" src="/static/Image/header/logo.png" alt="SKOTT" />
-            </a>
-        </div>
-    </div>
-    <div id="wrap">
-        <div id="div_Map"></div>
-    </div>
-    <div id="info">
-        <div id="info_picture">
-            <img class="pic" src="/static/image/driver/songg.jpg" alt="사진"/>
-        </div>
-        <div id="info_name">
-            송창환 <br> <br>
-            경기 바 1928 <br> <br>
-            목적지 | <?php echo $end; ?><br>
-        </div>
-        <div id="info_connect">
-            <div id="call">
-                전화
+        <div id="info">
+            <div id="info_picture">
+                <img class="pic" src="/static/image/driver/songg.jpg" alt="사진"/>
             </div>
-            <div id="message">
-               <center> 메시지 </center>
+            <div id="info_name">
+                송창환 <br> <br>
+                경기 바 1928 <br> <br>
+                목적지 | <?php echo $end; ?><br>
             </div>
-            <div id="cancel">
-               <center> 취소 </center>
+            <div id="info_connect">
+                <div id="call">
+                    전화
+                </div>
+                <div id="message">
+                   <center> 메시지 </center>
+                </div>
+                <div id="cancel">
+                   <center> 취소 </center>
+                </div>
             </div>
         </div>
     </div>
@@ -213,5 +263,22 @@ function searchRoute(Startlat, Startlng, Endlat, Endlng){
 function onDrawnFeatures(e){
     map.zoomToExtent(this.getDataExtent());
 }
+</script>
+
+<script>
+/*
+  Slidemenu
+*/
+(function() {
+    var $body = document.body
+    , $menu_trigger = $body.getElementsByClassName('menu-trigger')[0];
+
+    if ( typeof $menu_trigger !== 'undefined' ) {
+        $menu_trigger.addEventListener('click', function() {
+            $body.className = ( $body.className == 'menu-active' )? '' : 'menu-active';
+        });
+    }
+
+}).call(this);
 </script>
 </html>
