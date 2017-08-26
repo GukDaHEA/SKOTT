@@ -24,6 +24,7 @@ class Login extends MY_Controller {
             // password_verify($password, $user->password)
             $password == $user->password
             ) {
+            $this->session->set_userdata(array('is_login' => trye, 'user_idx' => $user->user_id));
             $this->session->set_userdata(array('is_login' => true, 'name' => $user->name));
             $this->session->set_userdata(array('is_login' => true, 'email' => $email));
             // $returnURL = $this->input->get('returnURL');

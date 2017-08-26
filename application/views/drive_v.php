@@ -215,7 +215,7 @@ menu-trigger.active-10 {
                     <p></p>
                 </div>
                 <!-- <form id="frmNIDLogin" name="frmNIDLogin" action="javascript:log();" method="post"> -->
-                    <fieldset class="login_form">
+                    <form class="login_form" method="POST" action="/drive/cus_wide">
                         <legend class="blind">STATUS</legend>
                         <div class="input_row" id="id_area">
                             <span class="input_box"><br><br><br>
@@ -236,11 +236,11 @@ menu-trigger.active-10 {
                             <div class="loading-dot"></div>
                             <div class="loading-dot"></div>
                         </div>
-                        
+                        <?php echo $this->session->userdata('user_idx') ?>
                     </div>
                     <!-- <button class="btn_global" onclick"">빈 차</button> -->
                     <input type="button" title="호출 하기" alt="호출 하기" value="호출 하기" class="btn_global" onclick="callDriver()">
-                </fieldset>
+                </form>
             <!-- </form> -->
         </div>
         <!-- tg-lang -->
@@ -252,12 +252,15 @@ menu-trigger.active-10 {
         $.ajax ({
           type : 'POST',
           url : '/index.php/drive/drivecall',
-          data : { departure: $('#start_spot').val(), destination: $('#end_spot').val(), distance: '0', modify: 'asdsa' },
+          data : { departure: $('#start_spot').val(), destination: $('#end_spot').val(), distance: '0', modify: 'asdsa',
+                    user_idx: "<?php echo $this->session->userdata('user_idx') ?>"
+            },
           // url : '/index.php/drive/call_send_start_end',
           // data : { departure: '부천시 원미구 심곡동 부천대', destination: '서울시 경복궁'},
           dataType : 'json',
           success : function (data) {
              alert("호출 버튼을 누르셨습니다.");
+             location.href="/index.php/drive/cus_wide";
          }
     });
     }

@@ -25,7 +25,6 @@ class Drive extends MY_Controller {
 				'end' => $end
 				)
 			);
-
 	}
 
 	public function call() {
@@ -70,9 +69,8 @@ class Drive extends MY_Controller {
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 			$data = $this->input->post();
-
 			$insert = array();
-			$insert['userIdx'] = 34;
+			$insert['useridx'] = !empty($data['user_idx']) ? $data['user_idx'] : '';;
 			$insert['departure'] = !empty($data['departure']) ? $data['departure'] : '';
 			$insert['destination']  = !empty($data['destination']) ? $data['destination'] : '';
 			$insert['distance']  = rand(0, 30) . 'km';
@@ -82,6 +80,7 @@ class Drive extends MY_Controller {
 
 		}
 		echo json_encode($result);
+
 	}
 
 	public function call_login() {
@@ -108,9 +107,10 @@ class Drive extends MY_Controller {
             $this->session->set_userdata(array('is_login' => true, 'lat' => $lat));
             $this->session->set_userdata(array('is_login' => true, 'lon' => $lon));
 
+
             header('Location: /Drive/call');
          } else {
-			 echo "<script>alert(\"로그인에 실패하였습니다.\");</script>";			
+			 echo "<script>alert(\"로그인에 실패하였습니다.\");</script>";		
             header('Location: /Drive/call_login');
          }
       }
@@ -142,9 +142,43 @@ class Drive extends MY_Controller {
 					echo json_encode($reco_sidebar_content);
 				}
 	}
+	public function accept_call() {
+		// 위치값을 보내야됨
+		// $this->output->set_content_type('application/json');
+		// $result = array();
+
+		// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+		// 	$data = $this->input->post();
+		// 	$update = array();
+		// 	$update['useridx'] = !empty($data['user_idx']) ? $data['user_idx'] : '';;
+		// 	$update['departure'] = !empty($data['departure']) ? $data['departure'] : '';
+		// 	$update['destination']  = !empty($data['destination']) ? $data['destination'] : '';
+		// 	$update['distance']  = rand(0, 30) . 'km';
+
+		// 	$call = $this->call_m;
+		// 	$result = $call->acceptCall($update);
+
+		// }
+		// echo json_encode($result);
+
+		$this->load->view('call_accept');
+	}
 
 	function logout() {
 		$this->session->sess_destroy();
 		header('Location: /Drive/call_login');
+	}
+
+	public function cus_wide() {
+
+		$start = $this->input->post('start_spot');
+		$end = $this->input->post('end_spot');
+
+		$this->load->view('cus_wide_v', array(
+				'start' => $start,
+				'end' => $end
+				)
+			);
 	}
 }

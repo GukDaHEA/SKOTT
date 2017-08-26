@@ -32,5 +32,14 @@ class Call_m extends CI_MODEL {
 		return $result;
 	}
 
+	function acceptCall($update) {
+		$data = array();
+		$data['state'] = 2;
+		$data['call_id'] = $update['call_id'];
 
+		$db = $this->db;
+		$db->where('call_id', $data['call_id']);
+		$result = $db->update('call', $data);
+		return $result;
+	}
 }
