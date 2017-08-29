@@ -7,7 +7,7 @@
 <style>
 .h_logo{display:block;overflow:hidden;width:100px;height:50px;top:20px;left:150px;margin:0 auto;background-position:-1px -1px}
 .h_logo{background-image:url("/static/image/header/logo.png");background-size: 100% 100%;background-repeat:no-repeat;margin-top:10px;}
-#wrap{position:relative;min-height:100%;background-color: #3e3e3e}
+#wrap{position:relative;min-height:80%;background-color: #3e3e3e}
 
 #container{padding-bottom:100px}
 .input_row{position:relative;height:150px;margin:0 0 14px;padding:10px 35px 10px 15px;border:solid 0px #dadada;border-radius:10px;text-align:center;background:#000}.input_row.focus{border:solid 1px #20bc01}.input_box{display:block;overflow:hidden}.int{font-size:15px;line-height:16px;position:relative;z-index:9;width:100%;height:16px;padding:7px 0 6px;color:#000;border:none;background:#fff;-webkit-appearance:none}.lbl{font-size:15px;text-align:center;line-height:16px;position:absolute;z-index:8;top:16px;left:15px;color:#999}.lbl{z-index:10}.wrg{position:absolute;z-index:1000;top:16px;right:13px;display:none;overflow:hidden;width:19px;height:19px;margin:0;padding:0;cursor:pointer;text-indent:-999px;border:0;background-color:transparent;background-position:-1px -263px}
@@ -255,8 +255,6 @@ a:link { color: red; text-decoration: none;}
                 <div class="menu-trigger"><img src="/static/image/menu.png"/></div>
                 <h1><a href="/mains" class="h_logo" tabindex="1"></a></h1>
 <div id="wrap">
-    <!-- container -->
-    <div id="container">
                 <form class="login_form">
                     <div class="input_row" id="id_area">
                         <span class="input_box"><br><br><br>
@@ -280,7 +278,7 @@ a:link { color: red; text-decoration: none;}
                     </form>
             
                     <input type="range" class="slideToUnlock" value="0" max="100" onchange="RangeSlider(this)">
-        </div>
+       
             <!-- tg-lang -->
     </div>
         <!-- //content -->
@@ -341,8 +339,8 @@ burger.each(function(index){
     })
 });
 </script>
-    <!-- //container -->
 
+<!-- 버튼 클릭시 화면 전환 -->
 <script type="text/javascript">
     function doDisplay1(){
     document.getElementById("label").style.display='none';
