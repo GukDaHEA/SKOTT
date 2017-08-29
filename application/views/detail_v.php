@@ -301,10 +301,12 @@
 
                     <form action="/drive/drive" method="POST">
                             <div id= "div_taxiinfo">
-                              <div id="div_Address" style="text-align:center"><br/><h2>
-                              예상시간 : <?php echo $reco_time;?>  /
-                              예상거리 : <?php echo $reco_distance;?> <br />
-                              예상 택시요금 : <?php echo $reco_money;?><br /><br/>
+                              <div id="div_Address" style="text-align:center;font-size:5pt;"><br/><h2>
+
+                            예상시간 : <div class= "totalTimeFun">time</div>
+                            예상거리 :  <div class= "totalDistanceFun">Distance</div> <br/>
+                            예상 택시요금 : <div class= "taxiFareFun">Fare</div> <br /> <br/>
+
                               출발지 : <input type="text" name="start" value="현재 위치" readonly/> <br />
                               도착지 : <input type="text" name="end" value="<?php echo $reco_address;?>" readonly /> <br />
                               </div> <br/></h2>
@@ -344,7 +346,7 @@ function initTmap(Endlat,Endlng) {
     detail_location(Endlat, Endlng);
     // searchRoute();
 };
-                var geocoder = new daum.maps.services.Geocoder();
+  var geocoder = new daum.maps.services.Geocoder();
 
 function detail_location(Endlat, Endlng) {
               if (navigator.geolocation) {
@@ -354,6 +356,7 @@ function detail_location(Endlat, Endlng) {
                     var Startlat = position.coords.latitude, // 위도
                         Startlng = position.coords.longitude; // 경도
                       searchRoute(Startlat, Startlng, Endlat, Endlng); //길찾기
+                      totalTaxiInfo(Startlat, Startlng, Endlat, Endlng); //택시 거리, 요금, 시간정보
                     // var latlng = new daum.maps.LatLng(Startlat, Startlng);
                     // searchDetailAddrFromCoords(latlng, function(result){
                     //   alert(result[0].roadAddress.name);
@@ -376,16 +379,16 @@ function detail_location(Endlat, Endlng) {
 //경로 정보 로드
 function searchRoute(Startlat, Startlng, Endlat, Endlng){
     var routeFormat = new Tmap.Format.KML({extractStyles:true, extractAttributes:true});
-    var startX = Startlng;
-    var startY = Startlat;
-    var endX = Endlng;
-    var endY = Endlat;
+    var startXs = Startlng;
+    var startYs = Startlat;
+    var endXs = Endlng;
+    var endYs = Endlat;
     var option = 10;
     var urlStr = "https://apis.skplanetx.com/tmap/routes?version=1&format=xml";
-    urlStr += "&startX="+startX;
-    urlStr += "&startY="+startY;
-    urlStr += "&endX="+endX;
-    urlStr += "&endY="+endY;
+    urlStr += "&startX="+startXs;
+    urlStr += "&startY="+startYs;
+    urlStr += "&endX="+endXs;
+    urlStr += "&endY="+endYs;
     urlStr += "&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc";
     urlStr += "&reqCoordType=WGS84GEO";
     urlStr += "&searchOption="+option;
@@ -396,6 +399,41 @@ function searchRoute(Startlat, Startlng, Endlat, Endlng){
     var routeLayer = new Tmap.Layer.Vector("route", {protocol:prtcl, strategies:[new Tmap.Strategy.Fixed()]});
     routeLayer.events.register("featuresadded", routeLayer, onDrawnFeatures);
     map.addLayer(routeLayer);
+}
+
+function totalTaxiInfo(Startlat, Startlng, Endlat, Endlng) {
+              $.ajax ({
+             type : 'POST',
+             url : 'https://apis.skplanetx.com/tmap/routes?appKey=681ac473-87c5-3a80-8adb-91f8d105ba63&endX='+Endlng+'&endY='+Endlat+' &startX=' + Startlng + '&startY=' +Startlat+' &reqCoordType=WGS84GEO&resCoordType=WGS84GEO',
+             dataType : 'json',
+             success : function (data) {
+                  // alert(data.features[0].properties["totalTime"]);
+                  var totalTime = data.features[0].properties["totalTime"];
+                  var totalDistance = data.features[0].properties["totalDistance"] / 1000;
+                  var taxiFare = data.features[0].properties["taxiFare"];
+
+                  hour = parseInt(totalTime/3600);
+                  min = parseInt((totalTime%3600)/60);
+
+                  if(hour ==0) {
+                    totalTime = min+" 분 ";
+                  } else {
+                    totalTime = hour+" 시간 "+min+" 분 ";
+                  }
+
+                  totalDistance = parseInt(totalDistance) +"km";
+                  taxiFare = Math.floor(taxiFare/100) * 100
+                  taxiFare = taxiFare + "원"
+
+                  $(".totalTimeFun").html(totalTime);
+                  $(".totalDistanceFun").html(totalDistance);
+                  $(".taxiFareFun").html(taxiFare);
+
+             },
+           error:function(request,status,error){
+              alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+             }
+          });
 }
 //경로 그리기 후 해당영역으로 줌
 function onDrawnFeatures(e){

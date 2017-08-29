@@ -293,6 +293,7 @@
 </div>
     <div id="menu_wrap" class="bg_white">
         <div class = "reco_course" id = "reco_course"><b>추천관광지</b>
+        <button claas = "test" onclick="testFun()">택시 요금 시간 거리 계산</button>
         <div id="course" class ="for_ajax">
             <div class = "div_course">
               <div class = "div_img"></div>
@@ -308,6 +309,8 @@
         </div>
         </div>
         </div>
+
+
 
     <script type="text/javascript">
     $('.katalk')
@@ -328,6 +331,26 @@
 
 <script>
 // 지도에 폴리곤으로 표시할 영역데이터 배열입니다 
+
+function testFun() {
+          alert("1");
+            $.ajax ({
+             type : 'POST',
+             url : 'https://apis.skplanetx.com/tmap/routes?appKey=681ac473-87c5-3a80-8adb-91f8d105ba63&endX=126.9766341314623&endY=37.57750061206984&startX=126.7783531584888&startY=37.45112750649131&reqCoordType=WGS84GEO&resCoordType=WGS84GEO',
+             dataType : 'json',
+             success : function (data) {
+                  // alert(data.features[0].properties["totalTime"]);
+                  var totalTime = data.features[0].properties["totalTime"] / 60;
+                  alert(totalTime);
+                   // var ar=data["tmap:totalTime"];
+                   // alert(ar);
+             },
+           error:function(request,status,error){
+              alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+             }
+          });
+
+}
 
 function zoomIn() {        
     // 현재 지도의 레벨을 얻어옵니다

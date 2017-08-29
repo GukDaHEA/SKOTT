@@ -302,6 +302,7 @@ a:link { color: red; text-decoration: none;}
         });
 
         // location.href="/index.php/drive/accept_call";
+        location.replace('/mains');
     } else {
 
     }
