@@ -6,7 +6,7 @@ class Call_m extends CI_MODEL {
 	}
 
 	function addDriveCall($insert)
-	{	
+	{
 		$this->db->insert('callist', $insert);
 
 		$db = $this->db;

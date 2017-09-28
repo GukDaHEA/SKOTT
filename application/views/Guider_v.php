@@ -1,110 +1,19 @@
-<html>
+
 <head>
 	<title>가이드</title>
-	<meta name="viewport" 
-        content="width=device-width
-                , user-scalable=yes
-                ,initial-scale=1.0
-                , maximum-scale=3.0" />
 </head>
 <style>
-body {
-    margin: 0;
-    color: #111111;
-    background-color:#e5edf3;
-}
-.h_logo{background-image:url("/static/image/header/logo.png");background-size: 100% 100%;background-repeat:no-repeat;height:50px;width:140px;display:block;margin:0 auto;top:20px;}
-
-/*
-  Menu
-*/
-nav#slide-menu {
-    position: fixed;
-    top: 0;
-    left: -100px;
-    bottom: 0;
-    display: block;
-    float: left;
-    width: 100%;
-    max-width: 284px;
-    height: 100%;
-
-    -moz-transition: all 300ms;
-    -webkit-transition: all 300ms;
-    transition: all 300ms;
-}
-
-body.menu-active nav#slide-menu { left: 0px; }
-body.menu-active nav#slide-menu ul { left: 0px; opacity: 1;}
-
-/*
-  Content
-*/
-
-    div#content {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #3e3e3e;
-        overflow: scroll;
-        border-radius: 0;
-
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-
-        -moz-box-shadow: -3px 0 6px darken(#556270, 5%);
-        -webkit-box-shadow: -3px 0 6px darken(#556270, 5%);
-        box-shadow: -3px 0 6px darken(#556270, 5%);
-
-        -moz-transition: all 300ms;
-        -webkit-transition: all 300ms;
-        transition: all 300ms;
-    }
-    div.menu-trigger {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        width: 36px;
-        height: 36px;
-        cursor: pointer;
-        border-radius: 5px;
-
-        -moz-transition: all 300ms;
-        -webkit-transition: all 300ms;
-        transition: all 300ms;
-    }
-
-    img { max-width: 100%; width: auto !important; height: auto ; }
-
-body.menu-active div#content { left: 150px; border-radius: 7px 0 0 7px; }
-body.menu-active div#content .menu-trigger { left: 150px; }
 body{font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:none}
 #wrap {
-    height:91%;
-    margin-top:10px;
+    height:88%;
+    margin-top:21%;
 }
 #div_Map {
 }
 </style>
 <body onload="initTmap(<?php echo $Elat?>, <?php echo $Elon ?>)">
-    <!-- Navigation -->
-    <nav id="slide-menu">
-        <div id="myinfo">  </div>
-        <ul>
-            <li>내 기록</li>
-            <li>개인 정보</li>
-            <li>설정</li>
-            <li>로그아웃</li>
-        </ul>
-    </nav>
 
     <!-- Content panel -->
-    <div id="content">
-        <div class="menu-trigger"><img src="/static/image/menu.png"/></div>
-        <a href="/mains" class="h_logo" tabindex="1"></a>
         <div id="wrap">
             <div id="div_Map"></div>
         </div>
@@ -131,7 +40,7 @@ body{font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:no
                 </div>
             </div>
         </div>
-       </div>
+    </div>
 </body>
 <script src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc">
 </script>
@@ -240,22 +149,5 @@ function moveMove() {
     //     alert("목적지에 도착 하였습니다.");
     // }
 }
-</script>
-
-<script>
-/*
-  Slidemenu
-*/
-(function() {
-    var $body = document.body
-    , $menu_trigger = $body.getElementsByClassName('menu-trigger')[0];
-
-    if ( typeof $menu_trigger !== 'undefined' ) {
-        $menu_trigger.addEventListener('click', function() {
-            $body.className = ( $body.className == 'menu-active' )? '' : 'menu-active';
-        });
-    }
-
-}).call(this);
 </script>
 </html>

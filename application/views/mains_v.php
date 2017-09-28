@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
     <head>
       <!-- BASICS -->
         <meta charset="utf-8">
@@ -65,9 +65,7 @@
    
    <div class="header">
    <section id="header" class="appear">
-      
       <div class="navbar navbar-fixed-top" role="navigation" data-0="line-height:100px; height:80px; background-color:rgba(0,0,0,0.3);" data-300="line-height:60px; height:60px; background-color:rgba(0,0,0,1);">
-         
             <div class="navbar-header">
                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                   <span class="fa fa-bars color-white"></span>
@@ -95,20 +93,14 @@
                 <?php
                 }
                 ?>
-
-					</ul>
-				</div><!--/.navbar-collapse -->
+					      </ul>
+				      </div><!--/.navbar-collapse -->
 			</div>
-
-
-      
-      
    </section>
    </div>
    
-
-<div class="slider">      
-      <div id="about-slider">
+  <div class="slider">      
+      <div id="about-slider" style="background-color:#e1e1e1">
          <div id="carousel-slider" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators visible-xs">
@@ -131,9 +123,11 @@
                      </div>
                      <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">                        
                         <form class="form-inline">
+                        <!-- 
                            <div class="form-group">
                               <button type="livedemo" name="Live Demo" class="btn btn-primary btn-lg" required="required">SKOTT</button>
-                           </div>
+                           </div> 
+                         -->
                            <div class="form-group">
                                <button type="getnow" class="btn btn-primary btn-lg" required="required"><a href="/map/map_v">START TOUR</a></button>
                            </div>
@@ -155,11 +149,13 @@
                      </div>
                      <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.6s">                        
                         <form class="form-inline">
+                        <!-- 
                            <div class="form-group">
                               <button type="livedemo" name="purchase" class="btn btn-primary btn-lg" required="required">Live Demo</button>
-                           </div>
+                           </div> 
+                         -->
                            <div class="form-group">
-                              <button type="getnow" name="subscribe" class="btn btn-primary btn-lg" required="required">Get Now</button>
+                              <button type="getnow" class="btn btn-primary btn-lg" required="required"><a href="/map/map_v">START TOUR</a></button>
                            </div>
                         </form>
                      </div>
@@ -187,7 +183,7 @@
                   <div class="title">
                      <div class="wow bounceIn">
                   
-                     <h2 class="section-heading animated" data-animation="bounceInUp">SKOTT < 여행 > </h2>
+                     <h2 class="section-heading animated" data-animation="bounceInUp">SKOTT</h2>
                      
                   
                      </div>
@@ -218,23 +214,23 @@
                
                   <div class="col-lg-6 ">
                      <div class="company mar-left10">
-                        <h4>"SKOTT"이란... </h4>
+                        <h4>'SKOTT' ? </h4>
                         <p>"SKOTT" 은 Safty KOrea Taxi Tour 의 약자로 한국으로 여행하는 외국인들 대상으로 만든 사이트이다. 한국으로 놀러오는 외국인들이 택시를 탈때 바가지요금을 방지하기 위한 택시 플랫폼이다.</p>
                      </div>
                      <div class="list-style">
                         <div class="row">
                            <div class="col-lg-6 col-sm-6 col-xs-12">
                               <ul>
-                                 <li>SKOTT</li>
+                                 <li>관광지 검색 및 소개</li>
                                  <li>지역별 관광지</li>
-                                 <li>관광지 조회</li>
+                                 <li>추천 관광지</li>
                               </ul>
                            </div>
                            <div class="col-lg-6 col-sm-6 col-xs-12">
                               <ul>
-                                 <li>SKOTT</li>
-                                 <li>한국 관광객</li>
-                                 <li>외국인 관광객</li>
+                                 <li>택시와 안전한 연결</li>
+                                 <li>대처 메뉴얼</li>
+                                 <li>외국인 관광객 대상</li>
                               </ul>
                            </div>
                         </div>
@@ -247,19 +243,18 @@
          </div>
          
       </div>
-      <hr>
    </section>
    <!--/about-->
       
       <!-- services -->
-      <section id="services" class="section pad-bot5 bg-white">
+      <section id="services">
       <div class="container"> 
             <div class="row mar-bot5">
                <div class="col-md-offset-3 col-md-6">
                   <div class="section-header">
                   <div class="wow bounceIn"data-animation-delay="7.8s">
                   
-                     <h2 class="section-heading animated"  >SKOTT < 관광지 ></h2>
+                     <h2 class="section-heading animated"  > 관광지 </h2>
                      <h4>추천 관광지 TOP3</h4>
                   
                   </div>
@@ -272,10 +267,10 @@
                   <div class="align-center">
                      <div class="wow rotateIn">
                         <div class="service-col" style="height: 550px;">
-                           <div class="service-icon" style = "width : 230px; height : 230px;">
+                           <div class="service-icon" style = "width : 230px; height : 230px;background-size: 100% 100%">
                            <img class = "img_service" src="/static/image/mains/TOP3/8.jpg">
                            </div>
-                              <h2><a href="#">TOP1<br> < 이태원 > </a></h2> 
+                              <h2><a href="#">TOP1<br>  이태원  </a></h2> 
                               <p>서울특별시 용산구 이태원동 일대로서 주한 미군을 비롯한 외국인, 외국 상품, 외국 문화의 모습 조선시대에 이곳에 있었던 이태원(梨泰院)이란 역원(驛院)에서 동명이 유래되었다</p>
                         </div>
                      </div>
@@ -293,7 +288,7 @@
                            <div class="service-icon" style = "width : 230px; height : 230px;">
                               <img class = "img_service" src="/static/image/mains/TOP3/4.jpg">
                            </div>
-                              <h2><a href="#">TOP2<br> < 남산 > </a></h2> 
+                              <h2><a href="#">TOP2<br>  남산  </a></h2> 
                               <p>서울 시가지 팽창으로 교통문제를 초래하게 되어 1·2·3호 터널이 뚫려 있다. 남산골 한옥마을, 장충단공원, 정도 600년 타임캡슐 등이 주변의 명소들이다.</p>
                         </div>
                      </div>   
@@ -310,7 +305,7 @@
                            <img class = "img_service" src="/static/image/mains/TOP3/9.jpg">
 
                         </div>
-                           <h2><a href="#">TOP3<br> < 홍대입구 > </a></h2> 
+                           <h2><a href="#">TOP3<br>  홍대입구  </a></h2> 
                            <p>홍대(弘大)는 서울특별시 마포구 서울 지하철 2호선 홍대입구역과 홍익대학교 정문을 잇는 지역 및 이 일대에 있는 번화가를 말한다. '홍대'는 홍익대학교의 한국어 약칭으로 이 지역의 정식 지명이 아닌 통용 명칭이다.</p>
                      </div>
                   </div>
@@ -322,14 +317,14 @@
       </div>
       </section>        
 
-      <section id="line-pricing" class="line-section line-center">
+      <section id="line-pricing"  class="section pad-bot5 bg-white">
          <div class="container pad-top50">
             <div class="row mar-bot10 ">
                <div class="col-md-offset-3 col-md-6">
                   <div class="section-header">
                      <div class="wow bounceIn">
                   
-                        <h2 class="section-heading animated" data-animation="bounceInUp">SKOTT < 이용방법 > </h2>
+                        <h2 class="section-heading animated" data-animation="bounceInUp"> 이용방법  </h2>
                         <p>How to use SKOTT</p>
                   
                      </div>
@@ -426,7 +421,7 @@
                <div class="col-md-offset-3 col-md-6">
                   <div class="section-header">
                      <h2 class="section-heading animated" data-animation="bounceInUp">지역별 관광지</h2>
-                     <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam.</p>
+                     <p> 대한민국 곳곳의 숨어있는 관광지들을 확인해 보세요.</p>
                   </div>
                </div>
             </div>
@@ -686,7 +681,7 @@
       <!-- map -->
    <section id="footer" class="section footer">
 
-      <button id ="start_button" onclick="location.href='/map/map_v'" >START SKOTT</button>
+      <button id ="start_button" onclick="location.href='/map/map_v'" style="border:0px;background-color:#fff;color:#000;font-weight:bold;border-radius:10px">START SKOTT</button>
       <div class="container">
          <div class="row animated opacity mar-bot0" data-andown="fadeIn" data-animation="animation">
             <div class="col-sm-12 align-center">

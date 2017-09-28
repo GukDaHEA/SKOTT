@@ -25,7 +25,7 @@ class Drive extends MY_Controller {
 		$Elat = $this->input->post('Elat');
 		$Elon = $this->input->post('Elon');
 
-
+		$this->load->view('m_header');
 		$this->load->view('drive_v', array(
 				'start' => $SStart,
 				'end' => $end,
@@ -43,7 +43,6 @@ class Drive extends MY_Controller {
 	public function call() {
 
 		$this->drivecheck();
-		// $this->load->view('call_v');
 	}
 
 	public function driveok () {
@@ -72,6 +71,7 @@ class Drive extends MY_Controller {
 			$symbol = '<a href="javascript:" id="'.$chkreservation->call_id.'" onclick="test(this)"><div style="z-index: 0; position: releative; margin-top: 100px; background-color: #000; color: #FFF; width: 250px; height: 250px">'.$chkreservation->departure.' 에서 <br/>'.$chkreservation->destination.'('.$chkreservation->distance.') 까지<br/> 가는 콜이 있습니다. <br/> 받으시겠습니까?</div></a>';
 		}
 		// echo $symbol;
+		$this->load->view('m_header');
 		$this->load->view('call_v', $chkreservation);
 	}
 
@@ -119,14 +119,14 @@ class Drive extends MY_Controller {
             $id == $user->driver_id &&
             $password == $user->password
             ) {
-            $this->session->set_userdata(array('is_login' => true, 'driver_id' => $user->driver_id));
-            $this->session->set_userdata(array('is_login' => true, 'name' => $user->name));
-            $this->session->set_userdata(array('is_login' => true, 'belong' => $user->belong));
-            $this->session->set_userdata(array('is_login' => true, 'area' => $user->area));
-            $this->session->set_userdata(array('is_login' => true, 'picture' => $user->picture));
-            $this->session->set_userdata(array('is_login' => true, 'car' => $user->car_num));
-            $this->session->set_userdata(array('is_login' => true, 'lat' => $lat));
-            $this->session->set_userdata(array('is_login' => true, 'lon' => $lon));
+            $this->session->set_userdata(array('is_login2' => true, 'driver_id' => $user->driver_id));
+            $this->session->set_userdata(array('is_login2' => true, 'name' => $user->name));
+            $this->session->set_userdata(array('is_login2' => true, 'belong' => $user->belong));
+            $this->session->set_userdata(array('is_login2' => true, 'area' => $user->area));
+            $this->session->set_userdata(array('is_login2' => true, 'picture' => $user->picture));
+            $this->session->set_userdata(array('is_login2' => true, 'car' => $user->car_num));
+            $this->session->set_userdata(array('is_login2' => true, 'lat' => $lat));
+            $this->session->set_userdata(array('is_login2' => true, 'lon' => $lon));
 
 
             header('Location: /Drive/call');
@@ -220,6 +220,7 @@ class Drive extends MY_Controller {
 		$result['call'] = $call->whtPlace($idx, $driverId);
 		$result['user'] = $drive->userCheck($useridx);
 
+		$this->load->view('m_header');
 		$this->load->view('call_accept', $result);
 	}
 
@@ -250,6 +251,7 @@ class Drive extends MY_Controller {
 		$result['Elat'] = $Elat;
 		$result['Elon'] = $Elon;
 
+		$this->load->view('m_header');
 		$this->load->view('cus_wide_v', $result);
 	}
 
@@ -259,10 +261,12 @@ class Drive extends MY_Controller {
 		$call = $this->call_m;
 		$data['list'] = $call->get_list('', $start, $limit);
 
+		$this->load->view('m_header');
 		$this->load->view('callist_v',$data);
 	}
 
 	public function report() {
+		$this->load->view('m_header');
 		$this->load->view('call_v');
 	}
 
@@ -279,6 +283,7 @@ class Drive extends MY_Controller {
 		$result['Elat'] = $Elat;
 		$result['Elon'] = $Elon;
 
+		$this->load->view('m_header');
 		$this->load->view('Guider_v',$result);
 	}
 
@@ -293,6 +298,7 @@ class Drive extends MY_Controller {
 		$result['user_phone'] = $userphone;
 		$result['destination'] = $destination;
 
+		$this->load->view('m_header');
 		$this->load->view('Success_v', $result);
 	}
 

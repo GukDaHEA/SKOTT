@@ -1,90 +1,12 @@
-<html>
+
 <head>
 	<title>기사님과 만나세요.</title>
-    <meta name="viewport" 
-        content="width=device-width
-                , user-scalable=yes
-                ,initial-scale=1.0
-                , maximum-scale=3.0" />
 </head>
 <style type="text/css">
-body {
-    margin: 0;
-    color: #111111;
-    background-color:#e5edf3;
-}
-.h_logo{background-image:url("/static/image/header/logo.png");background-size: 100% 100%;background-repeat:no-repeat;height:50px;width:140px;display:block;margin:0 auto;top:20px;}
-
-/*
-  Menu
-*/
-nav#slide-menu {
-    position: fixed;
-    top: 0;
-    left: -100px;
-    bottom: 0;
-    display: block;
-    float: left;
-    width: 100%;
-    max-width: 284px;
-    height: 100%;
-
-    -moz-transition: all 300ms;
-    -webkit-transition: all 300ms;
-    transition: all 300ms;
-}
-
-body.menu-active nav#slide-menu { left: 0px; }
-body.menu-active nav#slide-menu ul { left: 0px; opacity: 1;}
-
-/*
-  Content
-*/
-
-    div#content {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #3e3e3e;
-        overflow: scroll;
-        border-radius: 0;
-
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-
-        -moz-box-shadow: -3px 0 6px darken(#556270, 5%);
-        -webkit-box-shadow: -3px 0 6px darken(#556270, 5%);
-        box-shadow: -3px 0 6px darken(#556270, 5%);
-
-        -moz-transition: all 300ms;
-        -webkit-transition: all 300ms;
-        transition: all 300ms;
-    }
-    div.menu-trigger {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        width: 36px;
-        height: 36px;
-        cursor: pointer;
-        border-radius: 5px;
-
-        -moz-transition: all 300ms;
-        -webkit-transition: all 300ms;
-        transition: all 300ms;
-    }
-
-    img { max-width: 100%; width: auto !important; height: auto ; }
-
-body.menu-active div#content { left: 150px; border-radius: 7px 0 0 7px; }
-body.menu-active div#content .menu-trigger { left: 150px; }
 body{font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:none}
 #wrap {
-    height:91%;
-    margin-top:10px;
+    height:88%;
+    margin-top:21%;
 }
 #div_Map {
 }
@@ -98,6 +20,7 @@ body{font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:no
     opacity:.40;
     -m s-filter: "prigid:DXImageTransform.Microsoft.Alpha(Opacity=40)"*/
     background: rgba(189, 189, 189, 0.5);
+    color:#000;
 }
 #info_picture {
     float:left;
@@ -148,7 +71,7 @@ body{font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:no
 #ok {
     width:80px;
     height:80px;
-    top:80px;
+    top:120px;
     left:75%;
     position:fixed;
     z-index:999999;
@@ -161,21 +84,7 @@ body{font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:no
 }
 </style>
 <body onload="initTmap(<?php echo $Elat?>, <?php echo $Elon ?>)">
-    <!-- Navigation -->
-    <nav id="slide-menu">
-        <div id="myinfo">  </div>
-        <ul>
-            <li>내 기록</li>
-            <li>개인 정보</li>
-            <li>설정</li>
-            <li>로그아웃</li>
-        </ul>
-    </nav>
-
     <!-- Content panel -->
-    <div id="content">
-        <div class="menu-trigger"><img src="/static/image/menu.png"/></div>
-        <a href="/mains" class="h_logo" tabindex="1"></a>
         <div id="wrap">
             <div id="div_Map"></div>
         </div>
@@ -269,23 +178,6 @@ function searchRoute(Startlat, Startlng, Endlat, Endlng){
 function onDrawnFeatures(e){
     map.zoomToExtent(this.getDataExtent());
 }
-</script>
-
-<script>
-/*
-  Slidemenu
-*/
-(function() {
-    var $body = document.body
-    , $menu_trigger = $body.getElementsByClassName('menu-trigger')[0];
-
-    if ( typeof $menu_trigger !== 'undefined' ) {
-        $menu_trigger.addEventListener('click', function() {
-            $body.className = ( $body.className == 'menu-active' )? '' : 'menu-active';
-        });
-    }
-
-}).call(this);
 </script>
 
 <script type="text/javascript">
