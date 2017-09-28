@@ -15,4 +15,25 @@ class Drive_m extends CI_MODEL {
       $result = $this->db->get_where('driver', array('driver_id'=>$option['id']))->row();
       return $result;
    }
+
+   function driverCheck($idx)
+   {
+   		$db = $this->db;
+
+   		$sql = "SELECT * FROM driver WHERE driver_id = '".$idx."'";
+        $query = $db->query($sql);
+        $result = $query->row();
+
+		return $result;
+   }
+
+   function userCheck($useridx)
+   {
+   		$db = $this->db;
+		$db->select('*');
+		$db->from('user');
+		$db->where('user_id', $useridx);
+
+		return $db->get()->row();
+   }
 }

@@ -15,14 +15,27 @@ class Drive extends MY_Controller {
 	}
 
 	public function drive() {
-		// $this->load->view('drive_v');
-
-		$start = $this->input->post('start');
+		$SStart = $this->input->post('SStart');
 		$end = $this->input->post('end');
+		$totalTime = $this->input->post('totalTime');
+		$totalDistance = $this->input->post('totalDistance');
+		$taxiFare = $this->input->post('taxiFare');
+		$Slat = $this->input->post('Slat');
+		$Slon = $this->input->post('Slon');
+		$Elat = $this->input->post('Elat');
+		$Elon = $this->input->post('Elon');
+
 
 		$this->load->view('drive_v', array(
-				'start' => $start,
-				'end' => $end
+				'start' => $SStart,
+				'end' => $end,
+				'totalTime' => $totalTime,
+				'totalDistance' => $totalDistance,
+				'taxiFare' => $taxiFare,
+				'Slat' => $Slat,
+				'Slon' => $Slon,
+				'Elat' => $Elat,
+				'Elon' => $Elon
 				)
 			);
 	}
@@ -53,6 +66,7 @@ class Drive extends MY_Controller {
 		$symbol = '';
 
 		$chkreservation = $call->checkCallReservation();
+		$data['list'] = $call->checkCallReservation();
 
 		if (!empty($chkreservation)) {
 			$symbol = '<a href="javascript:" id="'.$chkreservation->call_id.'" onclick="test(this)"><div style="z-index: 0; position: releative; margin-top: 100px; background-color: #000; color: #FFF; width: 250px; height: 250px">'.$chkreservation->departure.' 에서 <br/>'.$chkreservation->destination.'('.$chkreservation->distance.') 까지<br/> 가는 콜이 있습니다. <br/> 받으시겠습니까?</div></a>';
@@ -70,10 +84,16 @@ class Drive extends MY_Controller {
 
 			$data = $this->input->post();
 			$insert = array();
-			$insert['useridx'] = !empty($data['user_idx']) ? $data['user_idx'] : '';;
+			$insert['useridx'] = !empty($data['user_idx']) ? $data['user_idx'] : '';
 			$insert['departure'] = !empty($data['departure']) ? $data['departure'] : '';
 			$insert['destination']  = !empty($data['destination']) ? $data['destination'] : '';
-			$insert['distance']  = rand(0, 30) . 'km';
+			$insert['distance']  = !empty($data['totalDistance']) ? $data['totalDistance'] : '';
+			$insert['time'] = !empty($data['totalTime']) ? $data['totalTime'] : '';
+			$insert['fare'] = !empty($data['taxiFare']) ? $data['taxiFare'] : '';
+			$insert['Slat'] = !empty($data['Slat']) ? $data['Slat'] : '';
+			$insert['Slon'] = !empty($data['Slon']) ? $data['Slon'] : '';
+			$insert['Elat'] = !empty($data['Elat']) ? $data['Elat'] : '';
+			$insert['Elon'] = !empty($data['Elon']) ? $data['Elon'] : '';
 
 			$call = $this->call_m;
 			$result = $call->addDriveCall($insert);
@@ -93,12 +113,13 @@ class Drive extends MY_Controller {
             $id = $this->input->post('id');
             $password = $this->input->post('password');
             $this->output->set_content_type('application/json');
-					$data = $this->input->post('lat', TRUE);
+			$data = $this->input->post('lat', TRUE);
 
             if ( $user == true &&
             $id == $user->driver_id &&
             $password == $user->password
             ) {
+            $this->session->set_userdata(array('is_login' => true, 'driver_id' => $user->driver_id));
             $this->session->set_userdata(array('is_login' => true, 'name' => $user->name));
             $this->session->set_userdata(array('is_login' => true, 'belong' => $user->belong));
             $this->session->set_userdata(array('is_login' => true, 'area' => $user->area));
@@ -143,26 +164,63 @@ class Drive extends MY_Controller {
 				}
 	}
 	public function accept_call() {
-		// 위치값을 보내야됨
-		// $this->output->set_content_type('application/json');
-		// $result = array();
 
-		// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		$this->output->set_content_type('application/json');
+		$result = array();
 
-		// 	$data = $this->input->post();
-		// 	$update = array();
-		// 	$update['useridx'] = !empty($data['user_idx']) ? $data['user_idx'] : '';;
-		// 	$update['departure'] = !empty($data['departure']) ? $data['departure'] : '';
-		// 	$update['destination']  = !empty($data['destination']) ? $data['destination'] : '';
-		// 	$update['distance']  = rand(0, 30) . 'km';
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-		// 	$call = $this->call_m;
-		// 	$result = $call->acceptCall($update);
+			$data = $this->input->post();
+			$update = array();
+			$update['useridx'] = !empty($data['user_idx']) ? $data['user_idx'] : '';
+			$update['departure'] = !empty($data['departure']) ? $data['departure'] : '';
+			$update['destination']  = !empty($data['destination']) ? $data['destination'] : '';
+			$update['distance']  = rand(0, 30) . 'km';
 
-		// }
-		// echo json_encode($result);
+			$call = $this->call_m;
+			$result = $call->$update;
 
-		$this->load->view('call_accept');
+		}
+		echo json_encode($result);
+
+		// $this->load->view('call_accept');
+	}
+
+	public function waitCall() {
+
+		$this->output->set_content_type('application/json');
+		$result = array();
+		$data = array();
+
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+			$data = $this->input->post();
+			$check = !empty($data['call_id']) ? $data['call_id'] : '';
+
+			$call = $this->call_m;
+			$result = $call->wait_Call($check);
+
+			if (!empty($result)){
+				echo json_encode($result);
+			} else {
+				echo 55;
+			}
+		}
+		// $this->load->view('call_accept');
+	}
+
+	public function call_accept() {
+
+		$idx = $this->input->post('call_id');
+		$driverId = $this->input->post('driver_id');
+		$useridx = $this->input->post('user_id');
+		$call = $this->call_m;
+		$drive = $this->Drive_m;
+
+		$result['call'] = $call->whtPlace($idx, $driverId);
+		$result['user'] = $drive->userCheck($useridx);
+
+		$this->load->view('call_accept', $result);
 	}
 
 	function logout() {
@@ -171,14 +229,74 @@ class Drive extends MY_Controller {
 	}
 
 	public function cus_wide() {
-
 		$start = $this->input->post('start_spot');
 		$end = $this->input->post('end_spot');
+		$driveIdx = $this->input->post('driveIdx');
+		$call_id = $this->input->post('call_id');
+		$Slat = $this->input->post('Slat');
+		$Slon = $this->input->post('Slon');
+		$Elat = $this->input->post('Elat');
+		$Elon = $this->input->post('Elon');
 
-		$this->load->view('cus_wide_v', array(
-				'start' => $start,
-				'end' => $end
-				)
-			);
+
+		$result = array();
+
+		$drive = $this->Drive_m;
+		$result['driver'] = $drive->driverCheck($driveIdx);
+		$result['start'] = $start;
+		$result['end'] = $end;
+		$result['Slat'] = $Slat;
+		$result['Slon'] = $Slon;
+		$result['Elat'] = $Elat;
+		$result['Elon'] = $Elon;
+
+		$this->load->view('cus_wide_v', $result);
+	}
+
+	public function callist() {
+		$start=1;
+		$limit=5;
+		$call = $this->call_m;
+		$data['list'] = $call->get_list('', $start, $limit);
+
+		$this->load->view('callist_v',$data);
+	}
+
+	public function report() {
+		$this->load->view('call_v');
+	}
+
+	public function Guider() {
+		$Slat = $this->input->post('Slat');
+		$Slon = $this->input->post('Slon');
+		$Elat = $this->input->post('Elat');
+		$Elon = $this->input->post('Elon');
+
+		$result = array();
+
+		$result['Slat'] = $Slat;
+		$result['Slon'] = $Slon;
+		$result['Elat'] = $Elat;
+		$result['Elon'] = $Elon;
+
+		$this->load->view('Guider_v',$result);
+	}
+
+	public function driveSuc() {
+		$userid = $this->input->post('user_id');
+		$userphone = $this->input->post('user_phone');
+		$destination = $this->input->post('destination');
+
+		$result = array();
+
+		$result['user_id'] = $userid;
+		$result['user_phone'] = $userphone;
+		$result['destination'] = $destination;
+
+		$this->load->view('Success_v', $result);
+	}
+
+	public function suGo() {
+		$this->load->view('Sugo_v');
 	}
 }

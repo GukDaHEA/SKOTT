@@ -1,13 +1,13 @@
 <html>
 <head>
-	<title>기사님과 만나세요.</title>
-    <meta name="viewport" 
+	<title>가이드</title>
+	<meta name="viewport" 
         content="width=device-width
                 , user-scalable=yes
                 ,initial-scale=1.0
                 , maximum-scale=3.0" />
 </head>
-<style type="text/css">
+<style>
 body {
     margin: 0;
     color: #111111;
@@ -88,77 +88,6 @@ body{font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:no
 }
 #div_Map {
 }
-#info {
-    width:100%;
-    height:20%;
-    top:75%;
-    z-index:1000;
-    position:fixed;/*
-    filter:alpha(opacity=40);
-    opacity:.40;
-    -m s-filter: "prigid:DXImageTransform.Microsoft.Alpha(Opacity=40)"*/
-    background: rgba(189, 189, 189, 0.5);
-}
-#info_picture {
-    float:left;
-    width:30%;
-    height:80%;
-    margin-top:3%;
-    margin-left:9%;
-}
-#info_name{
-    float:left;
-    width:30%;
-    margin-top:3%;
-    margin-left:3%;
-    opacity: 0.9;
-    font-weight:bold;
-}
-#info_connect{
-    float:right;
-    width:20%;
-    height:100%;
-    background-color:#4d7e2b;
-    border:0px;
-    color:#fff;
-    font-size:18px;
-}
-#call{
-    height:33%;
-    text-align:center;
-    border-bottom:0.5px solid;
-}
-#message{
-    height:33%;
-    top:50%;
-    border-bottom:0.5px solid;
-}
-#cancel{
-    height:33%;
-    top:25%;
-    border-bottom:1px solid;
-}
-.pic {
-    margin:0px auto;
-    width:100%;
-    height:100%;
-    object-fit:contain;
-}
-
-#ok {
-    width:80px;
-    height:80px;
-    top:80px;
-    left:75%;
-    position:fixed;
-    z-index:999999;
-    border-radius: 50px;
-    border:0px;
-    background-color:#4d7e2b;
-    color:#fff;
-    font-weight:bold;
-    box-shadow:  3px 3px grey;
-}
 </style>
 <body onload="initTmap(<?php echo $Elat?>, <?php echo $Elon ?>)">
     <!-- Navigation -->
@@ -202,14 +131,7 @@ body{font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:no
                 </div>
             </div>
         </div>
-        <form id="success" name="theForm" method="POST" action="/drive/Guider">
-            <input type="submit" id="ok" value="탑승 완료">
-            <input type="hidden" id="Slat" name="Slat" value="<?php echo $Slat?>" >
-            <input type="hidden" id="Slon" name="Slon" value="<?php echo $Slon?>" >
-            <input type="hidden" id="Elat" name="Elat" value="<?php echo $Elat?>" >
-            <input type="hidden" id="Elon" name="Elon" value="<?php echo $Elon?>" >
-        </form>
-    </div>
+       </div>
 </body>
 <script src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc">
 </script>
@@ -225,20 +147,27 @@ function initTmap(Endlat,Endlng) {
                     }); 
     detail_location(Endlat, Endlng);
 };
-                var geocoder = new daum.maps.services.Geocoder();
+
+    var geocoder = new daum.maps.services.Geocoder();
 
 function detail_location(Endlat, Endlng) {
-              if (navigator.geolocation) {
-                // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    
-                         Startlat = position.coords.latitude; // 위도
-                        Startlng = position.coords.longitude; // 경도
-                      searchRoute(Startlat, Startlng, Endlat, Endlng); //길찾기
-                  });
-            } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-                var locPosition = new daum.maps.LatLng(33.450701, 126.570667),message = 'geolocation을 사용할수 없어요..'
-            }
+    if (navigator.geolocation) {
+        // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+        navigator.geolocation.getCurrentPosition(function(position) {
+                      
+        var	Startlat = position.coords.latitude, // 위도
+            Startlng = position.coords.longitude; // 경도
+        searchRoute(Startlat, Startlng, Endlat, Endlng); //길찾기
+
+        //위도 경도 변환
+        var pr_3857 = new Tmap.Projection("EPSG:3857");
+    	var pr_4326 = new Tmap.Projection("EPSG:4326"); // wgs84
+
+        lonlat = new Tmap.LonLat(Startlng, Startlat).transform(pr_4326, pr_3857);
+        });
+    } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+        var locPosition = new daum.maps.LatLng(33.450701, 126.570667),message = '위치서비스를 사용할수 없어요..'
+    }
 }
 
 //경로 정보 로드
@@ -265,9 +194,51 @@ function searchRoute(Startlat, Startlng, Endlat, Endlng){
     routeLayer.events.register("featuresadded", routeLayer, onDrawnFeatures);
     map.addLayer(routeLayer);
 }
+
 //경로 그리기 후 해당영역으로 줌
 function onDrawnFeatures(e){
     map.zoomToExtent(this.getDataExtent());
+    map.setCenter(new Tmap.LonLat(lonlat.lon, lonlat.lat),17);
+
+    //내위치 마커 생성
+    markerCreate();
+    
+    // 5초에 한번씩 움직임
+    timerld = setInterval("moveMove()", 5000);
+}
+
+function markerCreate() {
+	markerLayer = new Tmap.Layer.Markers();
+    map.addLayer(markerLayer);
+
+    var lonlat2 = new Tmap.LonLat(lonlat.lon, lonlat.lat);
+    var size = new Tmap.Size(58,92);
+    var offset = new Tmap.Pixel(-(size.w/2), -(size.h/2));
+    var icon = new Tmap.Icon('https://developers.skplanetx.com/upload/tmap/marker/pin_b_m_a.png', size, offset); 
+         
+    marker = new Tmap.Marker(lonlat2, icon);
+    markerLayer.addMarker(marker);
+}
+
+function moveMove() {
+    // 지도의 센터를 현재 위치한 곳으로
+    // map.setCenter(new Tmap.LonLat(lonlat.lon, lonlat.lat),map.getZoom());
+
+    // 마커 지웠다가 다시 생성
+    markerLayer.removeMarker(marker);
+
+    var lonlat2 = new Tmap.LonLat(lonlat.lon, lonlat.lat);
+    var size = new Tmap.Size(58,92);
+    var offset = new Tmap.Pixel(-(size.w/2), -(size.h/2));
+    var icon = new Tmap.Icon('https://developers.skplanetx.com/upload/tmap/marker/pin_b_m_a.png', size, offset); 
+         
+    marker = new Tmap.Marker(lonlat2, icon);
+    markerLayer.addMarker(marker);
+
+    // if (lonlat2.lon == lonlat.lon && lonlat2.lat == lonlat.lat) { //오차가 +-12 근사치라면 도착으로 해야함
+    //     clearInterval(timerld);
+    //     alert("목적지에 도착 하였습니다.");
+    // }
 }
 </script>
 
@@ -286,16 +257,5 @@ function onDrawnFeatures(e){
     }
 
 }).call(this);
-</script>
-
-<script type="text/javascript">
-function cancel() {
-    var result = confirm('정말 취소 하시겠습니까?');
-    if (result) {
-        location.href='/';
-    } else {
-
-    }
-}
 </script>
 </html>

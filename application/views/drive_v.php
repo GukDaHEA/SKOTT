@@ -89,6 +89,105 @@ body.menu-active nav#slide-menu ul { left: 0px; opacity: 1;}
 body.menu-active div#content { left: 150px; border-radius: 7px 0 0 7px; }
 body.menu-active div#content .menu-trigger { left: 150px; }
 
+/* 
+    loader
+*/
+.loader {
+    display: none;
+    background: #000;
+    opacity: 0.7;
+    filter: alpha(opacity=70); /* For IE8 and earlier */
+    background: radial-gradient(#222, #000);
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 99999;
+}
+
+.loader-inner {
+    bottom: 0;
+    height: 60px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+}
+
+.loader-line-wrap {
+    animation: 
+        spin 2000ms cubic-bezier(.175, .885, .32, 1.275) infinite
+    ;
+    box-sizing: border-box;
+    height: 50px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transform-origin: 50% 100%;
+    width: 100px;
+}
+.loader-line {
+    border: 4px solid transparent;
+    border-radius: 100%;
+    box-sizing: border-box;
+    height: 100px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+}
+.loader-line-wrap:nth-child(1) { animation-delay: -50ms; }
+.loader-line-wrap:nth-child(2) { animation-delay: -100ms; }
+.loader-line-wrap:nth-child(3) { animation-delay: -150ms; }
+.loader-line-wrap:nth-child(4) { animation-delay: -200ms; }
+.loader-line-wrap:nth-child(5) { animation-delay: -250ms; }
+
+.loader-line-wrap:nth-child(1) .loader-line {
+    border-color: hsl(0, 80%, 60%);
+    height: 90px;
+    width: 90px;
+    top: 7px;
+}
+.loader-line-wrap:nth-child(2) .loader-line {
+    border-color: hsl(60, 80%, 60%);
+    height: 76px;
+    width: 76px;
+    top: 14px;
+}
+.loader-line-wrap:nth-child(3) .loader-line {
+    border-color: hsl(120, 80%, 60%);
+    height: 62px;
+    width: 62px;
+    top: 21px;
+}
+.loader-line-wrap:nth-child(4) .loader-line {
+    border-color: hsl(180, 80%, 60%);
+    height: 48px;
+    width: 48px;
+    top: 28px;
+}
+.loader-line-wrap:nth-child(5) .loader-line {
+    border-color: hsl(240, 80%, 60%);
+    height: 34px;
+    width: 34px;
+    top: 35px;
+}
+
+@keyframes spin {
+    0%, 15% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 </style>
 
 <style type="text/css">
@@ -101,16 +200,7 @@ body.menu-active div#content .menu-trigger { left: 150px; }
 .start_content, .end_content {
     font-size: 22px;
 }
-#start_spot{
-    background-color: #000;
-    color:#fff;
-    border:0;
-    font-size: 15px;
-    text-align: center;
-    width:100%;
-    font-weight: bold;
-}
-#end_spot{
+#start_spot, #end_spot, #totalTime_spot, #totalDistance_spot, #taxiFare_spot{
     background-color: #000;
     color:#fff;
     border:0;
@@ -135,40 +225,86 @@ body.menu-active div#content .menu-trigger { left: 150px; }
 
     <!-- Content panel -->
     <div id="content">
-        <!-- container -->
                 <div class="menu-trigger"><img src="/static/image/menu.png"/></div>
             <!-- content -->
                 <h1><a href="/mains" class="h_logo" tabindex="1"></a></h1>
-                <!-- <form id="frmNIDLogin" name="frmNIDLogin" action="javascript:log();" method="post"> -->
-                    <form class="login_form" method="POST" action="/drive/cus_wide">
+                    <form class="login_form" name="theForm" method="POST" action="/drive/cus_wide">
                         <div class="input_row" id="id_area">
                             <span class="input_box"><br><br><br>
-                             <input type="text" id="start_spot" wrap="virtual" value="<?=$start?>">에서
-                             <input type="text" id="end_spot" wrap="virtual" value="<?=$end?>">까지
+                             <input type="text" name="start_spot" id="start_spot" wrap="virtual" value="<?=$start?>">에서
+                             <input type="text" name="end_spot" id="end_spot" wrap="virtual" value="<?=$end?>">까지
+                             약 <input type="text" id="totalTime_spot" wrap="virtual" value="<?=$totalTime?>">,
+                             <input type="text" id="totalDistance_spot" wrap="virtual" value="<?=$totalDistance?>">
+                             <input type="hidden" id="taxiFare_spot" value="<?=$taxiFare?>">
+                             <input type="hidden" name="Slat" id="Slat_spot" value="<?=$Slat?>">
+                             <input type="hidden" name="Slon" id="Slon_spot" value="<?=$Slon?>">
+                             <input type="hidden" name="Elat" id="Elat_spot" value="<?=$Elat?>">
+                             <input type="hidden" name="Elon" id="Elon_spot" value="<?=$Elon?>">
+                             <input type="hidden" name="call_id" id="call_id" >
+                             <input type="hidden" name="driveIdx" id="driveIdx" >
                             <span class="input_box"><br><br><br></span>
-
                         </div>
-                        <!-- <?php echo $this->session->userdata('user_idx') ?> -->
                     <input type="button" title="호출 하기" alt="호출 하기" value="호출 하기" class="btn_global" onclick="callDriver()">
                 </form>
             <!-- </form> -->
+    </div>
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+        </div>
     </div>
 <script type="text/javascript">
     function callDriver() {
         $.ajax ({
           type : 'POST',
           url : '/index.php/drive/drivecall',
-          data : { departure: $('#start_spot').val(), destination: $('#end_spot').val(), distance: '0', modify: 'asdsa',
-                    user_idx: "<?php echo $this->session->userdata('user_idx') ?>"
+          data : { departure: $('#start_spot').val(), destination: $('#end_spot').val(), modify: 'asdsa',
+                    user_idx: "<?php echo $this->session->userdata('user_idx') ?>", totalTime: $('#totalTime_spot').val(),
+                    totalDistance: $('#totalDistance_spot').val(), taxiFare: $('#taxiFare_spot').val(), Slat: $('#Slat_spot').val(),
+                    Slon: $('#Slon_spot').val(), Elat: $('#Elat_spot').val(), Elon: $('#Elon_spot').val()
             },
-          // url : '/index.php/drive/call_send_start_end',
-          // data : { departure: '부천시 원미구 심곡동 부천대', destination: '서울시 경복궁'},
           dataType : 'json',
           success : function (data) {
-             alert("호출 버튼을 누르셨습니다.");
-             // location.href="/index.php/drive/cus_wide";
-         }
-    });
+            alert("호출 버튼을 누르셨습니다. 잠시만 기다려주세요.");
+            document.getElementsByClassName('loader')[0].style.display='block';
+             // document.theForm.submit();
+             idxx = data.call_id;
+             document.getElementById('call_id').value= idxx;
+
+            $(document).ready(function(){
+                timerld = setInterval("waitCall()", 1000);
+            });
+    
+          }
+        });
+    }
+
+    function waitCall() {
+                 $.ajax ({
+                    type : 'POST',
+                    url : '/index.php/drive/waitCall',
+                    data : { call_id: $('#call_id').val() },
+                    dataType : 'json',
+                    success : function (data) {
+                        document.getElementById('driveIdx').value= data.driveIdx;
+                        document.theForm.submit();
+                        clearInterval(timerld);
+                    }
+                 });
     }
 </script>
 

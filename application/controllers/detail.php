@@ -10,7 +10,7 @@ class Detail extends MY_Controller {
 	}
 
 	function index() { 
-
+      $this->load->view('ttest');
    }
 
 	function detail($url) { 
@@ -46,7 +46,7 @@ class Detail extends MY_Controller {
             'reco_distance'=>$reco_distance
             ));
 
-      $this->load->view('footer');
+      $this->load->view('footer2');
 
    }
 
@@ -272,6 +272,12 @@ class Detail extends MY_Controller {
 //    }
 
    function drive() {
-      $this->load->view('drive_v');
+      if ($this->session->userdata('is_login')) {
+         $this->load->view('drive_v');
+      }
+      else {
+         echo "<script>alert('로그인이 필요한 기능입니다.')</script>";
+         $this->load->view('login_v');
+      }
    }
 }

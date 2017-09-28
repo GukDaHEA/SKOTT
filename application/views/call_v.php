@@ -1,14 +1,22 @@
-<html lang="ko">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <script
+          src="https://code.jquery.com/jquery-3.1.1.min.js"
+          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+          crossorigin="anonymous">
+        </script>
+<script type="text/javascript" src="/static/js/jquery.toast.min.js"></script> 
     <title>SKOTT - 기사</title>
 </head>
+
+    <!-- <link rel="stylesheet" type="text/css" href="/static/css/jquery.toast.min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/static/css/jquery.toast.min4.css" >
 <style>
 .h_logo{display:block;overflow:hidden;width:100px;height:50px;top:20px;left:150px;margin:0 auto;background-position:-1px -1px}
 .h_logo{background-image:url("/static/image/header/logo.png");background-size: 100% 100%;background-repeat:no-repeat;margin-top:10px;}
 #wrap{position:relative;min-height:80%;background-color: #3e3e3e}
-
 #container{padding-bottom:100px}
 .input_row{position:relative;height:150px;margin:0 0 14px;padding:10px 35px 10px 15px;border:solid 0px #dadada;border-radius:10px;text-align:center;background:#000}.input_row.focus{border:solid 1px #20bc01}.input_box{display:block;overflow:hidden}.int{font-size:15px;line-height:16px;position:relative;z-index:9;width:100%;height:16px;padding:7px 0 6px;color:#000;border:none;background:#fff;-webkit-appearance:none}.lbl{font-size:15px;text-align:center;line-height:16px;position:absolute;z-index:8;top:16px;left:15px;color:#999}.lbl{z-index:10}.wrg{position:absolute;z-index:1000;top:16px;right:13px;display:none;overflow:hidden;width:19px;height:19px;margin:0;padding:0;cursor:pointer;text-indent:-999px;border:0;background-color:transparent;background-position:-1px -263px}
  .login_form{ border:0px;margin-top:15%;}
@@ -92,12 +100,14 @@ body.menu-active div#content .menu-trigger { left: 150px; }
 input[type="range"] {
     width: 95%;
     left: 2%;
+    top:75%;
+    margin-top:20%;
     background: -webkit-gradient(linear, 0 0, 0 bottom, from(#000), to(#1f1f1f));
     -webkit-appearance: none;
     border-radius: 10px;
     padding: 5px;
     transition: opacity 0.5s;
-    position: relative;
+    position: fixed;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -224,17 +234,30 @@ a:link { color: red; text-decoration: none;}
  a:focus {  text-decoration: none; }
 
 #label{
-    display:none;
+    display:inline;
 }
 #label2{
-    display:inline;
+    display:none;
 
 }
 #label3{
     display:none;
 }
 #nul {
-    background-color:#004400; 
+    background-color:#4d7e2b; 
+}
+#callist {
+    font-size:10px;
+    font-weight:bold;
+    width:120px;
+    line-height:25px;
+    cursor:pointer;
+    margin-left:34%;
+    color:#111111;
+    border:none;
+    border-radius:10px;
+    background-color:#e2e2e2;
+    -webkit-appearance:none;
 }
 </style>
 <body class="chrome">
@@ -258,10 +281,10 @@ a:link { color: red; text-decoration: none;}
                 <form class="login_form">
                     <div class="input_row" id="id_area">
                         <span class="input_box"><br><br><br>
-                            <label for="email" id="label" class="lbl" id="status" style="font-size:25px;font-weight:bold;top:30%;left:20%"><?php echo $this->session->userdata('car');?><br/><br/><?php echo $this->session->userdata('name')?> 기사님</label>
+                            <label id="label" class="lbl" id="status" style="font-size:25px;font-weight:bold;top:30%;left:20%"><?php echo $this->session->userdata('car');?><br/><br/><?php echo $this->session->userdata('name')?> 기사님</label>
                         </span> <br>
                         <span class="input_box" id="label2">
-                            <label for="email" id="label_email_area" class="lbl" id="status" style="font-size:50px;font-weight:bold;top:30%;left:18%">콜 대기중</label>
+                            <label id="label_email_area" class="lbl" id="status" style="font-size:50px;font-weight:bold;top:30%;left:18%">콜 대기중</label>
                             <div class="loading">
                                 <div class="loading-dot"></div>
                                 <div class="loading-dot"></div>
@@ -276,41 +299,62 @@ a:link { color: red; text-decoration: none;}
                     <a href="javascript:doDisplay1();" ><div class="btn_global" id="nul">빈 차</div></a>
                     <a href="javascript:doDisplay2();"><div class="btn_global" id="active">운행 중</div></a>
                     </form>
+                    <a href="/drive/callist">
+                    <input type="button" id="callist" value="▤ 콜 리스트" style="background-color:#000;color:#fff;font-size:17px;font-family:Helvetica">
+                    </a>
             
-                    <input type="range" class="slideToUnlock" value="0" max="100" onchange="RangeSlider(this)">
-       
-            <!-- tg-lang -->
+                    <input type="range" class="slideToUnlock" value="0" max="100" onchange="RangeSlider(this)"/>
     </div>
         <!-- //content -->
 </div>
-<META HTTP-EQUIV="refresh" CONTENT="15">
+<!-- <META HTTP-EQUIV="refresh" CONTENT="15"> -->
+
+<!-- 빈차, 운행중, 퇴근 전환 -->
 <script type="text/javascript">
-// if(document.getElementById('label2').style.display == 'inline'){
-    var result = confirm("<?php echo $departure ?> 에서 <?php echo $destination?> 까지 (<?php echo $distance ?>) 가는 콜이 있습니다. 수락하시겠습니까?");
+    function doDisplay1(){
+    document.getElementById("label").style.display='none';
+    document.getElementById("label3").style.display='none';
+    document.getElementById("label2").style.display='inline';
+    document.getElementById("nul").style.backgroundColor='#004400';
+    document.getElementById("active").style.backgroundColor='#4d7e2b';
+
+    $(document).ready(function(){
+        timerld = setInterval("acceptCalls()", 1000);
+        });
+    }
+
+    function doDisplay2(){
+    document.getElementById("label").style.display='none';
+    document.getElementById("label2").style.display='none';
+    document.getElementById("label3").style.display='inline';
+    document.getElementById("nul").style.backgroundColor='#4d7e2b';
+    document.getElementById("active").style.backgroundColor='#004400';
+
+    clearInterval(timerld);
+    }
+
+    function acceptCalls() {
+    // var result = confirm("<?php echo $departure ?> 에서 <?php echo $destination?> 까지 (<?php echo $distance ?>) 가는 콜이 있습니다. 수락하시겠습니까?");
+    $.toast.config.width = 300;
+    $.toast('<h4>알람</h4> 이것은 성공 메세지입니다.<br> 블라블라블라', { type: 'success', duration: 3000 } );
 
     if(result) {
         $.ajax ({
           type : 'POST',
           url : '/index.php/drive/accept_call',
-          data : { departure: $('#start_spot').val(), destination: $('#end_spot').val(), distance: '0', modify: 'asdsa',
-                    user_idx: "<?php echo $this->session->userdata('user_idx') ?>"
+          data : { departure: $('#start_spot').val(), destination: $('#end_spot').val(), distance: '0', modify: 'asdsa'
+                    // user_idx: "<?php echo $this->session->userdata('user_idx') ?>"
             },
           dataType : 'json',
           success : function (data) {
              location.href="/index.php/drive/accept_call";
-         }
-        });
-
-        // location.href="/index.php/drive/accept_call";
-        location.replace('/mains');
-    } else {
-
+              }
+            });
+        } else {
+        }
     }
-// }
-</script>
-    <!-- 밀어서 잠금해제 javascript -->
-<script type="text/javascript">
 
+// <!-- 버튼 클릭시 화면 전환 -->
 function RangeSlider() {
     theRange = document.querySelector("input[type=\"range\"]").value;
     if(theRange == 100) {
@@ -321,47 +365,14 @@ function RangeSlider() {
         document.getElementById("label2").style.display='none';
         document.getElementById("nul").style.backgroundColor='#4d7e2b';
         document.getElementById("active").style.backgroundColor='#4d7e2b';
-    } else {
-        document.querySelector("input[type=\"range\"]").value = 0;
+
+        clearInterval(timerld);
+        } else {
+            document.querySelector("input[type=\"range\"]").value = 0;
+        }
     }
-}
 </script>
-
-<!-- 메뉴 아이콘 javascript -->
 <script type="text/javascript">
-var burger = $('.menu-trigger');
-
-burger.each(function(index){
-    var $this = $(this);
-    
-    $this.on('click', function(e){
-        e.preventDefault();
-        $(this).toggleClass('active-' + (index+1));
-    })
-});
-</script>
-
-<!-- 버튼 클릭시 화면 전환 -->
-<script type="text/javascript">
-    function doDisplay1(){
-    document.getElementById("label").style.display='none';
-    document.getElementById("label3").style.display='none';
-    document.getElementById("label2").style.display='inline';
-    document.getElementById("nul").style.backgroundColor='#004400'
-    document.getElementById("active").style.backgroundColor='#4d7e2b';
-}
-
-    function doDisplay2(){
-    document.getElementById("label").style.display='none';
-    document.getElementById("label2").style.display='none';
-    document.getElementById("label3").style.display='inline';
-    document.getElementById("nul").style.backgroundColor='#4d7e2b';
-    document.getElementById("active").style.backgroundColor='#004400'
-}
-    </script>
-
-
-<script>
 /*
   Slidemenu
 */

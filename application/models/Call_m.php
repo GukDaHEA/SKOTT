@@ -7,14 +7,21 @@ class Call_m extends CI_MODEL {
 
 	function addDriveCall($insert)
 	{	
-		$this->db->insert('call', $insert);
+		$this->db->insert('callist', $insert);
+
+		$db = $this->db;
+		$db->select('*');
+		$db->from('callist');
+		$db->where('userIdx', $insert['useridx']);
+
+		return $db->get()->row();
 	}
 
 	function checkCallReservation()
-	{	
+	{
 		$db = $this->db;
 		$db->select('*');
-		$db->from('call');
+		$db->from('callist');
 		$db->where('state', 1);
 
 		return $db->get()->row();
@@ -28,7 +35,7 @@ class Call_m extends CI_MODEL {
 
 		$db = $this->db;
 		$db->where('call_id', $date['call_id']);
-		$result = $db->update('call', $data);
+		$result = $db->update('callist', $data);
 		return $result;
 	}
 
@@ -39,7 +46,65 @@ class Call_m extends CI_MODEL {
 
 		$db = $this->db;
 		$db->where('call_id', $data['call_id']);
-		$result = $db->update('call', $data);
+		$result = $db->update('callist', $data);
 		return $result;
 	}
+
+	function wait_Call($idx) {
+		$db = $this->db;
+
+        $sql = "SELECT * FROM callist WHERE call_id = ".$idx." and state = 2";
+        $query = $db->query($sql);
+        $result = $query->row();
+
+		return $result;
+	}
+
+	function whtPlace($idx, $driverId) {
+		$data = array();
+		$data['state'] = 2;
+		$data['driveIdx'] = $driverId;
+
+		$db = $this->db;
+		$db->where('call_id', $idx);
+		$db->update('callist', $data);
+
+		
+		$db->select('*');
+		$db->from('callist');
+		$db->where('call_id', $idx);
+
+		return $db->get()->row();
+		// return $result;
+	}
+
+	function get_list($type='', $offset='', $limit='' )
+    {
+		$sword= ' ';
+
+		$sword = ' WHERE state = "1" ';
+
+       $limit_query = '';
+
+       if ( $limit != '' OR $offset != '' )
+        {
+           //페이징이 있을 경우의 처리
+           $limit_query = ' LIMIT '.$offset.', '.$limit;
+        }
+
+       $sql = "SELECT * FROM callist".$sword." ORDER BY call_id DESC".$limit_query;
+       $query = $this->db->query($sql);
+
+      if ( $type == 'count' )
+        {
+           //리스트를 반환하는 것이 아니라 전체 게시물의 갯수를 반환
+          $result = $query->num_rows();
+        }
+        else
+        {
+           //게시물 리스트 반환
+          $result = $query->result();
+        }
+       return $result;
+    }
 }

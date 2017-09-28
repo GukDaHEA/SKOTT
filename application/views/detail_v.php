@@ -4,7 +4,6 @@
 <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/> -->
 <!-- viewport는 화면의 확대를 관리하는 것입니다. 모바일 웹브라우져는 대부분 기기의 화면이 작기 때문에 원래의 페이지를 축소해서 보여줍니다. 하지만 모바일에 최적화 된 페이지는 그럴 필요가 없겠죠? width 를 100%로 주어 어떤 해상도에서도 딱 맞춤형으로 나오는 것이 사용성이 훨씬 좋아집니다. 그러기 위해서는 화면을 확대하는 것을 방지해야 하는데요. 이것을 사용하면 가로보기로 전환시에 확대가 되는 것을 방지 합니다. 코드의 내용을 자세히 보면, initial-scale 은 처음 열렸을 때, maximum-scale 은 확대시의 최대로 확대되는 비율을 나타냅니다. 그리고 user-scalabe 을 통해서 확대를 사용할지 안할지를 결정할 수 있습니다. -->
 <!-- <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> -->
-<script src="/static/js/juery.bpopup.min.js" type="text/javascript"></script>
 
         <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">
         <script
@@ -284,7 +283,7 @@
               <?php echo $name;?></h3>
            </div>
            <div id="div_Info2"><h3>
-           <p>   
+           <p>
             <?php echo $reco_text;?> <!-- 관광지 정보 뿌려줄 내용 -->
            </p></h3>
            </div>
@@ -306,20 +305,27 @@
                             예상시간 : <div class= "totalTimeFun">time</div>
                             예상거리 :  <div class= "totalDistanceFun">Distance</div> <br/>
                             예상 택시요금 : <div class= "taxiFareFun">Fare</div> <br /> <br/>
+                            <input type="hidden" id="totalTime" name="totalTime" />
+                            <input type="hidden" id="totalDistance" name="totalDistance" />
+                            <input type="hidden" id="taxiFare" name="taxiFare" />
+                            <input type="hidden" id="Slat" name="Slat" />
+                            <input type="hidden" id="Slon" name="Slon" />
+                            <input type="hidden" id="Elat" name="Elat" />
+                            <input type="hidden" id="Elon" name="Elon" />
 
-                              출발지 : <input type="text" name="start" value="현재 위치" readonly/> <br />
+                              출발지 : <input type="text" name="start" id="start" value="현재 위치" readonly/> <br />
+                              <input type="hidden" id="SStart" name="SStart" />
                               도착지 : <input type="text" name="end" value="<?php echo $reco_address;?>" readonly /> <br />
                               </div> <br/></h2>
                               <h2 style="font-weight:bold;text-align:center;" class="pc">※pc 버전일 경우 호출하실 수 없습니다.</h2>
-                              <button class="nopc" id="Btn" onclick = "call_send()">호출하기</button>
+                              <button class="nopc" id="Btn">호출하기</button>
+                              
                             </div>
                             </div>
                     </form>
     
     </div>
-<!-- <div class = "Box3">Box3</div>
-<div class = "Box4">Box4</div> -->
-    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
                  <button class = "positive ui button" onclick="location.href='/board_c/board_v'">리뷰 보기</button>
 </div>
@@ -327,8 +333,8 @@
 
 <script src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc">
 </script>
-<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=6f9cc1cd3f08a51269ed1888616c3701&libraries=clusterer"></script>
 
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6008f34c9c8f9b97d7f892acf64df6a8&libraries=services"></script>
 <script type="text/javascript">
 
 var oriimg;
@@ -341,40 +347,41 @@ function initTmap(Endlat,Endlng) {
                         height:'400px',
                         transitionEffect:"resize",
                         animation:true
-                    }); 
+                    });
 
     detail_location(Endlat, Endlng);
     // searchRoute();
 };
-  var geocoder = new daum.maps.services.Geocoder();
+
+geocoder = new daum.maps.services.Geocoder();
 
 function detail_location(Endlat, Endlng) {
               if (navigator.geolocation) {
                 // GeoLocation을 이용해서 접속 위치를 얻어옵니다
                 navigator.geolocation.getCurrentPosition(function(position) {
-                    
-                    var Startlat = position.coords.latitude, // 위도
+
+                        Startlat = position.coords.latitude, // 위도
                         Startlng = position.coords.longitude; // 경도
                       searchRoute(Startlat, Startlng, Endlat, Endlng); //길찾기
                       totalTaxiInfo(Startlat, Startlng, Endlat, Endlng); //택시 거리, 요금, 시간정보
-                    // var latlng = new daum.maps.LatLng(Startlat, Startlng);
-                    // searchDetailAddrFromCoords(latlng, function(result){
-                    //   alert(result[0].roadAddress.name);
-                    // });
-                  });
-                function searchDetailAddrFromCoords(coords, callback) {
-                    // 좌표로 법정동 상세 주소 정보를 요청합니다
-                    // alert("1");
 
-                    geocoder.coord2detailaddr(coords, callback);
-                }
+                      var coord = new daum.maps.LatLng(Startlat, Startlng);
+                      var callback = function(result, status) {
+                          if (status === daum.maps.services.Status.OK) {
+                              detailAddr = result[0].address.address_name;
+                              document.getElementById('SStart').value= detailAddr;
+                          }
+                      };
+                      geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+                    document.getElementById('Slat').value= Startlat;
+                    document.getElementById('Slon').value= Startlng;
+                    document.getElementById('Elat').value= Endlat;
+                    document.getElementById('Elon').value= Endlng;
+                  });
             } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-                
                 var locPosition = new daum.maps.LatLng(33.450701, 126.570667),message = 'geolocation을 사용할수 없어요..'
             }
 }
-
-
 
 //경로 정보 로드
 function searchRoute(Startlat, Startlng, Endlat, Endlng){
@@ -428,13 +435,16 @@ function totalTaxiInfo(Startlat, Startlng, Endlat, Endlng) {
                   $(".totalTimeFun").html(totalTime);
                   $(".totalDistanceFun").html(totalDistance);
                   $(".taxiFareFun").html(taxiFare);
-
+                  document.getElementById("totalTime").value = totalTime;
+                  document.getElementById("totalDistance").value = totalDistance;
+                  document.getElementById("taxiFare").value = taxiFare;
              },
            error:function(request,status,error){
               alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
              }
           });
 }
+
 //경로 그리기 후 해당영역으로 줌
 function onDrawnFeatures(e){
     map.zoomToExtent(this.getDataExtent());
