@@ -12,6 +12,16 @@ class Board_m extends CI_Model
 		parent::__construct();
 	}
 
+	function board($idx) 
+   {
+      $this->db->select('*');
+      $this->db->from('ci_board');
+
+      $this->db->where('plag_id', $idx);
+
+      return $this->db->get()->result(); //한줄 출력입니다.
+   }
+
 	function get() {
 
 		// echo "안녕";
@@ -28,13 +38,13 @@ class Board_m extends CI_Model
 		return $this->db->get()->result();
 	}
 
-	function get_view($id) {
+	function get_view( $url, $id) {
 
-		$sql0 = "update ci_board set hits = hits+1 where board_id = '".$id."'"; 
+		$sql0 = "update ci_board set hits = hits+1 where board_id = '".$id."' AND plag_id = '".$url."'"; 
 
 		$this->db->query($sql0);
 
-		$sql = "select * from ci_board where board_id = '".$id."'"; 
+		$sql = "select * from ci_board where board_id = '".$id."' AND plag_id = '".$url."'";
 
 		$query = $this->db->query($sql);
 
@@ -72,10 +82,10 @@ class Board_m extends CI_Model
 	}
 
 
-	function board_insert($board_subject, $board_contents, $user_name, $user_email, $user_picture) 
+	function board_insert($board_subject, $board_contents, $user_name, $user_email, $user_picture, $url) 
 	{
 		$date = date("Y-m-d H:i:s");
-		$sql  = "insert into ci_board(subject, contents, user_name, user_id, reg_date, picture)  values ('".$board_subject."','".$board_contents."','".$user_name."','".$user_email."','".$date."','".$user_picture."')";
+		$sql  = "insert into ci_board(subject, contents, user_name, user_id, reg_date, picture, plag_id )  values ('".$board_subject."','".$board_contents."','".$user_name."','".$user_email."','".$date."','".$user_picture."','".$url."')";
 
 		$query = $this->db->query($sql);
 
@@ -100,16 +110,16 @@ class Board_m extends CI_Model
 
 	}
 
- function get_list($type='', $offset='', $limit='' , $search_word='')
+ function get_list($type='', $offset='', $limit='' , $search_word='', $url)
     {
 		$sword= ' ';
 
-		$sword = ' WHERE appear = "1" ';
+		$sword = ' WHERE appear = "1" AND plag_id ='.$url;
 
 		if ($search_word != '' )
      	{
      		//검색어가 있을 경우의 처리
-     		$sword = ' WHERE subject like "%'.$search_word.'%" or contents like "%'.$search_word.'%" AND appear = "1" ';
+     		$sword = ' WHERE subject like "%'.$search_word.'%" or contents like "%'.$search_word.'%" AND appear = "1" AND plag_id ='.$url;
      	}
 
        $limit_query = '';
@@ -133,6 +143,18 @@ class Board_m extends CI_Model
            //게시물 리스트 반환
           $result = $query->result();
         }
+
+        if (empty($result))
+        {
+        	// $db = $this->db;
+        	// $db->select('*');
+        	// $db->from('ci_board');
+        	// $db->where('board_id', 1);
+        	// $db->order_by('board_id','DESC');
+        	// $db->limit(10,20);
+        	// $result = $db->get()->row();
+        }
+
        return $result;
     }
 }

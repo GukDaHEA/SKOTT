@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="/static/js/juery.bpopup.min.js" type="text/javascript"></script>
-
         <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">
         <script
           src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -97,9 +95,8 @@
   <div class = "map_logo"><a href="/mains"><img src="/static/image/header/logo.png"></a></div>
 <div class = "map_search"> 
     <div class="ui search">
-    관광지&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="ui icon input">
-        <input class="prompt" type="text" size ="60" placeholder="Search...">
+        <input class="prompt" type="text" size ="60" placeholder="관광지를 검색하세요 !">
        <i class="inverted circular search link icon"></i>
       </div>
     </div>

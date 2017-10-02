@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>SKOTT - 지도</title>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">
@@ -11,7 +10,7 @@
           crossorigin="anonymous">
         </script>
         <script src="/static/Semantic/semantic.min.js"></script>
-        </head>
+</head>
     <style type="text/css">
     @media(min-width: 1025px) {
         .button_menu {
@@ -19,11 +18,11 @@
         .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:15px;}
         .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
         .map_wrap {width:100%;height:100%;}
-        #menu_wrap {position:absolute;top:30px;left:65%;bottom:0;width:28%;height:80%;margin:100px 0 30px 10px;padding:5px;overflow-y:auto;background:#eaf1f7;z-index: 1;font-size:15px;border-radius: 10px;border:2px solid black;}
+        #menu_wrap {position:absolute;top:0px;left:65%;bottom:0;width:30%;height:60%;margin:200px 0 30px 10px;padding:5px;overflow-y:auto;background:#eaf1f7;z-index: 1;font-size:15px;border-radius: 10px;border:2px solid black;}
         #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
         #menu_wrap .option{text-align: center;}
         #menu_wrap .option p {margin:10px 0;}  
-        #menu_wrap .option button {margin-left:5px;}
+        #menu_wrap .option button {margin-left:5px;}/*
         #placesList li {list-style: none;}
         #placesList .item {position:relative;border-bottom:1px solid #888;cursor: pointer;min-height: 65px;}
         #placesList .item span {display: block;margin-top:4px;}
@@ -36,48 +35,25 @@
         #pagination {margin:10px auto;text-align: center;}
         #pagination a {display:inline-block;margin-right:10px;}
         #pagination .on {font-weight: bold; cursor: default;color:#777;}
+*/
+     .div_content {
+      display: none;
+     }
     }
     
 
 
+
     </style>
 
-     <style>
-        .area {
-            position: absolute;
-            background: #fff;
-            border: 1px solid #888;
-/*            border-radius: 3px;*/
-            font-size: 50px;
-            padding:2px;
-        }
-
-        .info {
-            font-size: 12px;
-            padding: 5px;
-        }
-        .info .title {
-            font-weight: bold;
-        }
-</style>
-
 <style type="text/css">
-
- @media(min-width: 1025px) {
-
-     .div_content {
-      display: none;
-     }
-
- }
-
  @media(max-width: 1025px) {
 
-    .map_wrap {width:100%;height:45%;}
+    .map_wrap {top:12%;position:relative;width:100%;height:100%;}
 
      .div_content_click img {height: 420px; }
      #menu_wrap {
-      margin-top:-63px;
+      margin-top:-50px;
       overflow:scroll;
       overflow-y:auto;
       height: 60%;
@@ -129,6 +105,13 @@
 /*      border-top:solid white;
       border-bottom:solid white;*/
       background-color: #e2e2e2;
+    }
+    .up_scroll {
+      text-align: center;
+      background-color: #e2e2e2;
+      border-top:solid 1px black;
+      border-bottom:solid 1px black;
+      display:none;
     }
 
       .div_head {
@@ -182,7 +165,6 @@
 
 </style>
 
-
 <style>
     .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
     .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
@@ -207,19 +189,19 @@
     height : 90px;
     border-radius: 50px;
     position: absolute;
-    top: 630px;
+    top: 80%;
     left: 50px;
     background: url('/static/image/katalk.png');
     background-size: 100% 100%;
     box-shadow: 0px 10px 15px  grey;
   }
   @media(max-height:820px){
-    .katalk{top:130px;}
+    .katalk{top:60%;left:70%;}
+    .up_scroll{display:block;}
   }
   #md {
     display:none;
   }
-
 
   .div_content {
     width : 100%;
@@ -266,50 +248,47 @@
 </div>
 
 <div id="md">
-<div class="ui modal katalk">
-  <div class="header">
-    오픈 카카오톡 방 목록
-  </div>
-  <div class="image content">
-    <div class="description">
-      <p> <b> 한국 url : </b><a href="https://open.kakao.com/o/g0uvutw" target="_blank"> https://open.kakao.com/o/g0uvutw </a></p>
-      <p> <b> English url : </b><a href="https://open.kakao.com/o/gp6Zttw" target="_blank"> https://open.kakao.com/o/gp6Zttw </a></p>
-      <br><br>
+  <div class="ui modal katalk">
+    <div class="header">
+      오픈 카카오톡 방 목록
+    </div>
+    <div class="image content">
+      <div class="description">
+        <p> <b> 한국 url : </b><a href="https://open.kakao.com/o/g0uvutw" target="_blank"> https://open.kakao.com/o/g0uvutw </a></p>
+        <p> <b> English url : </b><a href="https://open.kakao.com/o/gp6Zttw" target="_blank"> https://open.kakao.com/o/gp6Zttw </a></p>
+        <br><br>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        나가기
+      </div>
     </div>
   </div>
-  <div class="actions">
-    <div class="ui black deny button">
-      나가기
-    </div>
-  </div>
-</div>
 </div>
 
 <div class="map_wrap">
-    <div id="map" style="width:100%;height:88%;"></div>
-        <div id="katalk">
-        <i class="katalk" data-content="오픈 카카오톡방으로 여행 팁을 공유해보세요 !"></i>
+    <div id="map" style="width:100%;height:80%;"></div>
+    <div id="katalk">
+      <i class="katalk" data-content="오픈 카카오톡방으로 여행 팁을 공유해보세요 !"></i>
     </div>
 </div>
-    <div id="menu_wrap" class="bg_white">
-        <div class = "reco_course" id = "reco_course"><b>추천관광지</b>
-        <button claas = "test" onclick="testFun()">택시 요금 시간 거리 계산</button>
-        <div id="course" class ="for_ajax">
-            <div class = "div_course">
-              <div class = "div_img"></div>
-              <div class ="div_content">
-              </div>
 
-<!--                style="overflow:scroll; -->
-            </div>
-               <div class = "div_content_click"><a href="/detail/detail/8"><img class = "img_click" src="/static/image/map/map_v_1.jpg";></a> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_2.jpg";> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_3.jpg";> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
-        </div>
-        </div>
-        </div>
-
+<div id="menu_wrap" class="bg_white">
+  <div class = "up_scroll"> ∧∧∧ </div>
+  <div class = "reco_course" id = "reco_course"><b>추천관광지</b>
+    <div id="course" class ="for_ajax">
+      <div class = "div_course">
+        <div class = "div_img"></div>
+        <div class ="div_content"></div>
+      </div>
+      <div class = "div_content_click"><a href="/detail/detail/8"><img class = "img_click" src="/static/image/map/map_v_1.jpg";></a> </div>
+      <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_2.jpg";> </div>
+      <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_3.jpg";> </div>
+      <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
+    </div>
+  </div>
+</div>
 
 
     <script type="text/javascript">
@@ -327,8 +306,7 @@
               });
     });
     </script>
-<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=6f9cc1cd3f08a51269ed1888616c3701&libraries=clusterer"></script>
-
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6008f34c9c8f9b97d7f892acf64df6a8&libraries=clusterer"></script>
 <script>
 // 지도에 폴리곤으로 표시할 영역데이터 배열입니다 
 
@@ -368,7 +346,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     mapOption = { 
         center: new daum.maps.LatLng(36.032097801534185, 128.10776920882668), // 지도의 중심좌표
         level: 13, // 지도의 확대 레벨
-        draggable: false
+        draggable: true
     };
 
 var map = new daum.maps.Map(mapContainer, mapOption),
@@ -872,67 +850,6 @@ function like_content_click(reco_idx) {
       source: recommand_name
     })
   ;
-
-</script>
-
-
-<script type="text/javascript">
-
-$(".map_location").click(function(){
-                  // alert("내 위치를 클릭하셨습니다.");
-            if (navigator.geolocation) {
-                
-                // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    
-                    var lat = position.coords.latitude, // 위도
-                        lon = position.coords.longitude; // 경도
-                    
-                    var locPosition = new daum.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-                        message = '<div style="padding:5px;">내 현재 위치</div>'; // 인포윈도우에 표시될 내용입니다
-
-                    map.setLevel(7, {
-                        animate: {duration: 1000},
-                        anchor: new daum.maps.LatLng(lat, lon)
-                    });
-
-                    // 마커와 인포윈도우를 표시합니다
-                    displayMarker(locPosition, message);                       
-                  });
-                
-            } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-                
-                var locPosition = new daum.maps.LatLng(33.450701, 126.570667),    
-                    message = 'geolocation을 사용할수 없어요..'
-                    
-                displayMarker(locPosition, message);
-            }
-
-            // 지도에 마커와 인포윈도우를 표시하는 함수입니다
-            function displayMarker(locPosition, message) {
-
-                // 마커를 생성합니다
-                var marker = new daum.maps.Marker({  
-                    map: map, 
-                    position: locPosition
-                }); 
-                
-                var iwContent = message, // 인포윈도우에 표시할 내용
-                    iwRemoveable = true;
-
-                // 인포윈도우를 생성합니다
-                var infowindow = new daum.maps.InfoWindow({
-                    content : iwContent,
-                    removable : iwRemoveable
-                });
-                
-                // 인포윈도우를 마커위에 표시합니다 
-                infowindow.open(map, marker);
-                
-                // 지도 중심좌표를 접속위치로 변경합니다
-                map.setCenter(locPosition);      
-            }    
-             });
 
 </script>
 </body>

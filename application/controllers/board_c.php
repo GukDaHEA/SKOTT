@@ -6,6 +6,7 @@ class Board_c extends CI_Controller {
 	function __construct() {
 		parent::__construct ();
 		$this->load->model('board_m');
+      $this->load->model('Detail_m');
 	}
 
 	public function index()
@@ -13,8 +14,9 @@ class Board_c extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
-	public function board_v() {
+	public function board_v($url) {
 		$this->load->view('header');
+
 		$search_word = $page_url = '';
 		$uri_segment = 4;
 
@@ -26,14 +28,14 @@ class Board_c extends CI_Controller {
 			$search_word = urldecode($this->url_explode($uri_array, 'q'));
 
 			//페이지네이션용 주소
-			$page_url = '/q/'.$search_word;
-			$uri_segment = 6;
+			$page_url = '/'.$url.'/q/'.$search_word;
+			$uri_segment = 7;
 		}
 		
 		$this->load->library('pagination');
 	      //페이지네이션 설정
 	      $config['base_url'] = '/board_c/board_v/'.$page_url.'/page/'; //페이징 주소
-	      $config['total_rows'] = $this->board_m->get_list('count' , '', '', $search_word); //게시물의 전체 갯수
+	      $config['total_rows'] = $this->board_m->get_list('count' , '', '', $search_word, $url); //게시물의 전체 갯수
 	      $config['per_page'] = 5; //한 페이지에 표시할 게시물 수
 	      $config['uri_segment'] =  $uri_segment; //페이지 번호가 위치한 세그먼트
 
@@ -57,22 +59,27 @@ class Board_c extends CI_Controller {
 
 	      $limit = $config['per_page'];
 
-	      $data['list'] = $this->board_m->get_list('', $start, $limit, $search_word);
+	      $data['list'] = $this->board_m->get_list('', $start, $limit, $search_word, $url);
 
-	      $this->load->view('board_v', $data);
+         if (!empty($data['list'])){
+	        $this->load->view('board_v', $data);
+         } else {
+            // $this->load->view('board_v',$data);
+            echo '게시물이 존재하지 않습니다.';
+         }
 	}
 
 
-	public function board_v_view() {
+	public function board_v_view($url) {
       $this->load->view('header');
-		$id = $this->uri->segment(3);
+		$id = $this->uri->segment(4);
 
-		$data['views'] = $this->board_m->get_view($id);
+		$data['views'] = $this->board_m->get_view($url, $id);
 
 		$this->load->view('board_v_view',$data);
 	}
 
-	 public function board_v_write() {
+	 public function board_v_write($url) {
 
       echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'; 
       // 사용자가 업로드 한 파일을 /static/user/ 디렉토리에 저장한다.
@@ -87,6 +94,7 @@ class Board_c extends CI_Controller {
       // 이미지인 경우 허용되는 최대 높이
       $this->load->library('upload',$config);
       //$config에 코드이크나이터에서 해주는 library에 저장
+      $data['url'] = $url;
  
       if($this->session->userdata('is_login'))
       {
@@ -94,41 +102,45 @@ class Board_c extends CI_Controller {
          if($_POST) 
          {
 
+            $url2 = '/board_c/board_v/'.$url;
+            $url3 = '/board_c/board_v_write/'.$url;
+
             if( !$this->input->post('board_subject', true) OR !$this->input->post('board_contents', true) ) {
                echo "<script>alert(\"비정상적인 접근입니다. \");</script>";
-               redirect('/board_c/board_v_write','refresh');
+               redirect($url3,'refresh');
                exit;
             }
 
             //파일 업로드가 되는지 확인
             if (! $this->upload->do_upload("user_upload_file")){
-               echo $this->upload->display_errors();
+               // echo $this->upload->display_errors();
+               $user_picture = '';
             } 
             else 
             {
                $data =  $this->upload->data();
                $file_url = "/static/image/review/".$data['file_name'];
+               $user_picture = $file_url;
             }
 
-
+            $star = $this->input->post('star',true);
             $board_subject = $this->input->post('board_subject', true);
             $board_contents = $this->input->post('board_contents', true);
             $user_name = $this->session->userdata('name');
             $user_email = $this->session->userdata('email');
-             $user_picture = $file_url;
 
-            $result = $this->board_m->board_insert($board_subject, $board_contents, $user_name, $user_email, $user_picture);
+            $result = $this->board_m->board_insert($board_subject, $board_contents, $user_name, $user_email, $user_picture, $url);
 
             if($result)
             {
                echo "<script>alert(\"입력되었습니다.\");</script>";
-               redirect('/board_c/board_v','refresh');
+               redirect($url2,'refresh');
                exit;
             }
             else
             {
                echo "<script>alert(\"다시 입력해주세요.\");</script>";
-               redirect('/board_c/board_v_write','refresh');
+               redirect($url3,'refresh');
                exit;
             }
 
@@ -136,12 +148,11 @@ class Board_c extends CI_Controller {
 
          else
             {
-
                $this->load->view('header');
-               $this->load->view('board_v_write');
+               $this->load->view('board_v_write', $data);
             }
          }
-      else 
+      else
       {
          echo "<script>alert(\"로그인이 필요합니다.\");</script>";
             redirect('/Login','refresh');
@@ -150,16 +161,17 @@ class Board_c extends CI_Controller {
    }
 
 
-	public function board_delete() {
-		$id = $this->uri->segment(3);
+	public function board_delete($url) {
+		$id = $this->uri->segment(4);
 
 		$this->board_m->get_delete($id);
 
-		header("Location: /board_c/board_v");
+      $url2 = '/board_c/board_v/'.$url;
+		redirect($url2);
 	}
 
 
-	 public function board_v_modify() {
+	 public function board_v_modify($url) {
 
       $this->load->view('header');
       echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'; 
@@ -171,7 +183,7 @@ class Board_c extends CI_Controller {
       $this->load->library('upload',$config);
 
 
-      $id = $this->uri->segment(3);
+      $id = $this->uri->segment(4);
 
 
       //form
@@ -179,8 +191,9 @@ class Board_c extends CI_Controller {
       {
          if( !$this->input->post('modify_subject', true) OR !$this->input->post('modify_contents', true)) 
          {
+            $url2 = '/board_c/board_v/'.$url;
             echo "<script>alert(\"비정상적인 접근입니다. \")</script>";
-            redirect('/board_c/board_v','refresh');
+            redirect($url2,'refresh');
             exit;
          }
             //파일 업로드
@@ -206,7 +219,8 @@ class Board_c extends CI_Controller {
                // echo "성공";
                $file_url = "/static/image/review/".$data['file_name'];
             }
-
+         $url2 = '/board_c/board_v/'.$url;
+         $url3 = '/board_c/board_v_modify/'.$url;
          $modify_subject = $this->input->post('modify_subject', true);
          $modify_contents = $this->input->post('modify_contents', true);
          $modify_picture = $file_url;
@@ -215,13 +229,13 @@ class Board_c extends CI_Controller {
          if($result)
          {
             echo "<script>alert(\"입력되었습니다\");</script>";
-            redirect('/board_c/board_v','refresh');
+            redirect($url2,'refresh');
             exit;
          }
          else
          {
             echo "<script>alert(\"다시 입력해주세요. \")</script>";
-            redirect('/board_c/board_v_modify','refresh');
+            redirect($url3,'refresh');
             exit;
          }
       }

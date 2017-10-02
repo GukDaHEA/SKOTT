@@ -60,6 +60,20 @@ class Call_m extends CI_MODEL {
 		return $result;
 	}
 
+	function wait_Call_drive() {
+		$db = $this->db;
+		$data['alarm'] = 2;
+
+		$sql = "SELECT * FROM callist WHERE alarm = 1";
+		$query = $db->query($sql);
+		$result = $query->row();
+
+		$db->where('alarm', 1);
+		$db->update('callist', $data);
+
+		return $result;
+	}
+
 	function whtPlace($idx, $driverId) {
 		$data = array();
 		$data['state'] = 2;

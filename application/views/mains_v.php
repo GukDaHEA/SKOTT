@@ -23,14 +23,14 @@
       <!-- skin -->
       <link rel="stylesheet" href="/static/tem_skin/default.css">
 
-<!--               <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">
+              <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">
         <script
           src="https://code.jquery.com/jquery-3.1.1.min.js"
           integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
           crossorigin="anonymous">
         </script>
         <script src="/static/Semantic/semantic.min.js"></script>
- -->
+
     </head>
     <style type="text/css">
        .img_service {

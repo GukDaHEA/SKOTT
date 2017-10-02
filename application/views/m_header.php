@@ -1,12 +1,14 @@
 <html>
 <head>
-	<meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <script
           src="https://code.jquery.com/jquery-3.1.1.min.js"
           integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
           crossorigin="anonymous">
-        </script>
+    </script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <style type="text/css">
 body {
@@ -89,7 +91,10 @@ body.menu-active div#content .menu-trigger { left: 170px; }
         <ul>
             <li>내 기록</li><br>
             <li>개인 정보</li><br>
-            <li>설정</li><br>
+            <li><a href="/map/map_v" style="color:white;text-decoration:none;"> 지도 보기</a></li><br>
+            <li>검 색</li><br>
+            <li class="map_location">내 위치</li><br>
+            <li>설 정</li><br>
                <?php
                 if ($this->session->userdata('is_login')){
                 ?>
@@ -123,4 +128,67 @@ body.menu-active div#content .menu-trigger { left: 170px; }
     }
 
 }).call(this);
+</script>
+
+<script>
+
+/*
+    내 위치 찾기
+*/
+$(".map_location").click(function(){
+                  // alert("내 위치를 클릭하셨습니다.");
+            if (navigator.geolocation) {
+                
+                // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    
+                    var lat = position.coords.latitude, // 위도
+                        lon = position.coords.longitude; // 경도
+                    
+                    var locPosition = new daum.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+                        message = '<div style="padding:5px;">내 현재 위치</div>'; // 인포윈도우에 표시될 내용입니다
+
+                    map.setLevel(7, {
+                        animate: {duration: 1000},
+                        anchor: new daum.maps.LatLng(lat, lon)
+                    });
+
+                    // 마커와 인포윈도우를 표시합니다
+                    displayMarker(locPosition, message);                       
+                  });
+                
+            } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+                
+                var locPosition = new daum.maps.LatLng(33.450701, 126.570667),    
+                    message = 'geolocation을 사용할수 없어요..'
+                    
+                displayMarker(locPosition, message);
+            }
+
+            // 지도에 마커와 인포윈도우를 표시하는 함수입니다
+            function displayMarker(locPosition, message) {
+
+                // 마커를 생성합니다
+                var marker = new daum.maps.Marker({  
+                    map: map, 
+                    position: locPosition
+                }); 
+                
+                var iwContent = message, // 인포윈도우에 표시할 내용
+                    iwRemoveable = true;
+
+                // 인포윈도우를 생성합니다
+                var infowindow = new daum.maps.InfoWindow({
+                    content : iwContent,
+                    removable : iwRemoveable
+                });
+                
+                // 인포윈도우를 마커위에 표시합니다 
+                infowindow.open(map, marker);
+                
+                // 지도 중심좌표를 접속위치로 변경합니다
+                map.setCenter(locPosition);      
+            }    
+             });
+
 </script>

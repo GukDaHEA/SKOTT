@@ -8,7 +8,6 @@
 .input_row{padding:10px 6px 10px 9px;} .login_form{ border:0px; margin-top:35%;}
 .btn_global{font-size:20px;font-weight:700;line-height:61px;display:block;width:100%;height:61px;margin:30px 0 13px;padding-top:2px;cursor:pointer;text-align:center;color:#fff;border:none;border-radius:10px;background-color:#4d7e2b;-webkit-appearance:none}.btn_global:active,.btn_global:hover,.btn_global:link{text-decoration:none;color:#fff}
 input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:none}
-input[type=textarea]{background:#000;border:0px;color:white;font-size:20px;}
 input[type=submit]{margin-top:50%;}
 
 /* 
@@ -139,9 +138,9 @@ input[type=submit]{margin-top:50%;}
                 <span class="input_box"><br><br><br>
                 <input type="text" name="start_spot" id="start_spot" wrap="virtual" value="<?=$start?>">에서
                 <input type="text" name="end_spot" id="end_spot" wrap="virtual" value="<?=$end?>">까지 <br>
-                <input type="text" id="totalTime_spot" wrap="virtual" value="소요시간 : 약 <?=$totalTime?> ,">
-                <input type="text" id="totalDistance_spot" wrap="virtual" value="거리 : 약 <?=$totalDistance?>">
-                <input type="text" name="textFare" id="taxiFare_spot" value="예상요금 : <?=$taxiFare?>">
+    소요시간 : 약  <input type="text" id="totalTime_spot" wrap="virtual" value="<?=$totalTime?> ,">
+       거리 : 약  <input type="text" id="totalDistance_spot" wrap="virtual" value="<?=$totalDistance?>">
+    소요시간 : 약  <input type="text" name="taxiFare" id="taxiFare_spot" value="<?=$taxiFare?>">
                 <input type="hidden" name="Slat" id="Slat_spot" value="<?=$Slat?>">
                 <input type="hidden" name="Slon" id="Slon_spot" value="<?=$Slon?>">
                 <input type="hidden" name="Elat" id="Elat_spot" value="<?=$Elat?>">

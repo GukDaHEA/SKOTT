@@ -44,13 +44,38 @@ input[type=submit]{
     width:150px;
     height:50px;
     border:0px;
-    border-radius:15px;
+    border-radius:10px;
     font-weight:bold;
     color:white;
     font-size:20px;
 }
 input[type=file]{
     background-color:white;
+    float:left;
+}
+.Btn{
+    background-color: #4d7e2b;
+    width:150px;
+    height:50px;
+    border:0px;
+    border-radius:10px;
+    font-weight:bold;
+    color:white;
+    font-size:20px;
+    display:inline-block;
+    margin-top:-20px;
+}
+#btn2 {
+    width:50px;
+    float:right;
+    background-color:#4d7e2b;
+    color:#fff;
+    text-align: center;
+    height:23px;
+    border:0px;
+    border-radius:5px;
+    margin-top:2px;
+    padding-top:3px;
 }
 </style>
 <body onclick="clearDocs();gnbClose();" id="mainBody">
@@ -65,18 +90,17 @@ input[type=file]{
                     <li id="ntaxi"><a href="/user/user" onclick="clickcr(this,'LNB.myinfo','','',event);">내 택시정보<em></em></a></li>
 				</ul>
 			</div>
-		</div></div>
+		</div>
+    </div>
 	<div id="container">
 		<!-- CONTENTS -->
 		<div id="content">
     <div class="c_header">
         <h2>프로필 수정</h2>
-        <p class="contxt">SKOTT의 프로필을 수정 하실 수 있습니다.</p>
+        <p class="contxt">본인의 프로필을 수정 하실 수 있습니다.</p>
     </div>
     <form  method="post" enctype="multipart/form-data" action="/User/user_modify">
-            <legend>프로필 수정</legend>
             <table border="0" class="tbl_model">
-                <caption><span class="blind">프로필 수정</span></caption>
                 <colgroup>
                     <col style="width:22%"><col>
                 </colgroup>
@@ -91,9 +115,10 @@ input[type=file]{
                                                 <?php } else if ($views->picture) {?>"<?php echo $views->picture ;?>"<?php } ?> width="100" height="100">
                             </div>
                             <p class="btn_area_btm">
-                                    <!-- <label for="inputImage" class="btn_model"><b id="btnChangeProfile" class="btn2">사진변경</b></label> -->
-                                <span>    <input type="file" name="user_upload_file" /> </span>
-                                <span><a href="javascript:imgurlDelete();" class="btn_model"><b class="btn2">삭제</b></a></span>
+                                <span><input type="file" id="user_upload_file" name="user_upload_file" /> </span>
+                                      <input type="hidden" name="file" id="h_file" value=<?php if(!$views->picture) {?>"/static/image/default.png"
+                                                                    <?php } else if ($views->picture) {?>"<?php echo $views->picture ;?>"<?php } ?>>  
+                                <a style="text-decoration: none;" href="javascript:imgurlDelete();"><span id="btn2">삭 제</span></a>
                             </p>
                         </div>
                     </td>
@@ -138,12 +163,12 @@ input[type=file]{
                 </tr>
             </table>
             <div class="btn_wrap">
-                     <input type="submit" class="Btn" value="수 정">
-                <!-- <a href="javascript:;" class="btn_model"><b id="btnConfirm" class="btn8">적용</b></a> -->
-                <!-- <a href="javascript:;" class="btn_model"><b id="btnCancel" class="btn2">취소</b></a> -->
+                <input type="submit" value="수 정">
+                <a href="/mains">
+                <input type="text" readonly="readonly" class="Btn" value="취소" style="border-radius:10px;text-align:center;">
+                </a>
             </div>
-    </form>
-</div>
+    </form></div>
 
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -154,7 +179,19 @@ input[type=file]{
 var imgurl = (document.getElementById("imgThumb").src);
 function imgurlDelete() {
     document.getElementById("imgThumb").src = "/static/image/default.png";
+    document.getElementById('h_file').value = "/static/image/default.png";
+    $("#user_upload_file").val("");
 }
+
+//file type 삭제시 적용
+$(document).ready(function() {
+  var domEleArray = [$('#user_upload_file').clone()]; // 원본 복사
+  $('#btn2').click(function() {
+    domEleArray[1] = domEleArray[0].clone(true); // 쌔거(0번) -> 복사(1번)
+    $('#user_upload_file').replaceWith(domEleArray[1]);
+  });
+});
+
 </script>
 <script type="text/javascript">
 var ua = window.navigator.userAgent.toLowerCase();

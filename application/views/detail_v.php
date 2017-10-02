@@ -17,7 +17,6 @@
 <style type="text/css">
 
       #div_Title {
-        margin-right:45w;
         padding:10px;
       }
 
@@ -66,11 +65,16 @@
         float: left;
         text-align : center;
         position:relative;
-        margin-left : 13%;
+        /*margin-left : 13%;*/
+        width:100%;
       }
 
       #div_ReviewWrite {
         float:right;
+      }
+      #div_Address {
+        background:rgba(0,255,0,0.1);
+        border-radius:30px;
       }
 
       * {
@@ -81,7 +85,9 @@
         height :flex;
         border :0px;
         margin-bottom : 5%;
+        margin-left : 10%;
         margin-top:7%;
+        background-color: #fff;
       }
 
       .thumb {
@@ -92,7 +98,7 @@
         margin-top : 15%;
       }
 
-     header {
+     #header2 {
         font-size:15pt;
         border : 0px solid #e2e2e2;
         padding :10px;
@@ -121,29 +127,14 @@
   }
 
   .positive.ui.button {
-    margin-left:5%;
+    margin-top:300px;
     width : 90%;
     height: 120px;
     text-decoration: none;
     background-color:#4d7e2b;
+    position:relative;
   }
-    .multi_image_list ul li:hover {
-        opacity:0.8;
-          filter:alpha(opacity=8);
-        background-color: #ececec;
-        display: block;
-      }
-      @media screen and (max-device-width:450px)
-      {       
-        .pc{ display: none;}
-      }
-      @media screen and (min-device-width:450px)
-      {       
-        .nopc{ display: none;}
-      } 
-
        
-
     </style>
 
     <style type="text/css">
@@ -151,14 +142,8 @@
       .Box1, .Box2{
         border : 0px solid black;
       }
-      .BoxA:after {
-        content :"";
-        display : block;
-        clear :both;
-      }
 
       .BoxA {
-        margin-left: 10%;
       }
 
       .Box1 {
@@ -170,32 +155,45 @@
       .Box2 {
         float : left;
         width :40%;
-        height: 690px;
+        height: 400px;
         margin-top : 1%;
+      }
+      .nopc {
+        font-size: 15pt;
+        width : 90%;
+        height: 50px;
+        background-color:#4d7e2b;
+        font-weight:bold;
+        color:white;
+        display:none;
       }
 
        @media(max-width: 1025px) {
+          .container {
+            margin-left:0%;
+          }
           .detail_image {
             width:100%;
-            height:100%;
+            height:50%;
           }
           .multi_image_list img{
-            width:400px;
+            width:100%;
           }
           .positive.ui.button {
             width : 90%;
           }
           .Box1 {
+            margin-top:100px;
             float : left;
             width : 100%;
+            margin-bottom:100px;
           }
           .Box2 {
             float:left;
             width :100%;
           }
           .positive.ui.button {
-            margin-left:10%;
-            font-size: 40pt;
+            font-size: 15pt;
           }
           .Box1_1 {
             border:0px solid black;
@@ -205,54 +203,53 @@
             margin-top:8%;
           }
           .Box1_2 h1 {
-            font-size : 100px;
-          }
-          .Box1_2 h3{
             font-size : 40px;
           }
+          .Box1_2 h3{
+            font-size : 15px;
+          }
           .tour_name h1 {
-            margin-left:-10%;
-            font-size : 80pt;
+            margin-left:-40px;
+            font-size : 30px;
           }
           #div_Address {
+            margin-top:50px;
             font-size: 20pt;
-            margin-left : -4%;
+            width:100%;
           }
           .Box2{
             float:left;
-            margin-top:90%;
-            margin-bottom:350px;
+            margin-bottom:300px;
           }
           .Box2 h1 {
-            font-size: 80pt;
+            font-size: 30px;
             height:20%;
           }
           .Box2 h2 {
-            font-size: 40px;
-          }
-          .nopc {
-            font-size: 30pt;
-            width : 500px;
-            height: 50px;
-            background-color:#4d7e2b;
-            font-weight:bold;
-            color:white;
+            font-size: 15px;
           }
           #div_taxiinfo {
-              margin-left:50px;
+
           }
           .Box2 input[type=text] {
             width: 70%;
-            height: 100px;
+            height: 30px;
             border:none;
-            font-size:40px;
+            font-size:15px;
+
           }
 
+      .pc {
+        display:none;
+      }
+      .nopc {
+        display:block;
+      }
+
     input[type=text] {
-      color:blue; font-size:15px;width:250px;height:30px;
+      color:blue; font-size:15px;width:90%;height:30px;
     }
   }
-
     </style>
 
 
@@ -262,49 +259,48 @@
     <div class = "BoxA">
       <div class = "Box1">
         <div class = "Box1_1">
-              <div class = "tour_name"><h1> <?php echo $name;?></h1></div>
-        <div class="image">
-        <ul>
-                 <img class="detail_image" id="lens_img" src="/static/image/detail/<?php echo $idx ?>/1.jpg"  /> <hr/>
-                   <li class="multi_image_list">
-                     &nbsp&nbsp<img src="/static/image/detail/<?php echo $idx ?>/1.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
-                     &nbsp<img src="/static/image/detail/<?php echo $idx ?>/2.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
-                     &nbsp<img src="/static/image/detail/<?php echo $idx ?>/3.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
-                   </li>
-                </ul>
+          <div class = "tour_name"><h1><?php echo $name;?></h1></div>
+          <div class="image">
+            <ul>
+            <img class="detail_image" id="lens_img" src="/static/image/detail/<?php echo $idx ?>/1.jpg"  /> <hr/>
+              <li class="multi_image_list">
+                &nbsp&nbsp<img src="/static/image/detail/<?php echo $idx ?>/1.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
+                &nbsp<img src="/static/image/detail/<?php echo $idx ?>/2.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
+                &nbsp<img src="/static/image/detail/<?php echo $idx ?>/3.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
+              </li>
+            </ul>
+          </div>
         </div>
+        <div id="header2">
+          <div class="Box1_2">
+            <div id = "div_Info">
+              <h1 style="color:#4d7e2b">관광지 정보</h1>
+              <div id="div_Title2">
+                <h3><?php echo $name;?></h3>
+              </div>
+              <div id="div_Info2">
+                <h3>
+                  <p>
+                  <?php echo $reco_text;?> <!-- 관광지 정보 뿌려줄 내용 -->
+                  </p>
+                </h3>
+              </div>
+            </div>
+          </div>
+          <br/><br/>
         </div>
-                      <header>
-
-      <div class="Box1_2">
-        <div id = "div_Info">
-          <h1 style="color:#4d7e2b">관광지 정보</h1>
-           <div id="div_Title2"><h3>
-              <?php echo $name;?></h3>
-           </div>
-           <div id="div_Info2"><h3>
-           <p>
-            <?php echo $reco_text;?> <!-- 관광지 정보 뿌려줄 내용 -->
-           </p></h3>
-           </div>
-        </div>
-    </div>
-        <br/><br/>
-    </header>
-
       </div>
 
       <div class = "Box2">
-                       <h1 style="color:#4d7e2b"> 택시 정보 </h1>
-                        <div id = "div_Map"></div>
-
-                    <form action="/drive/drive" method="POST">
-                            <div id= "div_taxiinfo">
-                              <div id="div_Address" style="text-align:center;font-size:5pt;"><br/><h2>
-
+        <h1 style="color:#4d7e2b"> 택시 정보 </h1>
+        <div id = "div_Map"></div>
+        <form action="/drive/drive" method="POST">
+          <div id= "div_taxiinfo">
+            <div id="div_Address" style="text-align:center;font-size:5pt;">
+              <br/><h2>
                             예상시간 : <div class= "totalTimeFun">time</div>
                             예상거리 :  <div class= "totalDistanceFun">Distance</div> <br/>
-                            예상 택시요금 : <div class= "taxiFareFun">Fare</div> <br /> <br/>
+                            예상 택시요금 : <div class= "taxiFareFun">Fare</div> <br/>
                             <input type="hidden" id="totalTime" name="totalTime" />
                             <input type="hidden" id="totalDistance" name="totalDistance" />
                             <input type="hidden" id="taxiFare" name="taxiFare" />
@@ -312,33 +308,24 @@
                             <input type="hidden" id="Slon" name="Slon" />
                             <input type="hidden" id="Elat" name="Elat" />
                             <input type="hidden" id="Elon" name="Elon" />
-
-                              출발지 : <input type="text" name="start" id="start" value="현재 위치" readonly/> <br />
-                              <input type="hidden" id="SStart" name="SStart" />
-                              도착지 : <input type="text" name="end" value="<?php echo $reco_address;?>" readonly /> <br />
-                              </div> <br/></h2>
-                              <h2 style="font-weight:bold;text-align:center;" class="pc">※pc 버전일 경우 호출하실 수 없습니다.</h2>
-                              <button class="nopc" id="Btn">호출하기</button>
-                              
-                            </div>
-                            </div>
-                    </form>
-    
+                            출발지 : <input type="text" name="start" id="start" value="현재 위치" readonly/> <br />
+                            <input type="hidden" id="SStart" name="SStart" />
+                            도착지 : <input type="text" name="end" value="<?php echo $reco_address;?>" readonly /> <br />
+              <br/></h2>
+                            <h2 style="font-weight:bold;text-align:center;" class="pc">※pc 버전일 경우 호출하실 수 없습니다.</h2>
+                            <button class="nopc" id="Btn">호출하기</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <button class = "positive ui button" onclick="location.href='/board_c/board_v/<?php echo $idx ?>'">리뷰 보기</button>
+  </div>
 </div>
-                 <button class = "positive ui button" onclick="location.href='/board_c/board_v'">리뷰 보기</button>
-</div>
 
-
-<script src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc">
-</script>
-
+<script src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6008f34c9c8f9b97d7f892acf64df6a8&libraries=services"></script>
 <script type="text/javascript">
-
-var oriimg;
-
 function initTmap(Endlat,Endlng) {
 
     centerLL = new Tmap.LonLat(14145677.4, 4511257.6);
@@ -359,7 +346,6 @@ function detail_location(Endlat, Endlng) {
               if (navigator.geolocation) {
                 // GeoLocation을 이용해서 접속 위치를 얻어옵니다
                 navigator.geolocation.getCurrentPosition(function(position) {
-
                         Startlat = position.coords.latitude, // 위도
                         Startlng = position.coords.longitude; // 경도
                       searchRoute(Startlat, Startlng, Endlat, Endlng); //길찾기
@@ -377,6 +363,21 @@ function detail_location(Endlat, Endlng) {
                     document.getElementById('Slon').value= Startlng;
                     document.getElementById('Elat').value= Endlat;
                     document.getElementById('Elon').value= Endlng;
+                  }, function(error){
+                      switch(error.code) {
+                      case error.PERMISSION_DENIED:
+                      alert("사용자가 위치 기능 사용을 거부했습니다.");
+                      break;
+                      case error.POSITION_UNAVAILABLE:
+                      alert("위치를 구할 수 없습니다.");
+                      break;
+                      case error.TIMEOUT:
+                      alert("시간을 초과했습니다.");
+                      break;
+                      case error.UNKNOWN_ERROR:
+                      alert("기타 에러");
+                      break;
+                      }
                   });
             } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
                 var locPosition = new daum.maps.LatLng(33.450701, 126.570667),message = 'geolocation을 사용할수 없어요..'
@@ -450,6 +451,7 @@ function onDrawnFeatures(e){
     map.zoomToExtent(this.getDataExtent());
 }
 
+var oriimg;
 function multi_image_view(obj) {  //사진 바꾸기
     var img_obj = document.getElementById('lens_img');
     if (img_obj) {
@@ -457,16 +459,6 @@ function multi_image_view(obj) {  //사진 바꾸기
         img_obj.src = obj.src;
     }
 }
-
-// $(document).ready(function(){ 
-//   $('#Btn').click(function() { 
-//     var result = confirm('호출 페이지로 이동 하시겠습니까?'); 
-//     if(result) { //yes 
-//       location.replace('/drive/drive'); 
-//     }
-//     else { //no 
-//     } 
-//   }); 
-// });
-
 </script>
+</body>
+</html>

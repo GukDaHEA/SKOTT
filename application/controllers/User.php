@@ -33,17 +33,18 @@ class User extends MY_Controller {
       //form
       if($_POST) 
       {
-
          if( !$this->input->post('name', true) OR !$this->input->post('nation', true) ) {
             echo "<script>alert(\"비정상적인 접근입니다. \")</script>";
             redirect('/mains','refresh');
             exit;
          }
+         $up = $this->upload->do_upload("user_upload_file");
+         $check = $this->input->post('file');
             //파일 업로드
-            if (! $this->upload->do_upload("user_upload_file")){
-               echo $this->upload->display_errors();
-            } 
-            else 
+            if (! $up ){
+               $file_url = $check;
+            }
+            else
             {
                $data =  $this->upload->data();
                $file_url = "/static/image/user/".$data['file_name'];
@@ -56,7 +57,9 @@ class User extends MY_Controller {
          if($result)
          {
             echo "<script>alert(\"입력되었습니다\");</script>";
-            redirect('/User/user','refresh');
+            $data['views'] = $this->User_m->get_modify_view($email);
+            $this->load->view('header');
+            $this->load->view('User_v', $data);
          }
          else
          {

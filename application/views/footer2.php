@@ -11,8 +11,8 @@
       <link rel="stylesheet" href="/static/tem_skin/default.css">
 <section id="footer" class="section footer" style="height:400px;">
 
-      <div class="container" style="margin-top:100px">
-         <div class="row animated opacity mar-bot0" data-andown="fadeIn" data-animation="animation">
+      <!-- <div class="container" style="margin-top:100px"> -->
+         <!-- <div class="row animated opacity mar-bot0" data-andown="fadeIn" data-animation="animation"> -->
             <div class="col-sm-12 align-center">
                     <ul class="social-network social-circle">
                         <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
@@ -22,23 +22,17 @@
                         <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
                     </ul>            
             </div>
-         </div>
+         <!-- </div> -->
 
          <div class="row align-center copyright">
                <div class="col-sm-12">
                    <p>&copy; SKOTT Theme</p>
                         <div class="credits">
-                            <!-- 
-                                All the links in the footer should remainoncl intact. 
-                                You can delete the links only if you purchased the pro version.
-                                Licensing information: https://bootstrapmade.com/license/
-                                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Green
-                            -->
                             <a href="/mains">SKOTT</a> by <a href="https://www.bc.ac.kr">BucheonU.S MADE</a>
                         </div>
                     </div>
          </div>
-      </div>
+      <!-- </div> -->
 
    </section>
    <script src="/static/tem_js/modernizr-2.6.2-respond-1.1.0.min.js"></script>

@@ -119,14 +119,14 @@ class Drive extends MY_Controller {
             $id == $user->driver_id &&
             $password == $user->password
             ) {
-            $this->session->set_userdata(array('is_login2' => true, 'driver_id' => $user->driver_id));
-            $this->session->set_userdata(array('is_login2' => true, 'name' => $user->name));
-            $this->session->set_userdata(array('is_login2' => true, 'belong' => $user->belong));
-            $this->session->set_userdata(array('is_login2' => true, 'area' => $user->area));
-            $this->session->set_userdata(array('is_login2' => true, 'picture' => $user->picture));
-            $this->session->set_userdata(array('is_login2' => true, 'car' => $user->car_num));
-            $this->session->set_userdata(array('is_login2' => true, 'lat' => $lat));
-            $this->session->set_userdata(array('is_login2' => true, 'lon' => $lon));
+            $this->session->set_userdata(array('is_login' => true, 'driver_id' => $user->driver_id));
+            $this->session->set_userdata(array('is_login' => true, 'name' => $user->name));
+            $this->session->set_userdata(array('is_login' => true, 'belong' => $user->belong));
+            $this->session->set_userdata(array('is_login' => true, 'area' => $user->area));
+            $this->session->set_userdata(array('is_login' => true, 'picture' => $user->picture));
+            $this->session->set_userdata(array('is_login' => true, 'car' => $user->car_num));
+            $this->session->set_userdata(array('is_login' => true, 'lat' => $lat));
+            $this->session->set_userdata(array('is_login' => true, 'lon' => $lon));
 
 
             header('Location: /Drive/call');
@@ -203,10 +203,34 @@ class Drive extends MY_Controller {
 			if (!empty($result)){
 				echo json_encode($result);
 			} else {
-				echo 55;
+				echo '오류';
 			}
 		}
 		// $this->load->view('call_accept');
+	}
+
+
+	public function waitCall_drive() {
+
+		$this->output->set_content_type('application/json');
+		$result = array();
+		$data = array();
+
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+			// $data = $this->input->post();
+			// $check = !empty($data['call_id']) ? $data['call_id'] : '';
+
+			$call = $this->call_m;
+			$result = $call->wait_Call_drive();
+
+			if (!empty($result)){
+				echo json_encode($result);
+				$result = 0;
+			} else {
+				echo '오류';
+			}
+		}
 	}
 
 	public function call_accept() {
@@ -238,7 +262,7 @@ class Drive extends MY_Controller {
 		$Slon = $this->input->post('Slon');
 		$Elat = $this->input->post('Elat');
 		$Elon = $this->input->post('Elon');
-
+		$taxiFare = $this->input->post('taxiFare');
 
 		$result = array();
 
@@ -250,6 +274,7 @@ class Drive extends MY_Controller {
 		$result['Slon'] = $Slon;
 		$result['Elat'] = $Elat;
 		$result['Elon'] = $Elon;
+		$result['taxiFare'] = $taxiFare;
 
 		$this->load->view('m_header');
 		$this->load->view('cus_wide_v', $result);
@@ -275,6 +300,7 @@ class Drive extends MY_Controller {
 		$Slon = $this->input->post('Slon');
 		$Elat = $this->input->post('Elat');
 		$Elon = $this->input->post('Elon');
+		$taxiFare = $this->input->post('taxiFare');
 
 		$result = array();
 
@@ -282,6 +308,7 @@ class Drive extends MY_Controller {
 		$result['Slon'] = $Slon;
 		$result['Elat'] = $Elat;
 		$result['Elon'] = $Elon;
+		$result['taxiFare'] = $taxiFare;
 
 		$this->load->view('m_header');
 		$this->load->view('Guider_v',$result);
@@ -304,5 +331,9 @@ class Drive extends MY_Controller {
 
 	public function suGo() {
 		$this->load->view('Sugo_v');
+	}
+
+	public function suGo_user() {
+		$this->load->view('Sugo_user_v');
 	}
 }

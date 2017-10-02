@@ -9,7 +9,7 @@ class Login extends MY_Controller {
 
 	public function index()
 	{
-		$this->load->view('login_v', array('returnURL'=>$this->input->get('returnURL')));
+		$this->load->view('login_v');
 	}
 
       function authentication()
@@ -27,10 +27,6 @@ class Login extends MY_Controller {
             $this->session->set_userdata(array('is_login' => true, 'user_idx' => $user->user_id));
             $this->session->set_userdata(array('is_login' => true, 'name' => $user->name));
             $this->session->set_userdata(array('is_login' => true, 'email' => $email));
-            // $returnURL = $this->input->get('returnURL');
-            // if($returnURL == false){
-            //    redirect("/mains");
-            // }
             header('Location: /mains');
          } else {
             $this->session->set_flashdata('message','로그인에 실패 하였습니다. 아이디 또는 비밀번호를 확인해 주세요.');
@@ -41,9 +37,7 @@ class Login extends MY_Controller {
       function logout() 
       {
          $this->session->sess_destroy();
-            if($returnURL == false){
             header('Location: /mains');
-            }
       }
 
       function join() 

@@ -52,7 +52,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'startmain';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-
-$route['/drive/drivecallaction'] = 'drive/drivecallaction';
-
-$route['/drive/test'] = 'drive/test';

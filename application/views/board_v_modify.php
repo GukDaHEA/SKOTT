@@ -24,20 +24,6 @@
 </style>
 <body>
 
-
-<!-- <table border = "3" cellpadding="10">
-	<tr>
-		<td><?php echo $views->board_id; ?></td>
-		<td><?php echo $views->user_id;  ?></td>
-		<td><?php echo $views->subject;  ?></td>
-		<td><?php echo $views->contents; ?></td>
-		<td><?php echo $views->hits;     ?></td>
-	</tr>
-
-	<tr>
-		<td colspan = "5"><a href="/board_c/board_v_view">돌아가기</a></td>
-	</tr>
-</table> -->
 <div class="change">
 
 <h1> 수정하기 </h1><br>

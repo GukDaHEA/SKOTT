@@ -14,8 +14,13 @@ class Detail extends MY_Controller {
    }
 
 	function detail($url) { 
-      $this->load->view('header');
-
+      if(MobileCheck()){ // 모바일일 경우  아래 실행
+         $this->load->view('m_header');
+      } else
+      {  //pc 일 경우 실행
+         $this->load->view('header');
+      }
+      
 	   $db = $this->Detail_m;
 
       $detail_result = $db->detail($url);
@@ -33,7 +38,7 @@ class Detail extends MY_Controller {
       $reco_time = $detail_result->reco_time;
       $reco_distance = $detail_result->reco_distance;
       
-      $this->load->view('detail_v', 
+      $this->load->view('detail_v',
          array(
             'idx'=>$idx,         //전체 디비 
             'lat'=>$lat, //json_encode 변환 전체 디비
@@ -45,17 +50,6 @@ class Detail extends MY_Controller {
             'reco_time'=>$reco_time,
             'reco_distance'=>$reco_distance
             ));
-
-      $this->load->view('footer2');
-
-   }
-
-   public function check() {
-      $returnURL = $this->input->get('returnURL');
-      if($returnURL == false){
-               redirect("/mains");
-            }
-            redirect($returnURL);
    }
 
 // // 내가 연습하는 거 

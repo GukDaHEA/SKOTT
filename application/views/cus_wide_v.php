@@ -117,6 +117,7 @@ body{font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:no
             <input type="hidden" id="Slon" name="Slon" value="<?php echo $Slon?>" >
             <input type="hidden" id="Elat" name="Elat" value="<?php echo $Elat?>" >
             <input type="hidden" id="Elon" name="Elon" value="<?php echo $Elon?>" >
+            <input type="hidden" id="taxiFare" name="taxiFare" value="<?php echo $taxiFare?>" >
         </form>
     </div>
 </body>

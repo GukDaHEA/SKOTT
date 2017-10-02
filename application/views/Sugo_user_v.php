@@ -77,7 +77,7 @@ body {
 </style>
 <body>
 <div class="test"> 
-	<div id="top">방금 탑승한 손님은 <br> 어떠셨나요?</div>
+	<div id="top">방금 탑승한 택시는 <br> 어떠셨나요?</div>
 	<div id="middle">
 		<span id="like" onclick="doDisplay1()"><br><br>좋아요</span>
 		<span id="soso" onclick="doDisplay2()"><br><br>보통</span>
@@ -88,8 +88,8 @@ body {
 </body>
 <script type="text/javascript">
 function success() {
-	alert("평가가 반영 되었습니다.");
-	location.href="/drive/call";
+	alert("평가가 반영 되었습니다. 이용해 주셔서 감사합니다.");
+	location.href="/mains";
 }
 
 function doDisplay1() {

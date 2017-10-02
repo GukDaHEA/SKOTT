@@ -12,8 +12,7 @@ class Mains extends MY_Controller {
  
         $this->load->view('mains_v');
       //pc 일 경우 실행
- 
-  }
+      }
     }
 }
 ?>

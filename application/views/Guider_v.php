@@ -10,6 +10,23 @@ body{font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:no
 }
 #div_Map {
 }
+
+#ok {
+    width:80px;
+    height:80px;
+    top:120px;
+    left:75%;
+    position:fixed;
+    z-index:999999;
+    border-radius: 50px;
+    border:0px;
+    background-color:#4d7e2b;
+    color:#fff;
+    font-weight:bold;
+    box-shadow:  3px 3px grey;
+    text-align: center;
+
+}
 </style>
 <body onload="initTmap(<?php echo $Elat?>, <?php echo $Elon ?>)">
 
@@ -17,6 +34,10 @@ body{font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:no
         <div id="wrap">
             <div id="div_Map"></div>
         </div>
+            <button id="ok" onclick="success()">목적지 <br> 도착 </button>
+        <form id="success" name="theForm" method="POST" action="/drive/suGo_user">
+        </form>
+<!-- 
         <div id="info">
             <div id="info_picture">
                 <img class="pic" src="<?php echo $driver->picture ?>" alt="사진"/>
@@ -40,12 +61,19 @@ body{font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:no
                 </div>
             </div>
         </div>
+         -->
     </div>
 </body>
-<script src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc">
-</script>
-<script type="text/javascript">
+<script src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc"></script>
 
+<script>
+function success() {
+    alert('목적지에 도착하였습니다.'+'<br> 예상요금은 <?php echo $taxiFare ?> 입니다. 약간의 오차가 있을 수 있습니다.');
+    document.theForm.submit();
+}
+</script>
+
+<script type="text/javascript">
 function initTmap(Endlat,Endlng) {
     centerLL = new Tmap.LonLat(14145677.4, 4511257.6);
     map = new Tmap.Map({div:'div_Map',
