@@ -195,7 +195,9 @@ body {
   <div class="booms">
         S  K  O  T  T    </div>
         <button onclick="location.href='/mains'"; style ="margin-top: 180px; background-color: #4d7e2b; font-size :30px;color:#FFEEAD;border:none; 
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); cursor:pointer;">START</button>
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); cursor:pointer;">Korean</button>
+        <button onclick="location.href='/mains_eng'"; style ="margin-top: 180px; background-color: #4d7e2b; font-size :30px;color:#FFEEAD;border:none; 
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); cursor:pointer;">English</button>
 </div>
 
     <script src="/static/js/start_main.js">

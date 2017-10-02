@@ -1,0 +1,424 @@
+
+<meta http http-equiv="X-UA-Compatible" content="IE=edge"/>
+<!-- 호환성 맞춰주는 소스 -->
+<!-- <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/> -->
+<!-- viewport는 화면의 확대를 관리하는 것입니다. 모바일 웹브라우져는 대부분 기기의 화면이 작기 때문에 원래의 페이지를 축소해서 보여줍니다. 하지만 모바일에 최적화 된 페이지는 그럴 필요가 없겠죠? width 를 100%로 주어 어떤 해상도에서도 딱 맞춤형으로 나오는 것이 사용성이 훨씬 좋아집니다. 그러기 위해서는 화면을 확대하는 것을 방지해야 하는데요. 이것을 사용하면 가로보기로 전환시에 확대가 되는 것을 방지 합니다. 코드의 내용을 자세히 보면, initial-scale 은 처음 열렸을 때, maximum-scale 은 확대시의 최대로 확대되는 비율을 나타냅니다. 그리고 user-scalabe 을 통해서 확대를 사용할지 안할지를 결정할 수 있습니다. -->
+<!-- <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> -->
+<script src="/static/js/juery.bpopup.min.js" type="text/javascript"></script>
+
+        <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">
+        <script
+          src="https://code.jquery.com/jquery-3.1.1.min.js"
+          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+          crossorigin="anonymous">
+        </script>
+        <script src="/static/Semantic/semantic.min.js"></script>
+
+<title> 상세 페이지 - <?php echo $name; ?></title>
+<style type="text/css">
+
+      #div_Title {
+        margin-right:45w;
+        padding:10px;
+      }
+
+      .detail_image {
+        border:0px solid gray;
+        width:600px;
+        height:80%;
+        padding:10px;
+        border-radius: 5px;
+      }
+
+      #div_Taxi {
+        border:1px solid #e2e2e2;
+        padding:15px;
+/*        margin:20px;*/
+        width:500px;
+        z-index: 1000;
+        position: absolute;
+        float:right;
+        margin-left : 55%;
+        margin-top : 5%;
+      }
+
+      #div_Info {
+        text-align: left;
+      }
+
+      #div_Title2 {
+        text-align: left;
+      }
+
+      #div_Map {
+/*        margin : 10px;*/
+        width : 400px;
+      }
+      #div_ReviewStar {
+        margin : 10px;
+        font-style : bold;
+        width : 900px;
+        height : flex;
+        text-align: left;
+        padding:15px;
+      }
+
+      #div_taxiinfo {
+        float: left;
+        text-align : center;
+        position:relative;
+        margin-left : 13%;
+      }
+
+      #div_ReviewWrite {
+        float:right;
+      }
+
+      * {
+        box-sizing:border-box;
+      }
+
+     .container {
+        height :flex;
+        border :0px;
+        margin-bottom : 5%;
+        margin-top:7%;
+      }
+
+      .thumb {
+        width : 60%;
+        height :flex;
+        float : left;
+        margin-left: 15%;
+        margin-top : 15%;
+      }
+
+     header {
+        font-size:15pt;
+        border : 0px solid #e2e2e2;
+        padding :10px;
+        display: flex;
+        border-radius: 30px;
+      }
+
+      ul li {
+        list-style: none;
+        border : 1px;
+      }
+
+
+      ul li:first-child {
+        font-weight: bold;
+      }
+
+      ol li {
+        list-style: none;
+
+      }
+
+
+  .tour_name {
+    margin-left: 50px;
+  }
+
+  .positive.ui.button {
+    margin-left:5%;
+    width : 90%;
+    height: 120px;
+    text-decoration: none;
+    background-color:#4d7e2b;
+  }
+    .multi_image_list ul li:hover {
+        opacity:0.8;
+          filter:alpha(opacity=8);
+        background-color: #ececec;
+        display: block;
+      }
+      @media screen and (max-device-width:450px)
+      {       
+        .pc{ display: none;}
+      }
+      @media screen and (min-device-width:450px)
+      {       
+        .nopc{ display: none;}
+      } 
+
+       
+
+    </style>
+
+    <style type="text/css">
+      
+      .Box1, .Box2{
+        border : 0px solid black;
+      }
+      .BoxA:after {
+        content :"";
+        display : block;
+        clear :both;
+      }
+
+      .BoxA {
+        margin-left: 10%;
+      }
+
+      .Box1 {
+        float :left;
+        width : 50%;
+        height: 690px;
+      }
+
+      .Box2 {
+        float : left;
+        width :40%;
+        height: 690px;
+        margin-top : 1%;
+      }
+
+       @media(max-width: 1025px) {
+          .detail_image {
+            width:100%;
+            height:100%;
+          }
+          .multi_image_list img{
+            width:400px;
+          }
+          .positive.ui.button {
+            width : 90%;
+          }
+          .Box1 {
+            float : left;
+            width : 100%;
+          }
+          .Box2 {
+            float:left;
+            width :100%;
+          }
+          .positive.ui.button {
+            margin-left:10%;
+            font-size: 40pt;
+          }
+          .Box1_1 {
+            border:0px solid black;
+          }
+          .Box1_2 {
+            float:left;
+            margin-top:8%;
+          }
+          .Box1_2 h1 {
+            font-size : 100px;
+          }
+          .Box1_2 h3{
+            font-size : 40px;
+          }
+          .tour_name h1 {
+            margin-left:-10%;
+            font-size : 80pt;
+          }
+          #div_Address {
+            font-size: 20pt;
+            margin-left : -4%;
+          }
+          .Box2{
+            float:left;
+            margin-top:90%;
+            margin-bottom:350px;
+          }
+          .Box2 h1 {
+            font-size: 80pt;
+            height:20%;
+          }
+          .Box2 h2 {
+            font-size: 40px;
+          }
+          .nopc {
+            font-size: 30pt;
+            width : 500px;
+            height: 50px;
+            background-color:#4d7e2b;
+            font-weight:bold;
+            color:white;
+          }
+          #div_taxiinfo {
+              margin-left:50px;
+          }
+          .Box2 input[type=text] {
+            width: 70%;
+            height: 100px;
+            border:none;
+            font-size:40px;
+          }
+
+    input[type=text] {
+      color:blue; font-size:15px;width:250px;height:30px;
+    }
+  }
+
+    </style>
+
+
+<body onload="initTmap(<?php echo $lat;?>,<?php echo $lng;?>)">
+
+<div class="container">
+    <div class = "BoxA">
+      <div class = "Box1">
+        <div class = "Box1_1">
+              <div class = "tour_name"><h1> <?php echo $name;?></h1></div>
+        <div class="image">
+        <ul>
+                 <img class="detail_image" id="lens_img" src="/static/image/detail/<?php echo $idx ?>/1.jpg"  /> <hr/>
+                   <li class="multi_image_list">
+                     &nbsp&nbsp<img src="/static/image/detail/<?php echo $idx ?>/1.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
+                     &nbsp<img src="/static/image/detail/<?php echo $idx ?>/2.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
+                     &nbsp<img src="/static/image/detail/<?php echo $idx ?>/3.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
+                   </li>
+                </ul>
+        </div>
+        </div>
+                      <header>
+
+      <div class="Box1_2">
+        <div id = "div_Info">
+          <h1 style="color:#4d7e2b">Information</h1>
+           <div id="div_Title2"><h3>
+              <?php echo $name;?></h3>
+           </div>
+           <div id="div_Info2"><h3>
+           <p>   
+            <?php echo $reco_text;?> <!-- 관광지 정보 뿌려줄 내용 -->
+           </p></h3>
+           </div>
+        </div>
+    </div>
+        <br/><br/>
+    </header>
+
+      </div>
+
+      <div class = "Box2">
+                       <h1 style="color:#4d7e2b"> Taxi information</h1>
+                        <div id = "div_Map"></div>
+
+                    <form action="/drive/drive" method="POST">
+                            <div id= "div_taxiinfo">
+                              <div id="div_Address" style="text-align:center"><br/><h2>
+                              Estimated time : <?php echo $reco_time;?>  /
+                              Estimated distance : <?php echo $reco_distance;?> <br />
+                              Estimated charge : <?php echo $reco_money;?><br /><br/>
+                              Departure : <input type="text" name="start" value="Your Location" readonly/> <br />
+                              Destination : <input type="text" name="end" value="<?php echo $reco_address;?>" readonly /> <br />
+                              </div> <br/></h2>
+                              <h2 style="font-weight:bold;text-align:center;" class="pc">※If your version is PC, you can't use it.  </h2>
+                              <button class="nopc" id="Btn" onclick = "call_send()">Call</button>
+                            </div>
+                            </div>
+                    </form>
+    
+    </div>
+<!-- <div class = "Box3">Box3</div>
+<div class = "Box4">Box4</div> -->
+    
+</div>
+                 <button class = "positive ui button" onclick="location.href='/board_c_eng/board_v'">Review</button>
+</div>
+
+
+<script src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc">
+</script>
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=6f9cc1cd3f08a51269ed1888616c3701&libraries=clusterer"></script>
+
+<script type="text/javascript">
+
+var oriimg;
+
+function initTmap(Endlat,Endlng) {
+
+    centerLL = new Tmap.LonLat(14145677.4, 4511257.6);
+    map = new Tmap.Map({div:'div_Map',
+                        width:'100%', 
+                        height:'400px',
+                        transitionEffect:"resize",
+                        animation:true
+                    }); 
+
+    detail_location(Endlat, Endlng);
+    // searchRoute();
+};
+                var geocoder = new daum.maps.services.Geocoder();
+
+function detail_location(Endlat, Endlng) {
+              if (navigator.geolocation) {
+                // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    
+                    var Startlat = position.coords.latitude, // 위도
+                        Startlng = position.coords.longitude; // 경도
+                      searchRoute(Startlat, Startlng, Endlat, Endlng); //길찾기
+                    // var latlng = new daum.maps.LatLng(Startlat, Startlng);
+                    // searchDetailAddrFromCoords(latlng, function(result){
+                    //   alert(result[0].roadAddress.name);
+                    // });
+                  });
+                function searchDetailAddrFromCoords(coords, callback) {
+                    // 좌표로 법정동 상세 주소 정보를 요청합니다
+                    // alert("1");
+
+                    geocoder.coord2detailaddr(coords, callback);
+                }
+            } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+                
+                var locPosition = new daum.maps.LatLng(33.450701, 126.570667),message = 'geolocation을 사용할수 없어요..'
+            }
+}
+
+
+
+//경로 정보 로드
+function searchRoute(Startlat, Startlng, Endlat, Endlng){
+    var routeFormat = new Tmap.Format.KML({extractStyles:true, extractAttributes:true});
+    var startX = Startlng;
+    var startY = Startlat;
+    var endX = Endlng;
+    var endY = Endlat;
+    var option = 10;
+    var urlStr = "https://apis.skplanetx.com/tmap/routes?version=1&format=xml";
+    urlStr += "&startX="+startX;
+    urlStr += "&startY="+startY;
+    urlStr += "&endX="+endX;
+    urlStr += "&endY="+endY;
+    urlStr += "&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc";
+    urlStr += "&reqCoordType=WGS84GEO";
+    urlStr += "&searchOption="+option;
+    var prtcl = new Tmap.Protocol.HTTP({
+                                        url: urlStr,
+                                        format:routeFormat
+                                        });
+    var routeLayer = new Tmap.Layer.Vector("route", {protocol:prtcl, strategies:[new Tmap.Strategy.Fixed()]});
+    routeLayer.events.register("featuresadded", routeLayer, onDrawnFeatures);
+    map.addLayer(routeLayer);
+}
+//경로 그리기 후 해당영역으로 줌
+function onDrawnFeatures(e){
+    map.zoomToExtent(this.getDataExtent());
+}
+
+function multi_image_view(obj) {  //사진 바꾸기
+    var img_obj = document.getElementById('lens_img');
+    if (img_obj) {
+        oriimg = img_obj.src;
+        img_obj.src = obj.src;
+    }
+}
+
+// $(document).ready(function(){ 
+//   $('#Btn').click(function() { 
+//     var result = confirm('호출 페이지로 이동 하시겠습니까?'); 
+//     if(result) { //yes 
+//       location.replace('/drive/drive'); 
+//     }
+//     else { //no 
+//     } 
+//   }); 
+// });
+
+</script>
