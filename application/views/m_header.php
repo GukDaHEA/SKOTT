@@ -129,9 +129,9 @@ body.menu-active div#content .menu-trigger { left: 170px; }
 
 }).call(this);
 </script>
-
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6008f34c9c8f9b97d7f892acf64df6a8&libraries=services"></script>
 <script>
-
+geocoder = new daum.maps.services.Geocoder();
 /*
     내 위치 찾기
 */
@@ -146,7 +146,7 @@ $(".map_location").click(function(){
                         lon = position.coords.longitude; // 경도
                     
                     var locPosition = new daum.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-                        message = '<div style="padding:5px;">내 현재 위치</div>'; // 인포윈도우에 표시될 내용입니다
+                        message = '<div style="padding:5px;">내 위치</div>'; // 인포윈도우에 표시될 내용입니다
 
                     map.setLevel(7, {
                         animate: {duration: 1000},
@@ -155,6 +155,21 @@ $(".map_location").click(function(){
 
                     // 마커와 인포윈도우를 표시합니다
                     displayMarker(locPosition, message);                       
+                  }, function(error){
+                      switch(error.code) {
+                      case error.PERMISSION_DENIED:
+                      alert("사용자가 위치 기능 사용을 거부했습니다.");
+                      break;
+                      case error.POSITION_UNAVAILABLE:
+                      alert("위치를 구할 수 없습니다.");
+                      break;
+                      case error.TIMEOUT:
+                      alert("시간을 초과했습니다.");
+                      break;
+                      case error.UNKNOWN_ERROR:
+                      alert("기타 에러");
+                      break;
+                      }
                   });
                 
             } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다

@@ -660,7 +660,7 @@ function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_add
 
                marker_content = '<div class="wrap">' + 
                                               '    <div class="info">' + 
-                                              '        <div class="title">' + data.title + 
+                                              '        <div class="title">' + data.title_eng + 
                                               '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
                                               '        </div>' + 
                                               '        <div class="body">' + 

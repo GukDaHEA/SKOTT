@@ -14,8 +14,8 @@
 
     .BOXA {
 /*    border : 1px solid black;*/
-    height: 11%;
-    background-color: rgba(0,0,0,0.8);
+    height: 7%;
+    background-color: rgba(0,0,0,1);
     color : white;
     text-align: center;
     vertical-align: middle;
@@ -35,7 +35,7 @@
     width : 45%;
     height: 100%;
     float : left;
-    padding-top : 30px;
+    padding-top : 15px;
   }
 
   .map_home, .map_view, .map_location, .map_login {
@@ -105,7 +105,7 @@
 <ol class = "map_menu">
   <li class = "map_home"><p><a href="/mains">홈</a></p></li>
   <li class = "map_view"><p><a href="/map/map_v">지도보기</a></p></li>
-  <li class = "map_location"><p><a href="#">내위치</a></p></li>
+  <li class = "map_location"><a href="#"><p>내위치</p><a></li>
                <?php
                 if ($this->session->userdata('is_login')){
                 ?>
@@ -118,7 +118,7 @@
                 <?php
                 }
                 ?>
-  <ol>
+  </ol>
 </div>
 </body>
 </html>

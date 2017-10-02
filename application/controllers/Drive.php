@@ -5,7 +5,7 @@ class Drive extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 
-		$this->load->model('call_m');
+		$this->load->model('Call_m');
 		$this->load->model('Drive_m');
 	}
 
@@ -53,7 +53,7 @@ class Drive extends MY_Controller {
 		$data = $this->input->post();
 
 		$insert['call_id'] = $data['call_id'];
-		$call = $this->call_m;
+		$call = $this->Call_m;
 		$result = $call->test($insert);
 
 		echo json_encode($result);
@@ -61,7 +61,7 @@ class Drive extends MY_Controller {
 
 	function drivecheck() {
 
-		$call = $this->call_m;
+		$call = $this->Call_m;
 		$symbol = '';
 
 		$chkreservation = $call->checkCallReservation();
@@ -95,7 +95,7 @@ class Drive extends MY_Controller {
 			$insert['Elat'] = !empty($data['Elat']) ? $data['Elat'] : '';
 			$insert['Elon'] = !empty($data['Elon']) ? $data['Elon'] : '';
 
-			$call = $this->call_m;
+			$call = $this->Call_m;
 			$result = $call->addDriveCall($insert);
 
 		}
@@ -177,7 +177,7 @@ class Drive extends MY_Controller {
 			$update['destination']  = !empty($data['destination']) ? $data['destination'] : '';
 			$update['distance']  = rand(0, 30) . 'km';
 
-			$call = $this->call_m;
+			$call = $this->Call_m;
 			$result = $call->$update;
 
 		}
@@ -197,7 +197,7 @@ class Drive extends MY_Controller {
 			$data = $this->input->post();
 			$check = !empty($data['call_id']) ? $data['call_id'] : '';
 
-			$call = $this->call_m;
+			$call = $this->Call_m;
 			$result = $call->wait_Call($check);
 
 			if (!empty($result)){
@@ -221,7 +221,7 @@ class Drive extends MY_Controller {
 			// $data = $this->input->post();
 			// $check = !empty($data['call_id']) ? $data['call_id'] : '';
 
-			$call = $this->call_m;
+			$call = $this->Call_m;
 			$result = $call->wait_Call_drive();
 
 			if (!empty($result)){
@@ -238,7 +238,7 @@ class Drive extends MY_Controller {
 		$idx = $this->input->post('call_id');
 		$driverId = $this->input->post('driver_id');
 		$useridx = $this->input->post('user_id');
-		$call = $this->call_m;
+		$call = $this->Call_m;
 		$drive = $this->Drive_m;
 
 		$result['call'] = $call->whtPlace($idx, $driverId);
@@ -283,7 +283,7 @@ class Drive extends MY_Controller {
 	public function callist() {
 		$start=1;
 		$limit=5;
-		$call = $this->call_m;
+		$call = $this->Call_m;
 		$data['list'] = $call->get_list('', $start, $limit);
 
 		$this->load->view('m_header');

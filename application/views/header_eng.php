@@ -16,8 +16,8 @@
 
     .BOXA {
 /*    border : 1px solid black;*/
-    height: 11%;
-    background-color: rgba(0,0,0,0.8);
+    height: 7%;
+    background-color: rgba(0,0,0,1);
     color : white;
     text-align: center;
     vertical-align: middle;
@@ -37,7 +37,7 @@
     width : 45%;
     height: 100%;
     float : left;
-    padding-top : 30px;
+    padding-top : 15px;
   }
 
   .map_home, .map_view, .map_location, .map_login {
@@ -98,7 +98,7 @@
     <div class="ui search">
     
     <div class="ui icon input">
-        <input class="prompt" type="text" size ="60" placeholder="Search...">
+        <input class="prompt" type="text" size ="60" placeholder="Search Spot!">
        <i class="inverted circular search link icon"></i>
       </div>
     </div>

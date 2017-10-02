@@ -5,7 +5,7 @@ class Detail extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model('Detail_m');
-      $this->load->model('board_m');
+      $this->load->model('Board_m');
       $this ->load-> helper('date');
 	}
 

@@ -5,7 +5,7 @@ class Board_c_eng extends CI_Controller {
 
 	function __construct() {
 		parent::__construct ();
-		$this->load->model('board_m');
+		$this->load->model('Board_m');
 	}
 
 	public function index()
@@ -33,7 +33,7 @@ class Board_c_eng extends CI_Controller {
 		$this->load->library('pagination');
 	      //페이지네이션 설정
 	      $config['base_url'] = '/board_c_eng/board_v/'.$page_url.'/page/'; //페이징 주소
-	      $config['total_rows'] = $this->board_m->get_list('count' , '', '', $search_word); //게시물의 전체 갯수
+	      $config['total_rows'] = $this->Board_m->get_list('count' , '', '', $search_word); //게시물의 전체 갯수
 	      $config['per_page'] = 5; //한 페이지에 표시할 게시물 수
 	      $config['uri_segment'] =  $uri_segment; //페이지 번호가 위치한 세그먼트
 
@@ -57,7 +57,7 @@ class Board_c_eng extends CI_Controller {
 
 	      $limit = $config['per_page'];
 
-	      $data['list'] = $this->board_m->get_list('', $start, $limit, $search_word);
+	      $data['list'] = $this->Board_m->get_list('', $start, $limit, $search_word);
 
 	      $this->load->view('board_v_eng', $data);
 	}
@@ -67,7 +67,7 @@ class Board_c_eng extends CI_Controller {
       $this->load->view('header_eng');
 		$id = $this->uri->segment(3);
 
-		$data['views'] = $this->board_m->get_view($id);
+		$data['views'] = $this->Board_m->get_view($id);
 
 		$this->load->view('board_v_view_eng',$data);
 	}
@@ -117,7 +117,7 @@ class Board_c_eng extends CI_Controller {
             $user_email = $this->session->userdata('email');
              $user_picture = $file_url;
 
-            $result = $this->board_m->board_insert($board_subject, $board_contents, $user_name, $user_email, $user_picture);
+            $result = $this->Board_m->board_insert($board_subject, $board_contents, $user_name, $user_email, $user_picture);
 
             if($result)
             {
@@ -153,7 +153,7 @@ class Board_c_eng extends CI_Controller {
 	public function board_delete() {
 		$id = $this->uri->segment(3);
 
-		$this->board_m->get_delete($id);
+		$this->Board_m->get_delete($id);
 
 		header("Location: /board_c_eng/board_v");
 	}
@@ -188,7 +188,7 @@ class Board_c_eng extends CI_Controller {
             {
                // echo $this->upload->display_errors();
 
-               $file_result = $this->board_m->file_result($id);
+               $file_result = $this->Board_m->file_result($id);
 
                if (empty($file_result))
                   $file_result = array();
@@ -211,7 +211,7 @@ class Board_c_eng extends CI_Controller {
          $modify_contents = $this->input->post('modify_contents', true);
          $modify_picture = $file_url;
 
-         $result = $this->board_m->board_modify($modify_subject, $modify_contents, $id, $modify_picture);
+         $result = $this->Board_m->board_modify($modify_subject, $modify_contents, $id, $modify_picture);
          if($result)
          {
             echo "<script>alert(\"입력되었습니다\");</script>";
@@ -229,7 +229,7 @@ class Board_c_eng extends CI_Controller {
       else
          {
 
-            $data['views'] = $this->board_m->get_modify_view($id);
+            $data['views'] = $this->Board_m->get_modify_view($id);
             $this->load->view('board_v_modify_eng', $data);
          }
    }

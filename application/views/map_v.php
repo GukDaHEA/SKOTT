@@ -307,28 +307,78 @@
     });
     </script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6008f34c9c8f9b97d7f892acf64df6a8&libraries=clusterer"></script>
+
 <script>
-// 지도에 폴리곤으로 표시할 영역데이터 배열입니다 
+/*
+    내 위치 찾기
+*/
+$(".map_location").click(function(){
+            if (navigator.geolocation) {
+                // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var lat = position.coords.latitude, // 위도
+                        lon = position.coords.longitude; // 경도
+                    
+                    var locPosition = new daum.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+                        message = '<div style="padding:5px;">내 위치</div>'; // 인포윈도우에 표시될 내용입니다
 
-function testFun() {
-          alert("1");
-            $.ajax ({
-             type : 'POST',
-             url : 'https://apis.skplanetx.com/tmap/routes?appKey=681ac473-87c5-3a80-8adb-91f8d105ba63&endX=126.9766341314623&endY=37.57750061206984&startX=126.7783531584888&startY=37.45112750649131&reqCoordType=WGS84GEO&resCoordType=WGS84GEO',
-             dataType : 'json',
-             success : function (data) {
-                  // alert(data.features[0].properties["totalTime"]);
-                  var totalTime = data.features[0].properties["totalTime"] / 60;
-                  alert(totalTime);
-                   // var ar=data["tmap:totalTime"];
-                   // alert(ar);
-             },
-           error:function(request,status,error){
-              alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-             }
-          });
+                    map.setLevel(7, {
+                        animate: {duration: 1000},
+                        anchor: new daum.maps.LatLng(lat, lon)
+                    });
 
-}
+                    // 마커와 인포윈도우를 표시합니다
+                    displayMarker(locPosition, message);                       
+                  }, function(error){
+                      switch(error.code) {
+                      case error.PERMISSION_DENIED:
+                      alert("사용자가 위치 기능 사용을 거부했습니다.");
+                      break;
+                      case error.POSITION_UNAVAILABLE:
+                      alert("위치를 구할 수 없습니다.");
+                      break;
+                      case error.TIMEOUT:
+                      alert("시간을 초과했습니다.");
+                      break;
+                      case error.UNKNOWN_ERROR:
+                      alert("기타 에러");
+                      break;
+                      }
+                  });
+                
+            } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+                
+                var locPosition = new daum.maps.LatLng(33.450701, 126.570667),    
+                    message = 'geolocation을 사용할수 없어요..'
+                    
+                displayMarker(locPosition, message);
+            }
+
+            // 지도에 마커와 인포윈도우를 표시하는 함수입니다
+            function displayMarker(locPosition, message) {
+
+                // 마커를 생성합니다
+                var marker = new daum.maps.Marker({  
+                    map: map, 
+                    position: locPosition
+                }); 
+                
+                var iwContent = message, // 인포윈도우에 표시할 내용
+                    iwRemoveable = true;
+
+                // 인포윈도우를 생성합니다
+                var infowindow = new daum.maps.InfoWindow({
+                    content : iwContent,
+                    removable : iwRemoveable
+                });
+                
+                // 인포윈도우를 마커위에 표시합니다 
+                infowindow.open(map, marker);
+                
+                // 지도 중심좌표를 접속위치로 변경합니다
+                map.setCenter(locPosition);      
+            }    
+});
 
 function zoomIn() {        
     // 현재 지도의 레벨을 얻어옵니다
@@ -344,7 +394,7 @@ function zoomIn() {
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
-        center: new daum.maps.LatLng(36.032097801534185, 128.10776920882668), // 지도의 중심좌표
+        center: new daum.maps.LatLng(35.497482, 127.937508), // 지도의 중심좌표
         level: 13, // 지도의 확대 레벨
         draggable: true
     };
@@ -362,6 +412,8 @@ var map = new daum.maps.Map(mapContainer, mapOption),
         var zoomControl = new daum.maps.ZoomControl();
         // 지도의 우측에 확대 축소 컨트롤을 추가한다
         map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+
+geocoder = new daum.maps.services.Geocoder();
 function searchDetailAddrFromCoords(coords, callback) {
           // 좌표로 법정동 상세 주소 정보를 요청합니다
           geocoder.coord2detailaddr(coords, callback);
@@ -695,7 +747,7 @@ var imageSrc6 = "/static/image/marker_image/marker_6.png";
 
 
 
-var imageSize = new daum.maps.Size(90, 90); 
+var imageSize = new daum.maps.Size(60, 60); 
 
 // 마커를 표시할 위치와 title 객체 배열입니다 
 var positions = [
