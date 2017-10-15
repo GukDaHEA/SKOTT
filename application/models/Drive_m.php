@@ -36,4 +36,9 @@ class Drive_m extends CI_MODEL {
 
 		return $db->get()->row();
    }
+
+  	function solution()
+  	{
+  		return $this->db->query("SELECT * FROM solution where solution_id=1")->result();
+  	}
 }

@@ -44,6 +44,8 @@
     height: 100%;
     float : left;
     padding-top : 23px;
+    cursor: pointer;
+
   }
   .ui.search {
     color : black;

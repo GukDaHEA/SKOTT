@@ -1,0 +1,4 @@
+AuthName     "Backup file download"
+AuthType     Basic
+AuthUserFile /home/skotts/htpasswd
+require      valid-user
