@@ -183,6 +183,17 @@ body {
 
 }
 
+  #buttons {
+    position:fixed; background-color:#4d7e2b; font-size:30px;color:#FFEEAD;border:none; 
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); cursor:pointer;
+    display:none;margin-top:100px;margin-left:-100px;
+  }
+
+  #buttons2 {
+    position:fixed; background-color:#4d7e2b; font-size:30px;color:#FFEEAD;border:none; 
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); cursor:pointer;
+    display:none;margin-top:100px;margin-left:100px;
+  }
  </style>
 </head>
 
@@ -193,21 +204,21 @@ body {
   <div class="bom"></div>
   <div class="bom"></div>
   <div class="booms">
-        S  K  O  T  T    </div>
-        <button onclick="location.href='/mains'"; style ="margin-top: 180px; background-color: #4d7e2b; font-size :30px;color:#FFEEAD;border:none; 
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); cursor:pointer;">한 국 어 </button>
-        <button onclick="location.href='/mains_eng'"; style ="margin-top: 180px;margin-left: 50px; background-color: #4d7e2b; font-size :30px;color:#FFEEAD;border:none; 
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); cursor:pointer;">English</button>
+        S  K  O  T  T     </div>
+        <button onclick="location.href='/mains'" id="buttons">한 국 어 </button>
+        <button onclick="location.href='/mains_eng'" id="buttons2" >English</button>
+       
 </div>
 
     <script src="/static/js/start_main.js">
       </script>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
       <script type="text/javascript">
 
     $(document).ready(function(){ 
-      $('#Btn').click(function() {
-      location.replace('/mains');
-    });
+      setTimeout(function() { document.getElementById('buttons').style.display="block";
+                      document.getElementById('buttons2').style.display="block"; }, 3500);
   });
     </script>
 </body>

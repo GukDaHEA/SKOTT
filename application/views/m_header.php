@@ -15,7 +15,7 @@ body {
     color: #fff;
     background-color:#9e9e9e;
 }
-#header { z-index: 1001; position:fixed; background-color: #3e3e3e; width:100%;height:12%;}
+#header { z-index: 1001; position:fixed; background-color: #3e3e3e; width:100%;height:60px;}
 #h_logo{display:block;width:100px;height:50px;left:150px;margin:0 auto;background-image:url("/static/image/header/logo.png");background-size: 100% 100%;background-repeat:no-repeat;}
 
 /*

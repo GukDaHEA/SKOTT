@@ -138,9 +138,9 @@ input[type=submit]{margin-top:50%;}
                 <span class="input_box"><br><br><br>
                 <input type="text" name="start_spot" id="start_spot" wrap="virtual" value="<?=$start?>">에서
                 <input type="text" name="end_spot" id="end_spot" wrap="virtual" value="<?=$end?>">까지 <br>
-    소요시간 : 약  <input type="text" id="totalTime_spot" wrap="virtual" value="<?=$totalTime?> ,">
+    소요시간 : 약  <input type="text" id="totalTime_spot" wrap="virtual" value="<?=$totalTime?>">,
        거리 : 약  <input type="text" id="totalDistance_spot" wrap="virtual" value="<?=$totalDistance?>">
-    소요시간 : 약  <input type="text" name="taxiFare" id="taxiFare_spot" value="<?=$taxiFare?>">
+    예상요금 : 약  <input type="text" name="taxiFare" id="taxiFare_spot" value="<?=$taxiFare?>">
                 <input type="hidden" name="Slat" id="Slat_spot" value="<?=$Slat?>">
                 <input type="hidden" name="Slon" id="Slon_spot" value="<?=$Slon?>">
                 <input type="hidden" name="Elat" id="Elat_spot" value="<?=$Elat?>">

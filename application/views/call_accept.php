@@ -46,18 +46,8 @@ var lat1, lon1= 0;
 function initialize() {
     var map = new Tmap.Map({div:"div_Map"});
 
-    //다음지도에서 현위치 받기
-    if (navigator.geolocation) {
-        
-        // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-        navigator.geolocation.getCurrentPosition(function(position) {
-            
-            var lat = position.coords.latitude, // 위도
-                lon = position.coords.longitude; // 경도
-
-            var pr_3857 = new Tmap.Projection("EPSG:3857");
+    var pr_3857 = new Tmap.Projection("EPSG:3857");
             var pr_4326 = new Tmap.Projection("EPSG:4326"); // wgs84
-
             var markerLayer = new Tmap.Layer.Markers();
             map.addLayer(markerLayer);
 
@@ -69,17 +59,42 @@ function initialize() {
             var marker = new Tmap.Marker(lonlat, icon);
 
             markerLayer.addMarker(marker);
-                
+                alert('<?php echo $call->distance ;?>');
             map.setCenter(new Tmap.LonLat(lonlat.lon, lonlat.lat), 16);
-        });
+    // //다음지도에서 현위치 받기
+    // if (navigator.geolocation) {
         
-    } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-        
-        var locPosition = new daum.maps.LatLng(14134074.680985, 4517814.0870894),
-            message = 'geolocation을 사용할수 없어요..'
+    //     // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+    //     navigator.geolocation.getCurrentPosition(function(position) {
             
-        markerLayer(locPosition);
-    }
+    //         var lat = position.coords.latitude, // 위도
+    //             lon = position.coords.longitude; // 경도
+
+    //         var pr_3857 = new Tmap.Projection("EPSG:3857");
+    //         var pr_4326 = new Tmap.Projection("EPSG:4326"); // wgs84
+
+    //         var markerLayer = new Tmap.Layer.Markers();
+    //         map.addLayer(markerLayer);
+
+    //         var lonlat = new Tmap.LonLat('<?php echo $call->Slon ;?>', '<?php echo $call->Slat ;?>').transform(pr_4326, pr_3857);
+    //         var size = new Tmap.Size(24,38);
+    //         var offset = new Tmap.Pixel(-(size.w/2), -(size.h/2));
+    //         var icon = new Tmap.Icon('https://developers.skplanetx.com/upload/tmap/marker/pin_b_m_a.png', size, offset);
+            
+    //         var marker = new Tmap.Marker(lonlat, icon);
+
+    //         markerLayer.addMarker(marker);
+                
+    //         map.setCenter(new Tmap.LonLat(lonlat.lon, lonlat.lat), 16);
+    //     });
+        
+    // } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+        
+    //     var locPosition = new daum.maps.LatLng(14134074.680985, 4517814.0870894),
+    //         message = 'geolocation을 사용할수 없어요..'
+            
+    //     markerLayer(locPosition);
+    // }
 }
 window.onload = function() {
     initialize();

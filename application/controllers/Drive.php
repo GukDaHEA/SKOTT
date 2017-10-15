@@ -267,7 +267,10 @@ class Drive extends MY_Controller {
 		$result = array();
 
 		$drive = $this->Drive_m;
+		$call = $this->Call_m;
+
 		$result['driver'] = $drive->driverCheck($driveIdx);
+		$result['call'] = $call->wait_Call($call_id);
 		$result['start'] = $start;
 		$result['end'] = $end;
 		$result['Slat'] = $Slat;

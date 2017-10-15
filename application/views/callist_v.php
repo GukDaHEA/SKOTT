@@ -6,7 +6,7 @@
  .login_form{ border:0px; width:100%;height:100% }
 input {font-family:Helvetica,sans-serif;font-size:18px;color:#fff;border:0px}
 input[type=text] { background-color:#000; height:40px;word-break:break-all;}
-input[type=textarea] { background-color:#000; height:40px;word-break:break-all;}
+input[type=textarea] { background-color:#000; height:40px;word-break:break-all; overflow: hidden;}
 textarea{ font-family:Helvetica,sans-serif;font-size:15px;color:#fff;border:0px;background-color:#000; height:40px;word-break:break-all;resize:none;}
 
 .past {

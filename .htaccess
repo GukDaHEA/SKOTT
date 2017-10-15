@@ -6,7 +6,5 @@
   RewriteCond $1 !^(index\.php|images|captcha|data|include|static|uploads|robots\.txt)
   RewriteRule ^(.*)$ /index.php?/$1 [L]
 
-  RewriteCond %{HTTP_HOST} !^www\. [NC]
-  RewriteCond %{HTTP_HOST} ^(.*)$ [NC]
-  RewriteRule ^(.*)$ "http://www.%1/index.php/$1" [L,R=301]
+ 
 </IfModule>

@@ -83,28 +83,31 @@ function initTmap(Endlat,Endlng) {
                         animation:true
                     }); 
     detail_location(Endlat, Endlng);
-};
+}
 
     var geocoder = new daum.maps.services.Geocoder();
 
 function detail_location(Endlat, Endlng) {
-    if (navigator.geolocation) {
-        // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-        navigator.geolocation.getCurrentPosition(function(position) {
+//     if (navigator.geolocation) {
+//         // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+//         navigator.geolocation.getCurrentPosition(function(position) {
                       
-        var	Startlat = position.coords.latitude, // 위도
-            Startlng = position.coords.longitude; // 경도
-        searchRoute(Startlat, Startlng, Endlat, Endlng); //길찾기
+//         var	Startlat = position.coords.latitude, // 위도
+//             Startlng = position.coords.longitude; // 경도
+//         searchRoute(Startlat, Startlng, Endlat, Endlng); //길찾기
 
-        //위도 경도 변환
+//         //위도 경도 변환
         var pr_3857 = new Tmap.Projection("EPSG:3857");
     	var pr_4326 = new Tmap.Projection("EPSG:4326"); // wgs84
 
-        lonlat = new Tmap.LonLat(Startlng, Startlat).transform(pr_4326, pr_3857);
-        });
-    } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-        var locPosition = new daum.maps.LatLng(33.450701, 126.570667),message = '위치서비스를 사용할수 없어요..'
-    }
+//         lonlat = new Tmap.LonLat(Startlng, Startlat).transform(pr_4326, pr_3857);
+//         });
+//     } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+//         var locPosition = new daum.maps.LatLng(33.450701, 126.570667),message = '위치서비스를 사용할수 없어요..'
+//     }
+        
+        searchRoute('<?php echo $Slat ?>', '<?php echo $Slon ?>', Endlat, Endlng); //길찾기
+        lonlat = new Tmap.LonLat('<?php echo $Slon ?>', '<?php echo $Slat ?>').transform(pr_4326, pr_3857);
 }
 
 //경로 정보 로드

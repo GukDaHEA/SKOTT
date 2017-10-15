@@ -14,7 +14,7 @@
 
     .BOXA {
 /*    border : 1px solid black;*/
-    height: 7%;
+    height: 70px;
     background-color: rgba(0,0,0,1);
     color : white;
     text-align: center;
@@ -27,7 +27,7 @@
     height: 100%;
     width : 15%;
     float : left;
-    padding-top : 10px;
+    padding-top : 7px;
   }
 
   .map_search {
@@ -43,7 +43,7 @@
     width : 10%;
     height: 100%;
     float : left;
-    padding-top : 30px;
+    padding-top : 23px;
   }
   .ui.search {
     color : black;
@@ -105,7 +105,7 @@
 <ol class = "map_menu">
   <li class = "map_home"><p><a href="/mains">홈</a></p></li>
   <li class = "map_view"><p><a href="/map/map_v">지도보기</a></p></li>
-  <li class = "map_location"><a href="#"><p>내위치</p><a></li>
+  <li class = "map_location"><a><p>내위치</p></a></li>
                <?php
                 if ($this->session->userdata('is_login')){
                 ?>

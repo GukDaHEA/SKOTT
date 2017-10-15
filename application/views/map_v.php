@@ -12,17 +12,18 @@
         <script src="/static/Semantic/semantic.min.js"></script>
 </head>
     <style type="text/css">
-    @media(min-width: 1025px) {
+    /* 컴퓨터 화면일때 */
+    @media(min-width: 1025px) { 
         .button_menu {
            position:absolute;right:10%;z-index: 10;font-size:20px;border-radius: 10px;}
         .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:15px;}
         .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
         .map_wrap {width:100%;height:100%;}
-        #menu_wrap {position:absolute;top:0px;left:65%;bottom:0;width:30%;height:60%;margin:200px 0 30px 10px;padding:5px;overflow-y:auto;background:#eaf1f7;z-index: 1;font-size:15px;border-radius: 10px;border:2px solid black;}
+        #menu_wrap {position:absolute;top:0px;left:65%;bottom:0;width:30%;height:70%;margin:200px 0 30px 10px;padding:5px;overflow-y:auto;background:#eaf1f7;z-index: 1;font-size:15px;border-radius: 10px;border:2px solid black;}
         #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
         #menu_wrap .option{text-align: center;}
         #menu_wrap .option p {margin:10px 0;}  
-        #menu_wrap .option button {margin-left:5px;}/*
+        #menu_wrap .option button {margin-left:5px;}
         #placesList li {list-style: none;}
         #placesList .item {position:relative;border-bottom:1px solid #888;cursor: pointer;min-height: 65px;}
         #placesList .item span {display: block;margin-top:4px;}
@@ -35,28 +36,40 @@
         #pagination {margin:10px auto;text-align: center;}
         #pagination a {display:inline-block;margin-right:10px;}
         #pagination .on {font-weight: bold; cursor: default;color:#777;}
-*/
+
+    #map {
+      width:100%;height:92%;
+    }
      .div_content {
       display: none;
      }
     }
-    
-
+    #katalk {
+      top: 80%;
+      left: 50px;
+    }
+    .up_scroll {
+      display:none;
+    }
 
 
     </style>
 
 <style type="text/css">
- @media(max-width: 1025px) {
+/* 모바일 화면일 때 */
+ @media(max-width: 1024px) {
+    #map {
+      width:100%;height:80%;
+    }
 
-    .map_wrap {top:12%;position:relative;width:100%;height:100%;}
+    .map_wrap {top:9%;position:relative;width:100%;height:100%;}
 
      .div_content_click img {height: 420px; }
      #menu_wrap {
-      margin-top:-50px;
+      margin-top:-80px;
       overflow:scroll;
       overflow-y:auto;
-      height: 60%;
+      height: 70%;
      }
 
      .ui.like.button {
@@ -75,7 +88,65 @@
       display :none;
      }
 
+    #katalk{top:60%;left:70%;}
+    .up_scroll{display:block;}
    }
+   .div_course {
+    width:100%;
+   }
+
+</style>
+
+<style>
+/* 공통 */
+    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+    .info .close:hover {cursor: pointer;}
+    .info .body {position: relative;overflow: hidden;}
+    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    .info .link {color: #5085BB;}
+
+
+  .example .popup {
+  color: #FF0000;
+  }
+  #katalk {
+    z-index : 15000;
+    width : 90px;
+    height : 90px;
+    border-radius: 50px;
+    position: absolute;
+    background: url('/static/image/katalk.png');
+    background-size: 100% 100%;
+    box-shadow: 0px 10px 15px  grey;
+  }
+  #md {
+    display:none;
+  }
+
+  .div_content {
+    width : 100%;
+  }
+
+  .like_content {
+      background-color: yellow;
+      float : left;
+      width : 50%;
+      height : 100%;
+  }
+
+  .detail_content {
+    background-color: black;
+        float : left;
+        width : 50%;
+        height : 100%;
+  }
+
 
    .ui.modal {
     height: 300px;
@@ -100,10 +171,7 @@
             }
     .reco_course {
       color : black;
-/*      font-size:20pt;*/
       text-align: center;
-/*      border-top:solid white;
-      border-bottom:solid white;*/
       background-color: #e2e2e2;
     }
     .up_scroll {
@@ -111,7 +179,6 @@
       background-color: #e2e2e2;
       border-top:solid 1px black;
       border-bottom:solid 1px black;
-      display:none;
     }
 
       .div_head {
@@ -124,11 +191,6 @@
         display :flex;
         flex-direction:row;
         margin : 10px;
-
-      }
-
-     .div_course:hover {
-/*            background-color: yellow;*/
       }
 
       .div_img {
@@ -144,8 +206,6 @@
       .div_content_click {
         font-size : 13pt;
         text-align: center;
-/*        border : 1px solid black;*/
-/*        margin-top : 100px;*/
         padding : 5px;
       }
 
@@ -162,65 +222,6 @@
     .first_tour {
       font-size:15px;
     }
-
-</style>
-
-<style>
-    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
-    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
-    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
-    .info .close:hover {cursor: pointer;}
-    .info .body {position: relative;overflow: hidden;}
-    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
-    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
-    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
-    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
-    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
-    .info .link {color: #5085BB;}
-</style>
-
-<style type="text/css"> 
-  .example .popup {
-  color: #FF0000;
-  }
-  .katalk {
-    z-index : 15000;
-    width : 90px;
-    height : 90px;
-    border-radius: 50px;
-    position: absolute;
-    top: 80%;
-    left: 50px;
-    background: url('/static/image/katalk.png');
-    background-size: 100% 100%;
-    box-shadow: 0px 10px 15px  grey;
-  }
-  @media(max-height:820px){
-    .katalk{top:60%;left:70%;}
-    .up_scroll{display:block;}
-  }
-  #md {
-    display:none;
-  }
-
-  .div_content {
-    width : 100%;
-  }
-
-  .like_content {
-      background-color: yellow;
-      float : left;
-      width : 50%;
-      height : 100%;
-  }
-
-  .detail_content {
-    background-color: black;
-        float : left;
-        width : 50%;
-        height : 100%;
-  }
-
 
 </style>
 
@@ -268,7 +269,7 @@
 </div>
 
 <div class="map_wrap">
-    <div id="map" style="width:100%;height:80%;"></div>
+    <div id="map"></div>
     <div id="katalk">
       <i class="katalk" data-content="오픈 카카오톡방으로 여행 팁을 공유해보세요 !"></i>
     </div>
@@ -276,7 +277,7 @@
 
 <div id="menu_wrap" class="bg_white">
   <div class = "up_scroll"> ∧∧∧ </div>
-  <div class = "reco_course" id = "reco_course"><b>추천관광지</b>
+  <div class = "reco_course" id = "reco_course"><b>추천관광지</b><hr>
     <div id="course" class ="for_ajax">
       <div class = "div_course">
         <div class = "div_img"></div>
@@ -394,9 +395,9 @@ function zoomIn() {
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
-        center: new daum.maps.LatLng(35.497482, 127.937508), // 지도의 중심좌표
+        center: new daum.maps.LatLng(35.797482, 127.937508), // 지도의 중심좌표
         level: 13, // 지도의 확대 레벨
-        draggable: true
+        draggable: false
     };
 
 var map = new daum.maps.Map(mapContainer, mapOption),
@@ -467,7 +468,7 @@ function map_dynamic_content(reco_sort) {
 
             $('.for_ajax').append (
                         '<div class="active title">' +
-                         '<i class="dropdown icon">' + '</i>' +item[i].title + "  " + reco_star +
+                         item[i].title + "  " + reco_star +
                        '</div>' +
               '<div class = "div_course">' + 
                 '<div class = "div_img">' +
@@ -758,7 +759,7 @@ var positions = [
     },
     {
         title: '제주권', 
-        latlng: new daum.maps.LatLng(33.12920323452201 ,126.5438352744674),
+        latlng: new daum.maps.LatLng(33.62920323452201 ,126.5438352744674),
         markerImage : new daum.maps.MarkerImage(imageSrc2, imageSize)
     },
     {
@@ -796,10 +797,11 @@ if(positions[i].title =="경기권") {
   daum.maps.event.addListener(marker1, 'click', function() {
               $('.ui.header').html('경기권 입니다.');
                $('.ui.tour')
-                .modal('show'); 
+                .modal('show');
 
               $('.ui.positive.button').click(function() {
-                 map_change(37.55703003735185 ,127.02311048850409, 1);
+                 marker1.setMap(null);
+                 map_change(37.65703003735185 ,126.92311048850409, 1);
               });
   });
 }
