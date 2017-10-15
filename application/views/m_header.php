@@ -91,7 +91,7 @@ body.menu-active div#content .menu-trigger { left: 170px; }
         <ul>
             <li>내 기록</li><br>
             <li>개인 정보</li><br>
-            <li><a href="/map/map_v" style="color:white;text-decoration:none;"> 지도 보기</a></li><br>
+            <li><a href="/map" style="color:white;text-decoration:none;"> 지도 보기</a></li><br>
             <li>검 색</li><br>
             <li class="map_location">내 위치</li><br>
             <li>설 정</li><br>

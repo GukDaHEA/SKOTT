@@ -76,7 +76,7 @@
             <div class="navbar-collapse collapse">
                <ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
                   <li class="active"><a href="#header">홈</a></li>
-                  <li><a href="/map/map_v">지도보기</a></li>
+                  <li><a href="/map">지도보기</a></li>
                   <li><a href="#section-about">SKOTT</a></li>
                   <li><a href="#services">추천코스</a></li>
                   <li><a href="#line-pricing">서비스 소개</a></li>
@@ -129,7 +129,7 @@
                            </div> 
                          -->
                            <div class="form-group">
-                               <button type="getnow" class="btn btn-primary btn-lg" required="required"><a href="/map/map_v">START TOUR</a></button>
+                               <button type="getnow" class="btn btn-primary btn-lg" required="required"><a href="/map">START TOUR</a></button>
                            </div>
                         </form>
                      </div>
@@ -155,7 +155,7 @@
                            </div> 
                          -->
                            <div class="form-group">
-                              <button type="getnow" class="btn btn-primary btn-lg" required="required"><a href="/map/map_v">START TOUR</a></button>
+                              <button type="getnow" class="btn btn-primary btn-lg" required="required"><a href="/map">START TOUR</a></button>
                            </div>
                         </form>
                      </div>
@@ -681,7 +681,7 @@
       <!-- map -->
    <section id="footer" class="section footer">
 
-      <button id ="start_button" onclick="location.href='/map/map_v'" style="border:0px;background-color:#fff;color:#000;font-weight:bold;border-radius:10px">START SKOTT</button>
+      <button id ="start_button" onclick="location.href='/map'" style="border:0px;background-color:#fff;color:#000;font-weight:bold;border-radius:10px">START SKOTT</button>
       <div class="container">
          <div class="row animated opacity mar-bot0" data-andown="fadeIn" data-animation="animation">
             <div class="col-sm-12 align-center">

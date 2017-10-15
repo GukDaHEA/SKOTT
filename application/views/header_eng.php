@@ -106,7 +106,7 @@
   </div>
 <ol class = "map_menu">
   <li class = "map_home"><p><a href="/mains">Home</a></p></li>
-  <li class = "map_view"><p><a href="/map/map_v">Map</a></p></li>
+  <li class = "map_view"><p><a href="/map">Map</a></p></li>
   <li class = "map_location"><p><a href="#">Position</a></p></li>
                <?php
                 if ($this->session->userdata('is_login')){

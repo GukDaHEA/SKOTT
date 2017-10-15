@@ -9,12 +9,7 @@ class Map extends MY_Controller {
          }
 
 	function index(){
-		
-	}
-	
-	public function map_v()
-	{
-    	if(MobileCheck()){ // 모바일일 경우  아래 실행
+		if(MobileCheck()){ // 모바일일 경우  아래 실행
         	$this->load->view('m_header');
   		}else
   		{  //pc 일 경우 실행
@@ -54,7 +49,6 @@ class Map extends MY_Controller {
 				'reco_idx'=>$marker_idx[0]
 				)					//변수 이름으로
 		);
-
 	}
 
 	public function map_v_ajax_marker() {
