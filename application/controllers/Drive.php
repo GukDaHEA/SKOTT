@@ -336,4 +336,13 @@ class Drive extends MY_Controller {
 	public function suGo_user() {
 		$this->load->view('Sugo_user_v');
 	}
+
+	public function solution() {
+		$this->load->view('m_header');		
+		$this->load->model('drive_m');
+		$data  = $this->drive_m->solution();
+		$this->load->view('solution_v',array('list'=>$data));
+		// $this->load->view('sotution');
+
+	}
 }
