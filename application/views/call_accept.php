@@ -59,7 +59,6 @@ function initialize() {
             var marker = new Tmap.Marker(lonlat, icon);
 
             markerLayer.addMarker(marker);
-                alert('<?php echo $call->distance ;?>');
             map.setCenter(new Tmap.LonLat(lonlat.lon, lonlat.lat), 16);
     // //다음지도에서 현위치 받기
     // if (navigator.geolocation) {

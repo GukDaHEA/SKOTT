@@ -73,7 +73,7 @@
 
 <body>
 <div class="container">
-	<h3 style="color:#4d7e2b">리뷰 </h3>
+	<h3 style="color:#4d7e2b; font-weight:bold">리뷰 </h3>
 	<br><br>
 	<table class = "table table-striped" cellpadding="10" cellspacing="5">
 		<tr>

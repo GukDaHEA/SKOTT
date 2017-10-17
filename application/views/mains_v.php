@@ -39,7 +39,6 @@
        }
 
        .img_logo {
-          margin-top: 15px;
           width : 90px;
           height: 40px;
           background:url('/static/image/header/logo.png');
@@ -70,7 +69,7 @@
                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                   <span class="fa fa-bars color-white"></span>
                </button>
-               <h1><a class="navbar-brand" href="/mains" data-0="line-height:90px;" data-300="line-height:50px;"> <div class = "img_logo" data-0="margin-top:20px;" data-300="margin-top:10px;"></div>   
+               <h1><a class="navbar-brand" href="/mains" data-0="line-height:90px;" data-300="line-height:50px;"> <div class = "img_logo" data-0="margin-top:0px;" data-300="margin-top:-10px;"></div>   
                </a></h1> 
             </div>
             <div class="navbar-collapse collapse">
@@ -116,7 +115,7 @@
                      <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">                        
                         <h2><span>SKOTT</span></h2>
                      </div>
-                     <div class="col-md-10 col-md-offset-1">
+                     <div>
                         <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">                        
                            <p><strong>S</strong>afty <strong>KO</strong>rea <strong>T</strong>axi <strong>T</strong>our </p>
                         </div>
@@ -142,7 +141,7 @@
                      <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.0s">                        
                         <h2>SKOTT</h2>
                      </div>
-                     <div class="col-md-10 col-md-offset-1">
+                     <div>
                         <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">                        
                            <p><strong>S</strong>afty <strong>Ko</strong>rea <strong>T</strong>axi <strong>T</strong>our </p>
                         </div>

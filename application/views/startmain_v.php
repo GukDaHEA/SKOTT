@@ -186,13 +186,13 @@ body {
   #buttons {
     position:fixed; background-color:#4d7e2b; font-size:30px;color:#FFEEAD;border:none; 
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); cursor:pointer;
-    display:none;margin-top:100px;margin-left:-100px;
+    display:none;margin-top:200px;margin-left:-200px;
   }
 
   #buttons2 {
     position:fixed; background-color:#4d7e2b; font-size:30px;color:#FFEEAD;border:none; 
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); cursor:pointer;
-    display:none;margin-top:100px;margin-left:100px;
+    display:none;margin-top:200px;margin-left:200px;
   }
  </style>
 </head>
