@@ -1,7 +1,7 @@
 
 <head>
 	<title>
-	Review
+	Review Detail
 	</title>
 	<script src="/static/js/juery.bpopup.min.js" type="text/javascript"></script>
 
@@ -87,10 +87,11 @@
 
 <div class="change">
 <h1> Review </h1>
-<form method = "POST" enctype="multipart/form-data" action="/board_c/board_v_modify">	
+<form method = "POST" enctype="multipart/form-data" action="/board_c_eng/board_v_modify/<?php echo $views->plag_id?>">	
 	
 	<div class="hits"> Hits: <?php echo $views->hits;?></div><br>
 	<div class="date"> Date : <?php echo $views->reg_date;  ?></div><br>
+	<div class="date"> from : <?php echo $views->user_name;  ?></div><br>
 
 	<div class="title" style="text-indent:10px;">  <?php echo $views->subject;?></div>
 	<hr>
@@ -98,11 +99,11 @@
 
 	<div class="con2" style="text-indent:20px; padding-top: 30px; "> <?php echo $views->contents;?> </div>
 	
-	<div class="apply" style="float: right;"><a href="/board_c_eng/board_delete/<?php echo $views->board_id ?>" style="width:100pt;height:30pt;">delete</a></div>
+	<div class="apply" style="float: right;"><a href="/board_c_eng/board_delete/<?php echo $views->plag_id?>/<?php echo $views->board_id ?>" style="width:100pt;height:30pt;">delete</a></div>
 	<div class="apply" style="float: right;">|</div>
-	<div class="apply" style="float: right; "><a href="/board_c_eng/board_v_modify/<?php echo $views->board_id ?>">modify</a></div>
+	<div class="apply" style="float: right; "><a href="/board_c_eng/board_v_modify/<?php echo $views->plag_id?>/<?php echo $views->board_id ?>">modify</a></div>
 	<div class="apply" style="float: right;">|</div>
-	<div class="back" style="float: right; font-size: 18px; margin-right: 15px;"><a href="/board_c_eng/board_v">list</a></div><br>
+	<div class="back" style="float: right; font-size: 18px; margin-right: 15px;"><a href="/board_c_eng/board_v/<?php echo $views->plag_id ?>">list</a></div><br>
 	 <div class="pic" style="text-indent:10px; padding-top: 10px;"> image <?php if ( ! $views->picture == 0) { ?> 
 		<td><img alt="" src="<?php echo $views->picture ?>" style="height:100px;width:110px; margin-left:5px;" /></td>
 		<?php }

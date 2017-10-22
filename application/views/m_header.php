@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -12,7 +13,7 @@
 </head>
 <style type="text/css">
 body {
-    color: #fff;
+    color: black;
     background-color:#9e9e9e;
 }
 #header { z-index: 1001; position:fixed; background-color: #3e3e3e; width:100%;height:60px;}
@@ -89,20 +90,20 @@ body.menu-active div#content .menu-trigger { left: 170px; }
 <!-- Navigation -->
     <nav id="slide-menu">
         <ul>
-            <li>내 기록</li><br>
-            <li>개인 정보</li><br>
-            <li><a href="/map" style="color:white;text-decoration:none;"> 지도 보기</a></li><br>
-            <li>검 색</li><br>
+            <li><a href="/user/user" style="color:black;text-decoration:none;">내 기록</a></li><br>
+            <li><a href="/user/user" style="color:black;text-decoration:none;">개인 정보</a></li><br>
+            <li><a href="/map" style="color:black;text-decoration:none;"> 지도 보기</a></li><br>
+            <li><a href="/map" style="color:black;text-decoration:none;">검 색</a></li><br>
             <li class="map_location">내 위치</li><br>
             <li>설 정</li><br>
                <?php
                 if ($this->session->userdata('is_login')){
                 ?>
-                    <li><a href="/drive/call_login" style="color:white;text-decoration:none;">로그아웃</a></li>
+                    <li><a href="/drive/logout" style="color:black;text-decoration:none;">로그아웃</a></li>
                 <?php
                 } else {
                 ?>
-                    <li><a href="/drive/logout" style="color:white;text-decoration:none;">로그인</a></li>
+                    <li><a href="/login" style="color:black;text-decoration:none;">로그인</a></li>
                 <?php
                 }
                 ?>
@@ -204,6 +205,6 @@ $(".map_location").click(function(){
                 // 지도 중심좌표를 접속위치로 변경합니다
                 map.setCenter(locPosition);      
             }    
-             });
+});
 
 </script>

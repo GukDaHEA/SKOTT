@@ -250,7 +250,7 @@ class Drive extends MY_Controller {
 
 	function logout() {
 		$this->session->sess_destroy();
-		header('Location: /Drive/call_login');
+		header('Location: /login');
 	}
 
 	public function cus_wide() {
@@ -284,7 +284,7 @@ class Drive extends MY_Controller {
 	}
 
 	public function callist() {
-		$start=1;
+		$start=0;
 		$limit=5;
 		$call = $this->Call_m;
 		$data['list'] = $call->get_list('', $start, $limit);

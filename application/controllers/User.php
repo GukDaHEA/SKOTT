@@ -12,11 +12,19 @@ class User extends MY_Controller {
 
 	}
 	public function user() {
-      $id = $this->uri->segment(3);
-      $email = $this->session->userdata('email');
-      $data['views'] = $this->User_m->get_view($email);
-      $this->load->view('header');
-		$this->load->view('User_v', $data);
+      if($this->session->userdata('is_login')){
+         $id = $this->uri->segment(3);
+         $email = $this->session->userdata('email');
+         $data['views'] = $this->User_m->get_view($email);
+         $this->load->view('header');
+   		$this->load->view('User_v', $data);
+      }
+      else
+      {
+         echo "<script>alert(\"로그인이 필요합니다.\");</script>";
+            redirect('/Login','refresh');
+            exit;
+      }
 	}
 	 public function user_modify() {
 

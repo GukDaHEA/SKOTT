@@ -99,7 +99,7 @@
    </div>
    
   <div class="slider">      
-      <div id="about-slider" style="background-color:#e1e1e1">
+      <div id="about-slider" style="background-color:#d1d1d1">
          <div id="carousel-slider" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators visible-xs">
@@ -137,6 +137,31 @@
          
                 <div class="item">
                   <img src="/static/image/pic6.jpg" class="img-responsive" alt=""> 
+                  <div class="carousel-caption">
+                     <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.0s">                        
+                        <h2>SKOTT</h2>
+                     </div>
+                     <div>
+                        <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">                        
+                           <p><strong>S</strong>afty <strong>Ko</strong>rea <strong>T</strong>axi <strong>T</strong>our </p>
+                        </div>
+                     </div>
+                     <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.6s">                        
+                        <form class="form-inline">
+                        <!-- 
+                           <div class="form-group">
+                              <button type="livedemo" name="purchase" class="btn btn-primary btn-lg" required="required">Live Demo</button>
+                           </div> 
+                         -->
+                           <div class="form-group">
+                              <button type="getnow" class="btn btn-primary btn-lg" required="required"><a href="/map">START TOUR</a></button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <img src="/static/image/pic7.jpg" class="img-responsive" alt=""> 
                   <div class="carousel-caption">
                      <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.0s">                        
                         <h2>SKOTT</h2>
@@ -246,7 +271,7 @@
    <!--/about-->
       
       <!-- services -->
-      <section id="services">
+      <section id="services" style="background:#fafafa;">
       <div class="container"> 
             <div class="row mar-bot5">
                <div class="col-md-offset-3 col-md-6">
@@ -413,7 +438,7 @@
       </section>
 
       <!-- section works -->
-      <section id="section-works" class="section appear clearfix">
+      <section id="section-works" class="section appear clearfix" style="background-color:#fafafa">
          <div class="container">
             
             <div class="row mar-bot40">
@@ -445,7 +470,7 @@
                            </div>
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 1</a></h5>
+                                    <h5><a href="#">경복궁</a></h5>
                                     <a href="/static/image/seoul1/1.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -459,7 +484,7 @@
                            </div>
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 2</a></h5>
+                                    <h5><a href="#">창덕궁</a></h5>
                                     <a href="/static/image/seoul1/2.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -474,7 +499,7 @@
                            </div>   
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 3</a></h5>
+                                    <h5><a href="#">경희궁</a></h5>
                                     <a href="/static/image/seoul1/3.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -488,7 +513,7 @@
                             </div>   
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 4</a></h5>
+                                    <h5><a href="#">신사동</a></h5>
                                     <a href="/static/image/seoul1/15.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -502,7 +527,7 @@
                            </div>
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 5</a></h5>
+                                    <h5><a href="#">한국 전쟁기념관</a></h5>
                                     <a href="/static/image/seoul1/5.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -516,7 +541,7 @@
                             </div>      
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 6</a></h5>
+                                    <h5><a href="#">홍익대 입구 거리</a></h5>
                                     <a href="/static/image/seoul1/6.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -530,7 +555,7 @@
                            </div>
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 7</a></h5>
+                                    <h5><a href="#">광화문 광장</a></h5>
                                     <a href="/static/image/seoul1/7.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -544,7 +569,7 @@
                            </div>   
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 8</a></h5>
+                                    <h5><a href="#">이태원 거리</a></h5>
                                     <a href="/static/image/seoul1/8.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -558,7 +583,7 @@
                            </div>
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 9</a></h5>
+                                    <h5><a href="#">동대문</a></h5>
                                     <a href="/static/image/seoul1/9.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -680,33 +705,26 @@
       <!-- map -->
    <section id="footer" class="section footer">
 
-      <button id ="start_button" onclick="location.href='/map'" style="border:0px;background-color:#fff;color:#000;font-weight:bold;border-radius:10px">START SKOTT</button>
+      <button id ="start_button" onclick="location.href='/map'" style="border:0px;background-color:#4d7e2b;color:#fff;font-weight:bold;border-radius:10px">START SKOTT</button>
       <div class="container">
          <div class="row animated opacity mar-bot0" data-andown="fadeIn" data-animation="animation">
             <div class="col-sm-12 align-center">
                     <ul class="social-network social-circle">
-                        <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="http://www.facebook.com" class="icoFacebook" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="http://www.twitter.com" class="icoTwitter" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="http://www.google.com" class="icoGoogle" title="Google +" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="http://www.linkedin.com" class="icoLinkedin" title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                     </ul>            
             </div>
          </div>
 
          <div class="row align-center copyright">
-               <div class="col-sm-12">
-                   <p>&copy; SKOTT Theme</p>
-                        <div class="credits">
-                            <!-- 
-                                All the links in the footer should remainoncl intact. 
-                                You can delete the links only if you purchased the pro version.
-                                Licensing information: https://bootstrapmade.com/license/
-                                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Green
-                            -->
-                            <a href="/mains">SKOTT</a> by <a href="https://www.bc.ac.kr">BucheonU.S MADE</a>
-                        </div>
-                    </div>
+            <div class="col-sm-12" style="color:white">
+              <p>&copy; SKOTT Theme</p>
+                <div class="credits">
+                    <a href="/mains">SKOTT</a> by <a href="https://www.bc.ac.kr">BucheonU.S MADE</a>
+                </div>
+            </div>
          </div>
       </div>
 

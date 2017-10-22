@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends MY_Controller {
+class Login_eng extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model('Login_m'); 
@@ -9,7 +9,7 @@ class Login extends MY_Controller {
 
 	public function index()
 	{
-		$this->load->view('login_v_eng', array('returnURL'=>$this->input->get('returnURL')));
+		$this->load->view('login_v_eng');
 	}
 
       function authentication()
@@ -24,16 +24,17 @@ class Login extends MY_Controller {
             // password_verify($password, $user->password)
             $password == $user->password
             ) {
+            $this->session->set_userdata(array('is_login' => true, 'user_idx' => $user->user_id));
             $this->session->set_userdata(array('is_login' => true, 'name' => $user->name));
             $this->session->set_userdata(array('is_login' => true, 'email' => $email));
             // $returnURL = $this->input->get('returnURL');
             // if($returnURL == false){
             //    redirect("/mains");
             // }
-            header('Location: /mains');
+            header('Location: /mains_eng');
          } else {
             $this->session->set_flashdata('message','로그인에 실패 하였습니다. 아이디 또는 비밀번호를 확인해 주세요.');
-            header('Location: /login');
+            header('Location: /login_eng');
          }
       }
 
@@ -41,7 +42,7 @@ class Login extends MY_Controller {
       {
          $this->session->sess_destroy();
             if($returnURL == false){
-            header('Location: /mains');
+            header('Location: /mains_eng');
             }
       }
 
@@ -84,7 +85,7 @@ class Login extends MY_Controller {
             //E-mail 기능 끝
 
             $this->session->set_flashdata('message', '회원가입이 완료되었습니다.');
-            header('Location: /login');
+            header('Location: /login_eng');
          }
       }
 }

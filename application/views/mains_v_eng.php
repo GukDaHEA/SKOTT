@@ -23,14 +23,14 @@
       <!-- skin -->
       <link rel="stylesheet" href="/static/tem_skin/default.css">
 
-<!--               <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">
+              <link rel="stylesheet" type="text/css" href="/static/Semantic/semantic.min.css">
         <script
           src="https://code.jquery.com/jquery-3.1.1.min.js"
           integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
           crossorigin="anonymous">
         </script>
         <script src="/static/Semantic/semantic.min.js"></script>
- -->
+
     </head>
     <style type="text/css">
        .img_service {
@@ -39,7 +39,6 @@
        }
 
        .img_logo {
-          margin-top: 15px;
           width : 90px;
           height: 40px;
           background:url('/static/image/header/logo.png');
@@ -72,13 +71,13 @@
                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                   <span class="fa fa-bars color-white"></span>
                </button>
-               <h1><a class="navbar-brand" href="/mains/eng" data-0="line-height:90px;" data-300="line-height:50px;"> <div class = "img_logo" data-0="margin-top:20px;" data-300="margin-top:10px;"></div>   
+               <h1><a class="navbar-brand" href="/mains_v_eng" data-0="line-height:90px;" data-300="line-height:50px;"> <div class = "img_logo" data-0="margin-top:0px;" data-300="margin-top:-10px;"></div>   
                </a></h1> 
             </div>
             <div class="navbar-collapse collapse">
                <ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
                   <li class="active"><a href="#header">HOME</a></li>
-                  <li><a href="/map_eng/map_v">MAP</a></li>
+                  <li><a href="/map_eng">MAP</a></li>
                   <li><a href="#section-about">SKOTT</a></li>
                   <li><a href="#services">RECOMMEND</a></li>
                   <li><a href="#line-pricing">INTRODUCE</a></li>
@@ -108,7 +107,7 @@
    
 
 <div class="slider">      
-      <div id="about-slider">
+      <div id="about-slider" style="background-color:#d1d1d1">
          <div id="carousel-slider" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators visible-xs">
@@ -124,18 +123,18 @@
                      <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">                        
                         <h2><span>SKOTT</span></h2>
                      </div>
-                     <div class="col-md-10 col-md-offset-1">
+                     <div>
                         <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">                        
                            <p><strong>S</strong>afty <strong>KO</strong>rea <strong>T</strong>axi <strong>T</strong>our </p>
                         </div>
                      </div>
                      <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">                        
                         <form class="form-inline">
-                           <div class="form-group">
+                           <!-- <div class="form-group">
                               <button type="livedemo" name="Live Demo" class="btn btn-primary btn-lg" required="required">SKOTT</button>
-                           </div>
+                           </div> -->
                            <div class="form-group">
-                               <button type="getnow" class="btn btn-primary btn-lg" required="required"><a href="/map/map_v">START TOUR</a></button>
+                               <button type="getnow" class="btn btn-primary btn-lg" required="required"><a href="/map_eng">START TOUR</a></button>
                            </div>
                         </form>
                      </div>
@@ -148,18 +147,43 @@
                      <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.0s">                        
                         <h2>SKOTT</h2>
                      </div>
-                     <div class="col-md-10 col-md-offset-1">
+                     <div>
                         <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">                        
                            <p><strong>S</strong>afty <strong>Ko</strong>rea <strong>T</strong>axi <strong>T</strong>our </p>
                         </div>
                      </div>
                      <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.6s">                        
                         <form class="form-inline">
+                          <!--  <div class="form-group">
+                              <button type="livedemo" name="purchase" class="btn btn-primary btn-lg" required="required">Live Demo</button>
+                           </div> -->
+                           <div class="form-group">
+                              <button type="getnow" class="btn btn-primary btn-lg" required="required"><a href="/map_eng">START TOUR</a></button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+                </div> 
+                <div class="item">
+                  <img src="/static/image/pic7.jpg" class="img-responsive" alt=""> 
+                  <div class="carousel-caption">
+                     <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.0s">                        
+                        <h2>SKOTT</h2>
+                     </div>
+                     <div>
+                        <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">                        
+                           <p><strong>S</strong>afty <strong>Ko</strong>rea <strong>T</strong>axi <strong>T</strong>our </p>
+                        </div>
+                     </div>
+                     <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.6s">                        
+                        <form class="form-inline">
+                        <!-- 
                            <div class="form-group">
                               <button type="livedemo" name="purchase" class="btn btn-primary btn-lg" required="required">Live Demo</button>
-                           </div>
+                           </div> 
+                         -->
                            <div class="form-group">
-                              <button type="getnow" name="subscribe" class="btn btn-primary btn-lg" required="required">Get Now</button>
+                              <button type="getnow" class="btn btn-primary btn-lg" required="required"><a href="/map_eng">START TOUR</a></button>
                            </div>
                         </form>
                      </div>
@@ -187,7 +211,7 @@
                   <div class="title">
                      <div class="wow bounceIn">
                   
-                     <h2 class="section-heading animated" data-animation="bounceInUp"> <bold>SKOTT < Trip >  </bold> </h2>
+                     <h2 class="section-heading animated" data-animation="bounceInUp">SKOTT</h2>
                      
                   
                      </div>
@@ -218,7 +242,7 @@
                
                   <div class="col-lg-6 ">
                      <div class="company mar-left10">
-                        <h4>This is SKOTT... </h4>
+                        <h4>'SKOTT' ? </h4>
                         <p>"SKOTT" is the abbreviation for Safty KOrea Taxi Tour and it is a site for foreigners traveling to Korea.
                         It is a taxi platform built to prevent overage charges when you ride a taxi.
                         </p>
@@ -247,14 +271,14 @@
    <!--/about-->
       
       <!-- services -->
-      <section id="services" class="section pad-bot5 bg-white">
+      <section id="services" style="background:#fafafa;">
       <div class="container"> 
             <div class="row mar-bot5">
                <div class="col-md-offset-3 col-md-6">
                   <div class="section-header">
                   <div class="wow bounceIn"data-animation-delay="7.8s">
                   
-                     <h2 class="section-heading animated"  >SKOTT < Spot ></h2>
+                     <h2 class="section-heading animated"  >SKOTT - Spot </h2>
                      <h4>Recommend Spot TOP3</h4>
                   
                   </div>
@@ -267,7 +291,7 @@
                   <div class="align-center">
                      <div class="wow rotateIn">
                         <div class="service-col" style="height: 550px;">
-                           <div class="service-icon" style = "width : 230px; height : 230px;">
+                           <div class="service-icon" style = "width : 230px; height : 230px;background-size: 100% 100%">
                            <img class = "img_service" src="/static/image/mains/TOP3/8.jpg">
                            </div>
                               <h2><a href="#">TOP1<br> < Itaewon  > </a></h2> 
@@ -320,14 +344,14 @@
       </div>
       </section>        
 
-      <section id="line-pricing" class="line-section line-center">
+      <section id="line-pricing" class="section pad-bot5 bg-white">
          <div class="container pad-top50">
             <div class="row mar-bot10 ">
                <div class="col-md-offset-3 col-md-6">
                   <div class="section-header">
                      <div class="wow bounceIn">
                   
-                        <h2 class="section-heading animated" data-animation="bounceInUp">SKOTT < How to... > </h2>
+                        <h2 class="section-heading animated" data-animation="bounceInUp">SKOTT - How to...  </h2>
                         <p>How to use SKOTT</p>
                   
                      </div>
@@ -410,7 +434,7 @@
       </section>
 
       <!-- section works -->
-      <section id="section-works" class="section appear clearfix">
+      <section id="section-works" class="section appear clearfix" style="background-color:#fafafa">
          <div class="container">
             
             <div class="row mar-bot40">
@@ -442,7 +466,7 @@
                            </div>
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 1</a></h5>
+                                    <h5><a href="#">Gyeongbokgung</a></h5>
                                     <a href="/static/image/seoul1/1.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -456,7 +480,7 @@
                            </div>
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 2</a></h5>
+                                    <h5><a href="#">Changdeokgung Palace</a></h5>
                                     <a href="/static/image/seoul1/2.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -471,7 +495,7 @@
                            </div>   
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 3</a></h5>
+                                    <h5><a href="#">Gyeonghui Palace</a></h5>
                                     <a href="/static/image/seoul1/3.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -485,7 +509,7 @@
                             </div>   
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 4</a></h5>
+                                    <h5><a href="#">Sinsa-dong</a></h5>
                                     <a href="/static/image/seoul1/15.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -499,7 +523,7 @@
                            </div>
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 5</a></h5>
+                                    <h5><a href="#">War Memorial Musium</a></h5>
                                     <a href="/static/image/seoul1/5.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -513,7 +537,7 @@
                             </div>      
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 6</a></h5>
+                                    <h5><a href="#">Hongik University entrance</a></h5>
                                     <a href="/static/image/seoul1/6.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -527,7 +551,7 @@
                            </div>
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 7</a></h5>
+                                    <h5><a href="#">Gwanghwamun Square</a></h5>
                                     <a href="/static/image/seoul1/7.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -541,7 +565,7 @@
                            </div>   
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 8</a></h5>
+                                    <h5><a href="#">Itaewon</a></h5>
                                     <a href="/static/image/seoul1/8.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -555,7 +579,7 @@
                            </div>
                                <div class="portfolio-desc align-center">
                                  <div class="folio-info">
-                                    <h5><a href="#">Project name 9</a></h5>
+                                    <h5><a href="#">Dong Dae Moon</a></h5>
                                     <a href="/static/image/seoul1/9.jpg" class="fancybox"><i class="fa fa-external-link fa-2x"></i></a>
                                   </div>                                 
                                </div>
@@ -677,22 +701,21 @@
       <!-- map -->
    <section id="footer" class="section footer">
 
-      <button id ="start_button" onclick="location.href='/map/map_v'" >START SKOTT</button>
+      <button id ="start_button" onclick="location.href='/map'" style="border:0px;background-color:#4d7e2b;color:#fff;font-weight:bold;border-radius:10px" >START SKOTT</button>
       <div class="container">
          <div class="row animated opacity mar-bot0" data-andown="fadeIn" data-animation="animation">
             <div class="col-sm-12 align-center">
                     <ul class="social-network social-circle">
-                        <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="http://www.facebook.com" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="http://www.twitter.com" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="http://www.google.com" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="http://www.linkedin.com" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
                     </ul>            
             </div>
          </div>
 
          <div class="row align-center copyright">
-               <div class="col-sm-12">
+               <div class="col-sm-12" style="color:white">
                    <p>&copy; SKOTT Theme</p>
                         <div class="credits">
                             <!-- 
@@ -701,7 +724,7 @@
                                 Licensing information: https://bootstrapmade.com/license/
                                 Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Green
                             -->
-                            <a href="/mains">SKOTT</a> by <a href="https://www.bc.ac.kr">BucheonU.S MADE</a>
+                            <a href="/mains_v_eng">SKOTT</a> by <a href="https://www.bc.ac.kr">BucheonU.S MADE</a>
                         </div>
                     </div>
          </div>

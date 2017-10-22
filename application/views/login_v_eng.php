@@ -113,7 +113,7 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
                            <!-- facebook login -->                     
                            <a href="/drive/call_login"><div id="taxi"> 택시기사 로그인 </div></a>
                     <input type="submit" title="Log In" alt="로그인" tabindex="12" value="Log In" class="btn_global" target="_blank">
-                    <label><input type="checkbox" name="save_id" id="chk_save_id" value="on"  /> 아이디저장</label>
+                    <label><input type="checkbox" name="save_id" id="chk_save_id" value="on"  /> ID get</label>
                     </fieldset>
             </form>
             <div class="position_a">

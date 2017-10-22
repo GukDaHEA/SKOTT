@@ -48,10 +48,10 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
     background-color:#4d7e2b;
     color:white;
     width:20%;
-    height:6%;
+    height:8%;
     font-weight:bold;
     text-align: center;
-    padding-top: 1px;
+    padding-top: 7px;
     display:block;
     font-size:15px;
  }}
@@ -123,7 +123,7 @@ input {font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:
             <div class="phishing_banner bw_crome">
                 <div class="sp">
                     <span class="blind">
-                    <strong>지금 로그인 하는 사이트가 어디인지 알고 계신가요?</strong>
+                    <strong>지금 로그인 하는 사이트가 어디인지 알고 계신가요?</strong><br/><br/>
                     고객님의 소중한 정보를 위해 로그인 전에 <br><em>주소표시줄</em>을 확인해 주세요.
                     </span>
                 </div>

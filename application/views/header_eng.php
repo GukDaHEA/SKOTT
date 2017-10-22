@@ -111,12 +111,12 @@
                <?php
                 if ($this->session->userdata('is_login')){
                 ?>
-                    <li class = "map_login"><a href="/Login/logout">Log out</a></li>
+                    <li class = "map_login"><a href="/Login_eng/logout">Log out</a></li>
                     <li class = "map_home"><a href="/User/user"><?php echo $this->session->userdata('name') ?> 님</a></li>
                 <?php
                 } else {
                 ?>
-                    <li class = "map_login"><a href="/Login">Log in</a></li>
+                    <li class = "map_login"><a href="/Login_eng">Log in</a></li>
                 <?php
                 }
                 ?>

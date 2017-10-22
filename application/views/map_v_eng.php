@@ -19,7 +19,7 @@
         .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:15px;}
         .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
         .map_wrap {width:100%;height:100%;}
-        #menu_wrap {position:absolute;top:30px;left:65%;bottom:0;width:25%;height:80%;margin:100px 0 30px 10px;padding:5px;overflow-y:auto;background:#eaf1f7;z-index: 1;font-size:15px;border-radius: 10px;border:2px solid black;}
+        #menu_wrap {position:absolute;top:0px;left:70%;bottom:0;width:23%;height:70%;margin:200px 0 30px 10px;padding:5px;overflow-y:auto;background:#eaf1f7;z-index: 1;font-size:15px;border-radius: 10px;border:2px solid black;}
         #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
         #menu_wrap .option{text-align: center;}
         #menu_wrap .option p {margin:10px 0;}  
@@ -36,71 +36,118 @@
         #pagination {margin:10px auto;text-align: center;}
         #pagination a {display:inline-block;margin-right:10px;}
         #pagination .on {font-weight: bold; cursor: default;color:#777;}
+
+    #map {
+      width:100%;height:92%;
     }
-    
-
-
-    </style>
-
-     <style>
-        .area {
-            position: absolute;
-            background: #fff;
-            border: 1px solid #888;
-/*            border-radius: 3px;*/
-            font-size: 50px;
-            padding:2px;
-        }
-
-        .info {
-            font-size: 12px;
-            padding: 5px;
-        }
-        .info .title {
-            font-weight: bold;
-        }
-</style>
-
-<style type="text/css">
-
- @media(min-width: 1025px) {
-
      .div_content {
       display: none;
      }
-
- }
+    }
+    #katalk {
+      top: 80%;
+      left: 50px;
+    }
+    .up_scroll {
+      display:none;
+    }
+    </style>
+<style type="text/css">
 /*모바일 버전*/
- @media(max-width: 1025px) {
+ @media(max-width: 1024px) {
+    #map {
+      width:100%;height:80%;
+    }
 
-    .map_wrap {width:109%; height:45%; }
+    .map_wrap {top:9%;position:relative;width:100%;height:100%;}
 
      .div_content_click img {height: 420px; }
      #menu_wrap {
-      width: 109%;
-      margin-top:-63px;
+      margin-top:-80px;
       overflow:scroll;
       overflow-y:auto;
-      height: 60%;
+      height: 70%;
      }
 
      .ui.like.button {
-      width : 950px;
-      height: 100%;
-      font-size : 35px;
+      width : 100%;
+      height: 50px;
+      /*font-size : 35px;*/
      }
 
      .ui.detail.button {
       width : 100%;
-      height: 100%;
-            font-size : 35px;
+      height: 50px;
+            /*font-size : 35px;*/
      }
      
      .ui.small.buttons {
       display :none;
      }
 
+    #katalk{top:60%;left:70%;}
+    .up_scroll{display:block;}
    }
+   .div_course {
+    width:90%;
+   }
+
+</style>
+
+
+<style>
+/* 공통 */
+    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+    .info .close:hover {cursor: pointer;}
+    .info .body {position: relative;overflow: hidden;}
+    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    .info .link {color: #5085BB;}
+
+
+  .example .popup {
+  color: #FF0000;
+  }
+  #katalk {
+    z-index : 15000;
+    width : 90px;
+    height : 90px;
+    border-radius: 50px;
+    position: absolute;
+    background: url('/static/image/katalk.png');
+    background-size: 100% 100%;
+    box-shadow: 0px 10px 15px  grey;
+  }
+  #katalk:hover {
+    opacity: 0.4;
+  }
+  #md {
+    display:none;
+  }
+
+  .div_content {
+    width : 100%;
+  }
+
+  .like_content {
+      background-color: yellow;
+      float : left;
+      width : 50%;
+      height : 100%;
+  }
+
+  .detail_content {
+    background-color: black;
+        float : left;
+        width : 50%;
+        height : 100%;
+  }
+
 
    .ui.modal {
     height: 300px;
@@ -125,11 +172,14 @@
             }
     .reco_course {
       color : black;
-/*      font-size:20pt;*/
       text-align: center;
-/*      border-top:solid white;
-      border-bottom:solid white;*/
       background-color: #e2e2e2;
+    }
+    .up_scroll {
+      text-align: center;
+      background-color: #e2e2e2;
+      border-top:solid 1px black;
+      border-bottom:solid 1px black;
     }
 
       .div_head {
@@ -142,11 +192,7 @@
         display :flex;
         flex-direction:row;
         margin : 10px;
-
-      }
-
-     .div_course:hover {
-/*            background-color: yellow;*/
+        width: 95%;
       }
 
       .div_img {
@@ -162,8 +208,6 @@
       .div_content_click {
         font-size : 13pt;
         text-align: center;
-/*        border : 1px solid black;*/
-/*        margin-top : 100px;*/
         padding : 5px;
       }
 
@@ -183,86 +227,26 @@
 
 </style>
 
-
-<style>
-    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
-    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
-    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
-    .info .close:hover {cursor: pointer;}
-    .info .body {position: relative;overflow: hidden;}
-    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
-    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
-    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
-    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
-    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
-    .info .link {color: #5085BB;}
-</style>
-
-<style type="text/css"> 
-  .example .popup {
-  color: #FF0000;
-  }
-  .katalk {
-    z-index : 15000;
-    width : 90px;
-    height : 90px;
-    border-radius: 50px;
-    position: absolute;
-    top: 630px;
-    left: 50px;
-    background: url('/static/image/katalk.png');
-    background-size: 100% 100%;
-    box-shadow: 0px 10px 15px  grey;
-  }
-  @media(max-height:820px){
-    .katalk{top:130px;}
-  }
-  #md {
-    display:none;
-  }
-
-
-  .div_content {
-    width : 100%;
-  }
-
-  .like_content {
-      background-color: yellow;
-      float : left;
-      width : 50%;
-      height : 100%;
-  }
-
-  .detail_content {
-    background-color: black;
-        float : left;
-        width : 50%;
-        height : 100%;
-  }
-.BOXA {
-  margin-top:-15px;
-}
-
 </style>
 
 <body style="overflow:hidden" >
 <div class="ui modal tour">
   <div class="header">
-    관광지
+    Recommand Spot
   </div>
   <div class="image content">
     <div class="description">
-      <div class="ui header"><br> 알 수 없는 글입니다. </div>
+      <div class="ui header"><br> Unknown </div>
       <br><br>
-      <p> <b>이동 클릭시</b> 지도페이지로 이동합니다</p>
+      <p> <b>Go Click </b> Change Map </p>
     </div>
   </div>
   <div class="actions">
     <div class="ui black deny button">
-      취소
+      Cancel
     </div>
     <div class="ui positive right labeled icon button">
-      이동
+      Go
       <i class="checkmark icon"></i>
     </div>
   </div>
@@ -271,7 +255,7 @@
 <div id="md">
 <div class="ui modal katalk">
   <div class="header">
-    오픈 카카오톡 방 목록
+    Open Kakao Chatting Room
   </div>
   <div class="image content">
     <div class="description">
@@ -282,33 +266,31 @@
   </div>
   <div class="actions">
     <div class="ui black deny button">
-      나가기
+      Go back
     </div>
   </div>
 </div>
 </div>
 
 <div class="map_wrap">
-    <div id="map" style=" height:900px; "></div>
+    <div id="map"></div>
         <div id="katalk">
         <i class="katalk" data-content="오픈 카카오톡방으로 여행 팁을 공유해보세요 !"></i>
     </div>
 </div>
     <div id="menu_wrap" class="bg_white">
-        <div class = "reco_course" id = "reco_course"><b>Recommand Spot</b>
-        <div id="course" class ="for_ajax">
-            <div class = "div_course">
-              <div class = "div_img"></div>
-              <div class ="div_content">
-              </div>
-
-            </div>
-               <div class = "div_content_click"><a href="/detail_eng/detail/15"><img class = "img_click" src="/static/image/map/map_v_1.jpg";></a> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_2.jpg";> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_3.jpg";> </div>
-               <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
-        </div>
-        </div>
+          <div class = "up_scroll"> ∧∧∧ </div>
+  <div class = "reco_course" id = "reco_course"><b>Recommandation</b><hr>
+    <div id="course" class ="for_ajax">
+      <div class = "div_course">
+        <div class = "div_img"></div>
+        <div class ="div_content"></div>
+      </div>
+      <div class = "div_content_click"><a href="/detail_eng/detail/8"><img class = "img_click" src="/static/image/map/map_v_1.jpg";></a> </div>
+      <div class = "div_content_click"><a href="/detail_eng/detail/56"><img class = "img_click" src="/static/image/map/map_v_2.jpg";></a> </div>
+      <div class = "div_content_click"><a href="/detail_eng/detail/57"><img class = "img_click" src="/static/image/map/map_v_3.jpg";></a> </div>
+    </div>
+  </div>
         </div>
 
     <script type="text/javascript">
@@ -345,7 +327,7 @@ function zoomIn() {
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
-        center: new daum.maps.LatLng(36.032097801534185, 128.10776920882668), // 지도의 중심좌표
+        center: new daum.maps.LatLng(36.497482, 127.937508), // 지도의 중심좌표
         level: 13, // 지도의 확대 레벨
         draggable: false
     };
@@ -363,6 +345,8 @@ var map = new daum.maps.Map(mapContainer, mapOption),
         var zoomControl = new daum.maps.ZoomControl();
         // 지도의 우측에 확대 축소 컨트롤을 추가한다
         map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+
+geocoder = new daum.maps.services.Geocoder();
 function searchDetailAddrFromCoords(coords, callback) {
           // 좌표로 법정동 상세 주소 정보를 요청합니다
           geocoder.coord2detailaddr(coords, callback);
@@ -416,27 +400,28 @@ function map_dynamic_content(reco_sort) {
 
             $('.for_ajax').append (
                         '<div class="active title">' +
-                         '<i class="dropdown icon">' + '</i>' +item[i].title + "  " + reco_star +
+                         item[i].title_eng + "  " + reco_star +
                        '</div>' +
               '<div class = "div_course">' + 
                 '<div class = "div_img">' +
                  '<img id ="img_div_course" src="/static/image/seoul/'+item[i].reco_idx+'.jpg" onclick="map_marker_1('+item[i].reco_idx+')" width="365px" height="180px"></a>' +
-                        '<div class="ui small buttons">' +
-            '<button class="ui like button" onclick="like_content_click('+item[i].reco_idx+')"> ♥'+
-             '<div class = "like_content'+item[i].reco_idx+'">' +item[i].reco_like+'</button>' +
-                          '<div class = "or"></div>' +
-                          '<button class="ui detail button" onclick = "detail_location()"><a href="/detail_eng/detail/'+item[i].reco_idx+'" >상세보기</button>' +
-                           '</div>' +
-                        '</div>' +
-                '<div class ="div_content">' +
-                     '<div class = "like_content"> <button class="ui like button" onclick="like_content_click('+item[i].reco_idx+')"> ♥ ' +
-                      '<div class = "like_content'+item[i].reco_idx+'">' +item[i].reco_like+'</button> </div> '+
-                     '<div class = "detail_content">' +
-                     '<div class = "or"></div>' +
-                          '<button class="ui detail button" onclick = "detail_location()"><a href="/detail_eng/detail/'+item[i].reco_idx+'" >상세보기</button>' +
-                           '</div>' +
-                       '</div>' +
-                  '</div> </div> </div>'
+                        // '<div class="ui small buttons">' +
+                  '<button class="ui like button" onclick="like_content_click('+item[i].reco_idx+')"> ♥'+
+                    '<div class = "like_content'+item[i].reco_idx+'">' +item[i].reco_like + '</div>' +
+                  '</button>' +
+                  '<div class = "or"></div>' +
+                  '<button class="ui detail button" onclick = "detail_location()"><a href="/detail_eng/detail/'+item[i].reco_idx+'" >Details</button>' +
+                '</div>' +
+              '</div>'
+            //     '<div class ="div_content">' +
+            //          '<div class = "like_content"> <button class="ui like button" onclick="like_content_click('+item[i].reco_idx+')"> ♥ ' +
+            //           '<div class = "like_content'+item[i].reco_idx+'">' +item[i].reco_like+'</button> </div> '+
+            //          '<div class = "detail_content">' +
+            //          '<div class = "or"></div>' +
+            //               '<button class="ui detail button" onclick = "detail_location()"><a href="/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
+            //                '</div>' +
+            //            '</div>' +
+            //       '</div> </div>'
                   );
                 // $('.ui.accordion').accordion('onClose');
               }
@@ -456,7 +441,7 @@ function map_marker(reco_sort) {
              dataType : 'json',
              success : function (data) {
               for(var i = 0 ; i < data.length ; i ++) {
-                displayMarker(data[i].lat , data[i].lng, data[i].title, data[i].reco_address, data[i].reco_idx, data[i].reco_star ); 
+                displayMarker(data[i].lat , data[i].lng, data[i].title_eng, data[i].reco_address, data[i].reco_idx, data[i].reco_star ); 
               }
              },
            error:function(request,status,error){
@@ -471,7 +456,7 @@ function map_marker_1 (reco_idx) {
          //html에서 idx를 map_marker_1함수에 가져와서 그 값을 ajax로 controllers에 보내서 그부분의 idx로 쿼리를 돌리고 값을 다시 가져와서 해당 마커에 출력한다. 
           $.ajax ({
              type : 'POST',
-             url : '/map_eng/map_v_ajax_marker_content',
+             url : '/map/map_v_ajax_marker_content',
              data : {reco_idx},
              dataType : 'json',
              success : function (data) {
@@ -512,7 +497,7 @@ function map_marker_1 (reco_idx) {
 
                marker_content = '<div class="wrap">' + 
                                               '    <div class="info">' + 
-                                              '        <div class="title">' + data.title + 
+                                              '        <div class="title">' + data.title_eng + 
                                               '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
                                               '        </div>' + 
                                               '        <div class="body">' + 
@@ -521,7 +506,7 @@ function map_marker_1 (reco_idx) {
                                               '           </div>' + 
                                               '            <div class="desc">' + 
                                               '                <div class="ellipsis">'+data.reco_address +'</div>' + 
-                                              '                <div><a href="/detail_eng/detail/' +data.reco_idx + '" class="link">상세 페이지</a></div>' +
+                                              '                <div><a href="/detail_eng/detail/' +data.reco_idx + '" class="link">Detail Page</a></div>' +
                                               '                <div class="marker_star">'+marker_reco_star_content +'</div>' +  
                                               '            </div>' + 
                                               '        </div>' + 
@@ -541,7 +526,7 @@ function map_marker_1 (reco_idx) {
 
 // 지도에 마커를 표시하는 함수입니다
 function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_address, marker_reco_idx, marker_reco_star ) {
-    var imageSrc = "/static/Image/marker_image/marker_tour8.png";
+    var imageSrc = "/static/Image/marker_image/markers.png";
 
     var imageSize = new daum.maps.Size(40,50); 
 
@@ -590,7 +575,7 @@ function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_add
                                         '           </div>' + 
                                         '            <div class="desc">' + 
                                         '                <div class="ellipsis">'+marker_reco_address +'</div>' + 
-                                        '                <div><a href="/detail_eng/detail/' +marker_reco_idx + '" target="_blank" class="link">상세 페이지</a></div>' +
+                                        '                <div><a href="/detail_eng/detail/' +marker_reco_idx + '" target="_blank" class="link">Detail Page</a></div>' +
                                         '                <div class="marker_star">'+marker_reco_star_content +'</div>' +  
                                         '            </div>' + 
                                         '        </div>' + 
@@ -638,23 +623,23 @@ function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_add
                       var marker_reco_star_content;
 
                       if(data.reco_star==1){ 
-                           marker_reco_star_content = '별점 : ★☆☆☆☆'; 
+                           marker_reco_star_content = 'Star : ★☆☆☆☆'; 
 
                       } else if(data.reco_star==2) { 
 
-                           marker_reco_star_content = '별점 : ★★☆☆☆'; 
+                           marker_reco_star_content = 'Star : ★★☆☆☆'; 
 
                       } else if(data.reco_star==3) { 
 
-                           marker_reco_star_content = '별점 : ★★★☆☆'; 
+                           marker_reco_star_content = 'Star : ★★★☆☆'; 
 
                       } else if(data.reco_star==4) { 
 
-                           marker_reco_star_content = '별점 : ★★★★☆'; 
+                           marker_reco_star_content = 'Star : ★★★★☆'; 
 
                      } else if(data.reco_star==5) { 
 
-                          marker_reco_star_content = '별점 : ★★★★★'; 
+                          marker_reco_star_content = 'Star : ★★★★★'; 
                      }
 
 
@@ -669,7 +654,7 @@ function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_add
                                               '           </div>' + 
                                               '            <div class="desc">' + 
                                               '                <div class="ellipsis">'+data.reco_address +'</div>' + 
-                                              '                <div><a href="/detail_eng/detail/' +data.reco_idx + '" target="_blank" class="link">상세 페이지</a></div>' +
+                                              '                <div><a href="/detail_eng/detail/' +data.reco_idx + '" target="_blank" class="link">Detail Page</a></div>' +
                                               '                <div class="marker_star">'+marker_reco_star_content +'</div>' +  
                                               '            </div>' + 
                                               '        </div>' + 
@@ -696,7 +681,7 @@ var imageSrc6 = "/static/image/marker_image/marker_6.png";
 
 
 
-var imageSize = new daum.maps.Size(90, 90); 
+var imageSize = new daum.maps.Size(60, 60); 
 
 // 마커를 표시할 위치와 title 객체 배열입니다 
 var positions = [
@@ -742,78 +727,76 @@ for (var i = 0; i < positions.length; i ++) {
     });
 
 if(positions[i].title =="경기권") {
-  daum.maps.event.addListener(marker1, 'click', function() {
-              $('.ui.header').html('경기권 입니다.');
-               $('.ui.tour')
-                .modal('show'); 
+      daum.maps.event.addListener(marker1, 'click', function() {
+                  $('.ui.header').html('Gyeonggi-do Place');
+                   $('.ui.tour')
+                    .modal('show');
 
-              $('.ui.positive.button').click(function() {
-                 map_change(37.55703003735185 ,127.02311048850409, 1);
-              });
-  });
-}
+                  $('.ui.positive.button').click(function() {
+                    map_change(37.65703003735185 ,126.92311048850409, 1);
+                  });
+      });
+    }
 
-if(positions[i].title =="제주권") {
-  daum.maps.event.addListener(marker1, 'click', function() {
-              $('.ui.header').html('제주권 입니다.');
-               $('.ui.tour')
-                .modal('show'); 
+    if(positions[i].title =="제주권") {
+      daum.maps.event.addListener(marker1, 'click', function() {
+                  $('.ui.header').html('Jeju Island Place');
+                   $('.ui.tour')
+                    .modal('show'); 
 
-              $('.ui.positive.button').click(function() {
-                 map_change(33.440377, 126.496006, 2);
-              });
-  });
-}
+                  $('.ui.positive.button').click(function() {
+                     map_change(33.440377, 126.496006, 2);
+                  });
+      });
+    }
 
-if(positions[i].title =="강원권") {
-  daum.maps.event.addListener(marker1, 'click', function() {
-              $('.ui.header').html('강원권 입니다.');
-               $('.ui.tour')
-                .modal('show'); 
+    if(positions[i].title =="강원권") {
+      daum.maps.event.addListener(marker1, 'click', function() {
+                  $('.ui.header').html('Gangwon-do Place');
+                   $('.ui.tour')
+                    .modal('show'); 
 
-              $('.ui.positive.button').click(function() {
-                 map_change(37.6130868206661 , 128.5442381745224, 1);
-              });
-  });
-}
+                  $('.ui.positive.button').click(function() {
+                     map_change(37.6130868206661 , 128.5442381745224, 1);
+                  });
+      });
+    }
 
-if(positions[i].title =="경상권") {
-  daum.maps.event.addListener(marker1, 'click', function() {
-              $('.ui.header').html('경상권 입니다.');
-               $('.ui.tour')
-                .modal('show'); 
+    if(positions[i].title =="경상권") {
+      daum.maps.event.addListener(marker1, 'click', function() {
+                  $('.ui.header').html('Kyungsang-do Place');
+                   $('.ui.tour')
+                    .modal('show'); 
 
-              $('.ui.positive.button').click(function() {
-                 map_change(36.28157430275591 , 128.75691078469748, 1);
-              });
-  });
-}
+                  $('.ui.positive.button').click(function() {
+                     map_change(36.28157430275591 , 128.75691078469748, 1);
+                  });
+      });
+    }
 
-if(positions[i].title =="충청권") {
-  daum.maps.event.addListener(marker1, 'click', function() {
-              $('.ui.header').html('충청권 입니다.');
-               $('.ui.tour')
-                .modal('show'); 
+    if(positions[i].title =="충청권") {
+      daum.maps.event.addListener(marker1, 'click', function() {
+                  $('.ui.header').html('Chungcheong-do Place');
+                   $('.ui.tour')
+                    .modal('show'); 
 
-              $('.ui.positive.button').click(function() {
-                 map_change(36.257669, 126.894619, 1);
-              });
-  });
-}
+                  $('.ui.positive.button').click(function() {
+                     map_change(36.257669, 126.894619, 1);
+                  });
+      });
+    }
 
-if(positions[i].title =="전라권") {
-  daum.maps.event.addListener(marker1, 'click', function() {
-              $('.ui.header').html('전라권 입니다.');
-               $('.ui.tour')
-                .modal('show'); 
+    if(positions[i].title =="전라권") {
+      daum.maps.event.addListener(marker1, 'click', function() {
+                  $('.ui.header').html('Joella-do Place');
+                   $('.ui.tour')
+                    .modal('show'); 
 
-              $('.ui.positive.button').click(function() {
-                 map_change(35.150578, 126.845514, 1);
-              });
-  });
-}
-
-
+                  $('.ui.positive.button').click(function() {
+                     map_change(35.150578, 126.845514, 1);
+                  });
+      });
+    }
 }
 
 $('.Box0').click(function() {
@@ -825,7 +808,7 @@ $('.Box0').click(function() {
 function like_content_click(reco_idx) {
           $.ajax ({
              type : 'POST',
-             url : '/map_eng/like_content_click',
+             url : '/map/like_content_click',
              dataType : 'json',
              data : {reco_idx},
               success : function (data) {
@@ -854,21 +837,81 @@ function like_content_click(reco_idx) {
 
 </script>
 
+<script type="text/javascript">
+function prompt(window, pref, message, callback) {
+    let branch = Components.classes["@mozilla.org/preferences-service;1"]
+                           .getService(Components.interfaces.nsIPrefBranch);
 
+    if (branch.getPrefType(pref) === branch.PREF_STRING) {
+        switch (branch.getCharPref(pref)) {
+        case "always":
+            return callback(true);
+        case "never":
+            return callback(false);
+        }
+    }
+
+    let done = false;
+
+    function remember(value, result) {
+        return function() {
+            done = true;
+            branch.setCharPref(pref, value);
+            callback(result);
+        }
+    }
+
+    let self = window.PopupNotifications.show(
+        window.gBrowser.selectedBrowser,
+        "geolocation",
+        message,
+        "geo-notification-icon",
+        {
+            label: "Share Location",
+            accessKey: "S",
+            callback: function(notification) {
+                done = true;
+                callback(true);
+            }
+        }, [
+            {
+                label: "Always Share",
+                accessKey: "A",
+                callback: remember("always", true)
+            },
+            {
+                label: "Never Share",
+                accessKey: "N",
+                callback: remember("never", false)
+            }
+        ], {
+            eventCallback: function(event) {
+                if (event === "dismissed") {
+                    if (!done) callback(false);
+                    done = true;
+                    window.PopupNotifications.remove(self);
+                }
+            },
+            persistWhileVisible: true
+        });
+}
+
+prompt(window,
+       "extensions.foo-addon.allowGeolocation",
+       "Foo Add-on wants to know your location.",
+       function callback(allowed) { alert(allowed); });
+</script>
 <script type="text/javascript">
 
 $(".map_location").click(function(){
-                  // alert("내 위치를 클릭하셨습니다.");
             if (navigator.geolocation) {
-                
                 // GeoLocation을 이용해서 접속 위치를 얻어옵니다
                 navigator.geolocation.getCurrentPosition(function(position) {
-                    
                     var lat = position.coords.latitude, // 위도
                         lon = position.coords.longitude; // 경도
                     
                     var locPosition = new daum.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-                        message = '<div style="padding:5px;">내 현재 위치</div>'; // 인포윈도우에 표시될 내용입니다
+                        message = '<div style="padding:5px;">My Place</div>'; // 인포윈도우에 표시될 내용입니다
 
                     map.setLevel(7, {
                         animate: {duration: 1000},
@@ -877,6 +920,21 @@ $(".map_location").click(function(){
 
                     // 마커와 인포윈도우를 표시합니다
                     displayMarker(locPosition, message);                       
+                  }, function(error){
+                      switch(error.code) {
+                      case error.PERMISSION_DENIED:
+                      alert("사용자가 위치 기능 사용을 거부했습니다.");
+                      break;
+                      case error.POSITION_UNAVAILABLE:
+                      alert("위치를 구할 수 없습니다.");
+                      break;
+                      case error.TIMEOUT:
+                      alert("시간을 초과했습니다.");
+                      break;
+                      case error.UNKNOWN_ERROR:
+                      alert("기타 에러");
+                      break;
+                      }
                   });
                 
             } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
@@ -911,8 +969,7 @@ $(".map_location").click(function(){
                 // 지도 중심좌표를 접속위치로 변경합니다
                 map.setCenter(locPosition);      
             }    
-             });
-
+});
 </script>
 </body>
 </html>

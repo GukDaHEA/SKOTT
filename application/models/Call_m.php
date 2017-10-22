@@ -10,11 +10,10 @@ class Call_m extends CI_MODEL {
 		$this->db->insert('callist', $insert);
 
 		$db = $this->db;
-		$db->select('*');
-		$db->from('callist');
-		$db->where('userIdx', $insert['useridx']);
-
-		return $db->get()->row();
+        $sql = "SELECT * FROM callist WHERE userIdx = ".$insert['useridx']." ORDER BY call_id DESC";
+        $query = $db->query($sql);
+        $result = $query->row();
+		return $result;
 	}
 
 	function checkCallReservation()

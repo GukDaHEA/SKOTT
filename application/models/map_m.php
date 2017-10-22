@@ -39,7 +39,7 @@ class Map_m extends CI_Model
 		 }
 		if (!empty($limit)) {
 			$db->order_by('reco_star DESC');
-			$db->limit(10);
+			$db->limit(20);
 		} 
 		return $this->db->get()->result();
 	}											//전체 관광지중 별점이 높은 순서대로 가져와서 뿌려줌

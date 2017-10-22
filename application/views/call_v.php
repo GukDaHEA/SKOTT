@@ -1,7 +1,5 @@
-<head>
+
 <script type="text/javascript" src="/static/js/jquery.toast.min.js"></script> 
-    <title>SKOTT - 기사</title>
-</head>
     <link rel="stylesheet" type="text/css" href="/static/css/jquery.toast.min4.css" >
 <style>
 #wrap{position:relative;min-height:83%;background-color: #3e3e3e;margin-top:28%;}
@@ -217,17 +215,17 @@ a:link { color: red; text-decoration: none;}
                 <a href="javascript:doDisplay2();"><div class="btn_global" id="active">운행 중</div></a>
             </form>
                 <div id="calli">
-                    <input type="button" id="number" value="0"></button>
+                    <input type="button" id="number" value="0">
                     <input type="button" id="callist" onclick="callist()" value="▤ 콜 리스트" style="background-color:#000;color:#fff;font-size:17px;font-family:Helvetica">
                 </div>
             <input type="range" class="slideToUnlock" value="0" max="100" onchange="RangeSlider(this)"/>
         </div>
-        <!-- //content -->
     </div>
+        <!-- //content -->
 <!-- <META HTTP-EQUIV="refresh" CONTENT="15"> -->
 
 <!-- 빈차, 운행중, 퇴근 전환 -->
-<script type="text/javascript">
+<script>
     function doDisplay1(){
     document.getElementById("label").style.display='none';
     document.getElementById("label3").style.display='none';
@@ -252,7 +250,6 @@ a:link { color: red; text-decoration: none;}
     }
 
     function acceptCalls() {
-    // var result = confirm("<?php echo $departure ?> 에서 <?php echo $destination?> 까지 (<?php echo $distance ?>) 가는 콜이 있습니다. 수락하시겠습니까?");
     $.toast.config.width = 300;
     document.getElementById('number').value= cnt;
                  $.ajax ({

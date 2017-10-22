@@ -97,7 +97,7 @@
   <div class = "map_logo"><a href="/mains"><img src="/static/image/header/logo.png"></a></div>
 <div class = "map_search"> 
     <div class="ui search">
-    <div class="ui icon input">
+      <div class="ui icon input">
         <input class="prompt" type="text" size ="60" placeholder="관광지를 검색하세요 !">
        <i class="inverted circular search link icon"></i>
       </div>

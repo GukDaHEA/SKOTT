@@ -9,38 +9,15 @@ class Map_eng extends MY_Controller {
          }
 
 	function index(){
-		echo "안녕";
-	}
-
-	// public function test() {
-
-	// 	$this->output->set_content_type('application/json');
- 
-	// 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	// 		$data = $this->input->post(NULL, TRUE);
-	// 		$test = 'asdsad';
-	// 		echo json_encode($test);
-	// 	} else {
-	// 		echo 'get';
-	// 	}
-	// }
-	
-	public function map_v()
-	{
-
-		$this->load->view('header_eng');
+		if(MobileCheck()){ // 모바일일 경우  아래 실행
+        	$this->load->view('m_header_eng');
+  		}else
+  		{  //pc 일 경우 실행
+			$this->load->view('header_eng');
+  		}
 		$recommand_name = $this->Map_m->reco_name();
 
 		$recommand_name= json_encode($recommand_name, JSON_UNESCAPED_UNICODE);
-
-		// $this->load->view('header3', 
-		// 	array(	
-		// 		'recommand_name'=>$recommand_name								
-		// 		)				
-		// );
-
-		// $this->load->view('header3');
-
 
 		$reco_sidebar_content = $this->Map_m->recommand_spot('limit');
 
@@ -54,6 +31,7 @@ class Map_eng extends MY_Controller {
 			$marker_sort[] = $lo[$i]->reco_sort;
 			$marker_reco_name[] = $lo[$i]->title;
 			$marker_idx[] = $lo[$i]->reco_idx;
+			$marker_title_eng[] = $lo[$i]->title_eng;
 			// $dt["positions"][] = array("lat"=>$marker_lat[$i],"lng"=>$marker_lng[$i]);
 		}
 
@@ -69,10 +47,10 @@ class Map_eng extends MY_Controller {
 				'location_sort'=>$location_sort,
 				'marker_location_sort'=>$marker_location_sort,
 				'recommand_name'=>$recommand_name,	
-				'reco_idx'=>$marker_idx[0]
+				'reco_idx'=>$marker_idx[0],
+				'title_eng'=>$marker_title_eng[0]
 				)					//변수 이름으로
 		);
-
 	}
 
 	public function map_v_ajax_marker() {

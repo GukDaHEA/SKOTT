@@ -28,18 +28,6 @@
         border-radius: 5px;
       }
 
-      #div_Taxi {
-        border:1px solid #e2e2e2;
-        padding:15px;
-/*        margin:20px;*/
-        width:500px;
-        z-index: 1000;
-        position: absolute;
-        float:right;
-        margin-left : 55%;
-        margin-top : 5%;
-      }
-
       #div_Info {
         text-align: left;
       }
@@ -65,16 +53,14 @@
         float: left;
         text-align : center;
         position:relative;
-        /*margin-left : 13%;*/
         width:100%;
+        border:solid 1px #4d7e2b;
       }
 
       #div_ReviewWrite {
         float:right;
       }
       #div_Address {
-        background:rgba(0,255,0,0.1);
-        border-radius:30px;
       }
 
       * {
@@ -133,6 +119,7 @@
     text-decoration: none;
     background-color:#4d7e2b;
     position:relative;
+    font-size: 40px;
   }
        
     </style>
@@ -148,15 +135,17 @@
 
       .Box1 {
         float :left;
-        width : 50%;
+        width : 40%;
         height: 690px;
       }
 
       .Box2 {
-        float : left;
+        float : right;
         width :40%;
-        height: 400px;
-        margin-top : 1%;
+        margin-right:10%;
+      }
+      .Box2_1 {
+        border:solid 1px #4d7e2b;
       }
       .nopc {
         font-size: 15pt;
@@ -166,6 +155,7 @@
         font-weight:bold;
         color:white;
         display:none;
+        margin-left:4%;
       }
 
        @media(max-width: 1025px) {
@@ -177,10 +167,13 @@
             height:50%;
           }
           .multi_image_list img{
-            width:100%;
+            width:20%;
           }
           .positive.ui.button {
             width : 90%;
+            margin-left: 4%;
+            font-size: 15pt;
+            margin-top: 50px;
           }
           .Box1 {
             margin-top:100px;
@@ -191,9 +184,6 @@
           .Box2 {
             float:left;
             width :100%;
-          }
-          .positive.ui.button {
-            font-size: 15pt;
           }
           .Box1_1 {
             border:0px solid black;
@@ -213,13 +203,15 @@
             font-size : 30px;
           }
           #div_Address {
-            margin-top:50px;
             font-size: 20pt;
             width:100%;
           }
           .Box2{
             float:left;
-            margin-bottom:300px;
+            margin-top: 100px;
+          }
+          .Box2_1{
+            border:0px;
           }
           .Box2 h1 {
             font-size: 30px;
@@ -264,9 +256,9 @@
             <ul>
             <img class="detail_image" id="lens_img" src="/static/image/detail/<?php echo $idx ?>/1.jpg"  /> <hr/>
               <li class="multi_image_list">
-                &nbsp&nbsp<img src="/static/image/detail/<?php echo $idx ?>/1.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
-                &nbsp<img src="/static/image/detail/<?php echo $idx ?>/2.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
-                &nbsp<img src="/static/image/detail/<?php echo $idx ?>/3.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
+                <img src="/static/image/detail/<?php echo $idx ?>/1.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
+                <img src="/static/image/detail/<?php echo $idx ?>/2.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
+                <img src="/static/image/detail/<?php echo $idx ?>/3.jpg" style="width: 100px; height: 82px;cursor: pointer" onclick="multi_image_view(this);" />
               </li>
             </ul>
           </div>
@@ -293,14 +285,15 @@
 
       <div class = "Box2">
         <h1 style="color:#4d7e2b"> 택시 정보 </h1>
+        <div class="Box2_1">
         <div id = "div_Map"></div>
-        <form action="/drive/drive" method="POST">
+          <form action="/drive/drive" method="POST">
           <div id= "div_taxiinfo">
             <div id="div_Address" style="text-align:center;font-size:5pt;">
               <br/><h2>
-                            예상시간 : <div class= "totalTimeFun">time</div>
-                            예상거리 :  <div class= "totalDistanceFun">Distance</div> <br/>
-                            예상 택시요금 : <div class= "taxiFareFun">Fare</div> <br/>
+                            예상시간  <div class= "totalTimeFun">: time</div>
+                            예상거리   <div class= "totalDistanceFun">: Distance</div>
+                            예상 택시요금  <div class= "taxiFareFun">: Fare</div> <br/>
                             <input type="hidden" id="totalTime" name="totalTime" />
                             <input type="hidden" id="totalDistance" name="totalDistance" />
                             <input type="hidden" id="taxiFare" name="taxiFare" />
@@ -313,15 +306,15 @@
                             도착지 : <input type="text" name="end" value="<?php echo $reco_address;?>" readonly /> <br />
               <br/></h2>
                             <h2 style="font-weight:bold;text-align:center;" class="pc">※pc 버전일 경우 호출하실 수 없습니다.</h2>
-                            <button class="nopc" id="Btn">호출하기</button>
+                            <button class="nopc" id="Btn">호출하기</button> <br />
             </div>
           </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
     <button class = "positive ui button" onclick="location.href='/board_c/board_v/<?php echo $idx ?>'">리뷰 보기</button>
   </div>
-</div>
 
 <script src="https://apis.skplanetx.com/tmap/js?version=1&format=javascript&appKey=6963ba88-7df2-3c35-bc38-c8a6f47d9dcc"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6008f34c9c8f9b97d7f892acf64df6a8&libraries=services"></script>

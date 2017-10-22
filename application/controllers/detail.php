@@ -10,7 +10,6 @@ class Detail extends MY_Controller {
 	}
 
 	function index() { 
-      $this->load->view('tails');
    }
 
 	function detail($url) { 

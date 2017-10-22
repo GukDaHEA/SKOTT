@@ -98,10 +98,10 @@ body{font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:no
                 목적지 | <?php echo $end ?><br>
             </div>
             <div id="info_connect">
-                <div id="call" onclick="document.location.href='tel:<?echo $driver->phone?>'">
+                <div id="call" onclick="document.location.href='tel:010-7226-9252'">
                     전화
                 </div>
-                <div id="message"><a href="sms://<?echo $driver->phone?>" style="color:white;text-decoration:none;">
+                <div id="message"><a href="sms:01072269252" style="color:white;text-decoration:none;">
                    <center> 메시지 </center>
                </a>
                 </div>

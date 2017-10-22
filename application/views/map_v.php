@@ -74,14 +74,14 @@
 
      .ui.like.button {
       width : 100%;
-      height: 100%;
-      font-size : 35px;
+      height: 50px;
+      /*font-size : 35px;*/
      }
 
      .ui.detail.button {
       width : 100%;
-      height: 100%;
-            font-size : 35px;
+      height: 50px;
+            /*font-size : 35px;*/
      }
      
      .ui.small.buttons {
@@ -92,7 +92,7 @@
     .up_scroll{display:block;}
    }
    .div_course {
-    width:100%;
+    width:90%;
    }
 
 </style>
@@ -124,6 +124,9 @@
     background: url('/static/image/katalk.png');
     background-size: 100% 100%;
     box-shadow: 0px 10px 15px  grey;
+  }
+  #katalk:hover {
+    opacity: 0.4;
   }
   #md {
     display:none;
@@ -191,6 +194,7 @@
         display :flex;
         flex-direction:row;
         margin : 10px;
+        width: 95%;
       }
 
       .div_img {
@@ -284,9 +288,8 @@
         <div class ="div_content"></div>
       </div>
       <div class = "div_content_click"><a href="/detail/detail/8"><img class = "img_click" src="/static/image/map/map_v_1.jpg";></a> </div>
-      <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_2.jpg";> </div>
-      <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_3.jpg";> </div>
-      <div class = "div_content_click"> <img class = "img_click" src="/static/image/map/map_v_1.jpg";> </div>
+      <div class = "div_content_click"><a href="/detail/detail/56"><img class = "img_click" src="/static/image/map/map_v_2.jpg";></a> </div>
+      <div class = "div_content_click"><a href="/detail/detail/57"><img class = "img_click" src="/static/image/map/map_v_3.jpg";></a> </div>
     </div>
   </div>
 </div>
@@ -395,7 +398,7 @@ function zoomIn() {
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
-        center: new daum.maps.LatLng(35.797482, 127.937508), // 지도의 중심좌표
+        center: new daum.maps.LatLng(36.497482, 127.937508), // 지도의 중심좌표
         level: 13, // 지도의 확대 레벨
         draggable: false
     };
@@ -473,22 +476,23 @@ function map_dynamic_content(reco_sort) {
               '<div class = "div_course">' + 
                 '<div class = "div_img">' +
                  '<img id ="img_div_course" src="/static/image/seoul/'+item[i].reco_idx+'.jpg" onclick="map_marker_1('+item[i].reco_idx+')" width="365px" height="180px"></a>' +
-                        '<div class="ui small buttons">' +
-            '<button class="ui like button" onclick="like_content_click('+item[i].reco_idx+')"> ♥'+
-             '<div class = "like_content'+item[i].reco_idx+'">' +item[i].reco_like+'</button>' +
-                          '<div class = "or"></div>' +
-                          '<button class="ui detail button" onclick = "detail_location()"><a href="/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
-                           '</div>' +
-                        '</div>' +
-                '<div class ="div_content">' +
-                     '<div class = "like_content"> <button class="ui like button" onclick="like_content_click('+item[i].reco_idx+')"> ♥ ' +
-                      '<div class = "like_content'+item[i].reco_idx+'">' +item[i].reco_like+'</button> </div> '+
-                     '<div class = "detail_content">' +
-                     '<div class = "or"></div>' +
-                          '<button class="ui detail button" onclick = "detail_location()"><a href="/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
-                           '</div>' +
-                       '</div>' +
-                  '</div> </div> </div>'
+                        // '<div class="ui small buttons">' +
+                  '<button class="ui like button" onclick="like_content_click('+item[i].reco_idx+')"> ♥'+
+                    '<div class = "like_content'+item[i].reco_idx+'">' +item[i].reco_like + '</div>' +
+                  '</button>' +
+                  '<div class = "or"></div>' +
+                  '<button class="ui detail button" onclick = "detail_location()"><a href="/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
+                '</div>' +
+              '</div>'
+            //     '<div class ="div_content">' +
+            //          '<div class = "like_content"> <button class="ui like button" onclick="like_content_click('+item[i].reco_idx+')"> ♥ ' +
+            //           '<div class = "like_content'+item[i].reco_idx+'">' +item[i].reco_like+'</button> </div> '+
+            //          '<div class = "detail_content">' +
+            //          '<div class = "or"></div>' +
+            //               '<button class="ui detail button" onclick = "detail_location()"><a href="/detail/detail/'+item[i].reco_idx+'" >상세보기</button>' +
+            //                '</div>' +
+            //            '</div>' +
+            //       '</div> </div>'
                   );
                 // $('.ui.accordion').accordion('onClose');
               }
@@ -593,7 +597,7 @@ function map_marker_1 (reco_idx) {
 
 // 지도에 마커를 표시하는 함수입니다
 function displayMarker(marker_lat, marker_lng, marker_reco_name, marker_reco_address, marker_reco_idx, marker_reco_star ) {
-    var imageSrc = "/static/Image/marker_image/marker_tour8.png";
+    var imageSrc = "/static/Image/marker_image/markers.png";
 
     var imageSize = new daum.maps.Size(40,50); 
 
@@ -786,87 +790,84 @@ var positions = [
 
 for (var i = 0; i < positions.length; i ++) {
     // 마커를 생성합니다
-    var marker1 = new daum.maps.Marker({
+    marker1 = new daum.maps.Marker({
         map: map, // 마커를 표시할 지도
         position: positions[i].latlng, // 마커를 표시할 위치
         title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
         image :  positions[i].markerImage // 마커 이미지 
     });
 
-if(positions[i].title =="경기권") {
-  daum.maps.event.addListener(marker1, 'click', function() {
-              $('.ui.header').html('경기권 입니다.');
-               $('.ui.tour')
-                .modal('show');
+    if(positions[i].title =="경기권") {
+      daum.maps.event.addListener(marker1, 'click', function() {
+                  $('.ui.header').html('경기권 입니다.');
+                   $('.ui.tour')
+                    .modal('show');
 
-              $('.ui.positive.button').click(function() {
-                 marker1.setMap(null);
-                 map_change(37.65703003735185 ,126.92311048850409, 1);
-              });
-  });
-}
+                  $('.ui.positive.button').click(function() {
+                    map_change(37.65703003735185 ,126.92311048850409, 1);
+                  });
+      });
+    }
 
-if(positions[i].title =="제주권") {
-  daum.maps.event.addListener(marker1, 'click', function() {
-              $('.ui.header').html('제주권 입니다.');
-               $('.ui.tour')
-                .modal('show'); 
+    if(positions[i].title =="제주권") {
+      daum.maps.event.addListener(marker1, 'click', function() {
+                  $('.ui.header').html('제주권 입니다.');
+                   $('.ui.tour')
+                    .modal('show'); 
 
-              $('.ui.positive.button').click(function() {
-                 map_change(33.440377, 126.496006, 2);
-              });
-  });
-}
+                  $('.ui.positive.button').click(function() {
+                     map_change(33.440377, 126.496006, 2);
+                  });
+      });
+    }
 
-if(positions[i].title =="강원권") {
-  daum.maps.event.addListener(marker1, 'click', function() {
-              $('.ui.header').html('강원권 입니다.');
-               $('.ui.tour')
-                .modal('show'); 
+    if(positions[i].title =="강원권") {
+      daum.maps.event.addListener(marker1, 'click', function() {
+                  $('.ui.header').html('강원권 입니다.');
+                   $('.ui.tour')
+                    .modal('show'); 
 
-              $('.ui.positive.button').click(function() {
-                 map_change(37.6130868206661 , 128.5442381745224, 1);
-              });
-  });
-}
+                  $('.ui.positive.button').click(function() {
+                     map_change(37.6130868206661 , 128.5442381745224, 1);
+                  });
+      });
+    }
 
-if(positions[i].title =="경상권") {
-  daum.maps.event.addListener(marker1, 'click', function() {
-              $('.ui.header').html('경상권 입니다.');
-               $('.ui.tour')
-                .modal('show'); 
+    if(positions[i].title =="경상권") {
+      daum.maps.event.addListener(marker1, 'click', function() {
+                  $('.ui.header').html('경상권 입니다.');
+                   $('.ui.tour')
+                    .modal('show'); 
 
-              $('.ui.positive.button').click(function() {
-                 map_change(36.28157430275591 , 128.75691078469748, 1);
-              });
-  });
-}
+                  $('.ui.positive.button').click(function() {
+                     map_change(36.28157430275591 , 128.75691078469748, 1);
+                  });
+      });
+    }
 
-if(positions[i].title =="충청권") {
-  daum.maps.event.addListener(marker1, 'click', function() {
-              $('.ui.header').html('충청권 입니다.');
-               $('.ui.tour')
-                .modal('show'); 
+    if(positions[i].title =="충청권") {
+      daum.maps.event.addListener(marker1, 'click', function() {
+                  $('.ui.header').html('충청권 입니다.');
+                   $('.ui.tour')
+                    .modal('show'); 
 
-              $('.ui.positive.button').click(function() {
-                 map_change(36.257669, 126.894619, 1);
-              });
-  });
-}
+                  $('.ui.positive.button').click(function() {
+                     map_change(36.257669, 126.894619, 1);
+                  });
+      });
+    }
 
-if(positions[i].title =="전라권") {
-  daum.maps.event.addListener(marker1, 'click', function() {
-              $('.ui.header').html('전라권 입니다.');
-               $('.ui.tour')
-                .modal('show'); 
+    if(positions[i].title =="전라권") {
+      daum.maps.event.addListener(marker1, 'click', function() {
+                  $('.ui.header').html('전라권 입니다.');
+                   $('.ui.tour')
+                    .modal('show'); 
 
-              $('.ui.positive.button').click(function() {
-                 map_change(35.150578, 126.845514, 1);
-              });
-  });
-}
-
-
+                  $('.ui.positive.button').click(function() {
+                     map_change(35.150578, 126.845514, 1);
+                  });
+      });
+    }
 }
 
 $('.Box0').click(function() {

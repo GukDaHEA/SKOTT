@@ -170,6 +170,14 @@ class Board_c extends CI_Controller {
 		redirect($url2);
 	}
 
+   public function board_delete_view($url) {
+      $id = $this->uri->segment(3);
+
+      $this->Board_m->get_delete($id);
+
+      $url2 = '/board_c/board_v/'.$id;
+      redirect($url2);
+   }
 
 	 public function board_v_modify($url) {
 
@@ -185,7 +193,8 @@ class Board_c extends CI_Controller {
 
       $id = $this->uri->segment(4);
 
-
+if($this->session->userdata('is_login'))
+      {
       //form
       if($_POST)
       {
@@ -196,35 +205,22 @@ class Board_c extends CI_Controller {
             redirect($url2,'refresh');
             exit;
          }
-            //파일 업로드
-            if (!$this->upload->do_upload("user_upload_file"))
-            {
+            //파일 업로드가 되는지 확인
+            if (! $this->upload->do_upload("user_upload_file")){
                // echo $this->upload->display_errors();
-
-               $file_result = $this->Board_m->file_result($id);
-
-               if (empty($file_result))
-                  $file_result = array();
-
-               $picture = $file_result->picture;
-
-               // $idx = $detail_result->idx;
-               // print_r();
-
-               $file_url = $picture;
+               $modify_picture = '';
             } 
             else 
             {
                $data =  $this->upload->data();
-               // echo "성공";
                $file_url = "/static/image/review/".$data['file_name'];
+               $modify_picture = $file_url;
             }
+
          $url2 = '/board_c/board_v/'.$url;
-         $url3 = '/board_c/board_v_modify/'.$url;
+         $url3 = '/board_c/board_v_modify/'.$url.'/'.$id;
          $modify_subject = $this->input->post('modify_subject', true);
          $modify_contents = $this->input->post('modify_contents', true);
-         $modify_picture = $file_url;
-
          $result = $this->Board_m->board_modify($modify_subject, $modify_contents, $id, $modify_picture);
          if($result)
          {
@@ -246,6 +242,13 @@ class Board_c extends CI_Controller {
             $data['views'] = $this->Board_m->get_modify_view($id);
             $this->load->view('board_v_modify', $data);
          }
+   }
+   else
+   {
+      echo "<script>alert(\"로그인이 필요합니다.\");</script>";
+         redirect('/Login','refresh');
+      exit;
+   }
    }
 
 	function url_explode($url, $key)

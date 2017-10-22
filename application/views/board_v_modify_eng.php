@@ -24,20 +24,6 @@
 </style>
 <body>
 
-
-<!-- <table border = "3" cellpadding="10">
-	<tr>
-		<td><?php echo $views->board_id; ?></td>
-		<td><?php echo $views->user_id;  ?></td>
-		<td><?php echo $views->subject;  ?></td>
-		<td><?php echo $views->contents; ?></td>
-		<td><?php echo $views->hits;     ?></td>
-	</tr>
-
-	<tr>
-		<td colspan = "5"><a href="/board_c/board_v_view">돌아가기</a></td>
-	</tr>
-</table> -->
 <div class="change">
 
 <h1> Modify </h1><br>
@@ -51,7 +37,7 @@
 		<!-- 	<div class="con"> 내용 : <input type="text" name="modify_contents" value = "<?php echo $views->contents;?>" style="width:800px;height:300px;"></div> -->
 	<textarea name="modify_contents" rows="18" cols="108" style="text-indent: 10px;padding-top: 20px; background-color: #eaf1f7;" > <?php echo $views->contents;?> </textarea> <br>
 
-	<div class="apply" style="float: right;"><a href="/board_c/board_delete/<?php echo $views->board_id ?>" style="width:100pt;height:30pt;">delete</a></div>	
+	<div class="apply" style="float: right;"><a href="/board_c_eng/board_delete/<?php echo $views->board_id ?>" style="width:100pt;height:30pt;">delete</a></div>	
 	<div class="apply" style="float: right;">|</div>
 	<!-- 	<div class="apply" style="float: right;"><a href="/board_c/board_v_modify/<?php echo $views->board_id ?>" style="width:100pt;height:30pt;">수정(아직)</a></div>  -->
 		<div class = "apply" style="float: right; "><input type="submit" value ="modify" style="background-color: transparent; border-style: none; color:#4183C4;"> </div>
@@ -70,9 +56,9 @@
 </div>
 <script> 
 $('#del').click(function() { 
-    var result = confirm('정말 삭제 하시겠습니까??'); 
+    var result = confirm('really???'); 
     if(result) { //yes 
-      location.replace('/board_c/board_delete/<?php echo $views->board_id ?>'); 
+      location.replace('/board_c_eng/board_delete/<?php echo $views->board_id ?>'); 
     }
     else { //no 
     } 

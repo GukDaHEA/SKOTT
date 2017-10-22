@@ -195,6 +195,19 @@ body {
     display:none;margin-top:200px;margin-left:200px;
   }
  </style>
+
+ <style type="text/css">
+/* 모바일 화면일 때 */
+ @media(max-width: 1024px) {
+    #buttons {
+      margin-top:100px; margin-left:-100px ;
+    }
+    #buttons2 {
+      margin-top:100px; margin-left:100px ;
+    }
+
+ }
+ </style>
 </head>
 
 <body>

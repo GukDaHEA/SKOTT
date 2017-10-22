@@ -10,13 +10,17 @@ class Detail_eng extends MY_Controller {
 	}
 
 	function index() { 
-      echo "안녕";
    }
 
 	function detail($url) { 
-      $this->load->view('header_eng');
-
-	   $db = $this->Detail_m;
+      if(MobileCheck()){ // 모바일일 경우  아래 실행
+         $this->load->view('m_header_eng');
+      } else
+      {  //pc 일 경우 실행
+         $this->load->view('header_eng');
+      }
+      
+      $db = $this->Detail_m;
 
       $detail_result = $db->detail($url);
       
@@ -33,7 +37,7 @@ class Detail_eng extends MY_Controller {
       $reco_time = $detail_result->reco_time;
       $reco_distance = $detail_result->reco_distance;
       
-      $this->load->view('detail_v_eng', 
+      $this->load->view('detail_v_eng',
          array(
             'idx'=>$idx,         //전체 디비 
             'lat'=>$lat, //json_encode 변환 전체 디비
@@ -45,12 +49,6 @@ class Detail_eng extends MY_Controller {
             'reco_time'=>$reco_time,
             'reco_distance'=>$reco_distance
             ));
-
-       $this->load->view('footer');
-      
-
-
-
 
    }
 
@@ -276,6 +274,12 @@ class Detail_eng extends MY_Controller {
 //    }
 
    function drive() {
-      $this->load->view('drive_v');
+      if ($this->session->userdata('is_login')) {
+         $this->load->view('drive_v');
+      }
+      else {
+         echo "<script>alert('로그인이 필요한 기능입니다.')</script>";
+         $this->load->view('login_v');
+      }
    }
 }
