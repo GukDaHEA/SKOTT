@@ -34,7 +34,7 @@ body{font-family:Helvetica,sans-serif;font-size:12px;-webkit-text-size-adjust:no
     position:fixed;
     z-index:999999;
     border:0px;
-    background-color:red;
+    background-color:green;
     color:#fff;
     font-weight:bold;
     box-shadow:  3px 3px grey;
@@ -305,7 +305,7 @@ xpopup
     transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
 }
 .ac-container article p{
-    font-style: italic;
+    /*font-style: italic;*/
     color: #777;
     line-height: 23px;
     font-size: 14px;
@@ -337,7 +337,7 @@ xpopup
             <div id="div_Map"></div>
         </div>
             <button id="ok" onclick="success()">목적지 <br> 도착 </button>
-            <button id="menual"><a href="#0" class="cd-popup-trigger"> 대처법 </a></button>
+            <button id="menual"><a href="#0" class="cd-popup-trigger" style="text-decoration: none;"> 대처법 </a></button>
 
         <div class="cd-popup" role="alert">
             <div class="cd-popup-container">
