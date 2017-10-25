@@ -15,10 +15,14 @@ class Board_c extends CI_Controller {
 	}
 
 	public function board_v($url) {
-		$this->load->view('header');
-
+      if(MobileCheck()){ // 모바일일 경우  아래 실행
+         $this->load->view('m_header');
+      } else
+      {  //pc 일 경우 실행
+         $this->load->view('header');
+      }
 		$search_word = $page_url = '';
-		$uri_segment = 4;
+		$uri_segment = 5;
 
 		//주소중에서 q(검색어) 세그먼트가 있는지 검사하기 위해 주소를 배열로 변환
 		$uri_array = $this->segment_explode($this->uri->uri_string());
@@ -34,7 +38,7 @@ class Board_c extends CI_Controller {
 		
 		$this->load->library('pagination');
 	      //페이지네이션 설정
-	      $config['base_url'] = '/board_c/board_v/'.$page_url.'/page/'; //페이징 주소
+	      $config['base_url'] = '/board_c/board_v/'.$url.'/'.$page_url.'/page/'; //페이징 주소
 	      $config['total_rows'] = $this->Board_m->get_list('count' , '', '', $search_word, $url); //게시물의 전체 갯수
 	      $config['per_page'] = 5; //한 페이지에 표시할 게시물 수
 	      $config['uri_segment'] =  $uri_segment; //페이지 번호가 위치한 세그먼트

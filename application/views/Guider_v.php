@@ -336,7 +336,9 @@ xpopup
         <div id="wrap">
             <div id="div_Map"></div>
         </div>
+        <form action="/drive/suGo_user" name="theForm" method="post">
             <button id="ok" onclick="success()">목적지 <br> 도착 </button>
+        </form>
             <button id="menual"><a href="#0" class="cd-popup-trigger"> 대처법 </a></button>
 
         <div class="cd-popup" role="alert">
@@ -484,7 +486,7 @@ function onDrawnFeatures(e){
 
     //내위치 마커 생성
     markerCreate();
-    
+
     // 5초에 한번씩 움직임
     timerld = setInterval("moveMove()", 5000);
 }
@@ -507,15 +509,47 @@ function moveMove() {
     // map.setCenter(new Tmap.LonLat(lonlat.lon, lonlat.lat),map.getZoom());
 
     // 마커 지웠다가 다시 생성
-    markerLayer.removeMarker(marker);
 
-    var lonlat2 = new Tmap.LonLat(lonlat.lon, lonlat.lat);
-    var size = new Tmap.Size(58,92);
-    var offset = new Tmap.Pixel(-(size.w/2), -(size.h/2));
-    var icon = new Tmap.Icon('https://developers.skplanetx.com/upload/tmap/marker/pin_b_m_a.png', size, offset); 
-         
-    marker = new Tmap.Marker(lonlat2, icon);
-    markerLayer.addMarker(marker);
+    if (navigator.geolocation) {
+        // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+        navigator.geolocation.getCurrentPosition(function(position) {
+                      
+        var  Startlat = position.coords.latitude, // 위도
+            Startlng = position.coords.longitude; // 경도
+
+
+        var pr_3857 = new Tmap.Projection("EPSG:3857");
+        var pr_4326 = new Tmap.Projection("EPSG:4326"); // wgs84
+
+        lonlat = new Tmap.LonLat(Startlng, Startlat).transform(pr_4326, pr_3857);
+        
+        //기존 마커 제거
+        markerLayer.removeMarker(marker);
+
+        //새로 찍을 마커
+        var lonlat2 = new Tmap.LonLat(lonlat.lon, lonlat.lat);
+        var size = new Tmap.Size(58,92);
+        var offset = new Tmap.Pixel(-(size.w/2), -(size.h/2));
+        var icon = new Tmap.Icon('https://developers.skplanetx.com/upload/tmap/marker/pin_b_m_a.png', size, offset); 
+        marker = new Tmap.Marker(lonlat2, icon);
+        markerLayer.addMarker(marker);
+        }, function(error){
+                      switch(error.code) {
+                      case error.PERMISSION_DENIED:
+                      alert("사용자가 위치 기능 사용을 거부했습니다.");
+                      break;
+                      case error.POSITION_UNAVAILABLE:
+                      alert("위치를 구할 수 없습니다.");
+                      break;
+                      case error.TIMEOUT:
+                      alert("시간을 초과했습니다.");
+                      break;
+                      case error.UNKNOWN_ERROR:
+                      alert("기타 에러");
+                      break;
+                      }
+        });
+    }
 
     // if (lonlat2.lon == lonlat.lon && lonlat2.lat == lonlat.lat) { //오차가 +-12 근사치라면 도착으로 해야함
     //     clearInterval(timerld);
