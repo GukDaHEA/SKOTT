@@ -77,7 +77,7 @@
                   <li class="active"><a href="#header">홈</a></li>
                   <li><a href="/map">지도보기</a></li>
                   <li><a href="#section-about">SKOTT</a></li>
-                  <li><a href="#services">추천코스</a></li>
+                  <li><a href="#services">추천관광지</a></li>
                   <li><a href="#line-pricing">서비스 소개</a></li>
                   <li><a href="#section-works" style="color:white">지역별 관광지</a></li>
              <?php
